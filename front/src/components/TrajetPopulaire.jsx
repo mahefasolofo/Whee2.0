@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import AnnonceCovoiturageService from '../services/AnnonceCovoiturageService';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
@@ -6,7 +7,7 @@ import '../styles/bootstrap4/bootstrap.min.css'
 import '../styles/main_styles.css'
 
 
-import trajet from './data/Trajet'
+// import trajet from './data/Trajet'
 
 
 const responsive = {
@@ -28,6 +29,19 @@ const responsive = {
   };
 
 function TrajetPopulaire() {
+  const [annonces, setAnnonces] = useState([])
+  useEffect(() => {
+    getAnnonces()
+}, [])
+
+const getAnnonces = () => {
+
+  AnnonceCovoiturageService.getAnnonces().then((response) => {
+      setAnnonces(response.data)
+      console.log(response.data);
+  });
+ 
+};
   return (
     <React.Fragment>
         <div className="row">
@@ -60,12 +74,12 @@ function TrajetPopulaire() {
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"
                 >     
-                    {trajet.map((data) => {
+                    {annonces.map((data) => {
                         return(
-                            <div className="cardIntro" key={data.id}>
+                            <div className="cardIntro" key={data.idCovoiturage}>
                                 <div
                                 className="card-img">
-                                <img src={data.image} alt="" />
+                                <img src={require('../images/analakely.png')} alt="" />
                                 <div className="overlay">
                                     <div className="overlay-content">
                                     <a className="hover" href="#!">
@@ -77,12 +91,12 @@ function TrajetPopulaire() {
                                 <div className="card-content">
                                 <a href="#!">
                                     <h1 className="text-center">
-                                    <i className="fa fa-street-view" aria-hidden="true" /> {data.depart}
+                                    <i className="fa fa-street-view" aria-hidden="true" /> {data.lieuDepart}
                                     </h1>
                                     <h1 className="text-center">
-                                    <i className="fa fa-map-marker" aria-hidden="true" /> {data.arrive}
+                                    <i className="fa fa-map-marker" aria-hidden="true" /> {data.lieuArriver}
                                     </h1>
-                                    <h2 className="text-center">environ {data.prix} MGA</h2>
+                                    <h2 className="text-center">environ {data.tarif} MGA</h2>
                                 </a>
                                 </div>
                             </div>
