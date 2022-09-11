@@ -56,7 +56,7 @@ function AvisClient() {
                     // customTransition="all 1"
                     // transitionDuration={1000}
                     transitionTime={1000}
-                    autoPlay={1000}
+                    autoPlay={10000}
                     containerClass="carousel-container"
                     removeArrowOnDeviceType={["tablet", "mobile"]}
                     // deviceType={this.props.deviceType}

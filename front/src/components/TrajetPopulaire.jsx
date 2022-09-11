@@ -11,13 +11,13 @@ import trajet from './data/Trajet'
 
 const responsive = {
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 3000, min: 1170 },
       items: 3,
       slidesToSlide: 1 // optional, default to 1.
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 3,
+      breakpoint: { max: 1170, min: 464 },
+      items: 2,
       slidesToSlide: 1 // optional, default to 1.
     },
     mobile: {
