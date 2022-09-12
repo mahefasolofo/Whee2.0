@@ -853,9 +853,7 @@ section
 	position: absolute;
     right: 0;
     top: 13px;
-	width: auto;
-	height: auto;
-	resize:horizontal;
+	
 }
 .intro_title
 {
