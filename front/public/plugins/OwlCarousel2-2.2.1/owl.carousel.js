@@ -188,6 +188,7 @@
 		loop: false,
 		center: false,
 		rewind: false,
+		
 
 		mouseDrag: true,
 		touchDrag: true,
@@ -2588,10 +2589,10 @@
 	 * @public
 	 */
 	Autoplay.Defaults = {
-		autoplay: false,
-		autoplayTimeout: 5000,
+		autoplay: true,
+		autoplayTimeout: 3000,
 		autoplayHoverPause: false,
-		autoplaySpeed: false
+		autoplaySpeed: 1000
 	};
 
 	/**

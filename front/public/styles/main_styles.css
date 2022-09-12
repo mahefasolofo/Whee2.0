@@ -459,7 +459,9 @@ section
 {
 	height: 50px;
 }
-
+.home_slider_content_inner h1{
+	font-family: 'Beyond';
+}
 /*********************************
 3.2 Logo
 *********************************/
@@ -859,7 +861,7 @@ section
 	font-size: 112px;
 	font-weight: 900;
 	color: #FFFFFF;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 }
 .home_slider_content h1:nth-child(2)
 {
@@ -893,6 +895,7 @@ section
 	transform: translateY(-50%);
 	z-index: 11;
 	cursor: pointer;
+	color: #fff!important;
 }
 .home_slider_nav:hover{
 	color: linear-gradient(to right, #D62828, #003049)!important;
@@ -901,6 +904,9 @@ section
 {
 	left: 50px;
 }
+.nav_arrow{
+	color: #fff!important;
+}
 .home_slider_next
 {
 	right: 50px;
@@ -908,12 +914,12 @@ section
 .home_slider_prev:hover .nav_path,
 .home_slider_prev:hover .nav_arrow
 {
-	fill: url(#home_grad_prev);
+	fill: #D62828;
 }
 .home_slider_next:hover .nav_arrow,
 .home_slider_next:hover .nav_path
 {
-	fill: url(#home_grad_next);
+	fill: #D62828;
 }
 
 /*********************************
@@ -1953,12 +1959,12 @@ section
 .test_slider_prev:hover .nav_path,
 .test_slider_prev:hover .nav_arrow
 {
-	fill: url(#test_grad_prev);
+	fill: #003049;
 }
 .test_slider_next:hover .nav_path,
 .test_slider_next:hover .nav_arrow
 {
-	fill: url(#test_grad_next);
+	fill: #003049;
 }
 
 /*********************************
