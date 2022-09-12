@@ -813,6 +813,8 @@ section
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
+	background-attachment: scroll;
+	
 }
 .home_content
 {
@@ -937,7 +939,7 @@ section
 	top: 40vh;
 	
 }
-.search_panel.active
+.search_panel.active2
 {
 	display: flex!important;
 	-ms-flex-align: center;

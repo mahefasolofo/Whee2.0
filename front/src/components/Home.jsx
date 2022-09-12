@@ -6,6 +6,7 @@ import Navbar from './Home/Navbar'
 import Event from './Home/Event'
 import Cta from './Home/Cta'
 import Trajet from './Home/Trajet'
+import Offre from './Offre/Offre'
 
 export default class Home extends Component {
   render() {
@@ -14,18 +15,18 @@ export default class Home extends Component {
           {/* Header */}
           <Navbar />
           {/* Home */}
-          <Carousel />
+          {/* <Carousel /> */}
           {/* The Modal for Connexion*/}
-          <div id="id01" className="modal">
+          {/* <div id="id01" className="modal">
             <span
               onClick="document.getElementById('id01').style.display='none'"
               className="close"
               title="Close Modal"
             >
               ×
-            </span>
+            </span> */}
             {/* Modal Content */}
-            <form className="modal-content animate card" action="indexConnecte.html">
+            {/* <form className="modal-content animate card" action="indexConnecte.html">
               <div className="imgcontainer">
                 <span
                   onClick="document.getElementById('id01').style.display='none'"
@@ -78,7 +79,7 @@ export default class Home extends Component {
                   <i className="fa-brands fa-google" /> Continuer via Google
                 </button>
                 <label>
-                  {/* <input type="checkbox" checked="checked" name="remember"> Remember me */}
+                  
                   <div style={{ marginTop: 12, textAlign: "center" }}>
                     <span
                       className=""
@@ -138,9 +139,9 @@ export default class Home extends Component {
                 </label>
               </div>
             </form>
-          </div>
+          </div> */}
           {/* END OF INSCRIPTION MODAL */}
-          <div className="modal" id="id02">
+          {/* <div className="modal" id="id02">
             <div className="row justify-content-center">
               <div className="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
                 <form data-multi-step="" className="multi-step-form">
@@ -200,7 +201,7 @@ export default class Home extends Component {
                       <button type="button" className="buttonInscription" data-next="">
                         Suivant
                       </button>
-                      {/* <input type="checkbox" checked="checked" name="remember"> Remember me */}
+                     
                       <div style={{ marginTop: 12, alignItems: "center" }}>
                         <span className="" id="spanCondition">
                           <span>
@@ -257,7 +258,7 @@ export default class Home extends Component {
                       </div>
                     </div>
                   </div>
-                  {/* //Genre */}
+                  
                   <div className="card cardInscription" data-step="">
                     <i
                       className="fa-solid fa-arrow-left previous"
@@ -276,7 +277,7 @@ export default class Home extends Component {
                     >
                       Vous êtes identifié en tant que:
                     </h5>
-                    {/* <div class="form-group"> */}
+                    
                     <table>
                       <tbody>
                         <tr>
@@ -418,7 +419,7 @@ export default class Home extends Component {
                       >
                         <label className="option_item">
                           <div className="round">
-                            {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
+                            
                             <label htmlFor="checkbox" />
                           </div>
                           <div className="overlay-image">
@@ -434,7 +435,7 @@ export default class Home extends Component {
                       >
                         <label className="option_item">
                           <div className="round">
-                            {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
+                           
                             <label htmlFor="checkbox" />
                           </div>
                           <div className="overlay-image">
@@ -450,7 +451,7 @@ export default class Home extends Component {
                       >
                         <label className="option_item">
                           <div className="round">
-                            {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
+                            
                             <label htmlFor="checkbox" />
                           </div>
                           <div className="overlay-image">
@@ -468,7 +469,7 @@ export default class Home extends Component {
                       >
                         <label className="option_item">
                           <div className="round">
-                            {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
+                            
                             <label htmlFor="checkbox" />
                           </div>
                           <div className="overlay-image">
@@ -484,7 +485,7 @@ export default class Home extends Component {
                       >
                         <label className="option_item">
                           <div className="round">
-                            {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
+                           
                             <label htmlFor="checkbox" />
                           </div>
                           <div className="overlay-image">
@@ -500,7 +501,7 @@ export default class Home extends Component {
                       >
                         <label className="option_item">
                           <div className="round">
-                            {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
+                           
                             <label htmlFor="checkbox" />
                           </div>
                           <div className="overlay-image">
@@ -516,7 +517,7 @@ export default class Home extends Component {
                       >
                         <label className="option_item">
                           <div className="round">
-                            {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
+                            
                             <label htmlFor="checkbox" />
                           </div>
                           <div className="overlay-image">
@@ -532,7 +533,7 @@ export default class Home extends Component {
                       >
                         <label className="option_item">
                           <div className="round">
-                            {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
+                            
                             <label htmlFor="checkbox" />
                           </div>
                           <div className="overlay-image">
@@ -548,7 +549,7 @@ export default class Home extends Component {
                       >
                         <label className="option_item">
                           <div className="round">
-                            {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
+                            
                             <label htmlFor="checkbox" />
                           </div>
                           <div className="overlay-image">
@@ -564,7 +565,7 @@ export default class Home extends Component {
                       >
                         <label className="option_item">
                           <div className="round">
-                            {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
+                            
                             <label htmlFor="checkbox" />
                           </div>
                           <div className="overlay-image">
@@ -580,7 +581,7 @@ export default class Home extends Component {
                       >
                         <label className="option_item">
                           <div className="round">
-                            {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
+                           
                             <label htmlFor="checkbox" />
                           </div>
                           <div className="overlay-image">
@@ -596,7 +597,7 @@ export default class Home extends Component {
                       >
                         <label className="option_item">
                           <div className="round">
-                            {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
+                            
                             <label htmlFor="checkbox" />
                           </div>
                           <div className="overlay-image">
@@ -612,7 +613,7 @@ export default class Home extends Component {
                       >
                         <label className="option_item">
                           <div className="round">
-                            {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
+                            
                             <label htmlFor="checkbox" />
                           </div>
                           <div className="overlay-image">
@@ -631,7 +632,7 @@ export default class Home extends Component {
                       >
                         <label className="option_item">
                           <div className="round">
-                            {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
+                           
                             <label htmlFor="checkbox" />
                           </div>
                           <div className="overlay-image">
@@ -648,7 +649,7 @@ export default class Home extends Component {
                       >
                         <label className="option_item">
                           <div className="round">
-                            {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
+                            
                             <label htmlFor="checkbox" />
                           </div>
                           <div className="overlay-image">
@@ -666,15 +667,18 @@ export default class Home extends Component {
                 </form>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* Trajets populaires */}
-          <Trajet/>
+          {/* <Trajet/> */}
           {/* CTA */}
-          <Cta />
+          {/* <Cta /> */}
           {/* Offers */}
-          <Event />
+          {/* <Event /> */}
           {/* Testimonials */}
-          <Avis />
+          {/* <Avis /> */}
+
+          <Offre/>
+
           {/* Footer */}
           <Footer/>
       </div>
