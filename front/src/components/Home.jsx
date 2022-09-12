@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Avis from './Home/Avis'
 import Carousel from './Home/Carousel'
-import Footer from './Home/Footer'
-import Navbar from './Home/Navbar'
+
+
 import Event from './Home/Event'
 import Cta from './Home/Cta'
 import Trajet from './Home/Trajet'
@@ -11,13 +11,13 @@ import Offre from './Offre/Offre'
 export default class Home extends Component {
   render() {
     return (
-        <div className="super_container">
-          {/* Header */}
-          <Navbar />
-          {/* Home */}
-          {/* <Carousel /> */}
-          {/* The Modal for Connexion*/}
-          {/* <div id="id01" className="modal">
+      <div >
+
+
+        {/* Home */}
+        {/* <Carousel /> */}
+        {/* The Modal for Connexion*/}
+        {/* <div id="id01" className="modal">
             <span
               onClick="document.getElementById('id01').style.display='none'"
               className="close"
@@ -25,8 +25,8 @@ export default class Home extends Component {
             >
               ×
             </span> */}
-            {/* Modal Content */}
-            {/* <form className="modal-content animate card" action="indexConnecte.html">
+        {/* Modal Content */}
+        {/* <form className="modal-content animate card" action="indexConnecte.html">
               <div className="imgcontainer">
                 <span
                   onClick="document.getElementById('id01').style.display='none'"
@@ -140,8 +140,8 @@ export default class Home extends Component {
               </div>
             </form>
           </div> */}
-          {/* END OF INSCRIPTION MODAL */}
-          {/* <div className="modal" id="id02">
+        {/* END OF INSCRIPTION MODAL */}
+        {/* <div className="modal" id="id02">
             <div className="row justify-content-center">
               <div className="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
                 <form data-multi-step="" className="multi-step-form">
@@ -668,23 +668,23 @@ export default class Home extends Component {
               </div>
             </div>
           </div> */}
-          {/* Trajets populaires */}
-          {/* <Trajet/> */}
-          {/* CTA */}
-          {/* <Cta /> */}
-          {/* Offers */}
-          {/* <Event /> */}
-          {/* Testimonials */}
-          {/* <Avis /> */}
+        {/* Trajets populaires */}
+        {/* <Trajet/> */}
+        {/* CTA */}
+        {/* <Cta /> */}
+        {/* Offers */}
+        {/* <Event /> */}
+        {/* Testimonials */}
+        {/* <Avis /> */}
 
-          <Offre/>
+        <Offre />
 
-          {/* Footer */}
-          <Footer/>
+        {/* Footer */}
+
       </div>
-      
-       
-      
+
+
+
     )
   }
 }
