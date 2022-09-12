@@ -6,6 +6,7 @@ import Navbar from './Home/Navbar'
 import Event from './Home/Event'
 import Cta from './Home/Cta'
 import Trajet from './Home/Trajet'
+import Demande from './Offre/Demande'
 import Offre from './Offre/Offre'
 
 export default class Home extends Component {
@@ -677,7 +678,8 @@ export default class Home extends Component {
           {/* Testimonials */}
           {/* <Avis /> */}
 
-          <Offre/>
+          {/* <Offre/> */}
+          <Demande/>
 
           {/* Footer */}
           <Footer/>
