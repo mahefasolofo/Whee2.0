@@ -126,12 +126,21 @@ h5 {
 
 
 
+
+/* Extra styles for the cancel button */
+.buttonConnexion{
+    margin-top:15px;
+    background: #fa9e1b;
+    width: 100%;
+}
+
+
 /* Extra styles for the other button */
 
 .buttonConnexion {
     margin-top: 15px;
     color: rgb(255, 255, 255);
-    background:#D62828;
+    background: #fa9e1b;
 }
 
 
