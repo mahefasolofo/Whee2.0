@@ -1,18 +1,23 @@
-
-import Navbar from './components/Navbar';
-import Main from './components/Main';
-import TrajetPopulaire from './components/TrajetPopulaire';
-import Essai from './components/Essai';
-import Offre from './components/Offre';
-import AvisClient from './components/AvisClient';
-
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
-    <div className="super_container">
-      <Navbar/>  
-      <Main />
-      
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }

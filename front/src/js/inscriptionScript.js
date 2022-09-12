@@ -39,5 +39,3 @@ function showCurrentStep() {
         step.classList.toggle("active", index === currentStep)
     })
 }
-
-alert('Mandeha ve ato ô?')
