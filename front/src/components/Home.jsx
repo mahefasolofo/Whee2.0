@@ -7,6 +7,9 @@ import Event from './Home/Event'
 import Cta from './Home/Cta'
 import Trajet from './Home/Trajet'
 
+import Demande from './Offre/Demande'
+import Offre from './Offre/Offre'
+
 
 export default class Home extends Component {
   render() {
@@ -666,20 +669,22 @@ export default class Home extends Component {
                 </div>
               </form>
             </div>
-          </div>
-        </div>
-        {/* Trajets populaires */}
-        <Trajet />
-        {/* CTA */}
-        <Cta />
-        {/* Offers */}
-        <Event />
-        {/* Testimonials */}
-        <Avis />
 
+          </div> */}
+          {/* Trajets populaires */}
+          {/* <Trajet/> */}
+          {/* CTA */}
+          {/* <Cta /> */}
+          {/* Offers */}
+          {/* <Event /> */}
+          {/* Testimonials */}
+          {/* <Avis /> */}
 
+          {/* <Offre/> */}
+          <Demande/>
 
-        {/* Footer */}
+          {/* Footer */}
+          <Footer/>
 
       </div>
 
