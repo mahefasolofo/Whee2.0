@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import avis from '../data/Avis.js'
 
 export default class Avis extends Component {
   render() {
@@ -19,178 +20,46 @@ export default class Avis extends Component {
                   {/* Testimonials Slider */}
                   <div className="test_slider_container">
                     <div className="owl-carousel owl-theme test_slider">
-                      {/* Testimonial Item */}
-                      <div className="owl-item">
-                        <div className="test_item">
-                          <div className="test_image">
-                            <img
-                              src="images/test_1.jpg"
-                              alt="https://unsplash.com/@anniegray"
-                            />
-                          </div>
-                          <div className="test_icon">
-                            <img src="images/kayak.png" alt="" />
-                          </div>
-                          <div className="test_content_container">
-                            <div className="test_content">
-                              <div className="test_item_info">
-                                <div className="test_name">Alina PARIS</div>
-                                <div className="test_date">24 mai 2022</div>
-                              </div>
-                              <div className="test_quote_title">
-                                " Meilleures vacances de ma vie "
-                              </div>
-                              <p className="test_quote_text">
-                                Mes vacances se sont passés à merveille grace ... aux
-                                covoiturages.
-                              </p>
-                              <div className="rating_r rating_r_5 offers_rating">
-                                <i />
-                                <i />
-                                <i />
-                                <i />
-                                <i />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      {/* Testimonial Item */}
-                      <div className="owl-item">
-                        <div className="test_item">
-                          <div className="test_image">
-                            <img
-                              src="images/test_4.jpg"
-                              alt="https://unsplash.com/@tschax"
-                            />
-                          </div>
-                          <div className="test_icon">
-                            <img src="images/backpack.png" alt="" />
-                          </div>
-                          <div className="test_content_container">
-                            <div className="test_content">
-                              <div className="test_item_info">
-                                <div className="test_name">Magnus ANDERSON</div>
-                                <div className="test_date">12 janvier 2022</div>
-                              </div>
-                              <div className="test_quote_title">" Je suis sérein "</div>
-                              <p className="test_quote_text">
-                                Grace à l'existence de covoiturages je suis sérein pour
-                                mes déplacements journaliers.
-                              </p>
-                              <div className="rating_r rating_r_4 offers_rating">
-                                <i />
-                                <i />
-                                <i />
-                                <i />
-                                <i />
+                    {avis.map((data) => {
+                            return(
+                              <div className="owl-item" key={data.id}>
+                              <div className="test_item">
+                                <div className="test_image">
+                                  <img
+                                    src={data.image}
+                                    alt="https://unsplash.com/@anniegray"
+                                  />
+                                </div>
+                                <div className="test_icon">
+                                  <img src={data.icone} alt="" />
+                                </div>
+                                <div className="test_content_container">
+                                  <div className="test_content">
+                                    <div className="test_item_info">
+                                      <div className="test_name">{data.nom}</div>
+                                      <div className="test_date">{data.date}</div>
+                                    </div>
+                                    <div className="test_quote_title">
+                                      " {data.titre} "
+                                    </div>
+                                    <p className="test_quote_text">
+                                      {data.avis}
+                                    </p>
+                                    <div className={data.note}>
+                                      <i />
+                                      <i />
+                                      <i />
+                                      <i />
+                                      <i />
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                      </div>
+
+                            )})}
                       {/* Testimonial Item */}
-                      <div className="owl-item">
-                        <div className="test_item">
-                          <div className="test_image">
-                            <img
-                              src="images/test_5.jpg"
-                              alt="https://unsplash.com/@seefromthesky"
-                            />
-                          </div>
-                          <div className="test_icon">
-                            <img src="images/island_t.png" alt="" />
-                          </div>
-                          <div className="test_content_container">
-                            <div className="test_content">
-                              <div className="test_item_info">
-                                <div className="test_name">Michelle RABE</div>
-                                <div className="test_date">15 août 2022</div>
-                              </div>
-                              <div className="test_quote_title">
-                                " Ecologique et pratique "
-                              </div>
-                              <p className="test_quote_text">
-                                C'est écologique, il y aura moins de circulation dans la
-                                ville. C'est pratique avec son système très intuitif.
-                              </p>
-                              <div className="rating_r rating_r_5 offers_rating">
-                                <i />
-                                <i />
-                                <i />
-                                <i />
-                                <i />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      {/* Testimonial Item */}
-                      <div className="owl-item">
-                        <div className="test_item">
-                          <div className="test_image">
-                            <img src="images/people2.jpg" alt="" />
-                          </div>
-                          <div className="test_icon">
-                            <img src="images/island_t.png" alt="" />
-                          </div>
-                          <div className="test_content_container">
-                            <div className="test_content">
-                              <div className="test_item_info">
-                                <div className="test_name">John RADISON</div>
-                                <div className="test_date">05 juillet 2022</div>
-                              </div>
-                              <div className="test_quote_title">
-                                " Pour éviter les bus "
-                              </div>
-                              <p className="test_quote_text">
-                                Même si les contacts humaines ne m'intéressent pas, celà
-                                me permet d'éviter les longs trajets en bus.
-                              </p>
-                              <div className="rating_r rating_r_3 offers_rating">
-                                <i />
-                                <i />
-                                <i />
-                                <i />
-                                <i />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      {/* Testimonial Item */}
-                      <div className="owl-item">
-                        <div className="test_item">
-                          <div className="test_image">
-                            <img src="images/test_6.jpg" alt="" />
-                          </div>
-                          <div className="test_icon">
-                            <img src="images/backpack.png" alt="" />
-                          </div>
-                          <div className="test_content_container">
-                            <div className="test_content">
-                              <div className="test_item_info">
-                                <div className="test_name">Leonardo ZORZI</div>
-                                <div className="test_date">26 juin 2022</div>
-                              </div>
-                              <div className="test_quote_title">
-                                " Lieu de rencontre "
-                              </div>
-                              <p className="test_quote_text">
-                                C'est plaisant de rencontrer d'autres personnes de même
-                                passion que vous pendant le temps d'un voyage.
-                              </p>
-                              <div className="rating_r rating_r_5 offers_rating">
-                                <i />
-                                <i />
-                                <i />
-                                <i />
-                                <i />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      
                     </div>
                     {/* Testimonials Slider Nav - Prev */}
                     <div className="test_slider_nav test_slider_prev">

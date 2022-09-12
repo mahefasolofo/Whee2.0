@@ -1141,6 +1141,7 @@ section
 	color: #292929;
 	text-transform: uppercase;
 	margin-bottom: 14px;
+	height: 62px!important;
 }
 .search_item:first-child
 {
@@ -1651,12 +1652,12 @@ section
 .cta_slider_prev:hover .nav_path,
 .cta_slider_prev:hover .nav_arrow
 {
-	fill: url(#cta_grad_prev);
+	fill: #c74646;
 }
 .cta_slider_next:hover .nav_path,
 .cta_slider_next:hover .nav_arrow
 {
-	fill: url(#cta_grad_next);
+	fill: #c74646;
 }
 
 /*********************************
