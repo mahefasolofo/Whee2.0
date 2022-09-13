@@ -15,8 +15,9 @@ export default class Home extends Component {
         <div className="super_container">
           {/* Header */}
           <Navbar />
-          {/* Home */}
-          {/* <Carousel /> */}
+          
+          <Carousel />
+          
           {/* The Modal for Connexion*/}
           {/* <div id="id01" className="modal">
             <span
@@ -669,17 +670,17 @@ export default class Home extends Component {
               </div>
             </div>
           </div> */}
-          {/* Trajets populaires */}
-          {/* <Trajet/> */}
-          {/* CTA */}
-          {/* <Cta /> */}
-          {/* Offers */}
-          {/* <Event /> */}
-          {/* Testimonials */}
-          {/* <Avis /> */}
+          
+          <Trajet/>
+          
+          <Cta />
+       
+          <Event />
+          
+          <Avis />
 
           {/* <Offre/> */}
-          <Demande/>
+          {/* <Demande/> */}
 
           {/* Footer */}
           <Footer/>

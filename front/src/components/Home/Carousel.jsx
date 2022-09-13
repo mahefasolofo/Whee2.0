@@ -302,16 +302,7 @@ export default class Carousel extends Component {
                   />
                 </svg>
               </div>
-              {/* Home Slider Dots */}
-              {/* <div class="home_slider_dots row search_tabs_container">
-        
-                        <ul id="home_slider_custom_dots" class="home_slider_custom_dots col fill_height search_tabs d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                            
-                            <li class="home_slider_custom_dot active search_tab active d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="images/bus.png" alt=""><span>Offres</span></li>
-                            <li class="home_slider_custom_dot search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="images/suitcase.png" alt="">Demandes</li>
-                            <li class="home_slider_custom_dot search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="images/diving.png" alt="">Evènements</li>
-                        </ul>
-                    </div> */}
+              
             </div>
           </div>
       
