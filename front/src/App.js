@@ -1,8 +1,9 @@
 import React from "react";
 import Home from "./components/Home";
-import Navbar from './components/Navbar/Navbar';
-import Offre from './components/Offre/Offre';
-import Footer from './components/Footer/Footer';
+import Navbar from './components/Home/Navbar';
+import Offre from './components/Pages/Offre';
+import Demande from './components/Pages/Demande';
+import Footer from './components/Home/Footer';
 import { Routes, Route } from "react-router-dom";
 
 
@@ -15,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/offres" element={<Offre />} />
-          <Route path="/demandes" element={<Home />} />
+          <Route path="/demandes" element={<Demande />} />
           <Route path="/evenements" element={<Home />} />
           <Route path="/a_propos" element={<Home />} />
         </Routes>

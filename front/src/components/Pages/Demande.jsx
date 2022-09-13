@@ -133,10 +133,10 @@ export default class Demande extends Component {
                                         
                                         <img src={data.image} className="offers_image_background" alt="carte" />
                                         <div className="offer_date_demande">
-                                            <a href="#">{data.date} - {data.heure}</a>
+                                            <a href="index.html">{data.date} - {data.heure}</a>
                                         </div>
                                         <div className="demande_name">
-                                            <a href="#">{data.depart} -{data.arrive}</a>
+                                            <a href="index.html">{data.depart} -{data.arrive}</a>
                                         </div>
                                         </div>
                                     </div>
@@ -165,7 +165,7 @@ export default class Demande extends Component {
                                             </ul>
                                         </div>
                                         <div className="button book_button">
-                                            <a href="#">
+                                            <a href="index.html">
                                             Proposer
                                             <span />
                                             <span />
