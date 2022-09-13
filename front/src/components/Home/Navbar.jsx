@@ -1,8 +1,20 @@
-import React, { Component } from 'react'
+import React, { Component, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { UserContext } from '../../services/UserContext';
 
-export default class Navbar extends Component {
-  render() {
+
+const NavBar =()=> {
+//       const{user,  setUser} = useContext(UserContext);
+  const user = 22;
+
+        
+      const afficherConnexion=()=> {
+          document.getElementById('id01').style.display='block';    
+    }
+
+    const afficherInscription=()=> {
+      document.getElementById('id02').style.display='block';    
+    }
     return (
       <React.Fragment>
         <header className="header">
@@ -37,28 +49,27 @@ export default class Navbar extends Component {
                       </li>
                     </ul>
                   </div>
-                  <div className="user_box ml-auto user_box_s">
-                    <div className="user_box_login user_box_link">
-                      <span
-                        onClick="document.getElementById('id01').style.display='block'"
-                        style={{ zIndex: 99 }}
-                        className="user_box_link"
-                        id="right"
-                      >
-                        Se Connecter
-                      </span>
-                    </div>
-                    <div className="user_box_register user_box_link">
-                      <span
-                        onClick="document.getElementById('id02').style.display='block'"
-                        style={{ zIndex: 99 }}
-                        className="user_box_link"
-                        id="right"
-                      >
-                        S' Inscrire
-                      </span>
-                    </div>
-                  </div>
+                  {user === user ? (
+                                <div className="user_box ml-auto user_box_s">
+                                    <div className="user_box_login user_box_link"> <span style={{ zIndex: 99 }} onClick={afficherConnexion}>
+                                       Se Connecter
+                                        </span>
+                                    </div>
+                                    <div className="user_box_register user_box_link"><span onClick={afficherInscription}>
+                                        Se Déconnecter
+                                        </span>
+                                    </div>
+                                </div>):(
+                                 <div className="user_box ml-auto pdp">
+                                 <div className="user_box_register user_box_link">
+                                   <img src="images/review_2.jpg" alt="pdp" />
+                                   <a href="#" id="user_name">
+                                     Joel ANDRIA
+                                   </a>
+                                 </div>
+                               </div>
+                               )
+                      }
                   <form id="search_form" className="search_form bez_1">
                     <input type="search" className="search_content_input bez_1" />
                   </form>
@@ -102,4 +113,5 @@ export default class Navbar extends Component {
       </React.Fragment>
     )
   }
-}
+  export default NavBar;
+
