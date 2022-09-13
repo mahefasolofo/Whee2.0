@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import bg from '../../images/background7.png'
 
+
+
 export default class Offre extends Component {
   render() {
     return (

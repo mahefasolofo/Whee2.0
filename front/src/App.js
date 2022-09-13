@@ -1,11 +1,10 @@
 import React from "react";
 import Home from "./components/Home";
-import Navbar from './components/Home/Navbar';
 import Offre from './components/Pages/Offre';
 import Demande from './components/Pages/Demande';
-import Footer from './components/Home/Footer';
+import Footer from './components/Home/Footer'
+import Navbar from './components/Home/Navbar'
 import { Routes, Route } from "react-router-dom";
-import Demande from "./components/Offre/Demande";
 
 
 function App() {
