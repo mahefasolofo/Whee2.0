@@ -299,6 +299,7 @@ export default class Carousel extends Component {
                 fill="index.htmlF3F6F9"
                 points="13.044,11.551 11.71,12.885 15.714,16.888 11.71,20.891 13.044,22.224 18.379,16.888 17.048,15.554 
                         17.046,15.554 "
+
               />
             </svg>
           </div>
