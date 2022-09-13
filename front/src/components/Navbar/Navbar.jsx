@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class Navbar extends Component {
   render() {
@@ -12,27 +13,27 @@ export default class Navbar extends Component {
                 <div className="col main_nav_col d-flex flex-row align-items-center justify-content-start">
                   <div className="logo_container">
                     <div className="logo">
-                      <a href="index.html">
+                      <Link to="/">
                         <img src="images/logo_4.png" alt="" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div className="main_nav_container ml-auto">
                     <ul className="main_nav_list">
                       <li className="main_nav_item">
-                        <a href="index.html">Accueil</a>
+                        <Link to="/">Accueil</Link>
                       </li>
                       <li className="main_nav_item">
-                        <a href="offers.html">Offres</a>
+                        <Link to="/offres">Offres</Link>
                       </li>
                       <li className="main_nav_item">
-                        <a href="demandes.html">Demandes</a>
+                        <Link to="/demandes">Demandes</Link>
                       </li>
                       <li className="main_nav_item">
-                        <a href="blog.html">évènements</a>
+                        <Link to="/evenements">évènements</Link>
                       </li>
                       <li className="main_nav_item">
-                        <a href="index.html">à propos</a>
+                        <Link to="/a_propos">à propos</Link>
                       </li>
                     </ul>
                   </div>
