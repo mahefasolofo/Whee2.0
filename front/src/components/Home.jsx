@@ -7,8 +7,8 @@ import Event from './Home/Event'
 import Cta from './Home/Cta'
 import Trajet from './Home/Trajet'
 
-import Demande from './Offre/Demande'
-import Offre from './Offre/Offre'
+import Demande from './Pages/Demande'
+import Offre from './Pages/Offre'
 
 
 export default class Home extends Component {
@@ -669,22 +669,20 @@ export default class Home extends Component {
                 </div>
               </form>
             </div>
-
-          </div> */}
+            </div>
+          </div>
           {/* Trajets populaires */}
-          {/* <Trajet/> */}
+          <Trajet/>
           {/* CTA */}
-          {/* <Cta /> */}
+          <Cta />
           {/* Offers */}
-          {/* <Event /> */}
+          <Event />
           {/* Testimonials */}
-          {/* <Avis /> */}
+          <Avis />
 
-          {/* <Offre/> */}
-          <Demande/>
-
-          {/* Footer */}
-          <Footer/>
+    
+         
+      
 
       </div>
 
