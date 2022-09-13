@@ -1,6 +1,7 @@
 import React from 'react'
 import trajet from '../data/Trajet'
 
+
 function Trajet() {
   return (
     <div className="intro">

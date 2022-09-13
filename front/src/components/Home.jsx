@@ -8,7 +8,6 @@ import Cta from './Home/Cta'
 import Trajet from './Home/Trajet'
 
 
-
 export default class Home extends Component {
   render() {
     return (

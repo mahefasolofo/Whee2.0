@@ -21,11 +21,11 @@ function Event() {
                       <div className="offers_image_container">
 
                         <div className="offer_date">{data.date}</div>
-                        {/* <img
+                        <img
                           src={data.image}
                           className="offers_image_background"
 
-                        /> */}
+                        />
                         <div className="offer_name">
                           <a href="index.html">{data.lieu}</a>
                         </div>
