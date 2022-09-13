@@ -9,19 +9,17 @@ import Trajet from './Home/Trajet'
 import Footer from './Footer/Footer'
 import Navbar from './Navbar/Navbar'
 
-import Demande from './Offre/Demande'
-import Offre from './Offre/Offre'
+import Demande from './Pages/Demande'
+import Offre from './Pages/Offre'
 
 
 export default class Home extends Component {
   render() {
     return (
 
-        <div className="super_container">
-          {/* Header */}
-          <Navbar />
-          
-          {/* Home */}
+        <div>
+
+
          <Carousel />
                  
           <Trajet/>
@@ -32,7 +30,6 @@ export default class Home extends Component {
           
           <Avis />
 
-          <Footer/>
 
         </div>
 
