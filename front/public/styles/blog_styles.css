@@ -33,18 +33,11 @@
 1. Fonts
 ***********/
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
-@font-face
-{
-	font-family: 'Beyond';
-	src: url('../fonts/beyond_the_mountains.otf')  format('truetype'),
-		 url('../fonts/beyond_the_mountains.ttf')  format('opentype');
-}
 
 /*********************************
 2. Body and some general stuff
 *********************************/
-
+/* 
 *
 {
 	margin: 0;
@@ -302,11 +295,11 @@ section
 {
     min-height: 400px;
     background: transparent;
-}
+} */
 /*********************************
 3. Header
 *********************************/
-
+/* 
 .header
 {
 	position: fixed;
@@ -317,12 +310,12 @@ section
 .header.scrolled
 {
 	background: rgba(0, 3, 5, 0.8);
-}
+} */
 
 /*********************************
 3.1 Top Bar
 *********************************/
-
+/* 
 .top_bar
 {
 	width: 100%;
@@ -455,12 +448,12 @@ section
 .header.scrolled .main_nav_col
 {
 	height: 50px;
-}
+} */
 
 /*********************************
 3.2 Logo
 *********************************/
-
+/* 
 .logo_container
 {
 	-webkit-transform: translateY(6px);
@@ -485,12 +478,12 @@ section
 	font-size: 50px;
 	font-weight: 800;
 	background: #fff;
-	
+	 */
 	/* background: -webkit-linear-gradient(1turn,#D62828, #003049); */
-  	-webkit-background-clip: text;
-  	-webkit-text-fill-color: transparent;
+  	/* -webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent; */
 /* text-transform: uppercase; */
-}
+/* }
 .logo img
 {
 	display: inline-block;
@@ -503,22 +496,23 @@ section
 	transform: translateY(2px);
 	width: 130px;
 
-}
+} */
 
 /*********************************
 3.3 Main Nav
 *********************************/
 
-.main_nav_container
+/* 
+.main_nav_container_offre
 {
 	margin-right: 100px;
 }
 
-.main_nav_list{
+.main_nav_list_offre{
 	width: 40vw;
 	padding-left: 50px;
 }
-.main_nav_list .right{
+.main_nav_list_offre .right{
 	
 	margin-left: 15vw;
 }
@@ -632,7 +626,7 @@ section
 	-ms-transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
 	-o-transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
 	transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
-}
+} */
 
 /*********************************
 3.4 Menu
