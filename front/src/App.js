@@ -26,6 +26,7 @@ function App() {
         <Inscription/>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/offres" element={<Offre />} />
           <Route path="/demandes" element={<Demande />} />
           <Route path="/evenements" element={<Home />} />

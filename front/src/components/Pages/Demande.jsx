@@ -77,44 +77,44 @@ export default class Demande extends Component {
                         <div className="col-lg-11">
                         {/* Offers Sorting */}
                         <div className="offers_sorting_container">
-  <ul className="offers_sorting">
-    <li>
-      <span className="sorting_text">Prix</span>
-      <i className="fa fa-chevron-down" />
-      <ul>
-        <li
-          className="sort_btn"
-          data-isotope-option='{ "sortBy": "original-order" }'
-          data-parent=".price_sorting"
-        >
-          <span>Tout afficher</span>
-        </li>
-        <li
-          className="sort_btn"
-          data-isotope-option='{ "sortBy": "price" }'
-          data-parent=".price_sorting"
-        >
-          <span>Croissant</span>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <span className="sorting_text">Lieu</span>
-      <i className="fa fa-chevron-down" />
-      <ul>
-        <li
-          className="sort_btn"
-          data-isotope-option='{ "sortBy": "original-order" }'
-        >
-          <span>Tout afficher</span>
-        </li>
-        <li className="sort_btn" data-isotope-option='{ "sortBy": "name" }'>
-          <span>Alphabétique</span>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</div>
+                            <ul className="offers_sorting">
+                              <li>
+                                <span className="sorting_text">Prix</span>
+                                <i className="fa fa-chevron-down" />
+                                <ul>
+                                  <li
+                                    className="sort_btn"
+                                    data-isotope-option='{ "sortBy": "original-order" }'
+                                    data-parent=".price_sorting"
+                                  >
+                                    <span>Tout afficher</span>
+                                  </li>
+                                  <li
+                                    className="sort_btn"
+                                    data-isotope-option='{ "sortBy": "price" }'
+                                    data-parent=".price_sorting"
+                                  >
+                                    <span>Croissant</span>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li>
+                                <span className="sorting_text">Lieu</span>
+                                <i className="fa fa-chevron-down" />
+                                <ul>
+                                  <li
+                                    className="sort_btn"
+                                    data-isotope-option='{ "sortBy": "original-order" }'
+                                  >
+                                    <span>Tout afficher</span>
+                                  </li>
+                                  <li className="sort_btn" data-isotope-option='{ "sortBy": "name" }'>
+                                    <span>Alphabétique</span>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </div>
 
                         </div>
                         <div className="col-lg-12">

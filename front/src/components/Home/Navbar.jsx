@@ -33,7 +33,7 @@ const NavBar =()=> {
                   <div className="main_nav_container ml-auto">
                     <ul className="main_nav_list">
                       <li className="main_nav_item">
-                        <Link to="/">Accueil</Link>
+                        <a href="/home">Accueil</a>
                       </li>
                       <li className="main_nav_item">
                         <Link to="/offres">Offres</Link>
@@ -56,7 +56,7 @@ const NavBar =()=> {
                                         </span>
                                     </div>
                                     <div className="user_box_register user_box_link"><span onClick={afficherInscription}>
-                                        Se Déconnecter
+                                        S'Inscrire
                                         </span>
                                     </div>
                                 </div>):(
