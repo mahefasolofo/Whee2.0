@@ -15,7 +15,7 @@ const Inscription= ()=> {
         return (
             <div>
           {/* Hello world */}
-  <div className='modal' id="id02" style={{ display: "block" }}>
+  <div className='modal' id="id02">
     <div className="row justify-content-center">
       <div className="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
         <form data-multi-step="" className="multi-step-form">
