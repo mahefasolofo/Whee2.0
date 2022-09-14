@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import whee.demo.entity.AnnonceCovoiturage;
 import whee.demo.exception.ResourceNotFoundException;
 import whee.demo.repository.AnnonceCovoiturageRepository;
-@CrossOrigin(origins ="http://localhost:3001" )
+
+
+@CrossOrigin(origins = {"http://localhost:3001", "http://someserver:3000"}, allowCredentials = "true")
 @RestController
 @RequestMapping("/api/whee/")
 public class AnnonceCovoiturageController {
