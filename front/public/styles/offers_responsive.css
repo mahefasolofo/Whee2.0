@@ -119,8 +119,8 @@
 	    padding-left: 0px;
 	    padding-right: 0px;
 	    margin-top: 0px;
-	    padding-top: 57px;
-	    padding-bottom: 72px;
+	    /* padding-top: 57px;
+	    padding-bottom: 72px; */
 	}
 	.search_item_offre
 	{
@@ -162,7 +162,7 @@
 	}
 	.search_button
 	{
-		margin-top: 29px;
+		/* margin-top: 29px; */
 	}
 	.offers_sorting_container
 	{

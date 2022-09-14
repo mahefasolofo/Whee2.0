@@ -830,6 +830,7 @@ text-transform: uppercase;
 	transform: translateX(-50%);
 	
 }
+
 .home_title
 {
 	font-family: 'Beyond';
@@ -841,6 +842,16 @@ text-transform: uppercase;
 	top: -30vh;
 	text-shadow: 5px 2px 5px #2a2a2a;
 	
+}
+.home_title_about{
+	font-family: 'Beyond';
+	font-size: 72px;
+	font-weight: 500;
+	color: #FFFFFF;
+	/* text-transform: uppercase; */
+	white-space: nowrap;
+	top: -20vh;
+	text-shadow: 5px 2px 5px #2a2a2a;
 }
 /*********************************
 5. Search
@@ -941,7 +952,7 @@ text-transform: uppercase;
 	border: solid rgb(219, 219, 219,0.8) 1.2px;
 	border-radius: 50px;
 	position: relative;
-	top: 280px!important;
+	top: 38vh!important;
 	
 
 }
@@ -989,6 +1000,7 @@ text-transform: uppercase;
 	color: #292929;
 	text-transform: uppercase;
 	margin-bottom: 14px;
+	height: 62px!important;
 }
 .search_item_offre:first-child
 {
@@ -1672,6 +1684,58 @@ text-transform: uppercase;
 	-o-transform: translateY(-4px);
 	transform: translateY(-4px);
 }
+
+/*********************************
+10. About
+*********************************/
+
+.intro
+{
+	width: 100%;
+	padding-top: 92px;
+	padding-bottom: 105px;
+	background: #f6f9fb;
+}
+.intro_image
+{
+	background-image :url(../images/covoit.png);
+	background-size : cover;
+	height: 500px;
+	/* position: absolute;
+    right: 0;
+    top: 13px;
+	width: auto;
+	height: auto;
+	resize:horizontal;
+	overflow: hidden; */
+}
+
+.intro_title
+{
+	font-size: 30px;
+	font-weight: 700;
+	color: #2d2c2c;
+	text-transform: uppercase;
+}
+.intro_text
+{
+	margin-bottom: 0px;
+	font-weight: 600;
+	color: #929191;
+	margin-top: 60px;
+}
+.intro_button
+{
+	top: 257px;
+	z-index: 0;
+}
+
+.intro_content
+{
+	display: flex;
+	flex-direction: column;
+}
+
 
 /*********************************
 13. Footer

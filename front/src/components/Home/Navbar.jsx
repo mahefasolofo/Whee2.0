@@ -25,9 +25,9 @@ const NavBar =()=> {
                 <div className="col main_nav_col d-flex flex-row align-items-center justify-content-start">
                   <div className="logo_container">
                     <div className="logo">
-                      <Link to="/">
+                      <a href="/">
                         <img src="images/logo_4.png" alt="" />
-                      </Link>
+                      </a>
                     </div>
                   </div>
                   <div className="main_nav_container ml-auto">
@@ -36,32 +36,32 @@ const NavBar =()=> {
                         <a href="/home">Accueil</a>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/offres">Offres</Link>
+                        <a href="/offres">Offres</a>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/demandes">Demandes</Link>
+                        <a href="/demandes">Demandes</a>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/evenements">évènements</Link>
+                        <a href="/evenements">évènements</a>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/a_propos">à propos</Link>
+                        <a href="/a_propos">à propos</a>
                       </li>
                     </ul>
                   </div>
                   {user === user ? (
                                 <div className="user_box ml-auto user_box_s">
-                                    <div className="user_box_login user_box_link"> <span style={{ zIndex: 99 }} onClick={afficherConnexion}>
+                                    <div className="user_box_login user_box_link user_box_a"> <span style={{ zIndex: 99 }} onClick={afficherConnexion}>
                                        Se Connecter
                                         </span>
                                     </div>
-                                    <div className="user_box_register user_box_link"><span onClick={afficherInscription}>
+                                    <div className="user_box_register user_box_link user_box_a"><span onClick={afficherInscription}>
                                         S'Inscrire
                                         </span>
                                     </div>
                                 </div>):(
                                  <div className="user_box ml-auto pdp">
-                                 <div className="user_box_register user_box_link">
+                                 <div className="user_box_register user_box_a">
                                    <img src="images/review_2.jpg" alt="pdp" />
                                    <a href="#" id="user_name">
                                      Joel ANDRIA

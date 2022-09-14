@@ -432,11 +432,11 @@ section
 {
 	display: block;
 	position: absolute;
-	top: 23px;
+	top: 10px;
 	right: -9px;
-	background: #FFFFFF;
-	width: 1px;
-	height: 12px;
+	background: #d6d6d6;
+	width: 1.3px;
+	height: 18px;
 	content: '';
 }
 #user_name{
