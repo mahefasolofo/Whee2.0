@@ -1284,6 +1284,7 @@ section
 
 .cardIntro {
 	width: 320px;
+	height: 500px;
 	display: inline-block;
 	margin: 1rem;
 	border-radius: 4px;
@@ -1371,7 +1372,7 @@ section
 		color: #202927;
 	}
 		.card-content h1{
-			font-size: 2rem;
+			font-size: 1.6rem;
 		}
 		.card-content h2, .card-content a h2 {
 			font-size: 1rem;
@@ -1386,6 +1387,8 @@ section
 			text-overflow: ellipsis;
 			color: rgba(32, 41, 28, 0.8);
 		}
+
+
 /*********************************
 7. Intro
 *********************************/
