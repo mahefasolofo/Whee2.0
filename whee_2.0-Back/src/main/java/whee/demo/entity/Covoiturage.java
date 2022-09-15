@@ -73,7 +73,8 @@ public class Covoiturage implements Serializable {
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)
 	private Vehicule vehicule;
 
-	@Column(name="image", nullable=true, length=255)
-	private String image;
+	@ManyToOne
+	private Covoitureur covoitureur;
+
 	
 }
