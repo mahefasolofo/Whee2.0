@@ -1,19 +1,33 @@
 import React, { Component, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../../services/UserContext';
-
+import { Dropdown } from 'react-bootstrap';
+import jwt_decode from "jwt-decode";
 
 const NavBar =()=> {
-//       const{user,  setUser} = useContext(UserContext);
-    const user = 22;
-
+    const{user} = useContext(UserContext);
+    
+    
+    let value=45;
+    if((localStorage.getItem('token').length>14)){
+      value = jwt_decode(localStorage.getItem('token'));
+      console.log(localStorage.getItem('token'))
+      value= jwt_decode(localStorage.getItem('token'));
+      console.log(value);
+    }else{
+      value = "nn";
+    }
+    
 
       const afficherConnexion=()=> {
           document.getElementById('id01').style.display='block';    
     }
-
+    
     const afficherInscription=()=> {
       document.getElementById('id02').style.display='block';    
+    }
+    const logOut=()=>{
+      localStorage.setItem('token', null);
     }
     return (
       <React.Fragment>
@@ -26,7 +40,7 @@ const NavBar =()=> {
                             <div className="logo_container">
                                 <div className="logo">
                                     <a href="/">
-                        <img src="images/logo_4.png" alt="" />
+                                        <img src="images/logo_4.png" alt=""/>
                                     </a>
                                 </div>
                             </div>
@@ -49,7 +63,7 @@ const NavBar =()=> {
                                     </li>
                                 </ul>
                             </div>
-                            {value==null? (
+                            {value.length<100? (
                                                                 <div className="user_box ml-auto user_box_s">
                                                                     <div className="user_box_login user_box_link user_box_a"> <span style={{ zIndex: 99 }} onClick={afficherConnexion}>
                                                                        Se Connecter
@@ -60,19 +74,19 @@ const NavBar =()=> {
                                                                         </span>
                                                                     </div>
                                                                 </div>):(
-                                                                  <div className="user_box_register user_box_a user_box_pdp"style ={{
+                                                                  <div className="user_box_register user_box_a user_box_pdp" id="imgPdp" style ={{
                                                                     display: "flex"}}>
-                                                                                               <img src="images/review_2.jpg" alt="pdp" id="pdpImage" />
+                                                                                               <img src="images/review_2.jpg" alt="ImgPdp" id="pdpImage" />
                                                                                                {/* <a href="#" id="user_name " className='user_box_register user_box_a'> */}
                                                                                                <Dropdown style={{ color: "white" ,border: "none"}}>
-                                                                                                <Dropdown.Toggle variant="" style={{ color: "white", backgroundColor: "rgba(0, 0, 0, 0.2)", border: "none" }}>
-                                                                                                    {value.name} 
+                                                                                                <Dropdown.Toggle variant="" className="menuDropDownItem" style={{ color: "white", backgroundColor: "rgba(0, 0, 0, 0.2)", border: "none" }}>
+                                                                                                {value.name}
+                                                                                                
                                                                                                 </Dropdown.Toggle>
-                                                            
                                                                                                 <Dropdown.Menu style={{ color: "white", backgroundColor: "rgba(33, 33, 33, 0.3)" }}>
-                                                                                                  <Dropdown.Item href="#/action-1" style={{ color: "white"}} onClick={logOut}>Se Déconnecter</Dropdown.Item>
-                                                                                                  <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                                                                                  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                                                                                  <Dropdown.Item href="#/action-1" className="menuDropDownItem" onClick={logOut}>Se Déconnecter</Dropdown.Item>
+                                                                                                  <Dropdown.Item href="#/action-2"  className="menuDropDownItem">Profil</Dropdown.Item>
+                                                                                                  <Dropdown.Item href="#/action-3"  className="menuDropDownItem">Notification</Dropdown.Item>
                                                                                                 </Dropdown.Menu>
                                                                                               </Dropdown>
                                                                                                                             
