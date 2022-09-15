@@ -6,17 +6,20 @@ import VehiculeInfo from "./VehiculeInfo";
 function FormOffre() {
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
-    firstName: "",
-    lastName: "",
-    username: "",
-    nationality: "",
-    other: "",
+    ptDepart: "",
+    ptArrivee: "",
+    heureCovoit: "",
+    dateCovoit: "",
+    nbPlace: "",
+    covoitureurs: [],
+    vehicule: {
+      idVehicule: ""},
+      covoitureur: {
+        idUser: ""}
+      
   });
 
-  const FormTitles = ["Où allez-vous?", "Quand?", "Comment?"];
+  const FormTitles = ["Votre Trajet", "Date et heure de Départ", "Renseignements sur le véhicule"];
 
   const PageDisplay = () => {
     if (page === 0) {
