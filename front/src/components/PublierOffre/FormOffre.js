@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import SignUpInfo from "./SignUpInfo";
-import PersonalInfo from "./PersonalInfo";
-import OtherInfo from "./OtherInfo";
+import TrajetInfo from "./TrajetInfo";
+import DateHourInfo from "./DateHourInfo";
+import VehiculeInfo from "./VehiculeInfo";
 
 function FormOffre() {
   const [page, setPage] = useState(0);
@@ -16,15 +16,15 @@ function FormOffre() {
     other: "",
   });
 
-  const FormTitles = ["Info Lieu", "Info Date et Heure", "Info Vehicule"];
+  const FormTitles = ["Où allez-vous?", "Quand?", "Comment?"];
 
   const PageDisplay = () => {
     if (page === 0) {
-      return <SignUpInfo  />;
+      return <TrajetInfo formData={formData} setFormData={setFormData}  />;
     } else if (page === 1) {
-      return <PersonalInfo formData={formData} setFormData={setFormData} />;
+      return <DateHourInfo formData={formData} setFormData={setFormData} />;
     } else {
-      return <OtherInfo formData={formData} setFormData={setFormData} />;
+      return <VehiculeInfo formData={formData} setFormData={setFormData} />;
     }
   };
 

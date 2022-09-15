@@ -8,7 +8,7 @@ import PlacesAutocomplete, {
   getLatLng,
 } from 'react-places-autocomplete';
 
-function SignUpInfo() {
+function TrajetInfo() {
 
   const {address,setAdress} = useState("")
   const {coordinates,setCoordinates}=useState({
@@ -97,4 +97,4 @@ function SignUpInfo() {
   );
 }
 
-export default SignUpInfo;
+export default TrajetInfo;

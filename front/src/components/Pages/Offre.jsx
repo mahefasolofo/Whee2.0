@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import bg from '../../images/background7.png'
-import offre from '../data/Offre'
+import Offeritem from '../PublierOffre/Offeritem';
 
 
 
@@ -151,101 +151,8 @@ export default class Offre extends Component {
                           </div>
                         </div>
 
-                        
-                            <div className="col-lg-12" >
-                              <div className="offers_grid">
-                                {offre.map((data) => {
-                                  return(
-                                      <div className="offers_item rating_4" key={data.id}>
-                                          <div className="row">
-                                            
-                                            <div className="col-lg-3 ">
-                                              <div className="offers_image_container">
-                                                <div
-                                                  className="offers_image_background"
-                                                  style={{ backgroundImage: "url(images/car1.jpg)" }}
-                                                />
-                                                <div className="offer_name_driver">
-                                                  <a href="#">Daniel</a>
-                                                </div>
-                                                <div className="offer_name_car">
-                                                  <a href="#">Volkswagen Golf VII</a>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className="col-lg-5">
-                                              <div className="offers_content">
-                                                <div className="offers_price">10 €</div>
-                                                <div className="rating_r rating_r_4 offers_rating" data-rating={4}>
-                                                  <i />
-                                                  <i />
-                                                  <i />
-                                                  <i />
-                                                  <i />
-                                                </div>
-                                                <p className="offers_text">
-                                                  Trajet régulier en semaine. 4 places disponibles. Voiture propre,
-                                                  conducteur courtois.
-                                                </p>
-                                                <p className="offers_text">
-                                                  Centres d'intérêts : <span>Musique, Rock</span>|
-                                                  <span>Sport, Basketball</span>
-                                                </p>
-                                                <div className="offers_icons">
-                                                  <ul className="offers_icons_list">
-                                                    <li className="offers_icons_item">
-                                                      <img src="images/seat3.png" alt="" />
-                                                    </li>
-                                                    <li className="offers_icons_item">
-                                                      <img src="images/seat3.png" alt="" />
-                                                    </li>
-                                                    <li className="offers_icons_item">
-                                                      <img src="images/seat3.png" alt="" />
-                                                    </li>
-                                                    <li className="offers_icons_item">
-                                                      <img src="images/seat3.png" alt="" />
-                                                    </li>
-                                                  </ul>
-                                                </div>
-                                                <div className="button book_button">
-                                                  <a href="#">
-                                                    Réserver
-                                                    <span />
-                                                    <span />
-                                                    <span />
-                                                  </a>
-                                                </div>
-                                                <div className="offer_reviews">
-                                                  <div className="offer_reviews_content">
-                                                    <div className="offer_reviews_title">Bien</div>
-                                                    <div className="offer_reviews_subtitle">26 avis</div>
-                                                  </div>
-                                                  <div className="offer_reviews_rating text-center">8.1</div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className="col-lg-3 col-1680-4">
-                                              <div className="offers_image_container">
-                                                <div
-                                                  className="offers_image_background"
-                                                  style={{ backgroundImage: "url(images/Faravohitra.png)" }}
-                                                />
-                                                <div className="offer_date">
-                                                  <a href="#">03 octobre 2022 - 07:00</a>
-                                                </div>
-                                                <div className="offer_name">
-                                                  <a href="#">Ankorondrano -Faravohitra</a>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                      </div>
-                
-                          
-
-                          )})}
-                            </div>
-                          </div>
+                        <Offeritem/>
+                           
                     </div>
                 </div>
 
