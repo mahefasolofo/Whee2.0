@@ -3,8 +3,17 @@ import bg from '../../images/background7.png'
 import offre from '../data/Offre'
 
 
+
 export default class Offre extends Component {
   render() {
+    const afficherInscription=()=> {
+
+
+
+      document.getElementById('annonceform').style.display='flex';    
+      
+    
+    }
     return (
       <React.Fragment>
           <div className="home_offre">
@@ -138,6 +147,7 @@ export default class Offre extends Component {
                                 </ul>
                               </li>
                             </ul>
+                            <button className="button publier_button" onClick={afficherInscription} ><p>Publier une annonce</p></button>
                           </div>
                         </div>
 
