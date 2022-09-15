@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import bg from '../../images/background7.png'
-import Offeritem from '../PublierOffre/Offeritem';
+import Offerlist from '../PublierOffre/Offerlist';
 
 
 
@@ -151,7 +151,7 @@ export default class Offre extends Component {
                           </div>
                         </div>
 
-                        <Offeritem/>
+                        <Offerlist/>
                            
                     </div>
                 </div>
