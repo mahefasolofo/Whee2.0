@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import OfferService from '../services/OfferService'
+import OfferService from '../../services/OfferService'
 import Offeritem from './Offeritem'
 
 export default class offerlist extends Component {
@@ -20,7 +20,7 @@ export default class offerlist extends Component {
 
   render() {
     return (
-        <section>
+        <>
         {/*Offers Grid*/}
 
         
@@ -31,7 +31,7 @@ export default class offerlist extends Component {
             ))}            
 
         
-        </section>     
+        </>     
     )
   }
 }
