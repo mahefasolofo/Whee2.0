@@ -4,27 +4,19 @@ function DateHourInfo({ formData, setFormData }) {
   return (
     <div className="personal-info-container">
       <input
-        type="text"
-        placeholder="First Name..."
-        value={formData.firstName}
+        type="date"
+        placeholder="Date de Départ..."
+        value={formData.dateCovoit}
         onChange={(e) => {
-          setFormData({ ...formData, firstName: e.target.value });
+          setFormData({ ...formData, ptDepart: e.target.value });
         }}
       />
       <input
-        type="text"
-        placeholder="Last Name..."
-        value={formData.lastName}
+        type="time"
+        placeholder="Heure de Départ..."
+        value={formData.ptArrivee}
         onChange={(e) => {
-          setFormData({ ...formData, lastName: e.target.value });
-        }}
-      />
-      <input
-        type="text"
-        placeholder="Username..."
-        value={formData.username}
-        onChange={(e) => {
-          setFormData({ ...formData, username: e.target.value });
+          setFormData({ ...formData, ptArrivee: e.target.value });
         }}
       />
     </div>

@@ -1,77 +1,108 @@
-import React from 'react'
-import offre from '../data/Offre'
+import React,{Component} from 'react'
+import EventService from '../../services/EventService'
 
-function Event() {
-  return (
-    <div className="offers">
-      <div className="container">
-        <div className="row">
-          <div className="col text-center">
-            <h2 className="section_title">Les évènements populaires</h2>
+
+import Moment from 'react-moment';
+import 'moment/locale/fr';
+Moment.globalLocale = 'fr';
+
+
+
+export default class Event extends Component {
+  constructor(props){
+    super(props)
+
+    this.state={
+        events:[]
+    }
+
+   
+  }
+  componentDidMount(){
+    EventService.getEvents().then((res)=>{
+        this.setState({events:res.data});
+
+    });
+  }
+
+  render(){
+    
+    return (
+      <div className="offers">
+        <div className="container">
+          <div className="row">
+            <div className="col text-center">
+              <h2 className="section_title">Les évènements populaires</h2>
+            </div>
           </div>
-        </div>
-        <div className="row offers_items">
-          {/* Offers Item */}
-          {offre.map((data) => {
-            return (
-              <div className="col-lg-6 offers_col" key={data.id}>
-                <div className="offers_item">
-                  <div className="row">
-                    <div className="col-lg-6">
-                      <div className="offers_image_container">
+          <div className="row offers_items">
+            {/* Offers Item */}
+            {this.state.events.map((event,index)=> (
+            
+                <div className="col-lg-6 offers_col" key={event.idEvent}>
+                  <div className="offers_item">
+                    <div className="row">
+                      <div className="col-lg-6">
+                        <div className="offers_image_container">
 
-                        <div className="offer_date">{data.date}</div>
-                        <img
-                          src={data.image}
-                          className="offers_image_background"
+                          <div className="offer_date"><Moment format="Do MMMM YYYY">{event.dateEvent}</Moment> {event.heureEvent.slice(0,-3)}</div>
+                          <img
+                            src={event.image}
+                            className="offers_image_background"
 
-                        />
-                        <div className="offer_name">
-                          <a href="index.html">{data.lieu}</a>
+                          />
+                          <div className="offer_name">
+                            <a href="index.html">{event.lieuEvent}</a>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="offers_content">
-                        <div className="offers_title">
-                          {data.titre}
-                          <span />
-                        </div>
-                        <div className={data.note}>
-                          <i />
-                          <i />
-                          <i />
-                          <i />
-                          <i />
-                        </div>
-                        <p className="offers_text">
-                          {data.contenu}
-                        </p>
-                        <div className="offers_icons">
-                          <ul className="offers_icons_list">
-                            <li className="offers_icons_item">
-                              <img src={data.icone} alt="" />
-                            </li>
+                      <div className="col-lg-6">
+                        <div className="offers_content">
+                          <div className="offers_title">
+                            {event.titre}
+                            <span />
+                          </div>
+                          <div className={event.note}>
+                            <i />
+                            <i />
+                            <i />
+                            <i />
+                            <i />
+                          </div>
+                          <p className="offers_text">
+                            {event.description}
+                          </p>
+                          <div className="offers_icons">
+                            <ul className="offers_icons_list">
+                              <li className="offers_icons_item">
+                                {/* <img src={data.icone} alt="" /> */}
+                              </li>
 
-                          </ul>
-                        </div>
-                        <div className="offers_link">
-                          <a href="offers.html">voir plus</a>
+                            </ul>
+                          </div>
+                          <div className="offers_link">
+                          <div className="button book_button">
+                            <a href="#">
+                                Voir plus
+                                <span />
+                                <span />
+                                <span />
+                            </a>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+            ))}
 
-            )
-          })}
+              
+            
 
 
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )}
 }
-
-export default Event
