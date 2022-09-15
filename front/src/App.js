@@ -1,4 +1,7 @@
 import React from "react";
+
+import 'moment/locale/fr'
+
 import { Component , useState, useMemo}  from 'react';
 import Home from "./components/Home";
 import Offre from './components/Pages/Offre';

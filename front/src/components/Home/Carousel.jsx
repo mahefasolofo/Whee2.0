@@ -141,7 +141,7 @@ export default class Carousel extends Component {
                     {/* <i class="fa fa-male" aria-hidden="true"></i> Personnes */}
                     <select
                       name="adults"
-                      id="adults_2"
+                      id="adults_12"
                       className="dropdown_item_select search_input"
                       placeholder="Personnes"
                     >
