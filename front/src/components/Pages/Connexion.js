@@ -77,10 +77,7 @@ const Connexion = ()=> {
                             </i>{" "}
                             Continuer via Facebook
                         </button>
-                        <button className="connexionGoogle">
-                            {" "}
-                            <i className="fa-brands fa-google" /> Continuer via Google
-                        </button>
+                        <button id="signInDiv" className="connexionGoogle"></button>
                         <input type="checkbox" defaultChecked="checked" name="remember" />{" "}
                         Se Souvenir de moi
                         <div style={{ marginTop: 12, textAlign: "center" }}>
