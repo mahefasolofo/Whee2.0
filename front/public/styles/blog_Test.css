@@ -396,10 +396,14 @@ a:hover {
         color: #fff;
         text-transform: uppercase;
         line-height: 53px;
-        padding-left: 46px;
+        padding-left: 30px;
         padding-right: 46px;
         white-space: nowrap;
         z-index: 2;
+    }
+
+    .fa-clock-o:before{
+        margin-right: 5px;
     }
 
 

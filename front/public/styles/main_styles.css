@@ -1778,6 +1778,8 @@ section
 	font-weight: 400;
 	color: #929191;
 	margin-top: 16px;
+	height: 140px;
+	overflow:hidden;
 }
 .offers_icons
 {
@@ -1798,7 +1800,8 @@ section
 }
 .offers_link
 {
-	margin-top: 10px;
+	position: absolute;
+    top: 216px;
 }
 .offers_link a
 {

@@ -1,8 +1,31 @@
 import React, { Component } from 'react'
 import bg from '../../images/event2.jpg'
+import EventService from '../../services/EventService'
+
+import Moment from 'react-moment';
+import 'moment/locale/fr';
+import CardEvent from '../Home/CardEvent';
+Moment.globalLocale = 'fr';
 
 export default class Evenements extends Component {
+    constructor(props){
+        super(props)
+    
+        this.state={
+            events:[]
+        }
+    
+       
+      }
+      componentDidMount(){
+        EventService.getEvents().then((res)=>{
+            this.setState({events:res.data});
+    
+        });
+      }
   render() {
+    
+
     return (
         <div className="super_container">
             
@@ -66,51 +89,10 @@ export default class Evenements extends Component {
                 </div>
                 {/* Blog */}
                 <section className="light lightPadding">
-                    <div className="container py-2">
-                    {/* <div class="h1 text-center text-dark" id="pageHeaderTitle">My Cards Light</div> */}
-                    <article className="postcard light blue">
-                        <a className="postcard__img_link" href="#">
-                        <img
-                            className="postcard__img"
-                            src="https://www.nocomment.mg/wp-content/plugins/k_builder/assets/js/jquery_kmp_composer/application/imagehandles.php?f=/wp-content/uploads/Ev%C3%A8nements/NCBar/2020/Decembre/no-comment-madagascar-PopUp-Silo.jpg&h=400&w=263&x=0&y=0&nh=400&nw=263"
-                            alt="Image Title"
-                        />
-                        </a>
-                        <div className="postcard__text t-dark">
-                        <h1 className="postcard__title blue">
-                            <a href="#">Tech House Madness by Bradih-Silo &amp; Friends</a>
-                        </h1>
-                        <div className="postcard__subtitle small">
-                            <time dateTime="2020-05-25 12:00:00">
-                            <i className="fas fa-calendar-alt mr-2" />
-                            05 decembre 2020
-                            </time>
-                        </div>
-                        <div className="postcard__bar" />
-                        <div className="postcard__preview-txt">
-                            no comment® bar vous présente Tech House Madness by Bradih-Silo
-                            &amp; Friends ce samedi 5 décembre 2020 au no comment® bar Isoraka à
-                            partir de 20h.
-                        </div>
-                        <div className="postcard__preview-txt">
-                            Entrée gratuite – consommation obligatoire – l'établissement se
-                            réserve le droit d'entrée.
-                        </div>
-                        <div className="postcard__preview-txt">Venez nombreux !!!</div>
-                        <ul className="postcard__tagbox">
-                            <div className="button book_button">
-                            <a href="#">
-                                Participer
-                                <span />
-                                <span />
-                                <span />
-                            </a>
-                            </div>
-                        </ul>
-                        </div>
-                    </article>
-                    
-                    </div>
+                
+                {this.state.events.map((event,index)=> (
+                    <CardEvent event={event} key={event.idEvent}/>
+                ))}
                 </section>
                 
 

@@ -71,7 +71,7 @@ const Connexion = ()=> {
                         <button type="submit" className="buttonConnexion">
                             Se Connecter
                         </button>
-                        <button onclick="document.getElementById('id01').style.display='none'" className="connexionFB">
+                        <button onClick="document.getElementById('id01').style.display='none'" className="connexionFB">
                             <i className="fa-brands fa-facebook" style={{ color: "white" }}>
                                 {" "}
                             </i>{" "}
