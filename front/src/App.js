@@ -23,10 +23,11 @@ function App() {
     console.log("Encode JWT id Token: "+ response.credential);
     console.log(jwt_decode(response.credential));
     //setAuth(jwt_decode(response.credential));
-    setValue(jwt_decode(response.credential));
+    
     document.getElementById('id01').style.display='none'; 
     localStorage.setItem('token', response.credential);
-    console.log("mety");
+    console.log(jwt_decode(localStorage.getItem('token')));
+    setValue(jwt_decode(localStorage.getItem('token')));
     
   }
 
@@ -34,7 +35,7 @@ function App() {
    
     useEffect(()=>{
       /* global google */
-      localStorage.setItem('token', "null");
+  
       google.accounts.id.initialize({
         client_id: '162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com',
         callback: handleCredentialResponse,
