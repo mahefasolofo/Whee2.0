@@ -1636,6 +1636,35 @@ text-transform: uppercase;
 	transition: all 200ms ease;
 
 }
+.publier_button{
+	background: #003049;
+	border: none;
+	width:auto;
+	margin-top: 39px;
+	margin-bottom: 5px;
+	margin-left: 20vh;
+	margin-right: auto;
+
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+
+}
+
+.publier_button p{
+	display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 53px;
+    padding-left: 45px;
+    padding-right: 45px;
+    white-space: nowrap;
+    z-index: 2;
+}
 .book_button:hover
 {
 	opacity: 0.8;
