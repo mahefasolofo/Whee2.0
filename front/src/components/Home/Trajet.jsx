@@ -1,9 +1,49 @@
-import React from 'react'
+import React,{Component} from 'react'
 import trajet from '../data/Trajet'
+import AnnonceCovoiturageService from '../../services/AnnonceCovoiturageService'
+import CardTrajet from './CardTrajet'
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1
+  }
+};
 
-function Trajet() {
-  return (
+export default class Trajet extends Component {
+  constructor(props){
+    super(props)
+
+    this.state={
+        annonces:[]
+    }
+
+   
+  }
+  componentDidMount(){
+    AnnonceCovoiturageService.getAnnonces().then((res)=>{
+        this.setState({annonces:res.data});
+
+    });
+  }
+
+  render(){
+    return (
     <div className="intro">
             <div className="container">
               <div className="testimonials ">
@@ -29,40 +69,26 @@ function Trajet() {
                   <div className="row ">
                     <div className="col card">
                       {/* Testimonials Slider */}
-                      <div className="test_slider_container">
-                        <div className="owl-carousel owl-theme test_slider">
-                        {trajet.map((data) => {
-                        return(
-                            <div className="cardIntro" key={data.idCovoiturage}>
-                                <div
-                                className="card-img">
-                                <img src={data.image} alt="" />
-                                <div className="overlay">
-                                    <div className="overlay-content">
-                                    <a className="hover" href="#!">
-                                        Voir Plus
-                                    </a>
-                                    </div>
-                                </div>
-                                </div>
-                                <div className="card-content">
-                                <a href="#!">
-                                    <h1 className="text-center">
-                                    <i className="fa fa-street-view" aria-hidden="true" /> {data.depart}
-                                    </h1>
-                                    <h1 className="text-center">
-                                    <i className="fa fa-map-marker" aria-hidden="true" /> {data.arrive}
-                                    </h1>
-                                    <h2 className="text-center">environ {data.prix} MGA</h2>
-                                </a>
-                                </div>
-                            </div>
-                        )
-                    })}
-                         
-                        </div>
+                      {/* <div className="test_slider_container">
+                      <div className="owl-carousel owl-theme test_slider "> 
+                      */}
+
+                      <Carousel 
+                        responsive={responsive}
+                        infinite={true}
+                        autoPlay={1000}
+                      >
+                        {this.state.annonces.map((annonce,index)=> (
+                            <CardTrajet annonce={annonce} key={annonce.idCovoit}/>
+                            )
+                            
+                            
+                        )}
+                    
+                    {/* </div> */}
+                        </Carousel>
                         {/* Testimonials Slider Nav - Prev */}
-                        <div className="test_slider_nav test_slider_prev">
+                        {/* <div className="test_slider_nav test_slider_prev">
                           <svg
                             version="1.1"
                             id="Layer_6"
@@ -96,9 +122,9 @@ function Trajet() {
                                                     11.042,18.219 "
                             />
                           </svg>
-                        </div>
+                        </div> */}
                         {/* Testimonials Slider Nav - Next */}
-                        <div className="test_slider_nav test_slider_next">
+                        {/* <div className="test_slider_nav test_slider_next">
                           <svg
                             version="1.1"
                             id="Layer_7"
@@ -132,15 +158,15 @@ function Trajet() {
                                                 17.046,15.554 "
                             />
                           </svg>
-                        </div>
+                        </div> */}
                       </div>
-                    </div>
+                    {/* </div> */}
                   </div>
                 </div>
               </div>
             </div>
     </div>
-  )
+  )}
 }
 
-export default Trajet
+
