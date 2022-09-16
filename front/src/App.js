@@ -22,6 +22,7 @@ function App() {
   function handleCredentialResponse(response) {
     console.log("Encode JWT id Token: " + response.credential);
     console.log(jwt_decode(response.credential));
+<<<<<<< HEAD
    
     
     document.getElementById('id01').style.display='none'; 
@@ -63,11 +64,16 @@ function App() {
     },[] );
 =======
 >>>>>>> de534f9525d1788a1912d19ff6d137ca149419fd
+=======
+    //setAuth(jwt_decode(response.credential));
+
+>>>>>>> e43e7a1445b29d775e0c39eaa557af12d5f876fe
 
     document.getElementById("id01").style.display = "none";
     localStorage.setItem("token", response.credential);
     console.log(jwt_decode(localStorage.getItem("token")));
     setUser(jwt_decode(localStorage.getItem("token")));
+>
   }
 
   useEffect(() => {
