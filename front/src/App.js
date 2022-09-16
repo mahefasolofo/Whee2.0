@@ -16,7 +16,7 @@ import FormOffre from "./components/PublierOffre/FormOffre";
 import jwt_decode from "jwt-decode";
 
 function App() {
-  const [value, setValue] = useState("null");
+  const [user, setUser] = useState(useContext(UserContext));
 
   function handleCredentialResponse(response) {
     console.log("Encode JWT id Token: " + response.credential);
@@ -26,7 +26,7 @@ function App() {
     document.getElementById("id01").style.display = "none";
     localStorage.setItem("token", response.credential);
     console.log(jwt_decode(localStorage.getItem("token")));
-    setValue(jwt_decode(localStorage.getItem("token")));
+    setUser(jwt_decode(localStorage.getItem("token")));
   }
 
   useEffect(() => {
@@ -55,7 +55,7 @@ function App() {
     <React.Fragment>
       <FormOffre />
       <div className="super_container">
-        <UserContext.Provider value={value}>
+        <UserContext.Provider value={{ user, setUser }}>
           <Navbar />
           <Connexion />
           <Inscription />
@@ -67,6 +67,7 @@ function App() {
             <Route path="/evenements" element={<Evenements />} />
             <Route path="/a_propos" element={<About />} />
           </Routes>
+
           <Footer />
         </UserContext.Provider>
       </div>
