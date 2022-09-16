@@ -2,23 +2,33 @@ import React from "react";
 
 function DateHourInfo({ formData, setFormData }) {
   return (
-    <div className="personal-info-container">
+    <div >
+      <div>
       <input
         type="date"
         placeholder="Date de Départ..."
         value={formData.dateCovoit}
         onChange={(e) => {
-          setFormData({ ...formData, ptDepart: e.target.value });
+          setFormData({ ...formData, dateCovoit: e.target.value });
         }}
       />
+      </div>
+      <div>
+        
+
       <input
         type="time"
         placeholder="Heure de Départ..."
-        value={formData.ptArrivee}
+        value={formData.heureCovoit}
         onChange={(e) => {
-          setFormData({ ...formData, ptArrivee: e.target.value });
+          setFormData({ ...formData, heureCovoit: e.target.value });
         }}
       />
+        </div>
+      
+      
+      
+   
     </div>
   );
 }
