@@ -7,4 +7,6 @@ import whee.demo.entity.Covoiturage;
 @Repository
 public interface CovoiturageRepository extends JpaRepository<Covoiturage,Long> {
 
+   
+
 }
