@@ -14,6 +14,7 @@ import Inscription from "./components/Pages/Inscription";
 import { UserContext } from './api/UserContext';
 import FormOffre from "./components/PublierOffre/FormOffre";
 import jwt_decode from "jwt-decode";
+import { AccordionButton } from "react-bootstrap";
 
 
 
@@ -30,6 +31,8 @@ function App() {
     document.getElementById('id01').style.display='none'; 
     localStorage.setItem('token', response.credential);
     console.log(jwt_decode(localStorage.getItem('token')));
+    const valeurInter = jwt_decode(localStorage.getItem('token'));
+    
     setUser(jwt_decode(localStorage.getItem('token')));
      
   }
