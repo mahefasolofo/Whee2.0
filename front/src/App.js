@@ -14,6 +14,7 @@ import Inscription from "./components/Pages/Inscription";
 import { UserContext } from "./api/UserContext";
 import FormOffre from "./components/PublierOffre/FormOffre";
 import jwt_decode from "jwt-decode";
+import { AccordionButton } from "react-bootstrap";
 
 function App() {
   const [user, setUser] = useState(useContext(UserContext));
@@ -23,10 +24,12 @@ function App() {
     console.log(jwt_decode(response.credential));
     //setAuth(jwt_decode(response.credential));
 
+
     document.getElementById("id01").style.display = "none";
     localStorage.setItem("token", response.credential);
     console.log(jwt_decode(localStorage.getItem("token")));
     setUser(jwt_decode(localStorage.getItem("token")));
+>
   }
 
   useEffect(() => {

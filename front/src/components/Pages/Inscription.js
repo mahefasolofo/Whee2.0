@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
+import { useForm } from "react-hook-form";
 import PropTypes from 'prop-types';
 // import '../styles/inscription_styles.css';
+import UserService from '../../services/UserService';
 
 import {Helmet} from "react-helmet";
 
 
 const Inscription= ()=> {
+  const {register, handleSubmit}=useForm();
+  const onSubmit = (d)=>{
+    d.date_naissance="hieu";
+    d.interests = [];
+    alert(JSON.stringify(d));
+    alert(d);
+    console.log(d);
+    UserService.newCompte(d);
+    UserService.newCompte(JSON.stringify(d));
+     alert("mety");
+
+  }
  
   const closeInscription=()=> {
     document.getElementById('id02').style.display='none';
@@ -18,7 +32,7 @@ const Inscription= ()=> {
   <div className='inscriptionModal' id="id02">
     <div className="row justify-content-center">
       <div className="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
-        <form data-multi-step="" className="multi-step-form">
+        <form data-multi-step="" className="multi-step-form" onSubmit={handleSubmit(onSubmit)}>
           <div className="card cardInscription" data-step="">
             <span
               className="close"
@@ -46,16 +60,17 @@ const Inscription= ()=> {
                 placeholder="Nom d'Utilisateur"
                 name="uname"
                 required="required" 
+                {...register("nom")}
               />
               <b htmlFor="psw" >
               Prenom*</b>
-             
               <input
                 type="text"
                 placeholder="E-mail"
                 name="psw"
                 required="required" 
                 style={{ marginBottom: 15 }}
+                {...register("prenom")} 
               />
               <b htmlFor="psw" >
                 Mot de Passe*</b>
@@ -65,6 +80,8 @@ const Inscription= ()=> {
                 name="psw"
                 required="required"
                 style={{ marginBottom: 15 }}
+                {...register("password")}
+
               />
               <button type="button" className="buttonInscription" data-next="">
                 Suivant
@@ -161,7 +178,10 @@ const Inscription= ()=> {
                       id="autres"
                       name="fav_language"
                       defaultValue="HTML"
+                      value="homme"
                       checked
+                  {...register("genre")}
+
                     />
                   </td>
                 </tr>
@@ -178,6 +198,9 @@ const Inscription= ()=> {
                       id="autres"
                       name="fav_language"
                       defaultValue="HTML"
+                      value="femme"
+                  {...register("genre")}
+
                     />
                   </td>
                 </tr>
@@ -196,6 +219,10 @@ const Inscription= ()=> {
                         id="autres"
                         name="fav_language"
                         defaultValue="HTML"
+                        value="autres"
+                  {...register("genre")}
+                
+
                       />
                     </label>
                   </td>
@@ -230,13 +257,15 @@ const Inscription= ()=> {
               style={{ alignItems: "start", marginLeft: 5 }}
             >
               <label htmlFor="username" className="form-label">
-                <b>Nom d'utilisateur</b>
+                <b>Email</b>
               </label>
               <input
                 type="text"
                 placeholder="Nom d'utilisateur"
                 name="uname"
                 required=""
+                {...register("mail")}
+                
               />
               
               <b>Date de naissance</b>
@@ -246,7 +275,10 @@ const Inscription= ()=> {
                 placeholder="Age"
                 name="psw"
                 required=""
-                style={{ marginBottom: 15 }}/> 
+                style={{ marginBottom: 15 }}
+                {...register("date_naissance")}
+
+                /> 
               <b>Adresse</b>
               <input
                 type="text"

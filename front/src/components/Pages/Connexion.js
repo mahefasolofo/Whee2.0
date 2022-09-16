@@ -2,7 +2,6 @@ import React, { Component, useContext } from 'react';
 import { useRef, useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 // import '../styles/connexion_styles.css';
-import CompteService from '../../services/CompteService';
 import { UserContext } from '../../services/UserContext';
 const LOGIN_URL = 'Compte/getCompte';
 
