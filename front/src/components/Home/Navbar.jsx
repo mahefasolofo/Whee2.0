@@ -6,9 +6,8 @@ import jwt_decode from "jwt-decode";
 
 const NavBar =()=> {
     const{user} = useContext(UserContext);
-    
-    // localStorage.setItem('token',"eeea");
-    let value=45;
+    if(localStorage.getItem('token')!=null){
+
     if((localStorage.getItem('token').length>14)){
       value = jwt_decode(localStorage.getItem('token'));
       console.log(localStorage.getItem('token'))
@@ -17,7 +16,7 @@ const NavBar =()=> {
     }else{
       value = "nn";
     }
-    
+  }
 
       const afficherConnexion=()=> {
           document.getElementById('id01').style.display='block';    
@@ -76,7 +75,7 @@ const NavBar =()=> {
                                                                 </div>):(
                                                                   <div className="user_box_register user_box_a user_box_pdp" id="imgPdp" style ={{
                                                                     display: "flex"}}>
-                                                                                               <img src="images/review_2.jpg" alt="ImgPdp" id="pdpImage" />
+                                                                                               <img src={value.picture} alt="ImgPdp" id="pdpImage" />
                                                                                                {/* <a href="#" id="user_name " className='user_box_register user_box_a'> */}
                                                                                                <Dropdown style={{ color: "white" ,border: "none"}}>
                                                                                                 <Dropdown.Toggle variant="" className="menuDropDownItem" style={{ color: "white", backgroundColor: "rgba(0, 0, 0, 0.2)", border: "none" }}>
