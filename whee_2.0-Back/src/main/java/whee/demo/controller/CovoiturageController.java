@@ -12,7 +12,7 @@ import whee.demo.repository.CovoiturageRepository;
 
 import java.util.List;
 
-@CrossOrigin(origins ="http://localhost:3000/" )
+@CrossOrigin(origins = {"http://localhost:3001", "http://someserver:3000"}, allowCredentials = "true")
 @RestController
 @RequestMapping("/api/whee/")
 public class CovoiturageController {
