@@ -6,10 +6,12 @@ import jwt_decode from "jwt-decode";
 
 const NavBar =()=> {
 
-    const [currentUser, setUser]= useContext(UserContext);
+    const{user} = useContext(UserContext);
+    
+    
+    let value="jieo";
+    if(localStorage.getItem('token')!=null){
 
-   
-   if(localStorage.getItem('token')!=null){
     if((localStorage.getItem('token').length>14)){
       value = jwt_decode(localStorage.getItem('token'));
       console.log(localStorage.getItem('token'));
