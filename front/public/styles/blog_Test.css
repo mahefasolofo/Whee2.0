@@ -1,10 +1,10 @@
-@import url(&#34;
+/* @import url(&#34;
 https: //fonts.googleapis.com/css2?family=Baloo+2&amp;
 display=swap&#34;
-);
+); */
 
 /* This pen */
-body {
+/* body {
     font-family: &#34;
     Baloo 2&#34;
     ,
@@ -13,7 +13,7 @@ body {
     color: #fff;
     text-rendering: optimizeLegibility;
     font-weight: initial;
-}
+} */
 
 .dark {
     background: #110f16;
