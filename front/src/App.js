@@ -45,7 +45,16 @@ function App() {
     
       google.accounts.id.renderButton(
         document.getElementById("signInDiv"),
-        {theme: "outline", size : "large", width:"signInDiv"}
+        {theme: "outline", size : "large", width:"signInDiv",
+        'width': 1500,
+        'height': 150,
+        'longtitle': true,
+        'theme': 'dark',
+        'border-radius':180,
+        'border':'none',
+       
+      
+      }
     
       );
     },[] );
