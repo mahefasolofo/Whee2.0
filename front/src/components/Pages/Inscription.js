@@ -38,9 +38,9 @@ const Inscription= ()=> {
                 Bienvenue sur Whee!
               </h5>
             </div>
-            <div
-              style={{ alignItems: "start", marginLeft: 5 }}>
-                <b>Nom d'utilisateur*</b>
+            <div 
+              style={{ }}>
+                <b>Nom*</b>
               <input
                 type="text"
                 placeholder="Nom d'Utilisateur"
@@ -48,7 +48,7 @@ const Inscription= ()=> {
                 required="required" 
               />
               <b htmlFor="psw" >
-                Email*</b>
+              Prenom*</b>
              
               <input
                 type="text"
