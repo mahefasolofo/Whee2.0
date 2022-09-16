@@ -12,6 +12,7 @@ package whee.demo.entity; /**
  * License Type: Purchased
  */
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @Entity
 @Data
@@ -28,6 +31,8 @@ import java.util.List;
 @org.hibernate.annotations.Proxy(lazy=false)
 @Table(name="Event")
 public class Event implements Serializable {
+
+	public static final Locale LOCALE_FRANCE = new Locale("fr", "FR");
 
 	@Column(name="ID", nullable=false)	
 	@Id
@@ -41,14 +46,22 @@ public class Event implements Serializable {
 	private String lieuEvent;
 	
 	@Column(name="HeureEvent", nullable=true, columnDefinition = "TIME")
+	@DateTimeFormat(pattern = "hh:mm")
 	private String heureEvent;
 	
-	@Column(name="DateEvent", nullable=true)
+	@Column(name="DateEvent", nullable=true, columnDefinition = "DATE")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private String dateEvent;
+	private Date dateEvent;
 
 	@Column(name="Description")
 	private String description;
+
+	@Column(name="Image", nullable=true)
+	private String image;
+
+	@Column(name="Note", nullable=true)
+	private String note;
+
 	
 	@ManyToMany(targetEntity=Category.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
