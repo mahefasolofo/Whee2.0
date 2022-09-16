@@ -22,58 +22,13 @@ function App() {
   function handleCredentialResponse(response) {
     console.log("Encode JWT id Token: " + response.credential);
     console.log(jwt_decode(response.credential));
-<<<<<<< HEAD
-   
-    
-    document.getElementById('id01').style.display='none'; 
-    localStorage.setItem('token', response.credential);
-    console.log(jwt_decode(localStorage.getItem('token')));
-    const valeurInter = jwt_decode(localStorage.getItem('token'));
-    
-    setUser(jwt_decode(localStorage.getItem('token')));
-     
-  }
- 
-  
-   
-    useEffect(()=>{
-      /* global google */
-  
-      google.accounts.id.initialize({
-        client_id: '162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com',
-        callback: handleCredentialResponse,
-        
-      });
-     
-      
-    
-      google.accounts.id.renderButton(
-        document.getElementById("signInDiv"),
-        {theme: "outline", size : "large", width:"signInDiv",
-        'width': 1500,
-        'height': 150,
-        'longtitle': true,
-        'theme': 'dark',
-        'border-radius':180,
-        'border':'none',
-       
-      
-      }
-    
-      );
-    },[] );
-=======
->>>>>>> de534f9525d1788a1912d19ff6d137ca149419fd
-=======
-    //setAuth(jwt_decode(response.credential));
 
->>>>>>> e43e7a1445b29d775e0c39eaa557af12d5f876fe
+    //setAuth(jwt_decode(response.credential));
 
     document.getElementById("id01").style.display = "none";
     localStorage.setItem("token", response.credential);
     console.log(jwt_decode(localStorage.getItem("token")));
     setUser(jwt_decode(localStorage.getItem("token")));
->
   }
 
   useEffect(() => {
