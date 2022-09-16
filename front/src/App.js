@@ -12,7 +12,9 @@ import { Routes, Route } from "react-router-dom";
 import Connexion from "./components/Pages/Connexion";
 import Inscription from "./components/Pages/Inscription";
 import { UserContext } from './api/UserContext';
+import FormOffre from "./components/PublierOffre/FormOffre";
 import jwt_decode from "jwt-decode";
+
 
 
 
@@ -62,6 +64,7 @@ function App() {
   return (
     
     <React.Fragment>
+      <FormOffre/>
       <div className="super_container">
       <UserContext.Provider value={value}>
         <Navbar />

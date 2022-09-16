@@ -1,19 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 import bg from '../../images/background7.png'
 import Offerlist from '../PublierOffre/Offerlist';
 
 
+function Offre () {
+  const afficherInscription=()=> {
 
-export default class Offre extends Component {
-  render() {
-    const afficherInscription=()=> {
-
-
-
-      document.getElementById('annonceform').style.display='flex';    
-      
+    document.getElementById('formAnnonce').style.display='flex';    
+  
+  }
+  
     
-    }
     return (
       <React.Fragment>
           <div className="home_offre">
@@ -167,4 +164,5 @@ export default class Offre extends Component {
       
     )
   }
-}
+
+export default Offre
