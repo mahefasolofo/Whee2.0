@@ -5,19 +5,27 @@ import { Dropdown } from 'react-bootstrap';
 import jwt_decode from "jwt-decode";
 
 const NavBar =()=> {
+
     const{user} = useContext(UserContext);
-    let value="tes nul";
+   
+    let value="jieo";
+
     if(localStorage.getItem('token')!=null){
 
     if((localStorage.getItem('token').length>14)){
       value = jwt_decode(localStorage.getItem('token'));
+      console.log(localStorage.getItem('token'));
       console.log(localStorage.getItem('token'))
       value= jwt_decode(localStorage.getItem('token'));
+      console.log(jwt_decode(localStorage.getItem('token')));
       console.log(value);
+      
     }else{
       value = "nn";
     }
+
   }
+
 
       const afficherConnexion=()=> {
           document.getElementById('id01').style.display='block';    
@@ -27,7 +35,7 @@ const NavBar =()=> {
       document.getElementById('id02').style.display='block';    
     }
     const logOut=()=>{
-      localStorage.setItem('token', null);
+      localStorage.setItem('token', "tsia");
     }
     return (
       <React.Fragment>
@@ -76,6 +84,7 @@ const NavBar =()=> {
                                                                 </div>):(
                                                                   <div className="user_box_register user_box_a user_box_pdp" id="imgPdp" style ={{
                                                                     display: "flex"}}>
+
                                                                                                <img src={value.picture} alt="ImgPdp" id="pdpImage" />
                                                                                                {/* <a href="#" id="user_name " className='user_box_register user_box_a'> */}
                                                                                                <Dropdown style={{ color: "white" ,border: "none"}}>
