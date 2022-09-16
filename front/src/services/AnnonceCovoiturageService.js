@@ -19,6 +19,8 @@ class AnnonceCovoiturageService{
         return axios.put(ANNONCE_API_BASE_URL+'/'+annonceId, annonce);
     }
 
+    
+
 
 }
 
