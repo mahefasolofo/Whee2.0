@@ -7,7 +7,7 @@ import whee.demo.repository.CovoiturageRepository;
 
 import java.util.List;
 
-@CrossOrigin(origins ="http://localhost:3000/" )
+@CrossOrigin(origins = { "http://localhost:3001", "http://localhost:3000" }, allowCredentials = "true")
 @RestController
 @RequestMapping("/api/whee/")
 public class CovoiturageController {
@@ -16,11 +16,12 @@ public class CovoiturageController {
     private CovoiturageRepository covoiturageRepository;
 
     @GetMapping("/annonces")
-    public List<Covoiturage> getAllAnnonce(){
+    public List<Covoiturage> getAllAnnonce() {
         return covoiturageRepository.findAll();
     }
+
     @PostMapping("/annonces")
-    public Covoiturage createAnnonce(@RequestBody Covoiturage annonce ){
+    public Covoiturage createAnnonce(@RequestBody Covoiturage annonce) {
         return covoiturageRepository.save(annonce);
     }
 
