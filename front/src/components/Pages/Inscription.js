@@ -9,32 +9,12 @@ import { Helmet } from "react-helmet";
 const Inscription = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (d) => {
-    // d.date_naissance="hieu";
-    // d.interests = [];
-    // alert(JSON.stringify(d));
-    // alert(d);
     console.log(d);
     UserService.newCompte(d);
-    // UserService.newCompte(JSON.stringify(d));
-    //  alert("mety");
-    d.date_naissance = "aohana";
+    d.date_naissance = "";
     d.evalutaions = [];
     d.vehicules = [];
 
-    let a = {
-      nom: "RANDRIAMINAMBARY",
-      prenom: "Masina",
-      mail: "masina@gmail.com",
-      password: "0508",
-      genre: "Femme",
-      adresse: "Soavinimerina",
-      contact: "0345670631",
-      photo: null,
-      date_naissance: "1992-08-05",
-      interests: [],
-      vehicules: [],
-      evaluations: [],
-    };
     UserService.newCompte(d);
   };
 
