@@ -5,18 +5,28 @@ import { Dropdown } from 'react-bootstrap';
 import jwt_decode from "jwt-decode";
 
 const NavBar =()=> {
-    const{user} = useContext(UserContext);
+    const [currentUser, setUser]= useContext(UserContext);
+
+    let value="essai";
+    setUser("hye");
+    console.log({currentUser});
     
-    
-    let value=45;
+    console.log((localStorage.getItem('token')));
+    if(localStorage.getItem('token')==null){
+        localStorage.setItem('token', "sai");
+    }
     if((localStorage.getItem('token').length>14)){
       value = jwt_decode(localStorage.getItem('token'));
+      console.log(localStorage.getItem('token'));
       console.log(localStorage.getItem('token'))
       value= jwt_decode(localStorage.getItem('token'));
+      console.log(jwt_decode(localStorage.getItem('token')));
       console.log(value);
+      
     }else{
       value = "nn";
     }
+    
     
 
       const afficherConnexion=()=> {
@@ -27,7 +37,7 @@ const NavBar =()=> {
       document.getElementById('id02').style.display='block';    
     }
     const logOut=()=>{
-      localStorage.setItem('token', null);
+      localStorage.setItem('token', "tsia");
     }
     return (
       <React.Fragment>
@@ -76,7 +86,7 @@ const NavBar =()=> {
                                                                 </div>):(
                                                                   <div className="user_box_register user_box_a user_box_pdp" id="imgPdp" style ={{
                                                                     display: "flex"}}>
-                                                                                               <img src="images/review_2.jpg" alt="ImgPdp" id="pdpImage" />
+                                                                                               <img src={value.picture}alt="ImgPdp" id="pdpImage" />
                                                                                                {/* <a href="#" id="user_name " className='user_box_register user_box_a'> */}
                                                                                                <Dropdown style={{ color: "white" ,border: "none"}}>
                                                                                                 <Dropdown.Toggle variant="" className="menuDropDownItem" style={{ color: "white", backgroundColor: "rgba(0, 0, 0, 0.2)", border: "none" }}>
