@@ -53,8 +53,8 @@ const Connexion = ()=> {
                         <span onClick={closeConnexion} className="close" title="Fermer">
                             <i className="fa-solid fa-x close" />
                         </span>
-                        <h5 className="card-title text-center pb-0 fs-4">
-                            {" "} Bienvenue sur Whee!{user}
+                        <h5 className="card-title text-center pb-0 fs-4" id="titreInscription">
+                             Bienvenue sur Whee!
                         </h5>
                     </div>
                     <div className="container" style={{ alignItems: "start", marginLeft: 5 }}>
@@ -67,7 +67,7 @@ const Connexion = ()=> {
                             <b>Mot de Passe</b>
                         </label>
                         <input type="password" id="inputPassword" placeholder="Mot de passe" name="psw" onChange={(e) => setPwd(e.target.value)} value={pwd} required="" />
-                        <a id="lienMotDePasseOublie"> Mot de Passe Oublié? </a>
+                        <a id="lienMotDePasseOublie" href="#"> Mot de Passe Oublié? </a>
                         <button type="submit" className="buttonConnexion">
                             Se Connecter
                         </button>
@@ -79,7 +79,7 @@ const Connexion = ()=> {
                         </button>
                         <button id="signInDiv" className="connexionGoogle"></button>
                         <input type="checkbox" defaultChecked="checked" name="remember" />{" "}
-                        Se Souvenir de moi
+                        <label id="seSouvenirDeMoi">Se Souvenir de moi</label> 
                         <div style={{ marginTop: 12, textAlign: "center" }}>
                             <span className="" id="spanCondition" style={{
                         WebkitFontSmoothing: "antialiased",
