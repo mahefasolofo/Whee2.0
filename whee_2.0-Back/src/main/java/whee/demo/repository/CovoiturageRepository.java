@@ -10,8 +10,7 @@ import java.util.List;
 @Repository
 public interface CovoiturageRepository extends JpaRepository<Covoiturage,Long> {
 
-    @Query("SELECT all FROM public.covoiturage WHERE covoitureur_id=")
-    List<Covoiturage> findByCovoitureur();
+
    
 
 }
