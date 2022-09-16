@@ -59,6 +59,9 @@ const NavBar =()=> {
                                     <li className="main_nav_item">
                                         <a href="/evenements">évènements</a>
                                     </li>
+                                    {value.length<100?null:(<li className="main_nav_item">
+                                        <a href="/Home">Espace Personel</a>
+                                    </li>)}
                                     <li className="main_nav_item">
                                         <a href="/a_propos">à propos</a>
                                     </li>
