@@ -1,12 +1,14 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { useForm } from "react-hook-form";
 import PropTypes from "prop-types";
 // import '../styles/inscription_styles.css';
 import UserService from "../../services/UserService";
+import InterestService from "../../services/InterestService";
 
 import { Helmet } from "react-helmet";
 
 const Inscription = () => {
+
   const { register, handleSubmit } = useForm();
   const onSubmit = (d) => {
     // d.date_naissance="hieu";
@@ -20,27 +22,18 @@ const Inscription = () => {
     d.date_naissance = "aohana";
     d.evalutaions = [];
     d.vehicules = [];
-
-    let a = {
-      nom: "RANDRIAMINAMBARY",
-      prenom: "Masina",
-      mail: "masina@gmail.com",
-      password: "0508",
-      genre: "Femme",
-      adresse: "Soavinimerina",
-      contact: "0345670631",
-      photo: null,
-      date_naissance: "1992-08-05",
-      interests: [],
-      vehicules: [],
-      evaluations: [],
-    };
     UserService.newCompte(d);
+    InterestService.get
+
   };
 
   const closeInscription = () => {
     document.getElementById("id02").style.display = "none";
   };
+  
+  
+
+  
 
   return (
     <div>
