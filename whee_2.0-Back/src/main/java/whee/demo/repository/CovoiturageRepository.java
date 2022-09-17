@@ -1,23 +1,28 @@
 package whee.demo.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import whee.demo.entity.Covoiturage;
 
-import java.util.List;
-
 @Repository
-public interface CovoiturageRepository extends JpaRepository<Covoiturage,Long> {
+public interface CovoiturageRepository extends JpaRepository<Covoiturage, Long> {
 
+    @Query(value = "SELECT * FROM public.covoiturage WHERE covoitureur_id=?1", nativeQuery = true)
+    List<Covoiturage> findAndrana(@Param("nb_place") Long id_covoit);
 
-<<<<<<< HEAD
-    @Query(value = "SELECT id FROM public.covoiturage WHERE covoitureur_id= :id", nativeQuery = true)
-    List<Covoiturage> findByCovoitureur(@Param("id")Long id);
-//   ne fonctionne pas encore : Mahefa
-=======
-   
->>>>>>> 368a854bd343145a6a5add108c7b268fee508959
+    // @Query(value="select * from public.covoiturage c where c.covoitureur_id=
+    // :id_covoit", nativeQuery=true)
+    // List<Covoiturage> findTout(Long id_covoit);
+    //
+    // @Query(value="select * from public.covoiturage a where a.covoitureur_id=
+    // :id_covoit", nativeQuery=true)
+    // List<Covoiturage> getTout(Long id_covoit);
 
+    // @Query(value="SELECT * FROM public.covoiturage WHERE
+    // covoitureur_id=2",nativeQuery = true)
+    // List<Covoiturage> findDaholo();
 }
