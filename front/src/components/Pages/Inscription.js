@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import PropTypes from "prop-types";
 // import '../styles/inscription_styles.css';
 import UserService from "../../services/UserService";
-import InterestService from "../../services/InterestService";
+// import InterestService from "../../services/InterestService";
 
 import { Helmet } from "react-helmet";
 
@@ -18,7 +18,7 @@ const Inscription = () => {
     d.vehicules = [];
 
     UserService.newCompte(d);
-    InterestService.get
+    // InterestService.get
 
   };
 

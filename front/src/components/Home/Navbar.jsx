@@ -62,13 +62,16 @@ const NavBar = () => {
                     </li>
                     {value.length < 100 ? null : (
                       <li className="main_nav_item">
-                        <a href="/Home">Espace Personel</a>
+                        <a href="/espaceperso">Espace Personel</a>
                       </li>
                     )}
                     <li className="main_nav_item">
                       <a href="/a_propos">à propos</a>
                     </li>
                   </ul>
+                </div>
+                <div className="hamburger">
+                  <i className="fa fa-bars trans_200" />
                 </div>
                 {value.length < 100 ? (
                   <div className="user_box ml-auto user_box_s">
@@ -138,9 +141,7 @@ const NavBar = () => {
                 <form id="search_form" className="search_form bez_1">
                   <input type="search" className="search_content_input bez_1" />
                 </form>
-                <div className="hamburger">
-                  <i className="fa fa-bars trans_200" />
-                </div>
+                
               </div>
             </div>
           </div>
