@@ -57,9 +57,11 @@ const Offeritem = ({ offer, compte, vehicule }) => {
                       <Moment format="Do MMMM YYYY">{dateCovoit}</Moment>
                     </div>
 
+
                     <div className="offerReviews_subtitle">
                       {t}
                     </div>
+
                   </div>
                 </div>
                 <p className="offersText">
