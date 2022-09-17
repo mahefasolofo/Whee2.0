@@ -1,7 +1,6 @@
 package whee.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.ResourceAccessException;
 
-=======
-import org.springframework.web.bind.annotation.*;
->>>>>>> d9ee7e0a47f41fd3f41adb4c4e4f4763c9975631
 import whee.demo.entity.Event;
 import whee.demo.repository.EventRepository;
 
@@ -33,7 +29,6 @@ public class EventController {
         return eventRepository.findAll();
     }
 
-<<<<<<< HEAD
     @PostMapping("/events")
     public Event createEvent(@RequestBody Event event) {
         return eventRepository.save(event);
@@ -66,10 +61,10 @@ public class EventController {
         return ResponseEntity.ok(updateEvent);
 
     }
-=======
+
     @GetMapping("/findEventByIdCovoit/{userid}")
-    public List<Event> findEventByUserId(@PathVariable Long userid){return eventRepository.findEventByUserId(userid);}
+    public List<Event> findEventByUserId(@PathVariable Long userid) {
+        return eventRepository.findEventByUserId(userid);
+    }
 
-
->>>>>>> d9ee7e0a47f41fd3f41adb4c4e4f4763c9975631
 }
