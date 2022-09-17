@@ -70,6 +70,9 @@ const NavBar = () => {
                     </li>
                   </ul>
                 </div>
+                <div className="hamburger">
+                  <i className="fa fa-bars trans_200" />
+                </div>
                 {value.length < 100 ? (
                   <div className="user_box ml-auto user_box_s">
                     <div className="user_box_login user_box_link user_box_a">
@@ -138,9 +141,7 @@ const NavBar = () => {
                 <form id="search_form" className="search_form bez_1">
                   <input type="search" className="search_content_input bez_1" />
                 </form>
-                <div className="hamburger">
-                  <i className="fa fa-bars trans_200" />
-                </div>
+                
               </div>
             </div>
           </div>
