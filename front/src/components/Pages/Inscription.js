@@ -8,7 +8,8 @@ import InterestService from "../../services/InterestService";
 import { Helmet } from "react-helmet";
 
 const Inscription = () => {
-
+ 
+  
   const { register, handleSubmit } = useForm();
   const onSubmit = (d) => {
     // d.date_naissance="hieu";
@@ -23,13 +24,15 @@ const Inscription = () => {
     d.evalutaions = [];
     d.vehicules = [];
     UserService.newCompte(d);
-    InterestService.get
+    let response = InterestService.getInterest();
+    alert(response.data[i]);
 
   };
 
   const closeInscription = () => {
     document.getElementById("id02").style.display = "none";
   };
+
   
   
 
@@ -142,17 +145,9 @@ const Inscription = () => {
                     >
                       <button
                         aria-label=""
-                        className=" active"
+                        className="buttonConnexionInscription active"
                         data-test-id="login-signup-toggle"
                         type="button"
-                        style={{
-                          background: "none",
-                          alignItems: "center",
-                          border: "none",
-                          color: "rgb(51, 51, 51)",
-                          marginLeft: 5,
-                          fontWeight: "bold",
-                        }}
                       >
                         Vous êtes déjà sur Whee!&nbsp;? Connectez-vous
                       </button>
@@ -179,7 +174,9 @@ const Inscription = () => {
                 >
                   Vous êtes identifié en tant que:
                 </h5>
-                {/* <div class="form-group"> */}
+                {/* <div className="form-group"> */}
+
+
                 <table>
                   <tbody>
                     <tr>
@@ -330,194 +327,133 @@ const Inscription = () => {
                   Dernière étape ! Dites-nous ce qui vous intéresse{" "}
                 </h3>
                 <div className="rowCentreInteret row" style={{ width: "100%" }}>
-                  <div
-                    className="col-2 divCentreInteret"
-                    style={{ backgroundImage: 'url("images/gallery_1.jpg")' }}
-                  >
-                    <label className="option_item">
-                      <div className="round">
-                        {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
-                        <label htmlFor="checkbox" />
-                      </div>
-                      <div className="overlay-image">
-                        <label htmlFor="" className="labelCentreInteret">
-                          Politique
-                        </label>
-                      </div>
-                    </label>
-                  </div>
-                  <div
-                    className="col-2 divCentreInteret"
-                    style={{ backgroundImage: 'url("images/gallery_2.jpg")' }}
-                  >
-                    <label className="option_item">
-                      <div className="round">
-                        {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
-                        <label htmlFor="checkbox" />
-                      </div>
-                      <div className="overlay-image">
-                        <label htmlFor="" className="labelCentreInteret">
+                <div className="col-2 divCentreInteret"   style={{ backgroundImage: 'url("images/gallery_2.jpg")' }}>
+                               
+                               <label className="option_item overlay-image">
+                               
+                                   <input type="checkbox"  id="checkbox" className="checkbox-rounded" />
+                                   
+                              <label htmlFor="" className="labelCentreInteret">
                           Tennis
                         </label>
-                      </div>
-                    </label>
-                  </div>
+                            
+                               </label>
+                           </div>
+                           <div className="col-2 divCentreInteret"   style={{ backgroundImage: 'url("images/gallery_2.jpg")' }}>
+                               
+                               <label className="option_item overlay-image">
+                               
+                                   <input type="checkbox"  id="checkbox" className="checkbox-rounded" />
+                                   
+                              <label htmlFor="" className="labelCentreInteret">
+                          Tennis
+                        </label>
+                            
+                               </label>
+                           </div>
+                           <div className="col-2 divCentreInteret"   style={{ backgroundImage: 'url("images/gallery_2.jpg")' }}>
+                               
+                               <label className="option_item overlay-image">
+                               
+                                   <input type="checkbox"  id="checkbox" className="checkbox-rounded" />
+                                   
+                              <label htmlFor="" className="labelCentreInteret">
+                          Tennis
+                        </label>
+                            
+                               </label>
+                           </div>
+                           <div className="col-2 divCentreInteret"   style={{ backgroundImage: 'url("images/gallery_2.jpg")' }}>
+                               
+                               <label className="option_item overlay-image">
+                               
+                                   <input type="checkbox"  id="checkbox" className="checkbox-rounded" />
+                                   
+                              <label htmlFor="" className="labelCentreInteret">
+                          Tennis
+                        </label>
+                            
+                               </label>
+                           </div>
+                           <div className="col-2 divCentreInteret"   style={{ backgroundImage: 'url("images/gallery_2.jpg")' }}>
+                               
+                               <label className="option_item overlay-image">
+                               
+                                   <input type="checkbox"  id="checkbox" className="checkbox-rounded" />
+                                   
+                              <label htmlFor="" className="labelCentreInteret">
+                          Tennis
+                        </label>
+                            
+                               </label>
+                           </div>
+                           <div className="col-2 divCentreInteret"   style={{ backgroundImage: 'url("images/gallery_2.jpg")' }}>
+                               
+                               <label className="option_item overlay-image">
+                               
+                                   <input type="checkbox"  id="checkbox" className="checkbox-rounded" />
+                                   
+                              <label htmlFor="" className="labelCentreInteret">
+                          Tennis
+                        </label>
+                            
+                               </label>
+                           </div>
+                           <div className="col-2 divCentreInteret"   style={{ backgroundImage: 'url("images/gallery_2.jpg")' }}>
+                               
+                               <label className="option_item overlay-image">
+                               
+                                   <input type="checkbox"  id="checkbox" className="checkbox-rounded" />
+                                   
+                              <label htmlFor="" className="labelCentreInteret">
+                          Tennis
+                        </label>
+                            
+                               </label>
+                           </div>
+                           <div className="col-2 divCentreInteret"   style={{ backgroundImage: 'url("images/gallery_5.jpg")' }}>
+                               
+                               <label className="option_item overlay-image">
+                               
+                                   <input type="checkbox"  id="checkbox" className="checkbox-rounded" />
+                                   
+                              <label htmlFor="" className="labelCentreInteret">
+                          Tennis
+                        </label>
+                            
+                               </label>
+                           </div>
+                           <div className="col-2 divCentreInteret"   style={{ backgroundImage: 'url("images/gallery_4.jpg")' }}>
+                               
+                               <label className="option_item overlay-image">
+                               
+                                   <input type="checkbox"  id="checkbox" className="checkbox-rounded" />
+                                   
+                              <label htmlFor="" className="labelCentreInteret">
+                          Tennis
+                        </label>
+                            
+                               </label>
+                           </div>
+                           <div className="col-2 divCentreInteret"   style={{ backgroundImage: 'url("images/gallery_6.jpg")' }}>
+                               
+                               <label className="option_item overlay-image">
+                               
+                                   <input type="checkbox"  id="checkbox" className="checkbox-rounded" />
+                                   
+                              <label htmlFor="" className="labelCentreInteret">
+                          Tennis
+                        </label>
+                            
+                               </label>
+                           </div>
                   <div
                     className="col-2 divCentreInteret"
                     style={{ backgroundImage: 'url("images/gallery_3.jpg")' }}
                   >
                     <label className="option_item">
                       <div className="round">
-                        {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
-                        <label htmlFor="checkbox" />
-                      </div>
-                      <div className="overlay-image">
-                        <label htmlFor="" className="labelCentreInteret">
-                          Voitures
-                        </label>
-                      </div>
-                    </label>
-                  </div>
-                  <div
-                    className="col-2 divCentreInteret"
-                    style={{
-                      backgroundImage: 'url("centreInteret/basketball.jpg")',
-                    }}
-                  >
-                    <label className="option_item">
-                      <div className="round">
-                        {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
-                        <label htmlFor="checkbox" />
-                      </div>
-                      <div className="overlay-image">
-                        <label htmlFor="" className="labelCentreInteret">
-                          BasketBall
-                        </label>
-                      </div>
-                    </label>
-                  </div>
-                  <div
-                    className="col-2 divCentreInteret"
-                    style={{ backgroundImage: 'url("images/gallery_5.jpg")' }}
-                  >
-                    <label className="option_item">
-                      <div className="round">
-                        {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
-                        <label htmlFor="checkbox" />
-                      </div>
-                      <div className="overlay-image">
-                        <label htmlFor="" className="labelCentreInteret">
-                          Pétanque
-                        </label>
-                      </div>
-                    </label>
-                  </div>
-                  <div
-                    className="col-2 divCentreInteret"
-                    style={{ backgroundImage: 'url("images/gallery_1.jpg")' }}
-                  >
-                    <label className="option_item">
-                      <div className="round">
-                        {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
-                        <label htmlFor="checkbox" />
-                      </div>
-                      <div className="overlay-image">
-                        <label htmlFor="" className="labelCentreInteret">
-                          Pop
-                        </label>
-                      </div>
-                    </label>
-                  </div>
-                  <div
-                    className="col-2 divCentreInteret"
-                    style={{ backgroundImage: 'url("images/gallery_1.jpg")' }}
-                  >
-                    <label className="option_item">
-                      <div className="round">
-                        {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
-                        <label htmlFor="checkbox" />
-                      </div>
-                      <div className="overlay-image">
-                        <label htmlFor="" className="labelCentreInteret">
-                          Rock
-                        </label>
-                      </div>
-                    </label>
-                  </div>
-                  <div
-                    className="col-2 divCentreInteret"
-                    style={{ backgroundImage: 'url("images/gallery_1.jpg")' }}
-                  >
-                    <label className="option_item">
-                      <div className="round">
-                        {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
-                        <label htmlFor="checkbox" />
-                      </div>
-                      <div className="overlay-image">
-                        <label htmlFor="" className="labelCentreInteret">
-                          Voyages
-                        </label>
-                      </div>
-                    </label>
-                  </div>
-                  <div
-                    className="col-2 divCentreInteret"
-                    style={{ backgroundImage: 'url("images/gallery_2.jpg")' }}
-                  >
-                    <label className="option_item">
-                      <div className="round">
-                        {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
-                        <label htmlFor="checkbox" />
-                      </div>
-                      <div className="overlay-image">
-                        <label htmlFor="" className="labelCentreInteret">
-                          Opéra
-                        </label>
-                      </div>
-                    </label>
-                  </div>
-                  <div
-                    className="col-2 divCentreInteret"
-                    style={{
-                      backgroundImage: 'url("images/gallery_3.jpg")',
-                      marign: 0,
-                    }}
-                  >
-                    <label className="option_item">
-                      <div className="round">
-                        {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
-                        <label htmlFor="checkbox" />
-                      </div>
-                      <div className="overlay-image">
-                        <label htmlFor="" className="labelCentreInteret">
-                          Photographie
-                        </label>
-                      </div>
-                    </label>
-                  </div>
-                  <div
-                    className="col-2 divCentreInteret"
-                    style={{ backgroundImage: 'url("images/gallery_4.jpg")' }}
-                  >
-                    <label className="option_item">
-                      <div className="round">
-                        {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
-                        <label htmlFor="checkbox" />
-                      </div>
-                      <div className="overlay-image">
-                        <label htmlFor="" className="labelCentreInteret">
-                          Voyage
-                        </label>
-                      </div>
-                    </label>
-                  </div>
-                  <div
-                    className="col-2 divCentreInteret"
-                    style={{ backgroundImage: 'url("images/gallery_5.jpg")' }}
-                  >
-                    <label className="option_item">
-                      <div className="round">
-                        {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
+                        {/* <input type="checkbox" checked id="checkbox" className="checkbox-rounded" /> */}
                         <label htmlFor="checkbox" />
                       </div>
                       <div className="overlay-image">
@@ -527,58 +463,54 @@ const Inscription = () => {
                       </div>
                     </label>
                   </div>
-                  <div
-                    className="col-2 divCentreInteret"
-                    style={{ backgroundImage: 'url("images/gallery_1.jpg")' }}
-                  >
-                    <label className="option_item">
-                      <div className="round">
-                        {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
-                        <label htmlFor="checkbox" />
-                      </div>
-                      <div className="overlay-image">
-                        <label htmlFor="" className="labelCentreInteret">
-                          Voyage
+                  <div className="col-2 divCentreInteret"   style={{ backgroundImage: 'url("images/gallery_3.jpg")' }}>
+                               
+                               <label className="option_item overlay-image">
+                               
+                                   <input type="checkbox"  id="checkbox" className="checkbox-rounded" />
+                                   
+                              <label htmlFor="" className="labelCentreInteret">
+                        Football
                         </label>
-                      </div>
-                    </label>
-                  </div>
-                  <div
-                    className="col-2 divCentreInteret"
-                    style={{
-                      backgroundImage: 'url("images/gallery_1.jpg")',
-                      backgroundColor: "black",
-                    }}
-                  >
-                    <label className="option_item">
-                      <div className="round">
-                        {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
-                        <label htmlFor="checkbox" />
-                      </div>
-                      <div className="overlay-image">
-                        <label htmlFor="" className="labelCentreInteret">
-                          {" "}
-                          Coiffures homme
+                            
+                               </label>
+                           </div>
+                           <div className="col-2 divCentreInteret"   style={{ backgroundImage: 'url("images/gallery_5.jpg")' }}>
+                               
+                               <label className="option_item overlay-image">
+                               
+                                   <input type="checkbox"  id="checkbox" className="checkbox-rounded" />
+                                   
+                              <label htmlFor="" className="labelCentreInteret">
+                         Politique
                         </label>
-                      </div>
-                    </label>
-                  </div>
-                  <div
-                    className="col-2 divCentreInteret"
-                    style={{ backgroundImage: 'url("images/gallery_4.jpg")' }}
-                  >
-                    <label className="option_item">
-                      <div className="round">
-                        {/* <input type="checkbox" checked id="checkbox" class="checkbox-rounded" /> */}
-                        <label htmlFor="checkbox" />
-                      </div>
-                      <div className="overlay-image">
-                        <label htmlFor="" className="labelCentreInteret">
-                          FootBall
+                            
+                               </label>
+                           </div>
+                           <div className="col-2 divCentreInteret"   style={{ backgroundImage: 'url("images/gallery_4.jpg")' }}>
+                               
+                               <label className="option_item overlay-image">
+                               
+                                   <input type="checkbox"  id="checkbox" className="checkbox-rounded" />
+                                   
+                              <label htmlFor="" className="labelCentreInteret">
+                         Musique
                         </label>
-                      </div>
-                    </label>
-                  </div>
+                            
+                               </label>
+                           </div>
+                           <div className="col-2 divCentreInteret"   style={{ backgroundImage: 'url("images/gallery_3.jpg")' }}>
+                               
+                               <label className="option_item overlay-image">
+                               
+                                   <input type="checkbox"  id="checkbox" className="checkbox-rounded" />
+                                   
+                              <label htmlFor="" className="labelCentreInteret">
+                          Basket
+                        </label>
+                            
+                               </label>
+                           </div>
                 </div>
                 <button type="submit" className="buttonInscription">
                   S'INSCRIRE
