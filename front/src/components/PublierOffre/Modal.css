@@ -6,30 +6,76 @@
 	display: none;
 
 }
+.form-container{
+  display: block;
+}
 .modalBackground {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.50);
+    background-color: rgba(0, 0, 0, 0.2);
     position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 90;
   }
-  
+  .fa-times-circle{
+    color: #D62828;
+  }
+
+
+
   .modalContainer {
     width: 900px;
     height: 550px;
     border-radius: 12px;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
     display: flex;
-    display: block;
-    
-
-    
+    /* display: block; */
     flex-direction: column;
+    align-items: flex-end;
     padding: 25px;
+    padding-left: 170px;
+  }
+  .container2{
+    margin-left: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .headerF h1{
+    color:#003049;
+    margin-bottom: 0.5rem!important;
+    font-weight: 600!important;
+    line-height: 1.2!important;
+  }
+  .btn-primary{
+    background: #003049;
+    width: 186px;
+    margin-top: 39px;
+    margin-bottom: 5px;
+    margin-right: 100px;
+    /* margin-left: 100px; */
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+
+    display: inline-block;
+    height: 53px;
+    border-radius: 27px;
+    overflow: hidden;
+    z-index: 1;
+    border: none;
+  }
+  .btn-primary:hover{
+    background: #003049;
+    opacity: 0.8!important;
+  }
+  button:disabled{
+    background: #cacaca!important;
   }
   
   .modalContainer .title {
@@ -37,6 +83,23 @@
     text-align: center;
     margin-top: 10px;
     
+  }
+  .modalContainer input{
+    width: 500px;
+    background-color: #f8f8f8;
+   
+  }
+  input[type=date],input[type=time]{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+   
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 2px;
   }
   
   .titleCloseBtn {

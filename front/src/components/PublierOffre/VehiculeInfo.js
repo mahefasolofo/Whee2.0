@@ -5,6 +5,7 @@ function VehiculeInfo({ formData, setFormData }) {
     <div className="other-info-container">
       <input
         type="text"
+        className="form-control"
         placeholder="Nombre de Place..."
         value={formData.nbPlace}
         onChange={(e) => {
@@ -13,6 +14,7 @@ function VehiculeInfo({ formData, setFormData }) {
       />
       <input
         type="text"
+        className="form-control"
         placeholder="Other..."
         value={formData.tarif}
         onChange={(e) => {

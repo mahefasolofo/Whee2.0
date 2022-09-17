@@ -20,6 +20,7 @@ function TrajetInfo({ formData, setFormData }) {
   };
   
   return (
+    
     <LoadScript
             googleMapsApiKey ={api}
             libraries={["places"]}
@@ -28,23 +29,25 @@ function TrajetInfo({ formData, setFormData }) {
                 <div>
                     <input
                         type="text"
+                        className="form-control"
                         placeholder="Point de Départ..."
                         ref={originRef}
                         
                     />
-                    </div>
+                </div>
                     </Autocomplete> 
                     <Autocomplete>
                     <div>
                     <input
                         type="text"
-                        placeholder="Point d'Arriver..."
+                        className="form-control"
+                        placeholder="Point d'Arrivée..."
                         ref={destiantionRef}
                     />
                     </div>
             </Autocomplete>
 
-            <button type='button' onClick={Valider}>Valider</button>
+            <button type='button' className="btn btn-primary" onClick={Valider}>Valider</button>
     </LoadScript>
   );
 }
