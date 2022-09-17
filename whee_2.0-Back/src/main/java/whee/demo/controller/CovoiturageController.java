@@ -25,7 +25,8 @@ public class CovoiturageController {
         return covoiturageRepository.save(annonce);
     }
 
-    @GetMapping("/findByIdCovoit/{id}")
-    public List<Covoiturage> findByCovoitureur(Long id){return covoiturageRepository.findByCovoitureur(id);}
-    //   ne fonctionne pas encore : Mahefa
+    // @GetMapping("/findByIdCovoit/{id}")
+    // public List<Covoiturage> findByCovoitureur(Long id){return
+    // covoiturageRepository.findByCovoitureur(id);}
+    // // ne fonctionne pas encore : Mahefa
 }

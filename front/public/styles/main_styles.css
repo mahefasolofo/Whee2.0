@@ -156,7 +156,7 @@ h6::selection
 }
 .form-control
 {
-	color: #db5246;
+	color: #929191;
 }
 section
 {
@@ -1762,6 +1762,7 @@ section
 	font-weight: 700;
 	color: #003049;
 	line-height: 25px;
+	margin-top: 10px;
 	
 }
 .offers_price span

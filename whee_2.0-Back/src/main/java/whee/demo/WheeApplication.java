@@ -4,12 +4,14 @@ package whee.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import whee.demo.entity.Category;
 import whee.demo.entity.Interest;
 import whee.demo.repository.CategoryRepository;
 import whee.demo.repository.InterestRepository;
 
 import javax.annotation.PostConstruct;
+
 // import whee.demo.entity.User;
 // import whee.demo.repository.UserRepository;
 
@@ -23,11 +25,6 @@ public class WheeApplication {
 
 	}
 
-	@Autowired
-	private InterestRepository interestRepository;
-
-	@Autowired
-	private CategoryRepository categoryRepository;
 
 
 }
