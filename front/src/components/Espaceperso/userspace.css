@@ -57,6 +57,7 @@ table.shoping-cart-table tr td:last-child {
   width: 80px;
   
 }
+
 .ibox {
   clear: both;
   margin-bottom: 25px;
@@ -65,6 +66,8 @@ table.shoping-cart-table tr td:last-child {
   
   
 }
+
+ 
 .box_ibox{
   background-color: #fff;
   border-radius: 15px!important;
@@ -81,6 +84,7 @@ table.shoping-cart-table tr td:last-child {
 .ibox:before {
   display: table;
 }
+
 .ibox-title {
   -moz-border-bottom-colors: none;
   -moz-border-left-colors: none;
@@ -96,6 +100,7 @@ table.shoping-cart-table tr td:last-child {
   padding: 14px 15px 7px;
   min-height: 48px;
 }
+ 
 .ibox-content {
   background-color: #ffffff;
   color: inherit;
@@ -172,6 +177,7 @@ table.shoping-cart-table tr td:last-child {
   max-width: 90vw;
   margin-left: 200px;
 }
+
 .annoncetype_cont {
   width: fit-content;
 
@@ -188,18 +194,19 @@ table.shoping-cart-table tr td:last-child {
 
 
 
-.card{
+.card1 {
 
 	width: 350px;
 	border: none;
 	box-shadow: 0 15px 31px -12px rgba(0, 0, 0, 0.8)!important;
-	
+	background-color: #fff;
+
   border-bottom-right-radius: 15px !important;
 	border-bottom-left-radius: 15px !important;
   border-top-left-radius: 15px !important;
   border-top-right-radius: 15px !important;
 }
-
+ 
 .circle-image img{
 
 	border: 6px solid #fff;
@@ -349,4 +356,4 @@ table.shoping-cart-table tr td:last-child {
  margin-left: 50px;
  text-align: center;
  column-width: 100px;
-}
+} 
