@@ -9,8 +9,10 @@ public class CovoiturageService {
 
     private CovoiturageRepository covoiturageRepository;
 
-    public List<Covoiturage> findByCovoitureur(Long id) {
-        return covoiturageRepository.findByCovoitureur(id);
-    }
+//    public List<Covoiturage> findByCovoitureur(String arrivee) {
+//        return covoiturageRepository.findByCovoitureur(arrivee);
+//    }
     //   ne fonctionne pas encore : Mahefa
+
+
 }

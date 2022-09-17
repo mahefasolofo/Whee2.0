@@ -1,8 +1,11 @@
 package whee.demo;
 
 // import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import whee.demo.entity.Covoiturage;
+import whee.demo.services.CovoiturageService;
 // import whee.demo.entity.User;
 // import whee.demo.repository.UserRepository;
 
@@ -17,7 +20,8 @@ public class WheeApplication {
 	}
 	// @Autowired
 	// private UserRepository userRepository;
-
+//	@Autowired
+//	private CovoiturageService covoiturageService;
 	// @PostConstruct
 	// private void postConstruct() {
 	// User admin = new User();

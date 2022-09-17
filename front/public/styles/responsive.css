@@ -163,6 +163,11 @@
 	.hamburger
 	{
 		display: block;
+		margin-left: -200px;
+	}
+	#imgPdp{
+		margin-left: auto;
+		margin-right: 20px;
 	}
 	.search
 	{
