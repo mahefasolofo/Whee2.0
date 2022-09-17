@@ -12,17 +12,12 @@ const Inscription = () => {
   
   const { register, handleSubmit } = useForm();
   const onSubmit = (d) => {
-    // d.date_naissance="hieu";
-    // d.interests = [];
-    // alert(JSON.stringify(d));
-    // alert(d);
     console.log(d);
     UserService.newCompte(d);
-    // UserService.newCompte(JSON.stringify(d));
-    //  alert("mety");
-    d.date_naissance = "aohana";
+    d.date_naissance = "";
     d.evalutaions = [];
     d.vehicules = [];
+
     UserService.newCompte(d);
     let response = InterestService.getInterest();
     alert(response.data[i]);
