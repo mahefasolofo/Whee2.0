@@ -12,12 +12,9 @@ import java.util.List;
 public interface CovoiturageRepository extends JpaRepository<Covoiturage,Long> {
 
 
-<<<<<<< HEAD
+
     @Query(value = "SELECT id FROM public.covoiturage WHERE covoitureur_id= :id", nativeQuery = true)
     List<Covoiturage> findByCovoitureur(@Param("id")Long id);
-//   ne fonctionne pas encore : Mahefa
-=======
-   
->>>>>>> 368a854bd343145a6a5add108c7b268fee508959
+
 
 }

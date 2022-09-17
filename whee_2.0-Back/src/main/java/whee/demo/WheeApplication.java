@@ -22,27 +22,12 @@ public class WheeApplication {
 		SpringApplication.run(WheeApplication.class, args);
 
 	}
-	 @Autowired
+
+	@Autowired
 	private InterestRepository interestRepository;
 
 	@Autowired
 	private CategoryRepository categoryRepository;
 
 
-	 @PostConstruct
-	 private void postConstruct() {
-		 Category categ = new Category();
-		 categ.setNomCateg("footablle");
-		 categoryRepository.save(categ);
-
-		 for (int i = 0; i < 12; i++) {
-			 Interest interest = new Interest();
-			 interest.setNomCI("joel");
-			 interest.setCategory(categ);
-
-
-
-			 interestRepository.save(interest);
-		 }
-	 }
 }
