@@ -1,12 +1,7 @@
 package whee.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import whee.demo.entity.Covoiturage;
 import whee.demo.repository.CovoiturageRepository;
 
@@ -29,4 +24,8 @@ public class CovoiturageController {
     public Covoiturage createAnnonce(@RequestBody Covoiturage annonce) {
         return covoiturageRepository.save(annonce);
     }
+
+    @GetMapping("/findCovoitByIdCovoit/{id_covoitureur}")
+    public List<Covoiturage> findTout(@PathVariable Long id_covoitureur){return covoiturageRepository.findAndrana(id_covoitureur);}
+
 }

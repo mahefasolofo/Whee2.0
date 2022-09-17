@@ -1,12 +1,14 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { useForm } from "react-hook-form";
 import PropTypes from "prop-types";
 // import '../styles/inscription_styles.css';
 import UserService from "../../services/UserService";
+// import InterestService from "../../services/InterestService";
 
 import { Helmet } from "react-helmet";
 
 const Inscription = () => {
+
   const { register, handleSubmit } = useForm();
   const onSubmit = (d) => {
     console.log(d);
@@ -16,11 +18,17 @@ const Inscription = () => {
     d.vehicules = [];
 
     UserService.newCompte(d);
+    // InterestService.get
+
   };
 
   const closeInscription = () => {
     document.getElementById("id02").style.display = "none";
   };
+  
+  
+
+  
 
   return (
     <div>
