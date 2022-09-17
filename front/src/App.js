@@ -7,6 +7,7 @@ import Demande from "./components/Pages/Demande";
 import Footer from "./components/Home/Footer";
 import Navbar from "./components/Home/Navbar";
 import Evenements from "./components/Pages/Evenements";
+import Espaceperso from "./components/Pages/EspacePerso";
 import About from "./components/Pages/About";
 import { Routes, Route } from "react-router-dom";
 import Connexion from "./components/Pages/Connexion";
@@ -67,6 +68,7 @@ function App() {
             <Route path="/offres" element={<Offre />} />
             <Route path="/demandes" element={<Demande />} />
             <Route path="/evenements" element={<Evenements />} />
+            <Route path="/espaceperso" element={<Espaceperso />} />
             <Route path="/a_propos" element={<About />} />
           </Routes>
 

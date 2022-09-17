@@ -62,7 +62,7 @@ const NavBar = () => {
                     </li>
                     {value.length < 100 ? null : (
                       <li className="main_nav_item">
-                        <a href="/Home">Espace Personel</a>
+                        <a href="/espaceperso">Espace Personel</a>
                       </li>
                     )}
                     <li className="main_nav_item">
