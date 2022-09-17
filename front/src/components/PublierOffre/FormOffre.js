@@ -13,7 +13,7 @@ function FormOffre() {
     ptArrivee: "",
     heureCovoit: "",
     dateCovoit: "",
-    image:null,
+    image: null,
     event: null,
     tarif: "",
     nbPlace: "",
@@ -75,9 +75,8 @@ function FormOffre() {
                 <button
                   onClick={() => {
                     if (page === FormTitles.length - 1) {
-                 
                       AnnonceCovoiturageService.publierAnnonce(formData);
-                      
+                      console.log(formData);
                     } else {
                       setPage((currPage) => currPage + 1);
                     }
