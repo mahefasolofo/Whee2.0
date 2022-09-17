@@ -16,8 +16,9 @@ h6 {
 .cart-product-imitation {
   text-align: center;
   align-items: center;
-  margin-top: 50%;
-  padding-top: 25px;
+  margin-top: 78%;
+  margin-right: 5px;
+  padding-top: 30px;
   height: 80px;
   width: 80px;
   background-color: #350a4e;
@@ -115,26 +116,32 @@ table.shoping-cart-table tr td:last-child {
 .pub {
     height: 100px;
     color: grey ;
-    padding-top: 35%;
+    padding-top: 43%;
     bottom: 14px;
 }
 
 .annonce_price {
     white-space: nowrap;
-    padding-left: 20px; 
+    padding-left: 20px;
     color: darkslategray;
+}
+
+.annonce_price>h4 {
+  font-size: 25px;
+  margin-top: 30px;
 }
 
 .seat_nb {
   border-radius: 40%;
-  background-color: #f8ac59;
+  background-color: rgb(204, 182, 94,0.8);
   width: 60px;
   height: 60px;
   text-align: center;
-  padding-top: 7px;
+  padding-top: 11px;
   font-size: 22px;
   padding-bottom: 5px;
-  padding: 10px;
+  margin-top: 15px;
+  color: #373D3F;
 }
 
 .seat_img {
@@ -149,6 +156,7 @@ table.shoping-cart-table tr td:last-child {
 
 .car_annonce {
   margin-top: 25px;
+  color: #373D3F;
 }
 
 .date_annonce {
@@ -164,7 +172,15 @@ table.shoping-cart-table tr td:last-child {
   max-width: 90vw;
   margin-left: 200px;
 }
+.annoncetype_cont {
+  width: fit-content;
 
+}
+
+.ibox-title>span {
+  font-size: 16px;
+  margin-top: 28px;
+}
 
 
 
@@ -307,6 +323,7 @@ table.shoping-cart-table tr td:last-child {
 
 .user-card-container {
   padding-left: 20px;
+  top: -48px;
 }
 
 
