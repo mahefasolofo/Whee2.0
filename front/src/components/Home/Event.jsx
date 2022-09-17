@@ -9,14 +9,16 @@ Moment.globalLocale = 'fr';
 
 
 export default class Event extends Component {
+  
   constructor(props){
     super(props)
 
     this.state={
-        events:[]
+        events:[],
+               
     }
+      
 
-   
   }
   componentDidMount(){
     EventService.getEvents().then((res)=>{
@@ -37,7 +39,7 @@ export default class Event extends Component {
           </div>
           <div className="row offers_items">
             {/* Offers Item */}
-            {this.state.events.map((event,index)=> (
+            {this.state.events.slice(0,4).map((event,index)=> (
             
                 <div className="col-lg-6 offers_col" key={event.idEvent}>
                   <div className="offers_item">
