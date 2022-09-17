@@ -32,19 +32,5 @@ public class WheeApplication {
 	private CategoryRepository categoryRepository;
 
 
-	 @PostConstruct
-	 private void postConstruct() {
-		 Category categ = new Category();
-		 categ.setNomCateg("footablle");
-		 categoryRepository.save(categ);
 
-		 for (int i = 0; i < 12; i++) {
-			 Interest interest = new Interest();
-			 interest.setNomCI("joel");
-			 interest.setCategory(categ);
-
-
-			 interestRepository.save(interest);
-		 }
-	 }
 }
