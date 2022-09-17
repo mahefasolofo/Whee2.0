@@ -9,11 +9,12 @@ const Offeritem = ({ offer, compte, vehicule }) => {
   const avis = "26 avis";
   const { nom, prenom } = compte;
   const { modele, marque, noteVehicule } = vehicule;
-  const { nbPlace, tarif, heureCovoit, dateCovoit } = offer;
+  const { nbPlace, tarif, dateCovoit } = offer;
 
   let depart = offer.ptDepart;
   let arrivee = offer.ptArrivee;
 
+  let t = offer.heureCovoit;
   let d = depart.split(",").slice(0, 1);
   let a = arrivee.split(",").slice(0, 1);
 
@@ -56,7 +57,11 @@ const Offeritem = ({ offer, compte, vehicule }) => {
                       <Moment format="Do MMMM YYYY">{dateCovoit}</Moment>
                     </div>
 
-                    <div className="offerReviews_subtitle">{heureCovoit}</div>
+
+                    <div className="offerReviews_subtitle">
+                      {t}
+                    </div>
+
                   </div>
                 </div>
                 <p className="offersText">

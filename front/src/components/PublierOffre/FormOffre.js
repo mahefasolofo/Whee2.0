@@ -30,6 +30,10 @@ function FormOffre() {
     document.getElementById("formAnnonce2").style.display = "none";
   };
 
+  const close2 = () => {
+    document.getElementById("formAnnonce").style.display = "none";
+  };
+
   const FormTitles = [
     "Date et heure de Départ",
     "Renseignements sur le véhicule",
@@ -48,7 +52,7 @@ function FormOffre() {
       <div className="modalBackground" id="formAnnonce2">
         <div className="modalContainer">
           <div className="titleCloseBtn">
-            <button onClick={close}>X</button>
+            <button onClick={close}><i className="fa fa-times-circle" aria-hidden="true"></i></button>
           </div>
           <div className="container">
             <div className="progressbar">
@@ -65,6 +69,7 @@ function FormOffre() {
               <div className="bodyF">{PageDisplay()}</div>
               <div className="footerF">
                 <button
+                  className="btn btn-primary"
                   disabled={page === 0}
                   onClick={() => {
                     setPage((currPage) => currPage - 1);
@@ -73,6 +78,7 @@ function FormOffre() {
                   Prev
                 </button>
                 <button
+                className="btn btn-primary"
                   onClick={() => {
                     if (page === FormTitles.length - 1) {
                       AnnonceCovoiturageService.publierAnnonce(formData);
@@ -92,10 +98,14 @@ function FormOffre() {
 
       <div className="modalBackground" id="formAnnonce">
         <div className="modalContainer">
+        <div className="titleCloseBtn">
+            <button onClick={close2}><i className="fa fa-times-circle" aria-hidden="true"></i></button>
+          </div>
           <div className="container">
             <div className="form-container">
               <div className="headerF">
                 <h1>Trajet</h1>
+                <div className="postcard__bar" />
               </div>
 
               <TrajetInfo formData={formData} setFormData={setFormData} />

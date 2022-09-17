@@ -18,26 +18,37 @@ function TrajetInfo({ formData, setFormData }) {
     document.getElementById("formAnnonce2").style.display = "flex";
   };
 
+  
   return (
-    <LoadScript googleMapsApiKey={api} libraries={["places"]}>
-      <Autocomplete>
-        <div>
-          <input type="text" placeholder="Point de Départ..." ref={originRef} />
-        </div>
-      </Autocomplete>
-      <Autocomplete>
-        <div>
-          <input
-            type="text"
-            placeholder="Point d'Arriver..."
-            ref={destiantionRef}
-          />
-        </div>
-      </Autocomplete>
+    
+    <LoadScript
+            googleMapsApiKey ={api}
+            libraries={["places"]}
+        >
+          <Autocomplete>
+                <div>
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Point de Départ..."
+                        ref={originRef}
+                        
+                    />
+                </div>
+                    </Autocomplete> 
+                    <Autocomplete>
+                    <div>
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Point d'Arrivée..."
+                        ref={destiantionRef}
+                    />
+                    </div>
+            </Autocomplete>
 
-      <button type="button" onClick={Valider}>
-        Valider
-      </button>
+            <button type='button' className="btn btn-primary" onClick={Valider}>Valider</button>
+
     </LoadScript>
   );
 }
