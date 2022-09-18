@@ -42,7 +42,50 @@ function ParticiperEvent() {
         </div>
       </div>
       {/* Blog */}
-      <section className="light lightPadding" id="Section_List_Event"></section>
+
+      <div className="card">
+        <div className="container py-2">
+          <div className="row">
+            <div className="col-lg-9 ">
+              <div className="postcard__text t-dark">
+                <h1 className="postcard__title blue">
+                  <a>{event.titre}</a>
+                </h1>
+                <div className="postcard__subtitle small">
+                  <i className="fas fa-calendar-alt mr-2" />
+                  <Moment format="Do MMMM YYYY">{event.dateEvent}</Moment>
+                  <br />
+                  <br />
+                  <i class="fa fa-clock-o" aria-hidden="true" />
+                  {event.heureEvent}
+                </div>
+                <div className="postcard__bar" />
+                <div className="postcard__preview-txt">{event.description}</div>
+
+                <ul className="postcard__tagbox">
+                  <div className="button book_button">
+                    <a style={{ color: "white" }}>
+                      Covoiturages
+                      <span />
+                      <span />
+                      <span />
+                    </a>
+                  </div>
+                </ul>
+              </div>
+            </div>
+            <div className="col-lg-3  ">
+              <a className="postcard__img_link" href="#">
+                <img
+                  className="postcard__img"
+                  src={event.image}
+                  alt="Image Title"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
