@@ -30,6 +30,7 @@ const NavBar = () => {
   };
   const logOut = () => {
     localStorage.setItem("token", "tsia");
+    window.location.reload(false);
   };
   return (
     <React.Fragment>
@@ -42,7 +43,7 @@ const NavBar = () => {
                 <div className="logo_container">
                   <div className="logo">
                     <a href="/">
-                      <img src="images/logo_4.png" alt="" />
+                      <img src="/images/logo_4.png" alt="" />
                     </a>
                   </div>
                 </div>
@@ -141,7 +142,6 @@ const NavBar = () => {
                 <form id="search_form" className="search_form bez_1">
                   <input type="search" className="search_content_input bez_1" />
                 </form>
-                
               </div>
             </div>
           </div>
