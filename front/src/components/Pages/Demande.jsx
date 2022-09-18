@@ -89,13 +89,13 @@ function Demande()  {
                         value= {text}
                     />
                    
-                   <div style={{ backgroundColor: "white", color: "black" }}>
+                   <div style={{ backgroundColor: "white", color: "black"}}>
                         { /* parcourez le tableau */}
                         {recherche.map(function (recherche) {
                           return (
-                            <div key={recherche.id}>
+                            <div className="searchAutocompletion"key={recherche.id}  >
                               { /* imprimez le nom de l'élément */}
-                              <span style={{ backgroundColor: "white", color: "#929191" }}>{recherche}</span>
+                              <span onClick={(e) => setText(e.target.value)} className="searchAutocompletionValue" >{recherche}</span>
                             </div>
                           );
                         })}
