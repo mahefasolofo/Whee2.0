@@ -7,6 +7,7 @@ import Demande from "./components/Pages/Demande";
 import Footer from "./components/Home/Footer";
 import Navbar from "./components/Home/Navbar";
 import Evenements from "./components/Pages/Evenements";
+import ParticiperEvent from "./components/Pages/ParticiperEvent";
 import Espaceperso from "./components/Pages/EspacePerso";
 import About from "./components/Pages/About";
 import { Routes, Route } from "react-router-dom";
@@ -69,6 +70,7 @@ function App() {
             <Route path="/demandes" element={<Demande />} />
             <Route path="/evenements" element={<Evenements />} />
             <Route path="/espaceperso" element={<Espaceperso />} />
+            <Route path="/evenements/:idEvent" element={<ParticiperEvent />} />
             <Route path="/a_propos" element={<About />} />
           </Routes>
 

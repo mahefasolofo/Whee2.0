@@ -835,11 +835,33 @@ text-transform: uppercase;
 {
 	font-family: 'Beyond';
 	font-size: 72px;
+	
 	font-weight: 500;
 	color: #FFFFFF;
 	/* text-transform: uppercase; */
 	white-space: nowrap;
 	top: -20vh;
+	text-shadow: 5px 2px 5px #2a2a2a;
+	
+}
+
+.home_title_dateTime
+{
+	font-family: 'Open Sans','sans-serif';
+	font-size: 35px;
+	position: absolute;
+	
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+	font-weight: 500;
+	color: #f6f9fb;
+	/* text-transform: uppercase; */
+	white-space: nowrap;
+	top: -10vh;
 	text-shadow: 5px 2px 5px #2a2a2a;
 	
 }
