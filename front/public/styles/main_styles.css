@@ -2407,9 +2407,19 @@ section
 	color: #D62828;
 }
 
+.autoCompletionDiv{
+	border-radius: 0 0 10px 10px;
+	background-color:rgba(146, 145, 145, 0.7);
+}
+.searchAutocompletion{
+	
+
+}
 .searchAutocompletionValue{
-	color: rgba(146, 145, 145, 0.1);
+	color: rgba(255,255,255,0.8);
+	margin-top:-100px;
 	font-family: Arial, FontAwesome;
+	padding-left: 8px;
 
 }
 
