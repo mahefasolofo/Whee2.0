@@ -30,7 +30,8 @@ function Demande() {
             setDemande(resp.data)
 
 
-        } logUsers();
+        }
+         logUsers();
 
     }, [response]);
 
@@ -109,7 +110,7 @@ function Demande() {
         console.log(recherche2);
     }
     const handleSearch=()=>{
-
+      
     }
 
 

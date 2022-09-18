@@ -45,7 +45,7 @@ try{ google.accounts.id.initialize({
   client_id:
     "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com",
   callback: handleCredentialResponse,
-});
+});}catch{}
 
     try {
       google.accounts.id.initialize({
@@ -65,7 +65,9 @@ try{ google.accounts.id.initialize({
         "border-radius": 180,
         border: "none",
       });
-    } catch (error) {}
+    } catch (error) {
+
+    }
 
   }, []);
 
