@@ -2406,3 +2406,19 @@ section
 {
 	color: #D62828;
 }
+.searchAutocompletion{
+
+	background-color:white;
+	
+}
+.searchAutocompletionValue{
+	color: #929191;
+	font-family: Arial, FontAwesome;
+
+}
+
+/* Ajouter pour l'autocompletion */
+.searchAutocompletion:hover{
+	background-color: #c4ced2;
+	cursor: pointer;
+}
