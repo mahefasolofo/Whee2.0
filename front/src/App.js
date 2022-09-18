@@ -22,36 +22,41 @@ function App() {
   const [user, setUser] = useState(useContext(UserContext));
 
   function handleCredentialResponse(response) {
-    console.log("Encode JWT id Token: " + response.credential);
-    console.log(jwt_decode(response.credential));
+    try {
+      console.log("Encode JWT id Token: " + response.credential);
+      console.log(jwt_decode(response.credential));
 
-    //setAuth(jwt_decode(response.credential));
+      //setAuth(jwt_decode(response.credential));
 
-    document.getElementById("id01").style.display = "none";
-    localStorage.setItem("token", response.credential);
-    console.log(jwt_decode(localStorage.getItem("token")));
-    setUser(jwt_decode(localStorage.getItem("token")));
+      document.getElementById("id01").style.display = "none";
+      localStorage.setItem("token", response.credential);
+      console.log(jwt_decode(localStorage.getItem("token")));
+      setUser(jwt_decode(localStorage.getItem("token")));
+    } catch (error) {}
   }
 
   useEffect(() => {
     /* global google */
-    google.accounts.id.initialize({
-      client_id:
-        "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com",
-      callback: handleCredentialResponse,
-    });
 
-    google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-      theme: "outline",
-      size: "large",
-      width: "signInDiv",
-      width: 1500,
-      height: 150,
-      longtitle: true,
-      theme: "dark",
-      "border-radius": 180,
-      border: "none",
-    });
+    try {
+      google.accounts.id.initialize({
+        client_id:
+          "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com",
+        callback: handleCredentialResponse,
+      });
+
+      google.accounts.id.renderButton(document.getElementById("signInDiv"), {
+        theme: "outline",
+        size: "large",
+        width: "signInDiv",
+        width: 1500,
+        height: 150,
+        longtitle: true,
+        theme: "dark",
+        "border-radius": 180,
+        border: "none",
+      });
+    } catch (error) {}
   }, []);
 
   return (
