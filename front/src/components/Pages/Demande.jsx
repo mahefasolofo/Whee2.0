@@ -257,7 +257,7 @@ let newMatchesArrivee = []
                             {/* Offers Grid */}
                             <div className="offers_grid">
                                 {/* Offers Item */}
-                            {response.map((val, key) => {
+                            {demande.map((val, key) => {
                                 
                                 return(
                                 <div className="offers_item rating_4" key={val.id}>
@@ -271,7 +271,7 @@ let newMatchesArrivee = []
                                             <a href="index.html">{val.dateCovoit} - {val.heureCovoit}</a>
                                         </div>
                                         <div className="demande_name">
-                                            <a href="index.html">{val.ptDepart} -{val.ptArrive}</a>
+                                            <a href="index.html">{val.ptDepart} -{val.ptArrivee}</a>
                                         </div>
                                         </div>
                                     </div>
