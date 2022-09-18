@@ -25,12 +25,6 @@ public class WheeApplication {
 
 	}
 
-	 @Autowired
-	private InterestRepository interestRepository;
-
-	@Autowired
-	private CategoryRepository categoryRepository;
-
 
 
 }

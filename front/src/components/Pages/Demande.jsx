@@ -1,10 +1,67 @@
-import React, { Component } from 'react'
+import axios from 'axios';
+import React, { Component, useState, useEffect } from 'react'
 import bg from '../../images/background8.jpg'
 import demande from '../data/Demande'
+import OfferService from '../../services/OfferService';
 
 
-export default class Demande extends Component {
-  render() {
+
+function Demande()  {
+  const [recherche, setRecherche] = useState([]);
+  const [response, setResponse]=useState({});
+  const [text, setText]= useState('');
+  let newMatches=[];
+
+  useEffect(() => {
+    const logUsers = async ()=>{
+      const resp = await OfferService.getOffers();
+      //console.log(resp.data);
+      //setResponse(resp.data);
+      setResponse(resp.data);
+
+    }
+    logUsers();
+  },  [response]);
+
+  
+   const onChangeHandler = (text)=>{
+    let matches = [];
+    
+     matches =  response.map((val, key)=>{
+       return val.ptDepart;
+      }) 
+      for(let i =0; i<response.length;i++){
+        if (matches.indexOf(response[i].data) === -1){
+          matches.push(response[i].data);
+        }
+        
+      }
+    if(text.length!=""){
+      
+      function checkMatch(match) {
+        return match.includes;
+      }
+     newMatches= matches.filter((element, key)=>
+      {
+        if(element!=null){
+        if(element.toLowerCase().includes(text.toLowerCase())){
+          return element;
+        }}
+      })
+        // matches = response.filter((element, index)=>{
+        // const regex = new RegExp('${text}', "gi");
+        // return response.match({text})
+        // })
+  
+    }
+   
+  
+    setRecherche(newMatches)
+    setText(text);
+    console.log(recherche);
+   
+   }
+  
     return (
         <React.Fragment>
             <div className="home_offre">
@@ -28,7 +85,21 @@ export default class Demande extends Component {
                         required="required"
                         placeholder=" Départ"
                         style={{ fontFamily: "Arial, FontAwesome" }}
+                        onChange={e=>onChangeHandler(e.target.value)}
+                        value= {text}
                     />
+                   
+                   <div style={{ backgroundColor: "white", color: "black" }}>
+                        { /* parcourez le tableau */}
+                        {recherche.map(function (recherche) {
+                          return (
+                            <div key={recherche.id}>
+                              { /* imprimez le nom de l'élément */}
+                              <span style={{ backgroundColor: "white", color: "#929191" }}>{recherche}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
                     <div className="search_item_offre">
                     
@@ -187,4 +258,4 @@ export default class Demande extends Component {
       
     )
   }
-}
+  export default Demande;

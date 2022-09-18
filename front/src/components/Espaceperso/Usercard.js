@@ -6,7 +6,7 @@ const Usercard = () => {
         
         <div className="user-card-container d-flex justify-content-center mt-5 ">
 
-        <div className="card text-center mb-5">
+        <div className="card1 text-center mb-5">
 
             <div className="circle-image">
                 <img src="https://i.imgur.com/hczKIze.jpg" width="70"/>

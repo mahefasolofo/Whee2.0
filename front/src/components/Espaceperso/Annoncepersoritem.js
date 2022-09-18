@@ -10,11 +10,11 @@ const Annoncepersoritem = ({annonce}) => {
                         <table className="table shoping-cart-table">
                             <tbody>
                             <tr>
-                                <td width="2%">
+                                <td className='annoncetype_cont'>
                                     <div className="cart-product-imitation">{annonce.type}
                                     </div>
                                 </td>
-                                <td className="desc" width="56%">
+                                <td className="desc">
                                     <h3>
                                     <h2 className="text-navy">
                                     <i className="fa fa-map-marker start"></i> {annonce.depart} -- <i className="fa fa-map-marker stop mt-2"></i> {annonce.arrivee}
@@ -34,7 +34,7 @@ const Annoncepersoritem = ({annonce}) => {
                                         
                                     </div>
                                 </td>
-                                <td width="40%">                                
+                                <td>                                
                                 <tl>
                                     
                                     <td width="40">
@@ -53,7 +53,7 @@ const Annoncepersoritem = ({annonce}) => {
                                 </tl>
                                 <tl>
                                         <div className='pub m-b-none'>
-                                            <dl>publication : {annonce.DatePub}</dl>
+                                            <dl>Date de publication : {annonce.DatePub}</dl>
                                         </div>
                                     
                                 </tl>
