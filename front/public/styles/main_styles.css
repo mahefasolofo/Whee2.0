@@ -2406,13 +2406,9 @@ section
 {
 	color: #D62828;
 }
-.searchAutocompletion{
 
-	background-color:white;
-	
-}
 .searchAutocompletionValue{
-	color: #929191;
+	color: rgba(146, 145, 145, 0.1);
 	font-family: Arial, FontAwesome;
 
 }
