@@ -30,6 +30,7 @@ const NavBar = () => {
   };
   const logOut = () => {
     localStorage.setItem("token", "tsia");
+    window.location.reload(false);
   };
   return (
     <React.Fragment>

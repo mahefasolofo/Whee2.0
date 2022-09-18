@@ -46,6 +46,7 @@ function CardEvent(props) {
                 style={{ color: "white" }}
                 onClick={() => {
                   navigate(`/evenements/${props.event.idEvent}`);
+                  window.location.reload(false);
                 }}
               >
                 Covoiturages
