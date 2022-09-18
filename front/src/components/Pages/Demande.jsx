@@ -140,7 +140,7 @@ let newMatchesArrivee = []
                         onChange={e=>onChangeHandlerDepart(e.target.value)}
                         value= {text}
                     />
-                 {displayDepart==false ? null: (<div style={{color: "black"}}>
+                 {displayDepart==false ? null: (<div style={{color: "black", backgroundColor:"rgba(146, 145, 145, 0.7)"}} className="autoComptletionDiv">
                         { /* parcourez le tableau */}
                         {recherche.map(function (v,i) {
                           return (
