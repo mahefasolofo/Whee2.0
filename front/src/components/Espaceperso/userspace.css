@@ -1,4 +1,4 @@
-/* 
+
 h3 {
     font-size: 30px;
     color: #373D3F;
@@ -351,9 +351,13 @@ table.shoping-cart-table tr td:last-child {
   
 }
 
-.stat_card tr {
+.stat_card {
   padding-top: 30px;
- margin-left: 50px;
+  margin-left: 35px !important;
+}
+
+.stat_car>tr { 
+ 
  text-align: center;
  column-width: 100px;
-} */
+} 
