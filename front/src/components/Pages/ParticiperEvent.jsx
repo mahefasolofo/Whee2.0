@@ -16,7 +16,7 @@ const api = "AIzaSyDQLfoT69SVIMwn06NymNrSPw4qXKnm8ts";
 
 const containerStyle = {
   width: "1100px",
-  height: "800px",
+  height: "500px",
   borderRadius: "10px",
 };
 
@@ -33,19 +33,35 @@ function ParticiperEvent() {
   const [distance, setDistance] = useState("");
   const [duration, setDuration] = useState("");
 
+  const [show, setShow] = useState(false);
+
+  const handleClick = () => {
+    setShow(!show);
+  };
+
   const originRef = useRef();
   const destiantionRef =
     "No Comment BAR, Lalana Russie, Tananarive, Madagascar";
 
   async function calculateRoute() {
-    if (originRef.current.value === "" || destiantionRef.current.value === "") {
-      return;
-    }
     // eslint-disable-next-line no-undef
     const directionsService = new google.maps.DirectionsService();
     const results = await directionsService.route({
       origin: originRef.current.value,
-      destination: destiantionRef.current.value,
+      destination: destiantionRef,
+      // eslint-disable-next-line no-undef
+      travelMode: google.maps.TravelMode.DRIVING,
+    });
+    setDirectionsResponse(results);
+    setDistance(results.routes[0].legs[0].distance.text);
+    setDuration(results.routes[0].legs[0].duration.text);
+  }
+  async function adressEvent() {
+    // eslint-disable-next-line no-undef
+    const directionsService = new google.maps.DirectionsService();
+    const results = await directionsService.route({
+      origin: destiantionRef,
+      destination: destiantionRef,
       // eslint-disable-next-line no-undef
       travelMode: google.maps.TravelMode.DRIVING,
     });
@@ -127,12 +143,27 @@ function ParticiperEvent() {
       </section>
       <section className="card">
         <div className="container py-2">
+          <button
+            className="button book_button "
+            onClick={handleClick}
+          ></button>
           <LoadScript googleMapsApiKey={api} libraries={["places"]}>
             <GoogleMap
               mapContainerStyle={containerStyle}
               center={center}
               zoom={10}
+              options={{
+                zoomControl: false,
+                streetViewControl: false,
+                mapTypeControl: false,
+                fullscreenControl: false,
+              }}
+              onLoad={adressEvent}
             >
+              <Marker position={center} />
+              {directionsResponse && (
+                <DirectionsRenderer directions={directionsResponse} />
+              )}
               <Autocomplete>
                 <div
                   className="card"
@@ -142,7 +173,8 @@ function ParticiperEvent() {
                     width: `500px`,
                     height: `200px`,
                     padding: `0 12px`,
-
+                    opacity: show ? 0 : 1,
+                    transition: "all 0.5s ease-in",
                     boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
                     fontSize: `14px`,
                     outline: `none`,
@@ -153,10 +185,20 @@ function ParticiperEvent() {
                     top: "2%",
                   }}
                 >
-                  <input type="text" placeholder="Point de Départ..." />
+                  <input
+                    type="text"
+                    placeholder="Point de Départ..."
+                    ref={originRef}
+                  />
+                  <button
+                    colorScheme="red"
+                    type="submit"
+                    onClick={calculateRoute}
+                  >
+                    Votre Trajet
+                  </button>
                 </div>
               </Autocomplete>
-
               <></>
             </GoogleMap>
           </LoadScript>
