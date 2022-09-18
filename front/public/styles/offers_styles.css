@@ -886,6 +886,10 @@ text-transform: uppercase;
 	background: linear-gradient(to right, #D62828, #003049);
 	z-index: 10;
 }*/
+
+.gm-style-mtc {
+    display: none;
+  }
 .search_tabs_container_offre
 {
 	position: absolute;
