@@ -7,6 +7,7 @@ import Demande from "./components/Pages/Demande";
 import Footer from "./components/Home/Footer";
 import Navbar from "./components/Home/Navbar";
 import Evenements from "./components/Pages/Evenements";
+import ParticiperEvent from "./components/Pages/ParticiperEvent";
 import Espaceperso from "./components/Pages/EspacePerso";
 import About from "./components/Pages/About";
 import { Routes, Route } from "react-router-dom";
@@ -21,11 +22,13 @@ function App() {
   const [user, setUser] = useState(useContext(UserContext));
 
   function handleCredentialResponse(response) {
-    try{
-    console.log("Encode JWT id Token: " + response.credential);
-    console.log(jwt_decode(response.credential));
 
-    //setAuth(jwt_decode(response.credential));
+    try {
+      console.log("Encode JWT id Token: " + response.credential);
+      console.log(jwt_decode(response.credential));
+
+
+      //setAuth(jwt_decode(response.credential));
 
     document.getElementById("id01").style.display = "none";
     localStorage.setItem("token", response.credential);
@@ -33,6 +36,7 @@ function App() {
     setUser(jwt_decode(localStorage.getItem("token")));}catch{
       console.log("tsa poinsa")
     }
+
   }
 
   useEffect(() => {
@@ -43,20 +47,26 @@ try{ google.accounts.id.initialize({
   callback: handleCredentialResponse,
 });
 
-google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-  theme: "outline",
-  size: "large",
-  width: "signInDiv",
-  width: 1500,
-  height: 150,
-  longtitle: true,
-  theme: "dark",
-  "border-radius": 180,
-  border: "none",
-});}catch{
-  console.log("tsy mety")
-}
-   
+    try {
+      google.accounts.id.initialize({
+        client_id:
+          "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com",
+        callback: handleCredentialResponse,
+      });
+
+      google.accounts.id.renderButton(document.getElementById("signInDiv"), {
+        theme: "outline",
+        size: "large",
+        width: "signInDiv",
+        width: 1500,
+        height: 150,
+        longtitle: true,
+        theme: "dark",
+        "border-radius": 180,
+        border: "none",
+      });
+    } catch (error) {}
+
   }, []);
 
   return (
@@ -74,6 +84,7 @@ google.accounts.id.renderButton(document.getElementById("signInDiv"), {
             <Route path="/demandes" element={<Demande />} />
             <Route path="/evenements" element={<Evenements />} />
             <Route path="/espaceperso" element={<Espaceperso />} />
+            <Route path="/evenements/:idEvent" element={<ParticiperEvent />} />
             <Route path="/a_propos" element={<About />} />
           </Routes>
 
