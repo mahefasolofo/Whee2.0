@@ -223,20 +223,6 @@ table.shoping-cart-table tr td:last-child {
 
 }
 
-
-.dot {
-      height: 18px;
-    width: 18px;
-    background-color: blue;
-    border-radius: 50%;
-    display: inline-block;
-    position: relative;
-    border: 3px solid #fff;
-    top: -48px;
-    left: 186px;
-    z-index: 1000;
-}
-
 .name{
 	margin-top: 20px;
 	font-size: 20px;

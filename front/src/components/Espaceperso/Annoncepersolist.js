@@ -1,24 +1,42 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect, useState } from 'react'
 import Annoncepersoritem from './Annoncepersoritem'
-import list from '../../Annoncedata'
+import UserspaceService from '../../services/UserspaceService'
+import {withRouter} from 'react-router'
+import { useParams } from "react-router-dom";
 
-export default class annoncepersolist extends Component {
+
+
+function Annoncepersolist() {
+  
+  let {idUser} = useParams();
+  const [annonceUser, setAnnonceUser] = useState([]);
+
+  useEffect(() => {
+    getUserAnnonce(idUser);
+  }, [idUser])
+  
+  const getUserAnnonce = (id) => {
+    UserspaceService.getPubByUserId(id).then((res) => {
+      setAnnonceUser(res.data);
+      console.log(res.data);
+    });
+  }
   // constructor(props) {
   //   super(props)
   //   this.state = {
-  //     annonces: []
+  //     annoncesPerso: []
   //   }
   // }
 
   // componentDidMount(){
-  //   list.then((res) => {
+  //   UserspaceService.getPubByUserId().then((res) => {
   //     this.setState({
-  //       annonces: res.data
+  //       annoncesPerso: res.data
   //     })
   //   })
   // }
 
-  render() {
+  
     return (
         <section>
         {/*Offers Grid*/}
@@ -26,12 +44,20 @@ export default class annoncepersolist extends Component {
         
 
             {/*Offers Item */}
-            {list.map((annonce) => (
-                <Annoncepersoritem key={annonce.id} annonce={annonce}/>
-            ))}            
+            {
+              annonceUser.map( (annonce) =>
+              
+              <Annoncepersoritem key={annonce.idCovoit} annonce={annonce} vehicule={annonce.vehicule} conducteur={annonce.covoitureur}/>
+              )
+
+            }
+                
+                        
 
         
         </section>     
     )
-  }
+  
 }
+
+export default Annoncepersolist;

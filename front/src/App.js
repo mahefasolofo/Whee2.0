@@ -89,7 +89,7 @@ try{ google.accounts.id.initialize({
             <Route path="/offres" element={<Offre />} />
             <Route path="/demandes" element={<Demande />} />
             <Route path="/evenements" element={<Evenements />} />
-            <Route path="/espaceperso" element={<Espaceperso />} />
+            <Route path="/espaceperso/:idUser" element={<Espaceperso />} />
             <Route path="/evenements/:idEvent" element={<ParticiperEvent />} />
             <Route path="/a_propos" element={<About />} />
           </Routes>
