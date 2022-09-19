@@ -35,11 +35,11 @@ public class Covoiturage implements Serializable {
 	@Column(name="ID", nullable=false)
 	@Id	
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idCovoit;
+	private Integer idCovoit;
 	
 	@ManyToOne(targetEntity= Event.class, fetch=FetchType.LAZY)
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns({ @JoinColumn(name="EventID", referencedColumnName="ID") })
+	@JoinColumns({ @JoinColumn(name="eventid", referencedColumnName="id") })
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
 	private Event event;
 	
@@ -49,7 +49,7 @@ public class Covoiturage implements Serializable {
 	@Column(name="PtArrivee", nullable=true, length=255)	
 	private String ptArrivee;
 
-	@Column(name="Image", nullable=true)
+	@Column(name="ImageCovoit", nullable=true)
 	private String image;
 	
 	@Column(name="HeureCovoit", nullable=true, columnDefinition = "TIME")
