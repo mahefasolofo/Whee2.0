@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.ResourceAccessException;
 
 
-
-
 import whee.demo.entity.Event;
 import whee.demo.repository.EventRepository;
 
@@ -67,9 +65,14 @@ public class EventController {
 //
 //    }
 
+
     @GetMapping("/findEventByIdCovoit/{userid}")
     public List<Event> findEventByUserId(@PathVariable Long userid){return eventRepository.findEventByUserId(userid);}
 
 
+    @GetMapping("/findEventByIdCovoit/{userid}")
+    public List<Event> findEventByUserId(@PathVariable Long userid) {
+        return eventRepository.findEventByUserId(userid);
+    }
 
 }

@@ -1,10 +1,119 @@
-import React, { Component } from 'react'
+import axios from 'axios';
+import React, { Component, useState, useEffect } from 'react'
 import bg from '../../images/background8.jpg'
-import demande from '../data/Demande'
+// import demande from '../data/Demande'
+import OfferService from '../../services/OfferService';
 
 
-export default class Demande extends Component {
-  render() {
+
+function Demande()  {
+  const [recherche, setRecherche] = useState([]);
+  const [recherche2, setRecherche2] = useState([]);
+
+  const [response, setResponse]=useState({});
+  const[demande, setDemande]= useState([]);
+  const [text, setText]= useState('');
+  const [text2, setText2]= useState('');
+ 
+
+  const[displayDepart, setDisplayDepart]= useState(false);
+  const[displayArrivee, setDisplayArrivee] = useState(false)
+  let newMatchesDepart=[];
+let newMatchesArrivee = []
+  useEffect(() => {
+    const logUsers = async ()=>{
+      
+      const resp = await OfferService.getOffers()
+
+      //console.log(resp.data);
+      //setResponse(resp.data);
+      setResponse(resp.data);
+      setDemande(resp.data)
+      
+
+    }
+    logUsers();
+    
+  },  [response]);
+
+  
+   const onChangeHandlerDepart = (text)=>{
+    let matchesDepart = [];
+   
+    
+    matchesDepart =  response.map((val, key)=>{
+       return val.ptDepart;
+    }) 
+    matchesDepart = [...new Set(matchesDepart)];
+
+  
+    if(text.length!=""){
+      function checkMatch(match) {
+        return match.includes;
+    }
+     newMatchesDepart= matchesDepart.filter((element, key)=>
+      {
+        if(element!=null){
+        if(element.toLowerCase().includes(text.toLowerCase())){
+          return element;
+        }}
+      })
+        // matchesDepart = response.yfilter((element, index)=>{
+        // const regex = new RegExp('${text}', "gi");
+        // return response.match({text})
+        // })
+        setDisplayArrivee(false)
+        setDisplayDepart(true)
+  
+    }
+   
+  
+    setRecherche(newMatchesDepart)
+    setText(text);
+    console.log(recherche2);
+   
+   }
+   const onChangeHandlerArrivee = (text2)=>{
+   
+    let matchesArrivee = []
+    matchesArrivee =  response.map((val, key)=>{
+        return val.ptArrivee;
+    }) 
+    matchesArrivee = [...new Set(matchesArrivee)];
+
+
+    for(let i =0; i<response.length;i++){
+        if (matchesArrivee.indexOf(response[i].data) === -1){
+          matchesArrivee.push(response[i].data);
+    }
+        
+    }
+    if(text2.length!=""){
+      function checkMatch(match) {
+        return match.includes;
+    }
+     newMatchesArrivee= matchesArrivee.filter((element, key)=>
+      {
+        if(element!=null){
+        if(element.toLowerCase().includes(text2.toLowerCase())){
+          return element;
+        }}
+      })
+        // matchesArrivee = response.filter((element, index)=>{
+        // const regex = new RegExp('${text}', "gi");
+        // return response.match({text})
+        // })
+        setDisplayDepart(false);
+        setDisplayArrivee(true);
+  
+    }
+   
+  
+    setRecherche2(newMatchesArrivee)
+    setText2(text2);
+    console.log(recherche2);
+   }
+  
     return (
         <React.Fragment>
             <div className="home_offre">
@@ -28,7 +137,21 @@ export default class Demande extends Component {
                         required="required"
                         placeholder=" Départ"
                         style={{ fontFamily: "Arial, FontAwesome" }}
+                        onChange={e=>onChangeHandlerDepart(e.target.value)}
+                        value= {text}
                     />
+                 {displayDepart==false ? null: (<div style={{color: "black", backgroundColor:"rgba(146, 145, 145, 0.7)"}} className="autoComptletionDiv">
+                        { /* parcourez le tableau */}
+                        {recherche.map(function (v,i) {
+                          return (
+                            <div className="searchAutocompletion"key={v.id}  >
+                              { /* imprimez le nom de l'élément */}
+                              <span onClick={(e) =>(onChangeHandlerDepart(v), setDisplayDepart(false)) } className="searchAutocompletionValue" value={v} >{v}</span>
+                            </div>
+                          );
+                        })}
+                      </div>)}
+                   
                     </div>
                     <div className="search_item_offre">
                     
@@ -37,8 +160,21 @@ export default class Demande extends Component {
                         className="destination search_input_offre"
                         required="required"
                         placeholder=" Destination"
+                        onChange={e=>onChangeHandlerArrivee(e.target.value)}
                         style={{ fontFamily: "Arial, FontAwesome" }}
+                        value = {text2}
                     />
+                       {displayArrivee==false ? null: (<div style={{ backgroundColor: "rgba(33, 33, 33, 0.8)", color: "black"}}>
+                        { /* parcourez le tableau */}
+                        {recherche2.map(function (v,i) {
+                          return (
+                            <div className="searchAutocompletion"key={v.id}  >
+                              { /* imprimez le nom de l'élément */}
+                              <span onClick={(e) =>(onChangeHandlerArrivee(v), setDisplayArrivee(false)) } className="searchAutocompletionValue" value={v} >{v}</span>
+                            </div>
+                          );
+                        })}
+                      </div>)}
                     </div>
                     <div className="search_item_offre">
                     
@@ -121,29 +257,29 @@ export default class Demande extends Component {
                             {/* Offers Grid */}
                             <div className="offers_grid">
                                 {/* Offers Item */}
-                            {demande.map((data) => {
+                            {demande.map((val, key) => {
                                 
                                 return(
-                                <div className="offers_item rating_4" key={data.id}>
+                                <div className="offers_item rating_4" key={val.id}>
                                     <div className="row">
                                     <div className="col-lg-1 temp_col" />
                                     <div className="col-lg-3 col-1680-4">
                                         <div className="offers_image_container_offre">
                                         
-                                        <img src={data.image} className="offers_image_background_offre" alt="carte" />
+                                        <img src={val.image} className="offers_image_background_offre" alt="carte" />
                                         <div className="offer_date_demande">
-                                            <a href="index.html">{data.date} - {data.heure}</a>
+                                            <a href="index.html">{val.dateCovoit} - {val.heureCovoit}</a>
                                         </div>
                                         <div className="demande_name">
-                                            <a href="index.html">{data.depart} -{data.arrive}</a>
+                                            <a href="index.html">{val.ptDepart} -{val.ptArrivee}</a>
                                         </div>
                                         </div>
                                     </div>
                                     <div className="col-lg-8">
                                         <div className="offers_content">
-                                        <div className="offers_price_offre">{data.tarif}</div>
+                                        <div className="offers_price_offre">{val.tarif}</div>
                                         <p className="offers_text_offre">
-                                            Recherche de covoitirage régulier en semaine pour 4
+                                            Recherche de covoiturage régulier en semaine pour 4
                                             personnes. Voiture propre et conducteur courtois requis.
                                         </p>
                                         <p className="offers_text_offre">Centres d'intérêts: Musiques</p>
@@ -187,4 +323,4 @@ export default class Demande extends Component {
       
     )
   }
-}
+  export default Demande;

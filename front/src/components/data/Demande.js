@@ -6,8 +6,8 @@ import img4 from '../../images/Tamatave.png'
 const demande =[
     {
         "id":1,
-        "depart":"Ankorondrano",
-        "arrive":"Faravohitra",
+        "ptDepart":"Ankorondrano",
+        "ptArrivee":"Faravohitra",
         "date":"03 octobre 2022",
         "heure": "08:00 09:00",
         "tarif":"20 000 MGA",
@@ -16,8 +16,8 @@ const demande =[
     },
     {
         "id":2,
-        "depart":"Analakely",
-        "arrive":"Andavamamba",
+        "ptDepart":"Analakely",
+        "ptArrivee":"Andavamamba",
         "date":"05 octobre 2022",
         "heure": "08:00 09:00",
         "tarif":"15 000 MGA",
@@ -26,8 +26,8 @@ const demande =[
     },
     {
         "id":3,
-        "depart":"Antananarivo",
-        "arrive":"Antsirabe",
+        "ptDepart":"Antananarivo",
+        "ptArrivee":"Antsirabe",
         "date":"03 octobre 2022",
         "heure": "08:00 09:00",
         "tarif":"50 000 MGA",
@@ -36,8 +36,8 @@ const demande =[
     },
     {
         "id":4,
-        "depart":"Antananarivo",
-        "arrive":"Toamasina",
+        "ptDepart":"Antananarivo",
+        "ptArrivee":"Toamasina",
         "date":"03 octobre 2022",
         "heure": "08:00 09:00",
         "tarif":"80 000 MGA",

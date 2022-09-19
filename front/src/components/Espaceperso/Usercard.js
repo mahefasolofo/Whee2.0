@@ -6,7 +6,7 @@ const Usercard = () => {
         
         <div className="user-card-container d-flex justify-content-center mt-5 ">
 
-        <div className="card text-center mb-5">
+        <div className="card1 text-center mb-5">
 
             <div className="circle-image">
                 <img src="https://i.imgur.com/hczKIze.jpg" width="70"/>
@@ -16,8 +16,8 @@ const Usercard = () => {
 
             <span className="name mb-1 fw-500">Bryan Williams</span>
 
-            <div className='row mb-1 ms-3 fw-500'> 
-                <tr className='stat_card'>
+            <div className='row stat_card mb-1 ms-3 fw-650'> 
+                <tr>
                     <td className="followers">Covoiturages</td>
                     <td className="followers">Annonces</td>
                 </tr>
