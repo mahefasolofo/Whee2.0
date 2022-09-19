@@ -25,6 +25,10 @@ public class CovoiturageController {
         return covoiturageRepository.save(annonce);
     }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> e2244771736dcdc8b4113533d228a6342b1a51ed
 
     @GetMapping("/espaceperso/{id_covoitureur}")
     public List<Covoiturage> findTout(@PathVariable Long id_covoitureur){return covoiturageRepository.findCovoitById(id_covoitureur);}
@@ -32,5 +36,9 @@ public class CovoiturageController {
     // public List<Covoiturage> findByCovoitureur(Long id){return
     // covoiturageRepository.findByCovoitureur(id);}
     // // ne fonctionne pas encore : Mahefa
+
+    // @GetMapping("/findCovoitByIdCovoit/{id_covoitureur}")
+    // public List<Covoiturage> findTout(@PathVariable Long id_covoitureur){return covoiturageRepository.findCovoitById(id_covoitureur);}
+    
 
 }
