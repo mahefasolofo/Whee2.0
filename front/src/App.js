@@ -22,30 +22,31 @@ function App() {
   const [user, setUser] = useState(useContext(UserContext));
 
   function handleCredentialResponse(response) {
-
     try {
       console.log("Encode JWT id Token: " + response.credential);
       console.log(jwt_decode(response.credential));
 
-
       //setAuth(jwt_decode(response.credential));
 
-    document.getElementById("id01").style.display = "none";
-    localStorage.setItem("token", response.credential);
-    console.log(jwt_decode(localStorage.getItem("token")));
-    setUser(jwt_decode(localStorage.getItem("token")));}catch{
-      console.log("tsa poinsa")
+      document.getElementById("id01").style.display = "none";
+      localStorage.setItem("token", response.credential);
+      console.log(jwt_decode(localStorage.getItem("token")));
+      setUser(jwt_decode(localStorage.getItem("token")));
+    } catch {
+      console.log("tsa poinsa");
     }
-
   }
 
   useEffect(() => {
     /* global google */
+
 try{ google.accounts.id.initialize({
   client_id:
     "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com",
   callback: handleCredentialResponse,
-});}catch{}
+});
+}catch{}
+
 
     try {
       google.accounts.id.initialize({
@@ -65,9 +66,11 @@ try{ google.accounts.id.initialize({
         "border-radius": 180,
         border: "none",
       });
+
     } catch (error) {
 
     }
+
 
   }, []);
 
