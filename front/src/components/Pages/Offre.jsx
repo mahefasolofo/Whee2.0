@@ -3,6 +3,8 @@ import bg from '../../images/background7.png'
 import Offerlist from '../PublierOffre/Offerlist';
 import {Component, useState, useEffect} from 'react';
 import OfferService from '../../services/OfferService';
+import Offeritem from '../PublierOffre/Offeritem';
+
 
 
 
@@ -270,9 +272,11 @@ function Offre () {
                           </div>
                         </div>
 
-                        <Offerlist/>
-                           
-                    </div>
+                        
+                        {response.map((offer)=>(<Offeritem key={offer.idCovoit} offer={offer} compte={offer.covoitureur} vehicule={offer.vehicule} datecov={Date(offer.dateCovoit).toLocaleString()}/> ))
+                        
+                        }
+                        </div>
                 </div>
 
           </div>
