@@ -14,7 +14,6 @@ export default class Home extends Component {
 
         <div>
 
-
          <Carousel />
                  
           <Trajet/>
@@ -25,10 +24,7 @@ export default class Home extends Component {
           
           <Avis />
 
-
         </div>
-
-
 
     )
   }

@@ -861,7 +861,7 @@ text-transform: uppercase;
 	color: #f6f9fb;
 	/* text-transform: uppercase; */
 	white-space: nowrap;
-	top: -10vh;
+	top: 2vh;
 	text-shadow: 5px 2px 5px #2a2a2a;
 	
 }
@@ -886,6 +886,8 @@ text-transform: uppercase;
 	background: linear-gradient(to right, #D62828, #003049);
 	z-index: 10;
 }*/
+
+
 .search_tabs_container_offre
 {
 	position: absolute;

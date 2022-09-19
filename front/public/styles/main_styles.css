@@ -1100,8 +1100,7 @@ section
     animation: fadeEffect 1s;
 	z-index: 999;
 	background-color: rgba(33, 33, 33, 0.3);
-	border: solid rgb(219, 219, 219,0.8) 1.2px;
-	border-radius: 50px;
+	
 	
 	
 }
@@ -2404,5 +2403,32 @@ section
 .contact_info_item:hover .contact_info_text,
 .contact_info_item:hover .contact_info_text a
 {
-	color: #D62828;
+	color: #ccb65e;
+}
+
+.autoCompletionDiv{
+	border-radius: 0 0 10px 10px;
+	background-color:rgba(146, 145, 145, 0.7);
+	
+}
+.searchAutocompletion{
+	
+
+}
+.searchAutocompletionValue{
+	color: rgba(255,255,255,0.8);
+	margin-top:-100px;
+	font-family: Arial, FontAwesome;
+	padding-left: 8px;
+
+}
+
+/* Ajouter pour l'autocompletion */
+.searchAutocompletion:hover{
+	background-color: #c4ced2;
+	cursor: pointer;
+}
+.search_item_offre i.fa-map-marker{
+	font-size: 14px;
+	margin-right: 7px;
 }
