@@ -144,9 +144,9 @@ a:hover {
 }
 
 .postcard:before {
-    content: &#34;
+    /* content: &#34;
     &#34;
-    ;
+    ; */
     position: absolute;
     top: 0;
     right: 0;
@@ -186,9 +186,9 @@ a:hover {
     }
 
     .postcard .media.postcard__text:before {
-        content: &#34;
+        /* content: &#34;
         &#34;
-        ;
+        ; */
         position: absolute;
         display: block;
         background: #18151f;
@@ -226,9 +226,9 @@ a:hover {
     }
 
     .postcard__text:before {
-        content: &#34;
+        /* content: &#34;
         &#34;
-        ;
+        ; */
         position: absolute;
         display: block;
         top: -20%;
@@ -375,7 +375,7 @@ a:hover {
         margin-top: 39px;
         margin-bottom: 5px;
         margin-right: auto;
-
+        border: none!important;
         -webkit-transition: all 200ms ease;
         -moz-transition: all 200ms ease;
         -ms-transition: all 200ms ease;
