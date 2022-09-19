@@ -1,6 +1,7 @@
 import React from 'react'
 import './userspace.css'
 import seatimg from '../../images/seat3.png'
+import Moment from 'react-moment';
 
 const Annoncepersoritem = ({annonce, vehicule, conducteur}) => {
     
@@ -21,7 +22,7 @@ const Annoncepersoritem = ({annonce, vehicule, conducteur}) => {
                                     </h2>
                                     </h3>
                                     <p className="date_annonce">
-                                        {annonce.dateCovoit} - {annonce.heureCovoit}
+                                        <Moment format="Do MMMM YYYY">{annonce.dateCovoit}</Moment> - <time format="HH:mm">{annonce.heureCovoit}</time>
                                     </p>
                                     <dl className="car_annonce m-b-none">
                                         <dt><i className="fa fa-car"></i> {vehicule.marque} {vehicule.modele}</dt>

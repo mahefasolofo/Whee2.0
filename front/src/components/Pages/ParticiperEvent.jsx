@@ -101,13 +101,13 @@ function ParticiperEvent() {
           src={bg}
         ></img>
         <div className="home_content">
-          <div className="home_title">{event.titre}</div>
+          <div className="home_title">{event.event.titre}</div>
           <div className="home_title_dateTime">
             <i className="fas fa-calendar-alt mr-2" />
-            <Moment format="Do MMMM YYYY">{event.dateEvent}</Moment>
+            <Moment format="Do MMMM YYYY">{event.event.dateEvent}</Moment>
             <span> - </span>
             <i class="fa fa-clock-o" aria-hidden="true" />
-            {event.heureEvent}
+            {event.event.heureEvent}
           </div>
         </div>
       </div>
@@ -118,23 +118,23 @@ function ParticiperEvent() {
           <article className="postcard light blue">
             <div className="postcard__text t-dark">
               <h1 className="postcard__title blue">
-                <a>{event.titre}</a>
+                <a>{event.event.titre}</a>
               </h1>
               <div className="postcard__subtitle small">
                 <i className="fas fa-calendar-alt mr-2" />
-                <Moment format="Do MMMM YYYY">{event.dateEvent}</Moment>
+                <Moment format="Do MMMM YYYY">{event.event.dateEvent}</Moment>
                 <br />
                 <br />
                 <i class="fa fa-clock-o" aria-hidden="true" />
-                {event.heureEvent}
+                {event.event.heureEvent}
               </div>
               <div className="postcard__bar" />
-              <div className="postcard__preview-txt">{event.description}</div>
+              <div className="postcard__preview-txt">{event.event.description}</div>
             </div>
             <a className="postcard__img_link" href="#">
               <img
                 className="postcard__img"
-                src={`../../${event.image}`}
+                src={`../../${event.event.image}`}
                 alt="Image Title"
               />
             </a>
