@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, {Component, useState, useEffect} from 'react'
+import { set } from 'react-hook-form';
 import bg from '../../images/background8.jpg'
 // import demande from '../data/Demande'
 import OfferService from '../../services/OfferService';
@@ -9,8 +10,9 @@ function Demande() {
     const [recherche, setRecherche] = useState([]);
     const [recherche2, setRecherche2] = useState([]);
 
-    const [response, setResponse] = useState({});
-    const [demande, setDemande] = useState([]);
+    const [response, setResponse] = useState([]);
+    const [demande, setDemande] = useState(response);
+    const [demandeSearch, setDemandeSearch]= useState([]);
     const [text, setText] = useState('');
     const [text2, setText2] = useState('');
 
@@ -27,27 +29,25 @@ function Demande() {
             // console.log(resp.data);
             // setResponse(resp.data);
             setResponse(resp.data);
-            setDemande(resp.data)
-
-
+            setDemande(resp.data);
+           
         }
          logUsers();
 
-    }, [response]);
-
+    }, []);
+  
+   
 
     const onChangeHandlerDepart = (text) => {
         let matchesDepart = [];
         matchesDepart = response.map((val, key) => {
             return val.ptDepart;
-        })
+        }) 
         matchesDepart = [...new Set(matchesDepart)];
 
 
         if (text.length != "") {
-            function checkMatch(match) {
-                return match.includes;
-            }
+           
             newMatchesDepart = matchesDepart.filter((element, key) => {
                 if (element != null) {
                     if (element.toLowerCase().includes(text.toLowerCase())) {
@@ -110,10 +110,25 @@ function Demande() {
         console.log(recherche2);
     }
     const handleSearch=()=>{
-      
+      let elementSearched = [];
+      setDemande([]);
+      response.map((value, key)=>{
+          if(value.ptDepart.includes(text)){
+            setDemande(response);
+            setDemande(demande => ({
+              ...demande,
+              ...response.filter((rsp) =>
+              rsp.ptDepart.toLowerCase().includes(text.toLowerCase()))}));
+
+            setDemande(response.filter((rsp) =>
+            rsp.ptDepart.toLowerCase().includes(text.toLowerCase())));
+          }else{
+            console.log("tsy mety");
+          }
+
+      })
     }
-
-
+  
     return (<React.Fragment>
         <div className="home_offre">
             <img src={bg}
@@ -135,14 +150,8 @@ function Demande() {
                             }
                             value={text}/> {
                         displayDepart == false ? null : (
-                            <div style={
-                                    {
-                                        color: "black",
-                                        backgroundColor: "rgba(146, 145, 145, 0.7)"
-                                    }
-                                }
-                                className="autoComptletionDiv">
-                                {/* parcourez le tableau */}
+                            <div  className="autoCompletionDiv">
+              
                                 {
                                 recherche.map(function (v, i) {
                                     return (
@@ -156,7 +165,7 @@ function Demande() {
                                                 }
                                                 className="searchAutocompletionValue"
                                                 value={v}>
-                                                {v}</span>
+                                                <i class="fa fa-map-marker"></i>{v}</span>
                                         </div>
                                     );
                                 })
@@ -174,12 +183,7 @@ function Demande() {
                             }
                             value={text2}/> {
                         displayArrivee == false ? null : (
-                            <div style={
-                                {
-                                    backgroundColor: "rgba(33, 33, 33, 0.8)",
-                                    color: "black"
-                                }
-                            }>
+                          <div className="autoCompletionDiv">
                                 {/* parcourez le tableau */}
                                 {
                                 recherche2.map(function (v, i) {
@@ -194,7 +198,7 @@ function Demande() {
                                                 }
                                                 className="searchAutocompletionValue"
                                                 value={v}>
-                                                {v}</span>
+                                                 <i class="fa fa-map-marker"></i>{v}</span>
                                         </div>
                                     );
                                 })
@@ -215,7 +219,9 @@ function Demande() {
                             <option>04</option>
                         </select>
                     </div>
-                    <button className="button search_button">
+                    <button className="button search_button"  onClick={
+                                e => handleSearch()
+                            }>
                         <i className="fa fa-search" aria-hidden="true"/>
                     </button>
                 </form>
