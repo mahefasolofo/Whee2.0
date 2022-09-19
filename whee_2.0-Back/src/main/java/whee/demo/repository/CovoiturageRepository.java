@@ -12,7 +12,10 @@ import whee.demo.entity.Covoiturage;
 public interface CovoiturageRepository extends JpaRepository<Covoiturage, Long> {
 
     @Query(value = "SELECT * FROM public.covoiturage WHERE covoitureur_id=?1", nativeQuery = true)
-    List<Covoiturage> findAndrana(@Param("nb_place") Long id_covoit);
+    List<Covoiturage> findCovoitById(@Param("id_covoit") Long id_covoit);
+
+//    @Query(value = "SELECT * FROM public.covoiturage WHERE covoitureur_id=:id_covoit", nativeQuery = true)
+//    List<Covoiturage> findCovoitById(@Param("id_covoit") Long id_covoit);
 
 
     //@Query(value = "SELECT id FROM public.covoiturage WHERE covoitureur_id= :id", nativeQuery = true)

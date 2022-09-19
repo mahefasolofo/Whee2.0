@@ -51,14 +51,15 @@ function FormOffre() {
     <div>
       <div className="modalBackground" id="formAnnonce2">
         <div className="modalContainer">
+        <div className="modalHeader"><h1>Publier une annonce</h1></div>
           <div className="titleCloseBtn">
             <button onClick={close}><i className="fa fa-times-circle" aria-hidden="true"></i></button>
           </div>
-          <div className="container">
+          <div className="modalForm">
             <div className="progressbar">
               <div
                 style={{
-                  width: page === 0 ? "33.3%" : page === 1 ? "66.6%" : "100%",
+                  width: page === 0 ? "200px" : page === 1 ? "400px" : "600px",
                 }}
               ></div>
             </div>
@@ -97,14 +98,16 @@ function FormOffre() {
       </div>
 
       <div className="modalBackground" id="formAnnonce">
+        
         <div className="modalContainer">
+        <div className="modalHeader"><h1>Publier une annonce</h1></div>
         <div className="titleCloseBtn">
             <button onClick={close2}><i className="fa fa-times-circle" aria-hidden="true"></i></button>
           </div>
-          <div className="container">
+          <div className="modalForm">
             <div className="form-container">
               <div className="headerF">
-                <h1>Trajet</h1>
+                <h1>Votre trajet?</h1>
                 <div className="postcard__bar" />
               </div>
 
