@@ -1,13 +1,135 @@
 import React from 'react'
 import bg from '../../images/background7.png'
 import Offerlist from '../PublierOffre/Offerlist';
+import {Component, useState, useEffect} from 'react';
+import OfferService from '../../services/OfferService';
+
 
 
 function Offre () {
   const afficherInscription=()=> {
-
     document.getElementById('formAnnonce').style.display='flex';    
-  
+  }
+  const [recherche, setRecherche] = useState([]);
+  const [recherche2, setRecherche2] = useState([]);
+
+  const [response, setResponse] = useState([]);
+  const [demande, setDemande] = useState(response);
+  const [demandeSearch, setDemandeSearch]= useState([]);
+  const [text, setText] = useState('');
+  const [text2, setText2] = useState('');
+
+
+  const [displayDepart, setDisplayDepart] = useState(false);
+  const [displayArrivee, setDisplayArrivee] = useState(false)
+  let newMatchesDepart = [];
+  let newMatchesArrivee = []
+  useEffect(() => {
+      const logUsers = async () => {
+
+          const resp = await OfferService.getOffers()
+
+          // console.log(resp.data);
+          // setResponse(resp.data);
+          setResponse(resp.data);
+          setDemande(resp.data);
+         
+      }
+       logUsers();
+
+  }, []);
+
+ 
+
+  const onChangeHandlerDepart = (text) => {
+      let matchesDepart = [];
+      matchesDepart = response.map((val, key) => {
+          return val.ptDepart;
+      }) 
+      matchesDepart = [...new Set(matchesDepart)];
+
+
+      if (text.length != "") {
+         
+          newMatchesDepart = matchesDepart.filter((element, key) => {
+              if (element != null) {
+                  if (element.toLowerCase().includes(text.toLowerCase())) {
+                      return element;
+                  }
+              }
+          })
+          // matchesDepart = response.yfilter((element, index)=>{
+          // const regex = new RegExp('${text}', "gi");
+          // return response.match({text})
+          // })
+          setDisplayArrivee(false)
+          setDisplayDepart(true)
+
+      }
+
+
+      setRecherche(newMatchesDepart)
+      setText(text);
+      console.log(recherche2);
+
+  }
+  const onChangeHandlerArrivee = (text2) => {
+
+      let matchesArrivee = []
+      matchesArrivee = response.map((val, key) => {
+          return val.ptArrivee;
+      })
+      matchesArrivee = [...new Set(matchesArrivee)];
+
+
+      for (let i = 0; i < response.length; i++) {
+          if (matchesArrivee.indexOf(response[i].data) === -1) {
+              matchesArrivee.push(response[i].data);
+          }
+
+      }
+      if (text2.length != "") {
+          function checkMatch(match) {
+              return match.includes;
+          }
+          newMatchesArrivee = matchesArrivee.filter((element, key) => {
+              if (element != null) {
+                  if (element.toLowerCase().includes(text2.toLowerCase())) {
+                      return element;
+                  }
+              }
+          })
+          // matchesArrivee = response.filter((element, index)=>{
+          // const regex = new RegExp('${text}', "gi");
+          // return response.match({text})
+          // })
+          setDisplayDepart(false);
+          setDisplayArrivee(true);
+      }
+
+
+      setRecherche2(newMatchesArrivee)
+      setText2(text2);
+      console.log(recherche2);
+  }
+  const handleSearch=()=>{
+    let elementSearched = [];
+    setDemande([]);
+    response.map((value, key)=>{
+        if(value.ptDepart.includes(text)){
+          setDemande(response);
+          setDemande(demande => ({
+            ...demande,
+            ...response.filter((rsp) =>
+            rsp.ptDepart.toLowerCase().includes(text.toLowerCase()))}));
+
+          setDemande(response.filter((rsp) =>
+          rsp.ptDepart.toLowerCase().includes(text.toLowerCase())));
+        }else{
+          console.log("tsy mety");
+        }
+
+    })
   }
   
     

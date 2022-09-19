@@ -18,6 +18,7 @@ import FormOffre from "./components/PublierOffre/FormOffre";
 import jwt_decode from "jwt-decode";
 import { AccordionButton } from "react-bootstrap";
 
+
 function App() {
   const [user, setUser] = useState(useContext(UserContext));
 
@@ -39,13 +40,14 @@ function App() {
 
   useEffect(() => {
     /* global google */
-    try {
-      google.accounts.id.initialize({
-        client_id:
-          "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com",
-        callback: handleCredentialResponse,
-      });
-    } catch {}
+
+try{ google.accounts.id.initialize({
+  client_id:
+    "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com",
+  callback: handleCredentialResponse,
+});
+}catch{}
+
 
     try {
       google.accounts.id.initialize({
@@ -65,7 +67,12 @@ function App() {
         "border-radius": 180,
         border: "none",
       });
-    } catch (error) {}
+
+    } catch (error) {
+
+    }
+
+
   }, []);
 
   return (
