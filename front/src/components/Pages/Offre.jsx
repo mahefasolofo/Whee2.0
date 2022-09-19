@@ -2,6 +2,7 @@ import React from 'react'
 import bg from '../../images/background7.png'
 import Offerlist from '../PublierOffre/Offerlist';
 import {Component, useState, useEffect} from 'react';
+import OfferService from '../../services/OfferService';
 
 
 

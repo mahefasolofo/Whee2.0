@@ -18,6 +18,7 @@ import FormOffre from "./components/PublierOffre/FormOffre";
 import jwt_decode from "jwt-decode";
 import { AccordionButton } from "react-bootstrap";
 
+
 function App() {
   const [user, setUser] = useState(useContext(UserContext));
 
