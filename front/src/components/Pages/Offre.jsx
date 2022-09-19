@@ -16,7 +16,7 @@ function Offre () {
           <div className="home_offre">
           <img className="home_background parallax-window" src={bg} alt="" />
           <div className="home_content">
-            <div className="home_title">Les offres</div>
+            <div className="home_title" >Les offres</div>
           </div>
             <div className="search_panel_offre active_offre col-lg-8">
             <form
