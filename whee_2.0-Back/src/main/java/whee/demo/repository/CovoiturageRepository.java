@@ -14,25 +14,4 @@ public interface CovoiturageRepository extends JpaRepository<Covoiturage, Long> 
     @Query(value = "SELECT * FROM public.covoiturage WHERE covoitureur_id=?1", nativeQuery = true)
     List<Covoiturage> findCovoitById(@Param("id_covoit") Long id_covoit);
 
-//    @Query(value = "SELECT * FROM public.covoiturage WHERE covoitureur_id=:id_covoit", nativeQuery = true)
-//    List<Covoiturage> findCovoitById(@Param("id_covoit") Long id_covoit);
-
-
-    //@Query(value = "SELECT id FROM public.covoiturage WHERE covoitureur_id= :id", nativeQuery = true)
-    //List<Covoiturage> findByCovoitureur(@Param("id")Long id);
-
-    @Query(value = "SELECT * FROM public.covoiturage WHERE covoitureur_id=?1", nativeQuery = true)
-    List<Covoiturage> findCovoitById(@Param("id_covoit") Long id_covoit);
-
-    // @Query(value="select * from public.covoiturage c where c.covoitureur_id=
-    // :id_covoit", nativeQuery=true)
-    // List<Covoiturage> findTout(Long id_covoit);
-    //
-    // @Query(value="select * from public.covoiturage a where a.covoitureur_id=
-    // :id_covoit", nativeQuery=true)
-    // List<Covoiturage> getTout(Long id_covoit);
-
-    // @Query(value="SELECT * FROM public.covoiturage WHERE
-    // covoitureur_id=2",nativeQuery = true)
-    // List<Covoiturage> findDaholo();
 }

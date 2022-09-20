@@ -70,9 +70,4 @@ public class EventController {
     public List<Event> findEventByUserId(@PathVariable Long userid){return eventRepository.findEventByUserId(userid);}
 
 
-    @GetMapping("/findEventByIdCovoit/{userid}")
-    public List<Event> findEventByUserId(@PathVariable Long userid) {
-        return eventRepository.findEventByUserId(userid);
-    }
-
 }

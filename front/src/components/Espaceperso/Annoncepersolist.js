@@ -18,7 +18,7 @@ function Annoncepersolist() {
   const getUserAnnonce = (id) => {
     UserspaceService.getPubByUserId(id).then((res) => {
       setAnnonceUser(res.data);
-      console.log(res.data);
+      // console.log(res.data);
     });
   }
   // constructor(props) {
@@ -47,7 +47,7 @@ function Annoncepersolist() {
             {
               annonceUser.map( (annonce) =>
               
-              <Annoncepersoritem key={annonce.idCovoit} annonce={annonce} vehicule={annonce.vehicule} conducteur={annonce.covoitureur}/>
+              <Annoncepersoritem key={annonce.idCovoit} annonce={annonce} vehicule={annonce.vehicule} conducteur={annonce.covoitureur} onload={()=>window.location.reload(false)}/>
               )
 
             }

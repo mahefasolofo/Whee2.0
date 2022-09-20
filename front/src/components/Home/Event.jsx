@@ -37,6 +37,19 @@ export default class Event extends Component {
                   <div className="row">
                     <div className="col-lg-6">
                       <div className="offers_image_container">
+                        <div className="offers_overlay_separator"></div>
+                        <div className="offers_overlay">
+                          <div className="overlay-content">
+                            <div className="button book_button">
+                              <Link to={`/evenements/${event.idEvent}`}>
+                                Voir plus
+                                <span />
+                                <span />
+                                <span />
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
                         <div className="offer_date">
                           <Moment format="Do MMMM YYYY">
                             {event.dateEvent}
@@ -73,16 +86,9 @@ export default class Event extends Component {
                             </li>
                           </ul>
                         </div>
-                        <div className="offers_link">
-                          <div className="button book_button">
-                            <Link to={`/evenements/${event.idEvent}`}>
-                              Voir plus
-                              <span />
-                              <span />
-                              <span />
-                            </Link>
-                          </div>
-                        </div>
+                        {/* <div className="offers_link">
+                          
+                        </div> */}
                       </div>
                     </div>
                   </div>
@@ -90,7 +96,9 @@ export default class Event extends Component {
               </div>
             ))}
           </div>
+          <div className="test_border" />
         </div>
+        
       </div>
     );
   }

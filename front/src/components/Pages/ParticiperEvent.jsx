@@ -144,7 +144,7 @@ function ParticiperEvent() {
       <section className="card">
         <div className="container py-2">
           <button
-            className="button book_button "
+            className="button book_button_blog "
             onClick={handleClick}
           ></button>
           <LoadScript googleMapsApiKey={api} libraries={["places"]}>

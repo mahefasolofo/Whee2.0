@@ -14,8 +14,8 @@ const NavBar = () => {
       console.log(localStorage.getItem("token"));
       console.log(localStorage.getItem("token"));
       value = jwt_decode(localStorage.getItem("token"));
-      console.log(jwt_decode(localStorage.getItem("token")));
-      console.log(value);
+      // console.log(jwt_decode(localStorage.getItem("token")));
+      // console.log(value);
     } else {
       value = "nn";
     }
