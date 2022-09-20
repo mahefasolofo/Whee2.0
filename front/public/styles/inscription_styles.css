@@ -195,11 +195,13 @@ p {
     padding: 40px 30px 04px 30px;
     display: flex;
     position: relative;
+    
 }
 
 .rowCentreInteret {
     align-items: center;
     padding: 80;
+    height:500px;
 }
 
 .form-label {
@@ -466,6 +468,7 @@ input[type=checkbox] {
     margin-left: 5%;
     font-size: 16px;
 }
+
 
 
 .overlay-image {

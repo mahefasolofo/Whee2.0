@@ -4,7 +4,7 @@ import { Dropdown } from "react-bootstrap";
 import jwt_decode from "jwt-decode";
 
 const NavBar = () => {
-  const { user } = useContext(UserContext);
+
 
   let value = "jieo";
 
