@@ -56,7 +56,8 @@ const Inscription = () => {
 
     return (
         <div> {/* Hello world */}
-            <div className="modal fade modalCongrats" id="myModalCongrats" role="dialog">
+            <div className="modal fade modalCongrats" id="myModalCongrats" role="dialog"
+                onClick={continuer}>
                 <div className="modal-dialog">
                     <div className="card">
                         <div className="text-right cross">
@@ -68,14 +69,13 @@ const Inscription = () => {
                             <h4>Bienvenue
                             </h4>
                             <p>
-                                Dites Whee à la vie 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            survey!
+                                Dites Whee à la vieee
                             </p>
                             {" "}
 
                             <button className="btn btn-out btn-square continue buttonInscription"
                                 style={
-                                    {zIndex: 1000}
+                                    {zIndex: 30000}
                                 }
                                 onClick={continuer}>Se connecter</button>
                         </div>
