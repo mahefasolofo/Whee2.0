@@ -201,7 +201,9 @@ p {
 .rowCentreInteret {
     align-items: center;
     padding: 80;
-    height:500px;
+    height:550px;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-label {

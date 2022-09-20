@@ -12,15 +12,18 @@ import whee.demo.repository.UserRepository;
 
 import java.util.List;
 
-@CrossOrigin(origins ="http://localhost:3000/" )
+@CrossOrigin(origins = { "http://localhost:3001", "http://localhost:3000" }, allowCredentials = "true")
 @RestController
 @RequestMapping("/api/whee/")
 public class InterestController {
     @Autowired
     InterestRepository interestRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
     @GetMapping("/getInterest")
-    public List<Interest> getAllCompte() {
+    public List<Interest> getAllInterest() {
         return interestRepository.findAll();
     }
 }
