@@ -15,7 +15,7 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping("/newComptes")
+    @GetMapping("/newCompte")
     public List<User> getAllCompte() {
         return userRepository.findAll();
     }

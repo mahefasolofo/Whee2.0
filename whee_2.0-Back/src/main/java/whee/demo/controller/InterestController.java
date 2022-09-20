@@ -26,4 +26,6 @@ public class InterestController {
     public List<Interest> getAllInterest() {
         return interestRepository.findAll();
     }
+
+
 }
