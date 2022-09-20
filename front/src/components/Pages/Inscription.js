@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 // import '../styles/inscription_styles.css';
 import UserService from "../../services/UserService";
 import VousEtesBienInscrit from "./VousEtesBienInscrit";
-import spor from "../../images/Interests/sport.png"
+import voiture from "../../images/audi.png"
+import interet from "../../images/Interests/Football.png"
 
 
 import {Helmet} from "react-helmet";
@@ -354,13 +355,13 @@ const Inscription = () => {
                                     return (<div className="col-2 divCentreInteret"
                                         style={
                                             {
-                                                backgroundImage: '../../images/Interests/sport.png',
-                                                backgroundImage: {
-                                                    spor
-                                                },
-                                                backgroundColor: "#000",
+
+
+                                                backgroundImage: 'url(' + voiture + ')',
                                                 backgroundSize: "100% 100%"
                                             }
+
+
                                         }
                                         key={
                                             val.id
