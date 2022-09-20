@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import Moment from "react-moment";
 import "moment/locale/fr";
 import EventService from "../../services/EventService";
+import AnnonceEvent from "./AnnonceEvent";
+import CardEvent from "../Home/CardEvent";
 import {
   LoadScript,
   GoogleMap,
@@ -78,7 +80,10 @@ function ParticiperEvent() {
   }
 
   let { idEvent } = useParams();
-  const [event, setEvent] = useState([]);
+  const [annonce, setAnnonceEvent] = useState([]);
+  const [event, setEvent] = useState(
+    {titre:""}
+  );
 
   useEffect(() => {
     getEventByid(idEvent);
@@ -86,9 +91,11 @@ function ParticiperEvent() {
 
   const getEventByid = (id) => {
     EventService.getEventById(id).then((response) => {
-      setEvent(response.data);
+      setAnnonceEvent(response.data);
+      // setEvent({titre : annonce.event.titre})
       console.log(response.data);
     });
+
   };
 
   return (
@@ -101,46 +108,19 @@ function ParticiperEvent() {
           src={bg}
         ></img>
         <div className="home_content">
-          <div className="home_title">{event.event.titre}</div>
-          <div className="home_title_dateTime">
-            <i className="fas fa-calendar-alt mr-2" />
-            <Moment format="Do MMMM YYYY">{event.event.dateEvent}</Moment>
-            <span> - </span>
-            <i class="fa fa-clock-o" aria-hidden="true" />
-            {event.event.heureEvent}
-          </div>
+          <div className="home_title">événement</div>          
         </div>
       </div>
       {/* Blog */}
-      <section className="card">
-        <div className="container py-2">
-          {/* <div class="h1 text-center text-dark" id="pageHeaderTitle">My Cards Light</div> */}
-          <article className="postcard light blue">
-            <div className="postcard__text t-dark">
-              <h1 className="postcard__title blue">
-                <a>{event.event.titre}</a>
-              </h1>
-              <div className="postcard__subtitle small">
-                <i className="fas fa-calendar-alt mr-2" />
-                <Moment format="Do MMMM YYYY">{event.event.dateEvent}</Moment>
-                <br />
-                <br />
-                <i class="fa fa-clock-o" aria-hidden="true" />
-                {event.event.heureEvent}
-              </div>
-              <div className="postcard__bar" />
-              <div className="postcard__preview-txt">{event.event.description}</div>
-            </div>
-            <a className="postcard__img_link" href="#">
-              <img
-                className="postcard__img"
-                src={`../../${event.event.image}`}
-                alt="Image Title"
-              />
-            </a>
-          </article>
-        </div>
+      
+      
+      
+          
+      
+      <section>
+      {annonce.map((annonceE)=>(<AnnonceEvent key={annonceE.idCovoit} annonceEvent={annonceE} evenement={annonceE.event} vehicule={annonceE.vehicule}/>))}
       </section>
+        
       <section className="card">
         <div className="container py-2">
           <button

@@ -2,7 +2,6 @@ import axios from 'axios';
 
 const ANNONCE_API_BASE_URL = "http://localhost:8090/api/whee/annonces";
 
-
 class AnnonceCovoiturageService{
     getAnnonces(){
         return axios.get(ANNONCE_API_BASE_URL);
