@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 // import '../styles/inscription_styles.css';
 import UserService from "../../services/UserService";
 import VousEtesBienInscrit from "./VousEtesBienInscrit";
-import spor from "../../images/Interests/sport"
+import spor from "../../images/Interests/sport.png"
 
 
 import {Helmet} from "react-helmet";
