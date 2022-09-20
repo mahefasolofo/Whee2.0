@@ -40,5 +40,6 @@ public class Interest implements Serializable {
 	@Column(name="NomCI", nullable=true, length=255)	
 	private String nomCI;
 	
-
+	@Column(name="ImageCI")
+	private String imageCI;
 }

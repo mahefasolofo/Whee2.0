@@ -1,12 +1,27 @@
-import React, { Component } from 'react'
-import Annoncepersolist from './Annoncepersolist'
+import React, { useState, useEffect } from 'react'
 import Usercard from './Usercard'
-import Moment from 'react-moment'
+import Annoncepersoritem from './Annoncepersoritem'
+import UserspaceService from '../../services/UserspaceService'
+import { useParams } from "react-router-dom";
 
 
 
-export default class persobody extends Component {
-  render() {
+function Persobody() {
+  
+  let {idUser} = useParams();
+  const [annonceUser, setAnnonceUser] = useState([]);
+
+  useEffect(() => {
+    getUserAnnonce(idUser);
+  }, [idUser])
+  
+  const getUserAnnonce = (id) => {
+    UserspaceService.getPubByUserId(id).then((res) => {
+      setAnnonceUser(res.data);
+      console.log(res.data);
+    });
+  }
+
     return (
       <div className='container-espaceperso'>
         <div className="wrapper wrapper-content animated list-container fadeInRight">
@@ -17,8 +32,13 @@ export default class persobody extends Component {
             <span className="pull-right fs-6">(<strong>3</strong>) annonces</span>
             <h3>Les annonces que vous avez publiées</h3>
              </div>
-                <Annoncepersolist/>
-                
+             {
+              annonceUser.map( (annonce) =>
+              
+              <Annoncepersoritem key={annonce.idCovoit} annonce={annonce} vehicule={annonce.vehicule} conducteur={annonce.covoitureur}/>
+              )
+
+            }               
 
                 </div>        
                 </div>
@@ -30,5 +50,7 @@ export default class persobody extends Component {
         </div>	
     </div>
     )
-  }
+  
 }
+
+export default Persobody;

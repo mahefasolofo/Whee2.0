@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.ResourceAccessException;
 
 
+import whee.demo.entity.Covoiturage;
 import whee.demo.entity.Event;
 import whee.demo.repository.EventRepository;
 
@@ -38,13 +39,16 @@ public class EventController {
 
     }
 
-    @GetMapping("/events/{id}")
-    public ResponseEntity<Event> getEventByID(@PathVariable Long id) {
-        Event event = eventRepository.findById(id)
-                .orElseThrow(() -> new ResourceAccessException("Event not exist with id :" + id));
+    //@GetMapping("/events/{id}")
+    //public ResponseEntity<Event> getEventByID(@PathVariable Long id) {
+        //Event event = eventRepository.findById(id)
+                //.orElseThrow(() -> new ResourceAccessException("Event not exist with id :" + id));
 
-        return ResponseEntity.ok(event);
-    }
+        //return ResponseEntity.ok(event);
+    //}
+
+
+    
 
 //    @PutMapping("/events/{id}")
 //    public ResponseEntity<Event> updateEvent(@PathVariable Long id, @RequestBody Event eventD) {

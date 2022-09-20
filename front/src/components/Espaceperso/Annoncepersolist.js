@@ -18,7 +18,7 @@ function Annoncepersolist() {
   const getUserAnnonce = (id) => {
     UserspaceService.getPubByUserId(id).then((res) => {
       setAnnonceUser(res.data);
-      // console.log(res.data);
+      console.log(res.data);
     });
   }
   // constructor(props) {
