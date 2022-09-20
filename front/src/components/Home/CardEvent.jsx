@@ -41,7 +41,7 @@ function CardEvent(props) {
           <div className="postcard__preview-txt">{props.event.description}</div>
 
           <ul className="postcard__tagbox">
-            <div className="button book_button">
+            <div className="button book_button_blog">
               <a
                 style={{ color: "white" }}
                 onClick={() => {

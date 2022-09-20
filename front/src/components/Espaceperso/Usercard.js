@@ -1,4 +1,23 @@
 import React from 'react'
+import { useAsyncValue } from 'react-router-dom'
+import jwt_decode from "jwt-decode";
+
+let value = "jieo";
+
+  if (localStorage.getItem("token") != null) {
+    if (localStorage.getItem("token").length > 14) {
+      value = jwt_decode(localStorage.getItem("token"));
+      console.log(localStorage.getItem("token"));
+      console.log(localStorage.getItem("token"));
+      value = jwt_decode(localStorage.getItem("token"));
+      // console.log(jwt_decode(localStorage.getItem("token")));
+      // console.log(value);
+    } else {
+      value = "nn";
+    }
+  }
+
+
 
 const Usercard = () => {
   
@@ -9,12 +28,12 @@ const Usercard = () => {
         <div className="card1 text-center mb-5">
 
             <div className="circle-image">
-                <img src="https://i.imgur.com/hczKIze.jpg" width="70"/>
+                <img src={value.picture} width="70"/>
             </div>
 
                 
 
-            <span className="name mb-1 fw-500">Bryan Williams</span>
+            <span className="name mb-1 fw-500">{value.name}</span>
 
             <div className='row stat_card mb-1 ms-3 fw-650'> 
                 <tr>
