@@ -1,7 +1,6 @@
 import React from "react";
 import carimg from "../../images/car1.jpg";
 import profimg from "../../images/photoProfil.jpg";
-import "./offer.css";
 import Moment from "react-moment";
 
 const Offeritem = ({ offer, compte, vehicule }) => {
@@ -76,7 +75,7 @@ const Offeritem = ({ offer, compte, vehicule }) => {
                                 <li class="offersIcons_item"><img src="images/seat3.png" alt=""></li>
                             </ul>
                         </div>*/}
-                <button className="button book_button">
+                <button className="button book_button_blog">
                   <a href="#">
                     Réserver<span></span>
                     <span></span>
