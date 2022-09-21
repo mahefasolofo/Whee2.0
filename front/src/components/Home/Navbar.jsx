@@ -7,6 +7,7 @@ const NavBar = () => {
     let idCurrentUser = useContext(UserContext);
     let value = "joel";
 
+
     if (localStorage.getItem("token") != null) {
         if (localStorage.getItem("token").length > 14) {
             value = jwt_decode(localStorage.getItem("token"));
@@ -18,6 +19,7 @@ const NavBar = () => {
         } else {
             value = "nn";
         }
+
     }
 
     const afficherConnexion = () => {

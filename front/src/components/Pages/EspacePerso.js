@@ -9,6 +9,7 @@ export default class Espaceperso extends Component {
       <React.Fragment>
         <Persoheader/>
         <Persobody/>
+        <div className="new_footer"></div>
         
       </React.Fragment>
     )

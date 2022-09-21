@@ -29,6 +29,7 @@ import {set} from "react-hook-form";
 
 function App() {
     const [user, setUser] = useState(0);
+    const [essai, setEssai] = useState(0);
 
 
     function handleCredentialResponse(response) {
@@ -74,7 +75,8 @@ function App() {
 
                 }
             }
-
+            setEssai(7);
+            console.log("essai ty", essai);
 
             try {
                 google.accounts.id.initialize({client_id: "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com", callback: handleCredentialResponse});

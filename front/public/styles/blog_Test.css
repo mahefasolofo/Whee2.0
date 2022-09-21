@@ -369,7 +369,7 @@ a:hover {
         z-index: 1;
     }
 
-    .book_button {
+    .book_button_blog {
         background: #003049;
         width: 186px;
         margin-top: 39px;
@@ -384,9 +384,9 @@ a:hover {
 
     }
 
-    .book_button:hover {
+    /* .book_button:hover {
         opacity: 0.8;
-    }
+    } */
 
     .button a {
         display: block;
@@ -406,4 +406,11 @@ a:hover {
     }
 
 
+}
+
+/*Styles dans ParticiperEvent*/
+
+.list_annonce_event {
+
+    display:flow-root;
 }

@@ -1,0 +1,213 @@
+#formAnnonce{
+	display: none;
+
+}
+#formAnnonce2{
+	display: none;
+
+}
+
+.form-container{
+  display: block;
+}
+.modalBackground {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    
+  }
+  .fa-times-circle{
+    color: #cacaca;
+  }
+
+  .fa-times-circle:hover{
+    color: #D62828;
+  }
+
+  .modalHeader{
+    position:absolute;
+    background-image: url('../../images/car7.jpg');
+    background-size: cover;
+    background-position-y: -220px;
+    /* background-color: #003049; */
+    width:100%;
+    height: 150px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+   
+  }
+
+  .modalHeader h1{
+    font-family:'Open Sans', sans-serif;
+    font-weight:600;
+    color:#f8f8f8;
+    padding: 15px;
+    border-radius: 50px;
+    background-color: rgb(0, 0, 0,0.3);
+    cursor: default;
+    border: solid rgb(219, 219, 219,0.8) 1.2px;
+    
+    
+  }
+ 
+  .modalForm{
+    margin-top: 150px;
+    margin-left: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+
+
+
+  .modalContainer {
+    width: 900px;
+    height: 550px;
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 10px -0px rgba(0, 0, 0, 0.66);
+    display: flex;
+    flex-direction: column;
+    /* border: solid rgb(219, 219, 219,0.8) 1.2px; */
+	  border-radius: 10px;
+    
+  }
+  .container2{
+    margin-left: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .headerF h1{
+    color:#003049;
+    margin-bottom: 0.5rem!important;
+    font-weight: 600!important;
+    line-height: 1.2!important;
+  }
+  .btn-primary{
+    background: #003049;
+    width: 186px;
+    margin-top: 39px;
+    margin-bottom: 5px;
+    margin-right: 100px;
+    /* margin-left: 100px; */
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+
+    display: inline-block;
+    height: 53px;
+    border-radius: 27px;
+    overflow: hidden;
+    z-index: 1;
+    border: none;
+  }
+  .btn-primary:hover{
+    background: #003049;
+    opacity: 0.8!important;
+  }
+  button:disabled{
+    background: #cacaca!important;
+  }
+  
+  .modalContainer .title {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    
+  }
+  .modalContainer input{
+    width: 500px;
+    background-color: #f8f8f8;
+    color: #4a4a4a;
+    font-weight: 600;
+   
+  }
+  .form-control_place{
+    width: 250px!important;
+    
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    /* appearance: none; */
+    border-radius: 16px!important;
+    border-style: solid;
+    border-width: 2px;
+
+  }
+  input[type=date],input[type=time]{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 2px;
+  }
+
+
+  .titleCloseBtn {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    margin-top: 10px;
+    
+  }
+  
+  .titleCloseBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  
+  .modalContainer .body {
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  
+  .modalContainer .footer {
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modalContainer .footer button {
+    width: 150px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+    background-color: cornflowerblue;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  #cancelBtn {
+    background-color: crimson;
+  }
+
+  .progressbar{
+    height: 2px!important;
+    background-color: #003049;
+  }

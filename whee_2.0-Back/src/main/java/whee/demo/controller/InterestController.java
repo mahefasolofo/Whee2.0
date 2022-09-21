@@ -23,9 +23,10 @@ public class InterestController {
     UserRepository userRepository;
 
     @GetMapping("/getInterest")
-    public List<Interest> getAllInterest() {
+
+    public List<Interest> getInterests() {
+
         return interestRepository.findAll();
     }
-
 
 }
