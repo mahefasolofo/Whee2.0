@@ -19,14 +19,16 @@ import About from "./components/Pages/About";
 import {Routes, Route} from "react-router-dom";
 import Connexion from "./components/Pages/Connexion";
 import Inscription from "./components/Pages/Inscription";
-import {UserContext} from "./api/UserContext";
+import {UserContext} from "./services/UserContext";
+import UserService from "./services/UserService";
 import FormOffre from "./components/PublierOffre/FormOffre";
 import jwt_decode from "jwt-decode";
 import {AccordionButton} from "react-bootstrap";
 
 
 function App() {
-    const [user, setUser] = useState("valeur Initial");
+    const [user, setUser] = useState();
+
 
     function handleCredentialResponse(response) {
     try {
@@ -38,13 +40,32 @@ function App() {
                 document.getElementById("id01").style.display = "none";
                 localStorage.setItem("token", response.credential);
                 console.log(jwt_decode(localStorage.getItem("token")));
-                setUser(jwt_decode(localStorage.getItem("token")));
+                setUser(jwt_decode(localStorage.getItem("token")).mail);
+
+
             } catch {
                 console.log("tsa poinsa");
             }}
 
-        useEffect(() => { /* global google */
-            setUser("joel")
+        useEffect(() => {
+            /* global google */
+            // if (localStorage.getItem("token") !== null) {
+            //     if (localStorage.getItem("token").length > 10) { // setUser(UserService.getByMail("joelandriambola@gmail.com"));
+            //         const logInterest = async () => {
+            //             const resp = await UserService.getIdByMail("joelandriambola@gmail.com");
+            //             console.log(resp.data);
+            //             setUser(resp.data);
+            //             console.log("maty");
+            //             setUser(resp.data)
+            //         };
+            //         logInterest();
+
+            //         console.log((jwt_decode(localStorage.getItem("token"))));
+            //         // alert(user);
+            //         // alert(UserService.getIdByMail(user));
+            //     }
+            // }
+            // alert(user);
             try {
                 google.accounts.id.initialize({client_id: "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com", callback: handleCredentialResponse});
             } catch {}
@@ -67,6 +88,7 @@ function App() {
                 border: "none"
             });
 
+
         } catch (error) {}
 
 
@@ -77,8 +99,9 @@ function App() {
 return (
     <React.Fragment>
         <FormOffre/>
-        <div className="super_container">
-            <UserContext.Provider value={user}>
+        <UserContext.Provider value={user}>
+            <div className="super_container">
+
                 <Navbar/>
                 <Connexion/>
                 <Inscription/>
@@ -102,7 +125,8 @@ return (
                 </Routes>
 
                 <Footer/>
-            </UserContext.Provider>
-        </div>
+
+            </div>
+        </UserContext.Provider>
     </React.Fragment>
 );}export default App;

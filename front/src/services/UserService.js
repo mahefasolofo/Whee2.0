@@ -16,10 +16,10 @@ class UserService {
         return axios.put(EVENT_API_BASE_URL + '/' + eventId, event);
     }
     getByMail(email) {
-        return axios.put("http://localhost:8090/api/whee/findUserByMail/" + email);
+        return axios.get("http://localhost:8090/api/whee/findUserByMail/" + email);
     }
     getIdByMail(email) {
-        return axios.put("http://localhost:8090/api/whee/findIdByMail/" + email);
+        return axios.get("http://localhost:8090/api/whee/findIdByMail/" + email);
     }
 
 

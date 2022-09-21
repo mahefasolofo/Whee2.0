@@ -11,6 +11,7 @@ import InterestService from "../../services/InterestService";
 const Inscription = () => {
 
     const [interet, setInterest] = useState([]);
+    const [myInterest, setMyInterest] = useState([]);
     const {register, handleSubmit} = useForm();
     const [formData, setFormData] = useState({
         "nom": "Randria",
@@ -22,10 +23,10 @@ const Inscription = () => {
         "contact": "0345270631",
         "photo": null,
         "date_naissance": "1992-08-05",
-        "interests": {},
         "vehicules": {},
         "evaluations": {}
     })
+
     const onSubmit = (d) => {
         // d.date_naissance="hieu";
         // d.interests = [];
@@ -64,12 +65,13 @@ const Inscription = () => {
     }, [])
 
     const seConnecter = () => {
+        console.log(myInterest);
+        formData.interests = myInterest.val;
         UserService.newCompte(formData);
         console.log(formData.interests);
         alert(JSON.stringify(formData))
         closeInscription();
         localStorage.setItem("token", "eyJhbGciOiJSUzI1NiIsImtpZCI6IjIwOWMwNTdkM2JkZDhjMDhmMmQ1NzM5Nzg4NjMyNjczZjdjNjI0MGYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2NjM1ODUyMjEsImF1ZCI6IjE2MjI0NzE2NDQ2MC11MDEwYXVoOWYydDRlcjM2a2xjODFzcWQ3ZzhlbGc3dS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjExMjU5MjAyOTg2NTE4NTMyNzg1NCIsImVtYWlsIjoiam9lbGFuZHJpYW1ib2xhQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhenAiOiIxNjIyNDcxNjQ0NjAtdTAxMGF1aDlmMnQ0ZXIzNmtsYzgxc3FkN2c4ZWxnN3UuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJuYW1lIjoiSm9lbCBBbmRyaWEiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FDTlBFdS1uUTJhcDJEZWtNMXdYdXRQTEU5Zk1qLUg3Ny1QOG9wVFhuczVJPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IkpvZWwiLCJmYW1pbHlfbmFtZSI6IkFuZHJpYSIsImlhdCI6MTY2MzU4NTUyMSwiZXhwIjoxNjYzNTg5MTIxLCJqdGkiOiI1ZGNkNjVmYjZjMTc2YzM3NmE4MGQ2ODc4ZDZlYzk3ZDNjODNmNDczIn0.n9w5JvfrMhkBs6fYOCoC9ojyuGdQH7kMqgED46AX4hXtTt2Q0EUcvXgB1Yjdb3dz5nyC7ZCvYJDbZH3LZafpK_px_IzwDftnayHQkZfY-vWXHIKB3MJelAmiKCU7H1rIOORbc9n6hFiNbfJ_AmfZ5-KJ8yUoC6-8XTS6rDVN_rpnusPJBsycW1MExXJQasmhH61ErInS2mH1VgrSiUY4JHcNYC-H1MsRac5A2oPDVNFckw8bpSG-Fns8yg1oIhn2Sz4ChwOuM-2_XeTe-wCKwdPCa3rVqeh7SUXr8szCKnIoEfsaH-VaLuzihdaFuFB8EmGToab_9Csh2LI8qCn4Mg");
-
     }
     const continuer = () => {
         window.location.reload(false);
@@ -168,7 +170,7 @@ const Inscription = () => {
                                     <b>
                                         Nom*
                                     </b>
-                                    <input type="text" placeholder="Nom d'Utilisateur" name="uname"
+                                    <input type="text" placeholder="Nom d'Utilisateur" name="uname" className="inscriptionInput"
                                         onChange={
                                             (e) => {
                                                 setFormData({
@@ -180,7 +182,7 @@ const Inscription = () => {
                                     <b htmlFor="psw">
                                         Prenom*
                                     </b>
-                                    <input type="text" placeholder="E-mail" name="psw"
+                                    <input type="text" placeholder="E-mail" name="prenom" className="inscriptionInput"
                                         style={
                                             {marginBottom: 15}
                                         }
@@ -195,10 +197,7 @@ const Inscription = () => {
                                     <b htmlFor="psw">
                                         Mot de Passe*
                                     </b>
-                                    <input type="password" placeholder="Mot de passe" name="psw"
-                                        style={
-                                            {marginBottom: 15}
-                                        }
+                                    <input type="password" placeholder="Mot de passe" name="psw" className="inscriptionInput"
                                         onChange={
                                             (e) => {
                                                 setFormData({
@@ -266,7 +265,7 @@ const Inscription = () => {
                                     <span className="dot"/>
                                     <span className="dot"/>
                                 </div>
-                                <h5 className="cardInscription-title text-center pb-0 fs-4"
+                                <h5 className="cardInscription-title text-center pb-0 genreTitle"
                                     style={
                                         {marginTop: 30}
                                 }>
@@ -364,10 +363,10 @@ const Inscription = () => {
                                     marginLeft: 5
                                 }
                         }>
-                            <label htmlFor="username" className="form-label">
-                                <b>Email</b>
-                            </label>
-                            <input type="text" placeholder="Email" name=" uname" required=" "
+
+
+                            <b>Email</b>
+                            <input type="text" placeholder="Email" name=" uname" required=" " className="inscriptionInput"
                                 onChange={
                                     (e) => {
                                         setFormData({
@@ -377,12 +376,8 @@ const Inscription = () => {
                                     }
                                 }/>
 
-                            <b>Contatct</b>
-
-                            <input type="text" placeholder="Numéro" name="contact" required=" "
-                                style={
-                                    {marginBottom: 15}
-                                }
+                            <b>Contact</b>
+                            <input type="text" placeholder="Numéro" name="contact" required=" " className="inscriptionInput"
                                 onChange={
                                     (e) => {
                                         setFormData({
@@ -392,10 +387,7 @@ const Inscription = () => {
                                     }
                                 }/>
                             <b>Adresse</b>
-                            <input type=" text" placeholder=" Adresse" name=" adresse" required=" "
-                                style={
-                                    {marginBottom: 15}
-                                }
+                            <input type="text" placeholder=" Adresse" name="adresse" required=" " className="inscriptionInput"
                                 onChange={
                                     (e) => {
                                         setFormData({
@@ -437,7 +429,7 @@ const Inscription = () => {
                         }>
                             {
                             interet.map((val, key) => {
-                                console.log(val)
+
                                 return (
                                     <div className="col-2 divCentreInteret"
                                         style={
@@ -462,15 +454,34 @@ const Inscription = () => {
                                                 }
                                                 onChange={
                                                     (e) => {
-                                                        setFormData({
-                                                            ...formData,
-                                                            interests: [
-                                                                formData.interests, {
+                                                        if (formData.interests != null) {
+                                                            setFormData({
+                                                                ...formData,
+                                                                interests: [
+                                                                    formData.interests, {
+                                                                        "idCI": e.target.value
+                                                                    }
+                                                                ]
 
-                                                                    "idCI": e.target.value
-                                                                }
-                                                            ]
-                                                        })
+                                                            });
+                                                        } else {
+                                                            setFormData({
+                                                                ...formData,
+                                                                interests: [
+                                                                    {
+
+                                                                        "idCI": e.target.value
+                                                                    }
+                                                                ]
+
+                                                            });
+
+                                                        }
+
+                                                        setMyInterest({
+                                                            ...myInterest.val,
+                                                            val
+                                                        });
                                                     }
                                                 }/>
 
