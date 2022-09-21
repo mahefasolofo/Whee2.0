@@ -34,22 +34,22 @@ function App() {
 
     function handleCredentialResponse(response) {
     try {
-                console.log("Encode JWT id Token: " + response.credential);
-                console.log(jwt_decode(response.credential));
+                // console.log("Encode JWT id Token: " + response.credential);
+                // console.log(jwt_decode(response.credential));
 
                 // setAuth(jwt_decode(response.credential));
 
                 document.getElementById("id01").style.display = "none";
                 localStorage.setItem("token", response.credential);
 
-                console.log(jwt_decode(localStorage.getItem("token")));
+                // console.log(jwt_decode(localStorage.getItem("token")));
                 setUser(jwt_decode(localStorage.getItem("token")).mail);
 
                 window.location.reload(false);
 
 
             } catch {
-                console.log("tsa poinsa");
+                // console.log("tsa poinsa");
             }}
 
         useEffect(() => { /* global google */
@@ -57,26 +57,26 @@ function App() {
                 if (localStorage.getItem("token").length > 10) { // setUser(UserService.getByMail("joelandriambola@gmail.com"));
                     const logInterest = async () => {
                         const resp = await UserService.getIdByMail("joelandriambola@gmail.com");
-                        console.log(resp.data);
+                        // console.log(resp.data);
 
-                        console.log("maty");
+                        // console.log("maty");
                         setUser(resp.data);
 
-                        console.log(user);
+                        // console.log(user);
 
-                        console.log(resp.data);
+                        // console.log(resp.data);
 
 
                     };
 
                     logInterest();
 
-                    console.log((jwt_decode(localStorage.getItem("token"))));
+                    // console.log((jwt_decode(localStorage.getItem("token"))));
 
                 }
             }
             setEssai(7);
-            console.log("essai ty", essai);
+            // console.log("essai ty", essai);
 
             try {
                 google.accounts.id.initialize({client_id: "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com", callback: handleCredentialResponse});

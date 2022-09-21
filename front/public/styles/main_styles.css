@@ -524,11 +524,12 @@ section
 3.3 Main Nav
 *********************************/
 .user_box_register{
-	position: fixed;
-	display: flex;
+	/* position: fixed; */
+	/* display: flex; */
 	flex-direction: row;
-	justify-content: flex-end;
+	justify-content: center;
 	align-items: center;
+	margin-left: 12px;
 	right: 5px;
 }
 
