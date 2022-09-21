@@ -3,10 +3,10 @@ import TrajetInfo from "./TrajetInfo";
 import DateHourInfo from "./DateHourInfo";
 import VehiculeInfo from "./VehiculeInfo";
 import AnnonceCovoiturageService from "../../services/AnnonceCovoiturageService";
-import "./offer.css";
-import "./Modal.css";
+import { useNavigate } from "react-router-dom";
 
 function FormOffre() {
+  let navigate = useNavigate();
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
     ptDepart: "",
@@ -84,13 +84,14 @@ function FormOffre() {
                   onClick={() => {
                     if (page === FormTitles.length - 1) {
                       AnnonceCovoiturageService.publierAnnonce(formData);
-                      console.log(formData);
+                      navigate(`/espaceperso/${formData.covoitureur.idUser}`);
+                      close();
                     } else {
                       setPage((currPage) => currPage + 1);
                     }
                   }}
                 >
-                  {page === FormTitles.length - 1 ? "Submit" : "Next"}
+                  {page === FormTitles.length - 1 ? "Publier" : "Suivant"}
                 </button>
               </div>
             </div>
