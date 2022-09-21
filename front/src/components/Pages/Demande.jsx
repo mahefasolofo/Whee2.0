@@ -79,16 +79,9 @@ function Demande() {
         matchesArrivee = [...new Set(matchesArrivee)];
 
 
-        for (let i = 0; i < response.length; i++) {
-            if (matchesArrivee.indexOf(response[i].data) === -1) {
-                matchesArrivee.push(response[i].data);
-            }
-
-        }
+      
         if (text2.length != "") {
-            function checkMatch(match) {
-                return match.includes;
-            }
+           
             newMatchesArrivee = matchesArrivee.filter((element, key) => {
                 if (element != null) {
                     if (element.toLowerCase().includes(text2.toLowerCase())) {
