@@ -1,0 +1,20 @@
+.divCentreInteretProfil {
+    width: 158px;
+    height: 100px;
+    border-radius: 15px;
+    margin: 1.2%;
+    background: #D62828;
+    border: 1px solid;
+    padding:0px;
+}
+.legendeCentreInteret{
+    position:absolute;
+    top:50;
+    left:80;
+    color:red;
+}
+.labelCentreInteretProfil{
+    margin-top:80%;
+   
+    margin-right: 15px;
+}

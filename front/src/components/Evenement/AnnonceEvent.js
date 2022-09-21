@@ -1,10 +1,22 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import '../Espaceperso/userspace.css'
 import seatimg from '../../images/seat3.png'
 import Moment from 'react-moment';
 
-const AnnonceEvent = ({annonceEvent, vehicule}) => {
-    
+const AnnonceEvent = ({annonceEvent, vehicule, evenement,formData,setFormData}) => {
+
+    useEffect(() => {
+        setFormData({...formData,
+            titre: evenement.titre,
+            lieuEvent: evenement.lieuEvent,
+            heureEvent: evenement.heureEvent,
+            dateEvent: evenement.dateEvent,
+            description: evenement.description,
+            image: evenement.image
+        })
+      }, []);
     return (
+        <div className='col-sm-8 box_ibox'>
         <div className="ibox-content">
                     <div className="table-responsive">
                         <table className="table shoping-cart-table">
@@ -19,10 +31,12 @@ const AnnonceEvent = ({annonceEvent, vehicule}) => {
                                     <h2 className="text-navy">
                                     <i className="fa fa-map-marker start"></i> {annonceEvent.ptDepart} -- <i className="fa fa-map-marker stop mt-2"></i> {annonceEvent.ptArrivee}
                                     </h2>
+                                    
                                     </h3>
                                     <p className="date_annonce">
                                         <Moment format="Do MMMM YYYY">{annonceEvent.dateCovoit}</Moment> - <time format="HH:mm">{annonceEvent.heureCovoit}</time>
                                     </p>
+
                                     <dl className="car_annonce m-b-none">
                                         <dt><i className="fa fa-car"></i> {vehicule.marque} {vehicule.modele}</dt>
                                     </dl>
@@ -63,6 +77,7 @@ const AnnonceEvent = ({annonceEvent, vehicule}) => {
                         </table>
                     </div>
 
+                </div>
                 </div>
     );
   

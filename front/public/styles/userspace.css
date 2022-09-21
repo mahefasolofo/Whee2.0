@@ -72,8 +72,12 @@ table.shoping-cart-table tr td:last-child {
   background-color: #fff;
   border-radius: 15px!important;
   box-shadow: 0 15px 31px -12px rgba(0, 0, 0, 0.8)!important;
+<<<<<<< HEAD:front/src/components/Espaceperso/userspace.css
+  
+=======
   margin-bottom: 50px;
 
+>>>>>>> 1fab5f8bd24e6375f42f547bda659cf73ee08b43:front/public/styles/userspace.css
 }
 .box_ibox:hover{
   -o-translateY: -5px;

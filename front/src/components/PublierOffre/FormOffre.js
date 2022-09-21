@@ -60,6 +60,7 @@ function FormOffre() {
               <div
                 style={{
                   width: page === 0 ? "200px" : page === 1 ? "400px" : "600px",
+                  heigh : "5px"
                 }}
               ></div>
             </div>

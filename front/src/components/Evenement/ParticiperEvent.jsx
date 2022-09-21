@@ -34,6 +34,15 @@ function ParticiperEvent() {
   const [directionsResponse, setDirectionsResponse] = useState(null);
   const [distance, setDistance] = useState("");
   const [duration, setDuration] = useState("");
+  const [formData, setFormData] = useState({
+    titre:"",
+    lieuEvent:"",
+    heureEvent:"",
+    dateEvent:"",
+    description:"",
+    image:""
+
+  })
 
   const [show, setShow] = useState(false);
 
@@ -81,9 +90,7 @@ function ParticiperEvent() {
 
   let { idEvent } = useParams();
   const [annonce, setAnnonceEvent] = useState([]);
-  const [event, setEvent] = useState(
-    {titre:""}
-  );
+  
 
   useEffect(() => {
     getEventByid(idEvent);
@@ -92,7 +99,6 @@ function ParticiperEvent() {
   const getEventByid = (id) => {
     EventService.getEventById(id).then((response) => {
       setAnnonceEvent(response.data);
-      // setEvent({titre : annonce.event.titre})
       console.log(response.data);
     });
 
@@ -108,25 +114,71 @@ function ParticiperEvent() {
           src={bg}
         ></img>
         <div className="home_content">
-          <div className="home_title">événement</div>          
+          <div className="home_title">Les évènements</div> 
+                  
         </div>
       </div>
-      {/* Blog */}
+      {/* Carte  */}
+      <section className="card">
+      <div className="container">
+      {/* <div class="h1 text-center text-dark" id="pageHeaderTitle">My Cards Light</div> */}
+      <article className="postcard light blue">
+        <a className="postcard__img_link" href="#">
+          <img
+            className="postcard__img"
+            src={`../../${formData.image}`}
+            alt="Image Title"
+          />
+        </a>
+        <div className="postcard__text t-dark">
+          <h1 className="postcard__title blue">
+            
+            {formData.titre}
+            
+          </h1>
+          <div className="postcard__subtitle small">
+            <i className="fas fa-calendar-alt mr-2" />
+            <Moment format="Do MMMM YYYY">{formData.dateEvent}</Moment>
+            <br />
+            <br />
+            <i class="fa fa-clock-o" aria-hidden="true" />
+            {formData.heureEvent}
+          </div>
+          <div className="postcard__bar" />
+          <div className="postcard__preview-txt">{formData.description}</div>
+
+        </div>
+      </article>
+    </div>
+    </section>
+    {/*Fin Carte*/}
       
-      
-      
-          
-      
-      <section>
-      {annonce.map((annonceE)=>(<AnnonceEvent key={annonceE.idCovoit} annonceEvent={annonceE} evenement={annonceE.event} vehicule={annonceE.vehicule}/>))}
+    {/*Liste annonces*/}
+    
+      <section className="list_annonce_event">   
+      <button
+    className="button book_button "
+    onClick={handleClick}
+  > Publier une annonce</button>  
+  
+  
+      {annonce.map((annonceE)=>(<AnnonceEvent key={annonceE.idCovoit} annonceEvent={annonceE} evenement={annonceE.event} vehicule={annonceE.vehicule} formData={formData} setFormData={setFormData}/>))}
       </section>
-        
+
+      
+    {/*Fin Liste annonces*/} 
+    
+    {/*Map et formulaire*/}
       <section className="card">
         <div className="container py-2">
+<<<<<<< HEAD
+          
+=======
           <button
             className="button book_button_blog "
             onClick={handleClick}
           ></button>
+>>>>>>> 1fab5f8bd24e6375f42f547bda659cf73ee08b43
           <LoadScript googleMapsApiKey={api} libraries={["places"]}>
             <GoogleMap
               mapContainerStyle={containerStyle}
@@ -179,7 +231,7 @@ function ParticiperEvent() {
                   </button>
                 </div>
               </Autocomplete>
-              <></>
+              
             </GoogleMap>
           </LoadScript>
         </div>
