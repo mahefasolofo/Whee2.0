@@ -171,14 +171,10 @@ function ParticiperEvent() {
     {/*Map et formulaire*/}
       <section className="card">
         <div className="container py-2">
-<<<<<<< HEAD
-          
-=======
           <button
             className="button book_button_blog "
             onClick={handleClick}
           ></button>
->>>>>>> 1fab5f8bd24e6375f42f547bda659cf73ee08b43
           <LoadScript googleMapsApiKey={api} libraries={["places"]}>
             <GoogleMap
               mapContainerStyle={containerStyle}

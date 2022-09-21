@@ -13,7 +13,7 @@ import Demande from "./components/Pages/Demande";
 import Footer from "./components/Home/Footer";
 import Navbar from "./components/Home/Navbar";
 import Evenements from "./components/Pages/Evenements";
-import ParticiperEvent from "./components/Pages/ParticiperEvent";
+import ParticiperEvent from "./components/Evenement/ParticiperEvent"
 import Espaceperso from "./components/Pages/EspacePerso";
 import About from "./components/Pages/About";
 import {Routes, Route} from "react-router-dom";
