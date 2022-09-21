@@ -12,7 +12,7 @@ import whee.demo.entity.Vehicule;
 public interface VehiculeRepository extends JpaRepository<Vehicule,Integer> {
 
     //findById
-    @Query(value = "SELECT * FROM vehicule v WHERE v.userid=?1;", nativeQuery = true)
+    @Query(value = "SELECT * FROM vehicule v WHERE v.userid=?1", nativeQuery = true)
     List<Vehicule> findByUserId(@Param("userid") int userid);
 
 

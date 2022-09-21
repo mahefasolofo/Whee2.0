@@ -26,7 +26,7 @@ public class VehiculeController {
         return vehiculeRepository.save(vehicule);
     }
 
-    @GetMapping("/vehicules/{id}")
+    @GetMapping("/vehicules/{userid}")
     public List<Vehicule> getVehiculeById(@PathVariable int userid) {
         return vehiculeRepository.findByUserId(userid);
     }
