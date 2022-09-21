@@ -2,11 +2,14 @@ import React, { Component, useContext } from "react";
 import { UserContext } from "../../services/UserContext";
 import { Dropdown } from "react-bootstrap";
 import jwt_decode from "jwt-decode";
+import { set } from "react-hook-form";
 
 const NavBar = () => {
 
 
   let value = "jieo";
+   if (localStorage.getItem("token") != null) {
+      
 
   if (localStorage.getItem("token") != null) {
     if (localStorage.getItem("token").length > 14) {
