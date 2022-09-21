@@ -1,12 +1,7 @@
 import React from "react";
 import "moment/locale/fr";
-import {
-    Component,
-    useState,
-    useMemo,
-    useEffect,
-    useContext
-} from "react";
+import { useState, useMemo, useEffect, useContext } from "react";
+import { SocketContext } from "./services/SocketContext";
 import Home from "./components/Home";
 import Offre from "./components/Pages/Offre";
 import Demande from "./components/Pages/Demande";
@@ -16,129 +11,150 @@ import Evenements from "./components/Pages/Evenements";
 import ParticiperEvent from "./components/Evenement/ParticiperEvent";
 import Espaceperso from "./components/Pages/EspacePerso";
 import About from "./components/Pages/About";
-import {Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Connexion from "./components/Pages/Connexion";
 import Inscription from "./components/Pages/Inscription";
-import {UserContext} from "./services/UserContext";
+import { UserContext } from "./services/UserContext";
 import UserService from "./services/UserService";
 import FormOffre from "./components/PublierOffre/FormOffre";
 import jwt_decode from "jwt-decode";
-import {AccordionButton} from "react-bootstrap";
-import {set} from "react-hook-form";
-
+import { AccordionButton } from "react-bootstrap";
+import { set } from "react-hook-form";
 
 function App() {
-    const [user, setUser] = useState(0);
-    const [essai, setEssai] = useState(0);
+  /*Socket*/
 
+  const [privateChats, setPrivateChats] = useState(new Map());
+  const [publicChats, setPublicChats] = useState([]);
+  const [tab, setTab] = useState("CHATROOM");
+  const [userData, setUserData] = useState({
+    username: "",
+    receivername: "",
+    connected: false,
+    message: "",
+  });
+  const value = useMemo(
+    () => ({
+      userData,
+      setUserData,
+      tab,
+      setTab,
+      publicChats,
+      setPublicChats,
+      privateChats,
+      setPrivateChats,
+    }),
+    [userData, tab, publicChats, privateChats]
+  );
 
-    function handleCredentialResponse(response) {
+  /*FIN SOCKET*/
+
+  const [user, setUser] = useState(0);
+  const [essai, setEssai] = useState(0);
+
+  function handleCredentialResponse(response) {
     try {
-                console.log("Encode JWT id Token: " + response.credential);
-                console.log(jwt_decode(response.credential));
+      console.log("Encode JWT id Token: " + response.credential);
+      console.log(jwt_decode(response.credential));
 
-                // setAuth(jwt_decode(response.credential));
+      // setAuth(jwt_decode(response.credential));
 
-                document.getElementById("id01").style.display = "none";
-                localStorage.setItem("token", response.credential);
+      document.getElementById("id01").style.display = "none";
+      localStorage.setItem("token", response.credential);
 
-                console.log(jwt_decode(localStorage.getItem("token")));
-                setUser(jwt_decode(localStorage.getItem("token")).mail);
+      console.log(jwt_decode(localStorage.getItem("token")));
+      setUser(jwt_decode(localStorage.getItem("token")).mail);
 
-                window.location.reload(false);
+      window.location.reload(false);
+    } catch {
+      console.log("tsa poinsa");
+    }
+  }
 
+  useEffect(() => {
+    /* global google */
+    if (localStorage.getItem("token") !== null) {
+      if (localStorage.getItem("token").length > 10) {
+        // setUser(UserService.getByMail("joelandriambola@gmail.com"));
+        const logInterest = async () => {
+          const resp = await UserService.getIdByMail(
+            "joelandriambola@gmail.com"
+          );
+          console.log(resp.data);
 
-            } catch {
-                console.log("tsa poinsa");
-            }}
+          console.log("maty");
+          setUser(resp.data);
 
-        useEffect(() => { /* global google */
-            if (localStorage.getItem("token") !== null) {
-                if (localStorage.getItem("token").length > 10) { // setUser(UserService.getByMail("joelandriambola@gmail.com"));
-                    const logInterest = async () => {
-                        const resp = await UserService.getIdByMail("joelandriambola@gmail.com");
-                        console.log(resp.data);
+          console.log(user);
 
-                        console.log("maty");
-                        setUser(resp.data);
+          console.log(resp.data);
+        };
 
-                        console.log(user);
+        logInterest();
 
-                        console.log(resp.data);
+        console.log(jwt_decode(localStorage.getItem("token")));
+      }
+    }
+    setEssai(7);
+    console.log("essai ty", essai);
 
+    try {
+      google.accounts.id.initialize({
+        client_id:
+          "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com",
+        callback: handleCredentialResponse,
+      });
+    } catch {}
 
-                    };
+    try {
+      google.accounts.id.initialize({
+        client_id:
+          "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com",
+        callback: handleCredentialResponse,
+      });
 
-                    logInterest();
+      google.accounts.id.renderButton(document.getElementById("signInDiv"), {
+        theme: "outline",
+        size: "large",
+        width: "signInDiv",
+        width: 1500,
+        height: 150,
+        longtitle: true,
+        theme: "dark",
+        "border-radius": 180,
+        border: "none",
+      });
+    } catch (error) {}
+  }, [user, setUser]);
 
-                    console.log((jwt_decode(localStorage.getItem("token"))));
-
-                }
-            }
-            setEssai(7);
-            console.log("essai ty", essai);
-
-            try {
-                google.accounts.id.initialize({client_id: "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com", callback: handleCredentialResponse});
-            } catch {}
-
-
-            try {
-                google.accounts.id.initialize({client_id: "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com", callback: handleCredentialResponse});
-            
-
-
-            google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-                theme: "outline",
-                size: "large",
-                width: "signInDiv",
-                width: 1500,
-                height: 150,
-                longtitle: true,
-                theme: "dark",
-                "border-radius": 180,
-                border: "none"
-            });
-
-
-        } catch (error) {}
-
-
-    },
-    [user, setUser]
-);
-
-return (
+  return (
     <React.Fragment>
-        <FormOffre/>
-        <UserContext.Provider value={user}>
-            <div className="super_container">
+      <UserContext.Provider value={user}>
+        <SocketContext.Provider value={value}>
+          <FormOffre />
+          <div className="super_container">
+            <Navbar />
+            <Connexion />
+            <Inscription />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/offres" element={<Offre />} />
+              <Route path="/demandes" element={<Demande />} />
+              <Route path="/evenements" element={<Evenements />} />
+              <Route path="/espaceperso" element={<Espaceperso />} />
+              <Route
+                path="/evenements/:idEvent"
+                element={<ParticiperEvent />}
+              />
+              <Route path="/a_propos" element={<About />} />
+            </Routes>
 
-                <Navbar/>
-                <Connexion/>
-                <Inscription/>
-                <Routes>
-                    <Route path="/"
-                        element={<Home/>}/>
-                    <Route path="/home"
-                        element={<Home/>}/>
-                    <Route path="/offres"
-                        element={<Offre/>}/>
-                    <Route path="/demandes"
-                        element={<Demande/>}/>
-                    <Route path="/evenements"
-                        element={<Evenements/>}/>
-                    <Route path="/espaceperso"
-                        element={<Espaceperso/>}/>
-                    <Route path="/evenements/:idEvent"
-                        element={<ParticiperEvent/>}/>
-                    <Route path="/a_propos"
-                        element={<About/>}/>
-                </Routes>
-
-                <Footer/>
-
-            </div>
-        </UserContext.Provider>
+            <Footer />
+          </div>
+        </SocketContext.Provider>
+      </UserContext.Provider>
     </React.Fragment>
-);}export default App;
+  );
+}
+export default App;
