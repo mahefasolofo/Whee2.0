@@ -54,6 +54,7 @@ function App() {
 
   function handleCredentialResponse(response) {
     try {
+
       console.log("Encode JWT id Token: " + response.credential);
       console.log(jwt_decode(response.credential));
 
@@ -71,6 +72,7 @@ function App() {
     }
   }
 
+
   useEffect(() => {
     /* global google */
     if (localStorage.getItem("token") !== null) {
@@ -87,10 +89,12 @@ function App() {
 
           console.log(user);
 
+
           console.log(resp.data);
         };
 
         logInterest();
+
 
         console.log(jwt_decode(localStorage.getItem("token")));
       }
