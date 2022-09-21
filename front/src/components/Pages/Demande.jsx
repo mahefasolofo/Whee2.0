@@ -132,9 +132,9 @@ function Demande() {
             </div>
             <div className="search_panel_offre active_offre col-lg-8">
                 <form action="#" id="search_form_1" className="search_panel_content_offre d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-                    <div className="search_item_offre">
+                    <div className="search_item">
 
-                        <input type="text" className="destination search_input_offre" required="required" placeholder=" Départ"
+                        <input type="text" className="destination search_input" required="required" placeholder=" Départ"
                             style={
                                 {fontFamily: "Arial, FontAwesome"}
                             }
@@ -165,9 +165,9 @@ function Demande() {
                             } </div>
                         )
                     } </div>
-                    <div className="search_item_offre">
+                    <div className="search_item">
 
-                        <input type="text" className="destination search_input_offre" required="required" placeholder=" Destination"
+                        <input type="text" className="destination search_input" required="required" placeholder=" Destination"
                             onChange={
                                 e => onChangeHandlerArrivee(e.target.value)
                             }
@@ -198,13 +198,13 @@ function Demande() {
                             } </div>
                         )
                     } </div>
-                    <div className="search_item_offre">
+                    <div className="search_item">
 
-                        <input type="datetime-local" className="check_out search_input_offre" placeholder="Date | Heure"/>
+                        <input type="datetime-local" className="check_out search_input" placeholder="Date | Heure"/>
                     </div>
-                    <div className="search_item_offre">
+                    <div className="search_item">
 
-                        <select name="adults" id="adults_1" className="dropdown_item_select search_input_offre" placeholder="Personnes">
+                        <select name="adults" id="adults_1" className="dropdown_item_select search_input" placeholder="Personnes">
                             <option value="">Passagers</option>
                             <option>01</option>
                             <option>02</option>
@@ -270,7 +270,7 @@ function Demande() {
                                                                     <div className="col-lg-3 col-1680-4">
                                                                         <div className="offers_image_container_offre">
                                                                         
-                                                                        <img src={val.image} className="offers_image_background_offre" alt="carte" />
+                                                                        <img src={val.image_covoit} className="offers_image_background_offre" alt="carte" />
                                                                         <div className="offer_date_demande">
                                                                             <a href="index.html">{val.dateCovoit} - {val.heureCovoit}</a>
                                                                         </div>

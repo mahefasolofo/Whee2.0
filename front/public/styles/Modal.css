@@ -132,6 +132,9 @@
     background-color: #f8f8f8;
     color: #4a4a4a;
     font-weight: 600;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    border: 1.5px solid #ccc;
    
   }
   .form-control_place{

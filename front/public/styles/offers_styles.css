@@ -169,10 +169,10 @@
     animation: fadeEffect 1s;
 	z-index: 2;
 	background-color: rgba(33, 33, 33, 0.3);
-	border: solid rgb(219, 219, 219,0.8) 1.2px;
 	border-radius: 50px;
 	position: relative;
-	top: 38vh!important;
+	top: 42vh!important;
+	box-shadow: 0px 2px 5px #040404;
 	
 
 }
@@ -180,6 +180,7 @@
 {
 	display: flex!important;
 	-ms-flex-align: center;
+	
 	
 }
 /* Fade in tabs */
@@ -403,7 +404,7 @@
 /*Modification*/
 
 .offers_item .offers_overlay{
-		position: absolute;
+		position:relative; 
 		left: 249px;
 		top: 0;
 		width: 280px;
