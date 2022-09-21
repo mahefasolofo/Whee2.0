@@ -8,7 +8,8 @@ export default function CardTrajet(props) {
         <div className="cardIntro item ">
         <div
         className=" card-img item ">
-        <img src={props.annonce.image} alt="" className=" card-img item "/>
+            {/* <img className=" card-img item " src={bg}></img> */}
+        <img src={props.annonce.image_covoit} alt="" className=" card-img item "/>
         <div className="overlay">
             <div className="overlay-content">
             <a className="hover" href="#!">

@@ -49,6 +49,9 @@ public class Vehicule implements Serializable {
 	@Column(name="Type", nullable=false, length=255)
 	private String type;
 
+	@Column(name="Userid", nullable=false, length=255)
+	private int userid;
+
 	
 	
 }
