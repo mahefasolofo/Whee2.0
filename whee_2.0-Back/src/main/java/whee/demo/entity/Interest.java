@@ -39,14 +39,9 @@ public class Interest implements Serializable {
 	
 	@Column(name="NomCI", nullable=true, length=255)	
 	private String nomCI;
-<<<<<<< HEAD
 
-	@Column(name="Img", nullable=true, length=255)
-	private String img;
-
-=======
 	
 	@Column(name="ImageCI")
 	private String imageCI;
->>>>>>> a9648cf8bed945db63760ee66659b498fbd1e03b
+
 }

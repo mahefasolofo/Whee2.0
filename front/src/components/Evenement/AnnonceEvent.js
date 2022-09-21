@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import '../Espaceperso/userspace.css'
+
 import seatimg from '../../images/seat3.png'
 import Moment from 'react-moment';
 
