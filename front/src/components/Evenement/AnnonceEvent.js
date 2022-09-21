@@ -16,6 +16,7 @@ const AnnonceEvent = ({annonceEvent, vehicule, evenement,formData,setFormData}) 
         })
       }, []);
     return (
+        <div className='col-sm-8 box_ibox'>
         <div className="ibox-content">
                     <div className="table-responsive">
                         <table className="table shoping-cart-table">
@@ -76,6 +77,7 @@ const AnnonceEvent = ({annonceEvent, vehicule, evenement,formData,setFormData}) 
                         </table>
                     </div>
 
+                </div>
                 </div>
     );
   

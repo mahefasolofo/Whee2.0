@@ -154,19 +154,24 @@ function ParticiperEvent() {
     {/*Fin Carte*/}
       
     {/*Liste annonces*/}
-      
-      <section>
+    
+      <section className="list_annonce_event">   
+      <button
+    className="button book_button "
+    onClick={handleClick}
+  > Publier une annonce</button>  
+  
+  
       {annonce.map((annonceE)=>(<AnnonceEvent key={annonceE.idCovoit} annonceEvent={annonceE} evenement={annonceE.event} vehicule={annonceE.vehicule} formData={formData} setFormData={setFormData}/>))}
       </section>
+
+      
     {/*Fin Liste annonces*/} 
     
     {/*Map et formulaire*/}
       <section className="card">
         <div className="container py-2">
-          <button
-            className="button book_button "
-            onClick={handleClick}
-          ></button>
+          
           <LoadScript googleMapsApiKey={api} libraries={["places"]}>
             <GoogleMap
               mapContainerStyle={containerStyle}
@@ -219,7 +224,7 @@ function ParticiperEvent() {
                   </button>
                 </div>
               </Autocomplete>
-              <></>
+              
             </GoogleMap>
           </LoadScript>
         </div>

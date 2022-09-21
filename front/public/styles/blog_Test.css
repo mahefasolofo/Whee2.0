@@ -407,3 +407,10 @@ a:hover {
 
 
 }
+
+/*Styles dans ParticiperEvent*/
+
+.list_annonce_event {
+
+    display:flow-root;
+}
