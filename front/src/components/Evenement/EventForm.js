@@ -1,13 +1,7 @@
-import React, { useState } from "react";
-import TrajetInfo from "./TrajetInfo";
-import DateHourInfo from "./DateHourInfo";
-import VehiculeInfo from "./VehiculeInfo";
-import AnnonceCovoiturageService from "../../services/AnnonceCovoiturageService";
-import { useNavigate } from "react-router-dom";
+import React from 'react'
 
-function FormOffre() {
-  let navigate = useNavigate();
-  const [page, setPage] = useState(0);
+function EventForm() {
+    const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
     ptDepart: "",
     ptArrivee: "",
@@ -46,7 +40,6 @@ function FormOffre() {
       return <VehiculeInfo formData={formData} setFormData={setFormData} />;
     }
   };
-
   return (
     <div>
       <div className="modalBackground" id="formAnnonce2">
@@ -60,7 +53,6 @@ function FormOffre() {
               <div
                 style={{
                   width: page === 0 ? "200px" : page === 1 ? "400px" : "600px",
-                  heigh : "5px"
                 }}
               ></div>
             </div>
@@ -84,14 +76,13 @@ function FormOffre() {
                   onClick={() => {
                     if (page === FormTitles.length - 1) {
                       AnnonceCovoiturageService.publierAnnonce(formData);
-                      navigate(`/espaceperso/${formData.covoitureur.idUser}`);
-                      close();
+                      console.log(formData);
                     } else {
                       setPage((currPage) => currPage + 1);
                     }
                   }}
                 >
-                  {page === FormTitles.length - 1 ? "Publier" : "Suivant"}
+                  {page === FormTitles.length - 1 ? "Submit" : "Next"}
                 </button>
               </div>
             </div>
@@ -119,7 +110,7 @@ function FormOffre() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default FormOffre;
+export default EventForm
