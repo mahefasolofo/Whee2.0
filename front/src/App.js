@@ -24,10 +24,11 @@ import UserService from "./services/UserService";
 import FormOffre from "./components/PublierOffre/FormOffre";
 import jwt_decode from "jwt-decode";
 import {AccordionButton} from "react-bootstrap";
+import {set} from "react-hook-form";
 
 
 function App() {
-    const [user, setUser] = useState();
+    const [user, setUser] = useState(0);
 
 
     function handleCredentialResponse(response) {
@@ -39,33 +40,42 @@ function App() {
 
                 document.getElementById("id01").style.display = "none";
                 localStorage.setItem("token", response.credential);
+
                 console.log(jwt_decode(localStorage.getItem("token")));
                 setUser(jwt_decode(localStorage.getItem("token")).mail);
+
+                window.location.reload(false);
 
 
             } catch {
                 console.log("tsa poinsa");
             }}
 
-        useEffect(() => {
-            /* global google */
-            // if (localStorage.getItem("token") !== null) {
-            //     if (localStorage.getItem("token").length > 10) { // setUser(UserService.getByMail("joelandriambola@gmail.com"));
-            //         const logInterest = async () => {
-            //             const resp = await UserService.getIdByMail("joelandriambola@gmail.com");
-            //             console.log(resp.data);
-            //             setUser(resp.data);
-            //             console.log("maty");
-            //             setUser(resp.data)
-            //         };
-            //         logInterest();
+        useEffect(() => { /* global google */
+            if (localStorage.getItem("token") !== null) {
+                if (localStorage.getItem("token").length > 10) { // setUser(UserService.getByMail("joelandriambola@gmail.com"));
+                    const logInterest = async () => {
+                        const resp = await UserService.getIdByMail("joelandriambola@gmail.com");
+                        console.log(resp.data);
 
-            //         console.log((jwt_decode(localStorage.getItem("token"))));
-            //         // alert(user);
-            //         // alert(UserService.getIdByMail(user));
-            //     }
-            // }
-            // alert(user);
+                        console.log("maty");
+                        setUser(resp.data);
+
+                        console.log(user);
+
+                        console.log(resp.data);
+
+
+                    };
+
+                    logInterest();
+
+                    console.log((jwt_decode(localStorage.getItem("token"))));
+
+                }
+            }
+
+
             try {
                 google.accounts.id.initialize({client_id: "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com", callback: handleCredentialResponse});
             } catch {}
@@ -93,7 +103,7 @@ function App() {
 
 
     },
-    []
+    [user, setUser]
 );
 
 return (
