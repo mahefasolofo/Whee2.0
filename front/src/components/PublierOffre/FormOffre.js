@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext  } from "react";
 import TrajetInfo from "./TrajetInfo";
+import { UserContext } from "../../services/UserContext";
 import DateHourInfo from "./DateHourInfo";
 import VehiculeInfo from "./VehiculeInfo";
 import AnnonceCovoiturageService from "../../services/AnnonceCovoiturageService";
 import { useNavigate } from "react-router-dom";
+import UserspaceService from "../../services/UserspaceService";
+import { useParams } from "react-router-dom";
 
 function FormOffre() {
+  const { user } = useContext(UserContext);
+
   let navigate = useNavigate();
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
@@ -22,7 +27,7 @@ function FormOffre() {
       idVehicule: 1,
     },
     covoitureur: {
-      idUser: 1,
+      idUser: { user },
     },
   });
 
