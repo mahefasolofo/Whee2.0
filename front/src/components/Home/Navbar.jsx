@@ -1,10 +1,96 @@
-import React, { Component, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
+import { over } from "stompjs";
+import SockJS from "sockjs-client";
 import { UserContext } from "../../services/UserContext";
+import { SocketContext } from "../../services/SocketContext";
 import { Dropdown } from "react-bootstrap";
 import jwt_decode from "jwt-decode";
 
+var stompClient = null;
+
 const NavBar = () => {
   const { user } = useContext(UserContext);
+
+  /*Connect socket*/
+
+  const {
+    userData,
+    setUserData,
+    privateChats,
+    setPrivateChats,
+    tab,
+    setTab,
+    publicChats,
+    setPublicChats,
+  } = useContext(SocketContext);
+  useEffect(() => {
+    console.log(userData);
+  }, [userData]);
+
+  const connect = () => {
+    let Sock = new SockJS("http://localhost:8090/ws");
+    stompClient = over(Sock);
+    stompClient.connect({}, onConnected, onError);
+  };
+
+  const onConnected = () => {
+    setUserData({ ...userData, connected: true });
+    stompClient.subscribe("/chatroom/public", onMessageReceived);
+    stompClient.subscribe(
+      "/user/" + userData.username + "/private",
+      onPrivateMessage
+    );
+    userJoin();
+  };
+
+  const userJoin = () => {
+    var chatMessage = {
+      senderName: userData.username,
+      status: "JOIN",
+    };
+    stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
+  };
+
+  const onError = (err) => {
+    console.log(err);
+  };
+
+  const onMessageReceived = (payload) => {
+    var payloadData = JSON.parse(payload.body);
+    switch (payloadData.status) {
+      case "JOIN":
+        if (!privateChats.get(payloadData.senderName)) {
+          privateChats.set(payloadData.senderName, []);
+          setPrivateChats(new Map(privateChats));
+        }
+        break;
+      case "MESSAGE":
+        publicChats.push(payloadData);
+        setPublicChats([...publicChats]);
+        break;
+    }
+  };
+
+  const onPrivateMessage = (payload) => {
+    console.log(payload);
+    var payloadData = JSON.parse(payload.body);
+    if (privateChats.get(payloadData.senderName)) {
+      privateChats.get(payloadData.senderName).push(payloadData);
+      setPrivateChats(new Map(privateChats));
+    } else {
+      let list = [];
+      list.push(payloadData);
+      privateChats.set(payloadData.senderName, list);
+      setPrivateChats(new Map(privateChats));
+    }
+  };
+
+  const registerUser = (nom) => {
+    setUserData({ ...userData, username: nom });
+    connect();
+  };
+
+  /*Fin Connect socket*/
 
   let value = "jieo";
 
@@ -94,7 +180,13 @@ const NavBar = () => {
                       display: "flex",
                     }}
                   >
-                    <div className="icon_notif"><i class="fa fa-bell" aria-hidden="true"></i></div>
+                    <div className="icon_notif">
+                      <i
+                        class="fa fa-bell"
+                        aria-hidden="true"
+                        onClick={registerUser(value.name)}
+                      ></i>
+                    </div>
                     <img src={value.picture} alt="ImgPdp" id="pdpImage" />
                     {/* <a href="#" id="user_name " className='user_box_register user_box_a'> */}
                     <Dropdown style={{ color: "white", border: "none" }}>
