@@ -94,6 +94,7 @@ const NavBar = () => {
                       display: "flex",
                     }}
                   >
+                    <div className="icon_notif"><i class="fa fa-bell" aria-hidden="true"></i></div>
                     <img src={value.picture} alt="ImgPdp" id="pdpImage" />
                     {/* <a href="#" id="user_name " className='user_box_register user_box_a'> */}
                     <Dropdown style={{ color: "white", border: "none" }}>
@@ -102,7 +103,7 @@ const NavBar = () => {
                         className="menuDropDownItem"
                         style={{
                           color: "white",
-                          backgroundColor: "rgba(0, 0, 0, 0.2)",
+                          backgroundColor: "rgba(0, 0, 0, 0.5)",
                           border: "none",
                         }}
                       >
@@ -111,7 +112,7 @@ const NavBar = () => {
                       <Dropdown.Menu
                         style={{
                           color: "white",
-                          backgroundColor: "rgba(33, 33, 33, 0.3)",
+                          backgroundColor: "rgba(33, 33, 33, 0.5)",
                         }}
                       >
                         <Dropdown.Item

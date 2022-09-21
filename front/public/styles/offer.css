@@ -16,8 +16,8 @@
 	width: 100%;
 	margin-bottom: 50px;
 	padding:5px;
-	border-radius: 2px;
-	box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+	border-radius: 10px;
+	box-shadow: 0px 2px 5px rgb(42, 42, 42,0.6);
 }
 .offersItem:last-child
 {
@@ -25,20 +25,24 @@
 }
 .ImageContainer
 {
-	width: auto;
+	width: 285px;
 	height: 263px;
+	overflow: hidden;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 .offersImageBackground
 {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: auto;
 	height: 100%;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
 	box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+	overflow: hidden;
 }
 
 .offersPimagebackground
