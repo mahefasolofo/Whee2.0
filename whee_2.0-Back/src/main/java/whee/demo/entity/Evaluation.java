@@ -29,7 +29,7 @@ public class Evaluation implements Serializable {
 	@Column(name="ID", nullable=false)	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idEval;
+	private Long idEval;
 	
 	@ManyToOne(targetEntity=Conducteur.class, fetch=FetchType.LAZY)
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})
