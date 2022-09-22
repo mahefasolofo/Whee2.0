@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import TrajetInfo from "./TrajetInfo";
+import { UserContext } from "../../services/UserContext";
 import DateHourInfo from "./DateHourInfo";
 import VehiculeInfo from "./VehiculeInfo";
 import AnnonceCovoiturageService from "../../services/AnnonceCovoiturageService";
 
-
 function FormOffre() {
   const [page, setPage] = useState(0);
+  let idCurrentUser = useContext(UserContext);
+  var idUSER = parseInt(idCurrentUser);
   const [formData, setFormData] = useState({
     ptDepart: "",
     ptArrivee: "",
     heureCovoit: "",
     dateCovoit: "",
-    image:null,
+    image: null,
     event: null,
     tarif: "",
     nbPlace: "",
@@ -21,7 +23,7 @@ function FormOffre() {
       idVehicule: 1,
     },
     covoitureur: {
-      idUser: 1,
+      idUser: "",
     },
   });
 
@@ -74,9 +76,8 @@ function FormOffre() {
                 <button
                   onClick={() => {
                     if (page === FormTitles.length - 1) {
-                 
                       AnnonceCovoiturageService.publierAnnonce(formData);
-                      
+                      console.log(formData);
                     } else {
                       setPage((currPage) => currPage + 1);
                     }

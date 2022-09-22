@@ -150,7 +150,7 @@ const NavBar = () => {
                 <div className="main_nav_container ml-auto">
                   <ul className="main_nav_list">
                     <li className="main_nav_item">
-                      <a href="/home">Accueil{idCurrentUser}</a>
+                      <a href="/home">Accueil</a>
                     </li>
                     <li className="main_nav_item">
                       <a href="/offres">Offres</a>
@@ -200,11 +200,17 @@ const NavBar = () => {
                           variant=""
                           style={{
                             color: "white",
-                            backgroundColor: "rgba(0, 0, 0, 0.5)",
+                            backgroundColor: "rgba(0, 0, 0, 0.0)",
                             border: "none",
+                            position: "relative",
                           }}
                         >
                           <i class="fa fa-bell" aria-hidden="true" />
+                          {publicChats.length !== 0 ? (
+                            <div className="counterNotif">
+                              {publicChats.length}
+                            </div>
+                          ) : null}
                         </Dropdown.Toggle>
                         <Dropdown.Menu
                           style={{
