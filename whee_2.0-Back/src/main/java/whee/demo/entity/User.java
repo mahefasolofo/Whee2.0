@@ -71,4 +71,6 @@ public class User implements Serializable {
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private List<Interest> interests;
 
+
+
 }
