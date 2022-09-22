@@ -523,6 +523,15 @@ section
 /*********************************
 3.3 Main Nav
 *********************************/
+.user_box_register{
+	/* position: fixed; */
+	/* display: flex; */
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-left: 12px;
+	right: 5px;
+}
 
 .main_nav_container
 {
@@ -530,6 +539,7 @@ section
 }
 
 .main_nav_list{
+
 	width: 55vw;
 	padding-left: 50px;
 }
@@ -639,6 +649,11 @@ section
 	outline: none !important;
 	border: none !important;
 	box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+}
+.icon_notif{
+	margin-right: 30px;
+	color:#FFF;
+	font-size: 20px;
 }
 .bez_1
 {
@@ -819,6 +834,11 @@ section
 .menuDropDownItem{
 	color:white;
 	width:180px;
+	background-color: rgb(0,0,0,0.0)!important;
+}
+.menuDropDownItemNotif{
+	color:white;
+	width: 500px;
 	background-color: rgb(0,0,0,0.0)!important;
 }
 
@@ -1159,6 +1179,7 @@ section
 	border-radius: 16px;
 	border: 1px solid #ccc;
 	box-shadow: 5px 2px 5px #2a2a2a;
+	
 	
 }
 .search_item{

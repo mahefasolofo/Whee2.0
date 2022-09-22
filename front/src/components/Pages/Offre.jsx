@@ -150,40 +150,40 @@ function Offre () {
               data-animation-in="flipInX"
               data-animation-out="animate-out fadeOut"
             >
-              <div className="search_item_offre">
+              <div className="search_item">
                 {/* <i class="fa fa-map-marker" aria-hidden="true"></i> Départ */}
                 <input
                   type="text"
-                  className="destination search_input_offre"
+                  className="destination search_input"
                   required="required"
                   placeholder=" Départ"
                   style={{ fontFamily: "Arial, FontAwesome" }}
                 />
               </div>
-              <div className="search_item_offre">
+              <div className="search_item">
                 {/* <i class="fa fa-map-marker" aria-hidden="true"></i> Destination */}
                 <input
                   type="text"
-                  className="destination search_input_offre"
+                  className="destination search_input"
                   required="required"
                   placeholder=" Destination"
                   style={{ fontFamily: "Arial, FontAwesome" }}
                 />
               </div>
-              <div className="search_item_offre">
+              <div className="search_item">
                 {/* <i class="fa fa-calendar" aria-hidden="true"></i> Date / heure */}
                 <input
                   type="datetime-local"
-                  className="check_out search_input_offre"
+                  className="check_out search_input"
                   placeholder="Date | Heure"
                 />
               </div>
-              <div className="search_item_offre">
+              <div className="search_item">
                 {/* <i class="fa fa-male" aria-hidden="true"></i> Personnes */}
                 <select
                   name="adults"
                   id="adults_1"
-                  className="dropdown_item_select search_input_offre"
+                  className="dropdown_item_select search_input"
                   placeholder="Personnes"
                 >
                   <option value="">Passagers</option>

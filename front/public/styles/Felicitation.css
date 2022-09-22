@@ -1,0 +1,9 @@
+
+.modal-backdrop.show {
+    opacity: 1;
+    z-index:-80;
+    display:none;
+    
+    
+}
+
