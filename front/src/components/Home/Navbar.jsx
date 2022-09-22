@@ -9,7 +9,7 @@ import jwt_decode from "jwt-decode";
 var stompClient = null;
 
 const NavBar = () => {
-  const { user } = useContext(UserContext);
+  let idCurrentUser = useContext(UserContext);
 
   /*Connect socket*/
 
@@ -150,7 +150,7 @@ const NavBar = () => {
                 <div className="main_nav_container ml-auto">
                   <ul className="main_nav_list">
                     <li className="main_nav_item">
-                      <a href="/home">Accueil</a>
+                      <a href="/home">Accueil{idCurrentUser}</a>
                     </li>
                     <li className="main_nav_item">
                       <a href="/offres">Offres</a>

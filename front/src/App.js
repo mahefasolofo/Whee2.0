@@ -63,7 +63,7 @@ function App() {
       localStorage.setItem("token", response.credential);
 
       console.log(jwt_decode(localStorage.getItem("token")));
-      setUser(jwt_decode(localStorage.getItem("token")).mail);
+      setUser(jwt_decode(localStorage.getItem("token")).email);
 
       window.location.reload(false);
     } catch {
@@ -78,7 +78,7 @@ function App() {
         // setUser(UserService.getByMail("joelandriambola@gmail.com"));
         const logInterest = async () => {
           const resp = await UserService.getIdByMail(
-            "joelandriambola@gmail.com"
+            jwt_decode(localStorage.getItem("token")).email
           );
           console.log(resp.data);
 
@@ -86,17 +86,17 @@ function App() {
           setUser(resp.data);
 
           console.log(user);
-
           console.log(resp.data);
         };
 
         logInterest();
 
-        console.log(jwt_decode(localStorage.getItem("token")));
+        console.log(jwt_decode(localStorage.getItem("token")).email);
       }
     }
     setEssai(7);
     console.log("essai ty", essai);
+    console.log("user", user);
 
     try {
       google.accounts.id.initialize({
@@ -125,7 +125,7 @@ function App() {
         border: "none",
       });
     } catch (error) {}
-  }, [user, setUser]);
+  }, [user, setUser, essai, setEssai]);
 
   return (
     <React.Fragment>
@@ -134,7 +134,7 @@ function App() {
           <FormOffre />
           <div className="super_container">
             <Navbar />
-            <Connexion/>
+            <Connexion />
             <Inscription />
             <Routes>
               <Route path="/" element={<Home />} />
