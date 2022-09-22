@@ -315,12 +315,19 @@ const Inscription = () => {
                                 <tr>
                                     <td> {" "}
                                         <label htmlFor="html" className="sexeLabel">
-                                            Autres
+                                            Autre
                                         </label>
                                     </td>
                                     <td> {" "}
                                         <label htmlFor="html">
-                                            <input type="radio" id="autres" name="fav_language" defaultValue="HTML" value="autres" {...register("genre")}/>
+                                            <input type="radio" id="autres" name="fav_language" defaultValue="HTML" value="autre"    onChange={
+                                                    (e) => {
+                                                        setFormData({
+                                                            ...formData,
+                                                            genre: e.target.value
+                                                        })
+                                                    }
+                                                }/>
                                         </label>
                                     </td>
                                 </tr>
@@ -434,7 +441,7 @@ const Inscription = () => {
                                     <div className="col-2 divCentreInteret"
                                         style={
                                             {
-                                                backgroundImage: 'url("images/interests/' + val.img + '.png")',
+                                                backgroundImage: 'url("images/interests/' + val.imageCI + '.png")',
                                                 backgroundSize: "100% 105%"
                                             }
                                         }
