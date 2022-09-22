@@ -1,6 +1,7 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { UserContext } from "../../services/UserContext";
 function VehiculeInfo({ formData, setFormData }) {
+  let idCurrentUser = useContext(UserContext);
   return (
     <div className="other-info-container">
       <select
@@ -9,14 +10,20 @@ function VehiculeInfo({ formData, setFormData }) {
         placeholder="Nombre de places..."
         value={formData.nbPlace}
         onChange={(e) => {
-          setFormData({ ...formData, nbPlace: e.target.value });
+          setFormData({
+            ...formData,
+            nbPlace: e.target.value,
+            covoitureur: {
+              idUser: idCurrentUser,
+            },
+          });
         }}
       >
         <option value="">Nombre de places...</option>
-                  <option>01</option>
-                  <option>02</option>
-                  <option>03</option>
-                  <option>04</option>
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
       </select>
       <input
         type="text"
