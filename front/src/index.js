@@ -14,7 +14,6 @@ root.render (
             <BrowserRouter>
                 <App/>
             </BrowserRouter>
-
-            {/* <ProfilPage/> */} </React.StrictMode>
+        </React.StrictMode>
     </UserContext.Provider>
 );

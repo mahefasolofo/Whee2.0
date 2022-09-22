@@ -1,12 +1,7 @@
 import React from "react";
 import "moment/locale/fr";
-import {
-    Component,
-    useState,
-    useMemo,
-    useEffect,
-    useContext
-} from "react";
+import {useState, useMemo, useEffect, useContext} from "react";
+import {SocketContext} from "./services/SocketContext";
 import Home from "./components/Home";
 import Offre from "./components/Pages/Offre";
 import Demande from "./components/Pages/Demande";
@@ -26,11 +21,27 @@ import jwt_decode from "jwt-decode";
 import {AccordionButton} from "react-bootstrap";
 import {set} from "react-hook-form";
 
+function App() { /*Socket*/
+    var stompClient = null;
+    const [privateChats, setPrivateChats] = useState(new Map());
+    const [publicChats, setPublicChats] = useState([]);
+    const [tab, setTab] = useState("CHATROOM");
+    const [userData, setUserData] = useState({username: "", receivername: "", connected: false, message: ""});
+    const value = useMemo(() => ({
+        userData,
+        setUserData,
+        tab,
+        setTab,
+        publicChats,
+        setPublicChats,
+        privateChats,
+        setPrivateChats
+    }), [userData, tab, publicChats, privateChats]);
 
-function App() {
+    /*FIN SOCKET*/
+
     const [user, setUser] = useState(0);
     const [essai, setEssai] = useState(0);
-
 
     function handleCredentialResponse(response) {
     try {
@@ -46,8 +57,6 @@ function App() {
                 setUser(jwt_decode(localStorage.getItem("token")).mail);
 
                 window.location.reload(false);
-
-
             } catch {
                 console.log("tsa poinsa");
             }}
@@ -65,14 +74,11 @@ function App() {
                         console.log(user);
 
                         console.log(resp.data);
-
-
                     };
 
                     logInterest();
 
-                    console.log((jwt_decode(localStorage.getItem("token"))));
-
+                    console.log(jwt_decode(localStorage.getItem("token")));
                 }
             }
             setEssai(7);
@@ -82,11 +88,9 @@ function App() {
                 google.accounts.id.initialize({client_id: "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com", callback: handleCredentialResponse});
             } catch {}
 
-
             try {
                 google.accounts.id.initialize({client_id: "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com", callback: handleCredentialResponse});
             
-
 
             google.accounts.id.renderButton(document.getElementById("signInDiv"), {
                 theme: "outline",
@@ -99,46 +103,42 @@ function App() {
                 "border-radius": 180,
                 border: "none"
             });
-
-
         } catch (error) {}
-
-
     },
     [user, setUser]
 );
 
 return (
     <React.Fragment>
-        <FormOffre/>
         <UserContext.Provider value={user}>
-            <div className="super_container">
+            <SocketContext.Provider value={value}>
+                <FormOffre/>
+                <div className="super_container">
+                    <Navbar/>
+                    <Connexion/>
+                    <Inscription/>
+                    <Routes>
+                        <Route path="/"
+                            element={<Home/>}/>
+                        <Route path="/home"
+                            element={<Home/>}/>
+                        <Route path="/offres"
+                            element={<Offre/>}/>
+                        <Route path="/demandes"
+                            element={<Demande/>}/>
+                        <Route path="/evenements"
+                            element={<Evenements/>}/>
+                        <Route path="/espaceperso"
+                            element={<Espaceperso/>}/>
+                        <Route path="/evenements/:idEvent"
+                            element={<ParticiperEvent/>}/>
+                        <Route path="/a_propos"
+                            element={<About/>}/>
+                    </Routes>
 
-                <Navbar/>
-                <Connexion/>
-                <Inscription/>
-                <Routes>
-                    <Route path="/"
-                        element={<Home/>}/>
-                    <Route path="/home"
-                        element={<Home/>}/>
-                    <Route path="/offres"
-                        element={<Offre/>}/>
-                    <Route path="/demandes"
-                        element={<Demande/>}/>
-                    <Route path="/evenements"
-                        element={<Evenements/>}/>
-                    <Route path="/espaceperso"
-                        element={<Espaceperso/>}/>
-                    <Route path="/evenements/:idEvent"
-                        element={<ParticiperEvent/>}/>
-                    <Route path="/a_propos"
-                        element={<About/>}/>
-                </Routes>
-
-                <Footer/>
-
-            </div>
+                    <Footer/>
+                </div>
+            </SocketContext.Provider>
         </UserContext.Provider>
     </React.Fragment>
 );}export default App;

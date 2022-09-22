@@ -5,7 +5,7 @@ import jwt_decode from "jwt-decode";
 
 const NavBar = () => {
     let idCurrentUser = useContext(UserContext);
-    let value = "joel";
+    let value = "nn";
 
 
     if (localStorage.getItem("token") != null) {
