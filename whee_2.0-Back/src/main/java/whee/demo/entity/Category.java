@@ -29,7 +29,7 @@ public class Category implements Serializable {
 	@Column(name="ID", nullable=false)	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idCateg;
+	private Long idCateg;
 	
 	@Column(name="NomCateg", nullable=true, length=255)	
 	private String nomCateg;

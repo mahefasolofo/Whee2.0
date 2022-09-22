@@ -134,7 +134,7 @@ function App() {
           <FormOffre />
           <div className="super_container">
             <Navbar />
-            <Connexion />
+            <Connexion/>
             <Inscription />
             <Routes>
               <Route path="/" element={<Home />} />

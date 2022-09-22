@@ -29,7 +29,7 @@ public class Vehicule implements Serializable {
 	@Column(name="ID", nullable=false)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idVehicule;
+	private Long idVehicule;
 
 	@Column(name="Immat", nullable=false, length=255)
 	private String immat;

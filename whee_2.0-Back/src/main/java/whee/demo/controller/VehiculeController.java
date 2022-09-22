@@ -27,7 +27,7 @@ public class VehiculeController {
     }
 
     @GetMapping("/vehicules/{userid}")
-    public List<Vehicule> getVehiculeById(@PathVariable int userid) {
+    public List<Vehicule> getVehiculeById(@PathVariable Long userid) {
         return vehiculeRepository.findByUserId(userid);
     }
 

@@ -21,14 +21,14 @@ function ParticiperEvent() {
 
   })
 
+
   const [show, setShow] = useState(false);
 
   const handleClick = () => {
     document.getElementById('EventAnnonce').style.display= 'flex';
   };
 
-  const destiantionRef =
-   formData.lieuEvent;
+  const destiantionRef = formData.lieuEvent;
 
 
   let { idEvent } = useParams();
@@ -112,7 +112,7 @@ function ParticiperEvent() {
   
       {annonce.map((annonceE)=>(<AnnonceEvent key={annonceE.idCovoit} annonceEvent={annonceE} evenement={annonceE.event} vehicule={annonceE.vehicule} formData={formData} setFormData={setFormData}/>))}
       </section>
-
+    
 
     {/*Fin Liste annonces*/} 
 

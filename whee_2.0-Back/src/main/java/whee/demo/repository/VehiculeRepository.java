@@ -13,7 +13,7 @@ public interface VehiculeRepository extends JpaRepository<Vehicule,Integer> {
 
     //findById
     @Query(value = "SELECT * FROM vehicule v WHERE v.userid=?1", nativeQuery = true)
-    List<Vehicule> findByUserId(@Param("userid") int userid);
+    List<Vehicule> findByUserId(@Param("userid") Long userid);
 
 
 }
