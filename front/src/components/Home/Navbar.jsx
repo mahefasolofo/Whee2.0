@@ -199,8 +199,10 @@ const NavBar = () => {
                         <Dropdown.Toggle
                           variant=""
                           style={{
-                            color: "white",
+
                             backgroundColor: "rgba(0, 0, 0, 0.0)",
+
+
                             border: "none",
                             position: "relative",
                           }}

@@ -5,11 +5,18 @@ import carimg from "../../images/car1.jpg";
 import profimg from "../../images/photoProfil.jpg";
 import Moment from "react-moment";
 import { SocketContext } from "../../services/SocketContext";
+import seatimg from '../../images/seat3.png'
+import DetailsOffre from './DetailsOffre' 
 
 let Sock = new SockJS("http://localhost:8090/ws");
 var stompClient = over(Sock);
 
+
 const Offeritem = ({ offer, compte, vehicule }) => {
+  const afficherDetail=()=> {
+    document.getElementById("detailOffreReservation").style.display='flex';    
+  }
+  
   const {
     userData,
     setUserData,
@@ -47,6 +54,7 @@ const Offeritem = ({ offer, compte, vehicule }) => {
   let d = depart.split(",").slice(0, 1);
   let a = arrivee.split(",").slice(0, 1);
 
+ 
   return (
     <div className="col-lg-12">
       <div className="GridOffre">
@@ -68,8 +76,11 @@ const Offeritem = ({ offer, compte, vehicule }) => {
             <div className="col-lg-5">
               <div className="offersContent">
                 <div className="offersPrice">
+                
                   {d} - {a}
                 </div>
+                {/* 
+                //Etoile note
                 <div
                   className="rating_r rating_r_4 offersRating"
                   data-rating="3"
@@ -79,20 +90,29 @@ const Offeritem = ({ offer, compte, vehicule }) => {
                   <i></i>
                   <i></i>
                   <i></i>
-                </div>
+                </div> */}
                 <div className="offerReviews">
                   <div className="offerReviews_content">
                     <div className="offerReviews_title">
-                      <Moment format="Do MMMM YYYY">{dateCovoit}</Moment>
+                    <i className="fas fa-calendar-alt mr-2" />
+                    <Moment format="Do MMMM YYYY">{dateCovoit}</Moment>
+                    <br />
+                    <br />
+
+                    <i class="fa fa-clock-o" aria-hidden="true" />
+                    {t}                      
                     </div>
 
-                    <div className="offerReviews_subtitle">{t}</div>
+                    {/* <div className="offerReviews_subtitle">{t}</div> */}
                   </div>
                 </div>
-                <p className="offersText">
+                <div className="seat_nb seat_offre">
+                  <span>{nbPlace}</span> <img src={seatimg} className='seat_img' alt="" /> 
+                </div> 
+                {/* <p className="offersText">
                   Trajet régulier en semaine. {nbPlace} places disponibles.
                   Voiture propre, conducteur courtois.
-                </p>
+                </p> */}
                 <p className="offersText">Centres d'intérêts : {interet}</p>
                 {/*<div className="offersIcons">
                             <ul class="offersIcons_list">
@@ -101,15 +121,17 @@ const Offeritem = ({ offer, compte, vehicule }) => {
                                 <li class="offersIcons_item"><img src="images/seat3.png" alt=""></li>
                             </ul>
                         </div>*/}
+                <div className="offerName"><i class="fa fa-money" aria-hidden="true"></i>     {tarif} Ar</div>
                 <button
-                  className="button book_button_blog"
-                  onClick={sendValueEvent}
+                  className="button book_button_offre"
+                  // onClick={afficherInscription} 
+                  onCLick={afficherDetail}
                 >
-                  <a href="#">
-                    Réserver<span></span>
+                  
+                    Voir plus<span></span>
                     <span></span>
                     <span></span>
-                  </a>
+                  
                 </button>
               </div>
             </div>
@@ -119,10 +141,10 @@ const Offeritem = ({ offer, compte, vehicule }) => {
                 <div className="offerDate">
                   {marque} - {modele}
                 </div>
-                <div className="offerName">{tarif} Ar</div>
+                
                 <div className="offerReviewsRating text-center">
                   {noteVehicule}
-                  <span className="notespan">/20</span>
+                  {/* <span className="notespan">/20</span> */}
                 </div>
               </div>
             </div>
