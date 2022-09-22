@@ -35,6 +35,7 @@ const NavBar = () => {
 
   const onConnected = () => {
     setUserData({ ...userData, connected: true });
+    setUserData({ ...userData, username: "tsiry" });
     stompClient.subscribe("/chatroom/public", onMessageReceived);
     stompClient.subscribe(
       "/user/" + userData.username + "/private",
@@ -84,6 +85,18 @@ const NavBar = () => {
       setPrivateChats(new Map(privateChats));
     }
   };
+  const sendValueEvent = () => {
+    if (stompClient) {
+      var chatMessage = {
+        senderName: "ADMIN",
+        message: " : des événements qui pourraient vous intéresser",
+        status: "MESSAGE",
+      };
+      console.log(chatMessage);
+      stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
+      setUserData({ ...userData, message: "" });
+    }
+  };
 
   const registerUser = () => {
     setUserData({ ...userData, username: "tsiry" });
@@ -109,6 +122,7 @@ const NavBar = () => {
 
   const afficherConnexion = () => {
     document.getElementById("id01").style.display = "block";
+    connect();
   };
 
   const afficherInscription = () => {
@@ -160,11 +174,11 @@ const NavBar = () => {
                 <div className="hamburger">
                   <i className="fa fa-bars trans_200" />
                 </div>
-                {value.length < 100 ? (
+                {value.length < 10 ? (
                   <div className="user_box ml-auto user_box_s">
                     <div className="user_box_login user_box_link user_box_a">
                       {" "}
-                      <span style={{ zIndex: 99 }} onClick={registerUser}>
+                      <span style={{ zIndex: 99 }} onClick={afficherConnexion}>
                         Se Connecter
                       </span>
                     </div>
@@ -181,7 +195,54 @@ const NavBar = () => {
                     }}
                   >
                     <div className="icon_notif">
-                      <i class="fa fa-bell" aria-hidden="true"></i>
+                      <Dropdown>
+                        <Dropdown.Toggle
+                          variant=""
+                          style={{
+                            color: "white",
+                            backgroundColor: "rgba(0, 0, 0, 0.5)",
+                            border: "none",
+                          }}
+                        >
+                          <i class="fa fa-bell" aria-hidden="true" />
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu
+                          style={{
+                            color: "white",
+                            backgroundColor: "rgba(33, 33, 33, 0.5)",
+                          }}
+                        >
+                          <Dropdown.Item
+                            href="#/action-1"
+                            className="menuDropDownItemNotif"
+                            onLoad={sendValueEvent}
+                          >
+                            {publicChats.map((chat, index) => (
+                              <li
+                                className={`message ${
+                                  chat.senderName === userData.username &&
+                                  "self"
+                                }`}
+                                key={index}
+                              >
+                                {chat.senderName !== userData.username && (
+                                  <div className="avatar">
+                                    {chat.senderName}
+                                  </div>
+                                )}
+                                <div className="message-data">
+                                  {chat.message}
+                                </div>
+                                {chat.senderName === userData.username && (
+                                  <div className="avatar self">
+                                    {chat.senderName}
+                                  </div>
+                                )}
+                              </li>
+                            ))}
+                          </Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
                     </div>
                     <img src={value.picture} alt="ImgPdp" id="pdpImage" />
                     {/* <a href="#" id="user_name " className='user_box_register user_box_a'> */}

@@ -23,7 +23,7 @@ import { set } from "react-hook-form";
 
 function App() {
   /*Socket*/
-
+  var stompClient = null;
   const [privateChats, setPrivateChats] = useState(new Map());
   const [publicChats, setPublicChats] = useState([]);
   const [tab, setTab] = useState("CHATROOM");
@@ -54,7 +54,6 @@ function App() {
 
   function handleCredentialResponse(response) {
     try {
-
       console.log("Encode JWT id Token: " + response.credential);
       console.log(jwt_decode(response.credential));
 
@@ -72,7 +71,6 @@ function App() {
     }
   }
 
-
   useEffect(() => {
     /* global google */
     if (localStorage.getItem("token") !== null) {
@@ -89,12 +87,10 @@ function App() {
 
           console.log(user);
 
-
           console.log(resp.data);
         };
 
         logInterest();
-
 
         console.log(jwt_decode(localStorage.getItem("token")));
       }

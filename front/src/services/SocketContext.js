@@ -1,5 +1,6 @@
 import { createContext } from "react";
 export const SocketContext = createContext({
+  stompClient: "",
   userData: {
     username: "",
     receivername: "",
