@@ -50,24 +50,24 @@ public class EventController {
 
     
 
-//    @PutMapping("/events/{id}")
-//    public ResponseEntity<Event> updateEvent(@PathVariable Long id, @RequestBody Event eventD) {
-//        Event event = eventRepository.findById(id)
-//                .orElseThrow(() -> new ResourceAccessException("Event not exist with id :" + id));
-//
-////        event.setCategories(eventD.getCategories());
-////        event.setDateEvent(eventD.getDateEvent());
-////        event.setDescription(eventD.getDescription());
-////        event.setHeureEvent(eventD.getHeureEvent());
-////        event.setImage(eventD.getImage());
-////        event.setLieuEvent(eventD.getLieuEvent());
-////        event.setNote(eventD.getNote());
-////        event.setTitre(eventD.getTitre());
-//
-//        Event updateEvent = eventRepository.save(event);
-//        return ResponseEntity.ok(updateEvent);
-//
-//    }
+//@PutMapping("/events/{id}")
+//public ResponseEntity<Event> updateEvent(@PathVariable Long id, @RequestBody Event eventD) {
+//Event event = eventRepository.findById(id)
+  //             .orElseThrow(() -> new ResourceAccessException("Event not exist with id :" + id));
+
+      // event.setCategories(eventD.getCategories());
+      // event.setDateEvent(eventD.getDateEvent());
+      // event.setDescription(eventD.getDescription());
+       // event.setHeureEvent(eventD.getHeureEvent());
+       // event.setImage(eventD.getImage());
+      // event.setLieuEvent(eventD.getLieuEvent());
+      // event.setNote(eventD.getNote());
+      // event.setTitre(eventD.getTitre());
+
+   //  Event updateEvent = eventRepository.save(event);
+   //   return ResponseEntity.ok(updateEvent);
+
+ // }
 
 
     @GetMapping("/findEventByIdCovoit/{userid}")

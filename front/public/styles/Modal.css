@@ -8,7 +8,7 @@
 }
 
 .form-container{
-  display: block;
+  display: block;  
 }
 .modalBackground {
     width: 100vw;
@@ -76,6 +76,7 @@
     background-color: #f8f8f8;
     box-shadow: 0 4px 10px -0px rgba(0, 0, 0, 0.66);
     display: flex;
+    
     flex-direction: column;
     /* border: solid rgb(219, 219, 219,0.8) 1.2px; */
 	  border-radius: 10px;
