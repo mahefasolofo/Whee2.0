@@ -24,8 +24,8 @@ const NavBar = () => {
     setPublicChats,
   } = useContext(SocketContext);
   useEffect(() => {
-    console.log(userData);
-  }, [userData]);
+    registerUser();
+  }, []);
 
   const connect = () => {
     let Sock = new SockJS("http://localhost:8090/ws");
@@ -85,8 +85,8 @@ const NavBar = () => {
     }
   };
 
-  const registerUser = (nom) => {
-    setUserData({ ...userData, username: nom });
+  const registerUser = () => {
+    setUserData({ ...userData, username: "tsiry" });
     connect();
   };
 
@@ -129,7 +129,7 @@ const NavBar = () => {
                 <div className="logo_container">
                   <div className="logo">
                     <a href="/">
-                      <img src="/images/logo_4.png" alt="" />
+                      <img src="/images/logo_4.png" />
                     </a>
                   </div>
                 </div>
@@ -164,7 +164,7 @@ const NavBar = () => {
                   <div className="user_box ml-auto user_box_s">
                     <div className="user_box_login user_box_link user_box_a">
                       {" "}
-                      <span style={{ zIndex: 99 }} onClick={afficherConnexion}>
+                      <span style={{ zIndex: 99 }} onClick={registerUser}>
                         Se Connecter
                       </span>
                     </div>
@@ -181,11 +181,7 @@ const NavBar = () => {
                     }}
                   >
                     <div className="icon_notif">
-                      <i
-                        class="fa fa-bell"
-                        aria-hidden="true"
-                        onClick={registerUser(value.name)}
-                      ></i>
+                      <i class="fa fa-bell" aria-hidden="true"></i>
                     </div>
                     <img src={value.picture} alt="ImgPdp" id="pdpImage" />
                     {/* <a href="#" id="user_name " className='user_box_register user_box_a'> */}
