@@ -20,6 +20,7 @@ import FormOffre from "./components/PublierOffre/FormOffre";
 import jwt_decode from "jwt-decode";
 import { AccordionButton } from "react-bootstrap";
 import { set } from "react-hook-form";
+import DetailsOffre from "./components/PublierOffre/DetailsOffre";
 
 function App() {
   /*Socket*/
@@ -131,7 +132,9 @@ function App() {
     <React.Fragment>
       <UserContext.Provider value={user}>
         <SocketContext.Provider value={value}>
+          <DetailsOffre />
           <FormOffre />
+          
           <div className="super_container">
             <Navbar />
             <Connexion />
