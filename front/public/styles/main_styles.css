@@ -836,6 +836,11 @@ section
 	width:180px;
 	background-color: rgb(0,0,0,0.0)!important;
 }
+.menuDropDownItemNotif{
+	color:white;
+	width: 500px;
+	background-color: rgb(0,0,0,0.0)!important;
+}
 
 /*********************************
 4.1 Home Slider

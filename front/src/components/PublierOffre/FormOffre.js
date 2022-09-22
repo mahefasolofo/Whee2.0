@@ -1,24 +1,18 @@
-import React, { useState, useEffect, useContext  } from "react";
+import React, { useState } from "react";
 import TrajetInfo from "./TrajetInfo";
-import { UserContext } from "../../services/UserContext";
 import DateHourInfo from "./DateHourInfo";
 import VehiculeInfo from "./VehiculeInfo";
 import AnnonceCovoiturageService from "../../services/AnnonceCovoiturageService";
-import { useNavigate } from "react-router-dom";
-import UserspaceService from "../../services/UserspaceService";
-import { useParams } from "react-router-dom";
+
 
 function FormOffre() {
-  const { user } = useContext(UserContext);
-
-  let navigate = useNavigate();
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
     ptDepart: "",
     ptArrivee: "",
     heureCovoit: "",
     dateCovoit: "",
-    image: null,
+    image:null,
     event: null,
     tarif: "",
     nbPlace: "",
@@ -27,16 +21,12 @@ function FormOffre() {
       idVehicule: 1,
     },
     covoitureur: {
-      idUser: { user },
+      idUser: 1,
     },
   });
 
   const close = () => {
     document.getElementById("formAnnonce2").style.display = "none";
-  };
-
-  const close2 = () => {
-    document.getElementById("formAnnonce").style.display = "none";
   };
 
   const FormTitles = [
@@ -56,16 +46,14 @@ function FormOffre() {
     <div>
       <div className="modalBackground" id="formAnnonce2">
         <div className="modalContainer">
-        <div className="modalHeader"><h1>Publier une annonce</h1></div>
           <div className="titleCloseBtn">
-            <button onClick={close}><i className="fa fa-times-circle" aria-hidden="true"></i></button>
+            <button onClick={close}>X</button>
           </div>
-          <div className="modalForm">
+          <div className="container">
             <div className="progressbar">
               <div
                 style={{
-                  width: page === 0 ? "200px" : page === 1 ? "400px" : "600px",
-                  heigh : "5px"
+                  width: page === 0 ? "33.3%" : page === 1 ? "66.6%" : "100%",
                 }}
               ></div>
             </div>
@@ -76,7 +64,6 @@ function FormOffre() {
               <div className="bodyF">{PageDisplay()}</div>
               <div className="footerF">
                 <button
-                  className="btn btn-primary"
                   disabled={page === 0}
                   onClick={() => {
                     setPage((currPage) => currPage - 1);
@@ -85,18 +72,17 @@ function FormOffre() {
                   Prev
                 </button>
                 <button
-                className="btn btn-primary"
                   onClick={() => {
                     if (page === FormTitles.length - 1) {
+                 
                       AnnonceCovoiturageService.publierAnnonce(formData);
-                      navigate(`/espaceperso/${formData.covoitureur.idUser}`);
-                      close();
+                      
                     } else {
                       setPage((currPage) => currPage + 1);
                     }
                   }}
                 >
-                  {page === FormTitles.length - 1 ? "Publier" : "Suivant"}
+                  {page === FormTitles.length - 1 ? "Submit" : "Next"}
                 </button>
               </div>
             </div>
@@ -105,17 +91,11 @@ function FormOffre() {
       </div>
 
       <div className="modalBackground" id="formAnnonce">
-        
         <div className="modalContainer">
-        <div className="modalHeader"><h1>Publier une annonce</h1></div>
-        <div className="titleCloseBtn">
-            <button onClick={close2}><i className="fa fa-times-circle" aria-hidden="true"></i></button>
-          </div>
-          <div className="modalForm">
+          <div className="container">
             <div className="form-container">
               <div className="headerF">
-                <h1>Votre trajet?</h1>
-                <div className="postcard__bar" />
+                <h1>Trajet</h1>
               </div>
 
               <TrajetInfo formData={formData} setFormData={setFormData} />

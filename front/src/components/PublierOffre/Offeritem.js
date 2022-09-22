@@ -1,9 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
+import { over } from "stompjs";
+import SockJS from "sockjs-client";
 import carimg from "../../images/car1.jpg";
 import profimg from "../../images/photoProfil.jpg";
 import Moment from "react-moment";
+import { SocketContext } from "../../services/SocketContext";
+
+let Sock = new SockJS("http://localhost:8090/ws");
+var stompClient = over(Sock);
 
 const Offeritem = ({ offer, compte, vehicule }) => {
+  const {
+    userData,
+    setUserData,
+    privateChats,
+    setPrivateChats,
+    tab,
+    setTab,
+    publicChats,
+    setPublicChats,
+  } = useContext(SocketContext);
+
+  const sendValueEvent = () => {
+    if (stompClient) {
+      var chatMessage = {
+        senderName: "Quelqu'un",
+        message: " vient de reserver un truc",
+        status: "MESSAGE",
+      };
+      console.log(chatMessage);
+      stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
+      setUserData({ ...userData, message: "" });
+    }
+  };
+
   const interet = "musique , sport, voyage";
   const avis = "26 avis";
   const { nom, prenom } = compte;
@@ -56,11 +86,7 @@ const Offeritem = ({ offer, compte, vehicule }) => {
                       <Moment format="Do MMMM YYYY">{dateCovoit}</Moment>
                     </div>
 
-
-                    <div className="offerReviews_subtitle">
-                      {t}
-                    </div>
-
+                    <div className="offerReviews_subtitle">{t}</div>
                   </div>
                 </div>
                 <p className="offersText">
@@ -75,7 +101,10 @@ const Offeritem = ({ offer, compte, vehicule }) => {
                                 <li class="offersIcons_item"><img src="images/seat3.png" alt=""></li>
                             </ul>
                         </div>*/}
-                <button className="button book_button_blog">
+                <button
+                  className="button book_button_blog"
+                  onClick={sendValueEvent}
+                >
                   <a href="#">
                     Réserver<span></span>
                     <span></span>
