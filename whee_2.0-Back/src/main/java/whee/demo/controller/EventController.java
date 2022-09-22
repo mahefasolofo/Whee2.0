@@ -37,6 +37,7 @@ public class EventController {
 
     }
 
+
     // @GetMapping("/events/{id}")
     // public ResponseEntity<Event> getEventByID(@PathVariable Long id) {
     // Event event = eventRepository.findById(id)
@@ -66,6 +67,7 @@ public class EventController {
     // return ResponseEntity.ok(updateEvent);
     //
     // }
+
 
     @GetMapping("/findEventByIdCovoit/{userid}")
     public List<Event> findEventByUserId(@PathVariable Long userid) {

@@ -408,9 +408,96 @@ a:hover {
 
 }
 
-/*Styles dans ParticiperEvent*/
-
+/*ParticiperEvent component*/
 .list_annonce_event {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
 
-    display:flow-root;
+
+/*Formulaire dans évènement*/
+
+.form_event_background {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px);
+
+    position: fixed;
+    justify-content: center;    
+    align-items: center;
+    z-index: 90;
+    border: none;
+}
+
+.modal_container {
+    width: 1200px;
+    height: 550px;
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 10px -0px rgba(0, 0, 0, 0.66);
+    display:block;
+    /* border: solid rgb(219, 219, 219,0.8) 1.2px; */
+	  border-radius: 10px;
+}
+
+.form_entete {
+    display: flex;    
+    flex-direction: column;
+}
+
+
+.form_event_container {
+    width: 1200px;
+    height: 550px;
+    background-color: #f8f8f8;    
+    display: flex;    
+    flex-direction: column;
+    margin-top: 100px;
+    align-items: center;
+    /* border: solid rgb(219, 219, 219,0.8) 1.2px; */
+	
+}
+
+.google_map_form {
+    
+    display: flex;
+    flex-direction: row;
+}
+
+.gauche {
+    width: 400px;
+    height: 200px;
+    margin-right: 20px;
+    background-color:#f8f8f8;
+}
+
+
+#EventAnnonce{
+    display: none;
+}
+
+
+.modal_Form {
+    margin-top: 150px;
+    margin-left: 200px;
+    display: flow-root;
+    align-items: flex-start;
+}
+
+.pub_button {
+
+    background: #ccb65e;
+	width:186px;
+	top: 230px;
+	left: 50px;
+
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+
+    margin-bottom: 80px;
 }
