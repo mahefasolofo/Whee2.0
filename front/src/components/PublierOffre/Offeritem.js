@@ -51,7 +51,7 @@ const Offeritem = ({ offer, compte, vehicule }) => {
 
   let depart = offer.ptDepart;
   let arrivee = offer.ptArrivee;
-  let photo = compte.photo;
+
   let vehiculephoto = vehicule.vehiculePhoto;
   let t = offer.heureCovoit;
   let d = depart.split(",").slice(0, 1);
