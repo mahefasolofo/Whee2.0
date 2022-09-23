@@ -1,9 +1,6 @@
-
-.modal-backdrop.show {
-    opacity: 1;
-    z-index:-80;
+#Felicitation{
     display:none;
-    
-    
 }
-
+#titreFelicitation{
+    font-size:10px;
+}
