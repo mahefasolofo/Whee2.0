@@ -4,7 +4,7 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import 'moment/locale/fr';
 import {UserContext} from './services/UserContext';
-import ProfilPage from './components/Pages/ProfilPage';
+import ProfilPage from './components/Profil/ProfilPage';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -15,6 +15,7 @@ root.render (
                 <App/>
             </BrowserRouter>
 
-            {/* <ProfilPage/> */} </React.StrictMode>
+           {/* <ProfilPage/> */}
+            </React.StrictMode>
     </UserContext.Provider>
 );

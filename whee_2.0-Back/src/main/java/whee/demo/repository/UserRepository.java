@@ -16,4 +16,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(value="select id from public.user u where u.mail= :usermail ", nativeQuery=true)
     Long findIDByMail(@Param("usermail")String usermail);
+
+
 }

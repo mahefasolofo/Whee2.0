@@ -23,6 +23,7 @@ import jwt_decode from "jwt-decode";
 import { AccordionButton } from "react-bootstrap";
 import { set } from "react-hook-form";
 import DetailsOffre from "./components/PublierOffre/DetailsOffre";
+import ProfilPage from "./components/Profil/ProfilPage";
 
 var stompClient = null;
 function App() {
@@ -223,6 +224,7 @@ function App() {
                 element={<ParticiperEvent />}
               />
               <Route path="/a_propos" element={<About />} />
+              <Route path="/profil" element={<ProfilPage/>}/>
             </Routes>
 
             <Footer />

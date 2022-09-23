@@ -22,6 +22,7 @@ public class CovoiturageController {
 
     @PostMapping("/annonces")
     public Covoiturage createAnnonce(@RequestBody Covoiturage annonce) {
+
         return covoiturageRepository.save(annonce);
     }
 

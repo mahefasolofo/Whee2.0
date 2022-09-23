@@ -258,9 +258,10 @@ const NavBar = () => {
                           Se Déconnecter
                         </Dropdown.Item>
                         <Dropdown.Item
-                          href="#/action-2"
+                          href="/profil"
                           className="menuDropDownItem"
                         >
+                        
                           Profil
                         </Dropdown.Item>
                         <Dropdown.Item
