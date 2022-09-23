@@ -71,6 +71,7 @@ const Inscription = () => {
         console.log(formData.interests);
         alert(JSON.stringify(formData))
         closeInscription();
+        document.getElementById('Felicitation').style.display = 'block';
         localStorage.setItem("token", "eyJhbGciOiJSUzI1NiIsImtpZCI6IjIwOWMwNTdkM2JkZDhjMDhmMmQ1NzM5Nzg4NjMyNjczZjdjNjI0MGYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2NjM1ODUyMjEsImF1ZCI6IjE2MjI0NzE2NDQ2MC11MDEwYXVoOWYydDRlcjM2a2xjODFzcWQ3ZzhlbGc3dS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjExMjU5MjAyOTg2NTE4NTMyNzg1NCIsImVtYWlsIjoiam9lbGFuZHJpYW1ib2xhQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhenAiOiIxNjIyNDcxNjQ0NjAtdTAxMGF1aDlmMnQ0ZXIzNmtsYzgxc3FkN2c4ZWxnN3UuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJuYW1lIjoiSm9lbCBBbmRyaWEiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FDTlBFdS1uUTJhcDJEZWtNMXdYdXRQTEU5Zk1qLUg3Ny1QOG9wVFhuczVJPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IkpvZWwiLCJmYW1pbHlfbmFtZSI6IkFuZHJpYSIsImlhdCI6MTY2MzU4NTUyMSwiZXhwIjoxNjYzNTg5MTIxLCJqdGkiOiI1ZGNkNjVmYjZjMTc2YzM3NmE4MGQ2ODc4ZDZlYzk3ZDNjODNmNDczIn0.n9w5JvfrMhkBs6fYOCoC9ojyuGdQH7kMqgED46AX4hXtTt2Q0EUcvXgB1Yjdb3dz5nyC7ZCvYJDbZH3LZafpK_px_IzwDftnayHQkZfY-vWXHIKB3MJelAmiKCU7H1rIOORbc9n6hFiNbfJ_AmfZ5-KJ8yUoC6-8XTS6rDVN_rpnusPJBsycW1MExXJQasmhH61ErInS2mH1VgrSiUY4JHcNYC-H1MsRac5A2oPDVNFckw8bpSG-Fns8yg1oIhn2Sz4ChwOuM-2_XeTe-wCKwdPCa3rVqeh7SUXr8szCKnIoEfsaH-VaLuzihdaFuFB8EmGToab_9Csh2LI8qCn4Mg");
     }
     const continuer = () => {
@@ -84,14 +85,15 @@ const Inscription = () => {
     const closeInscription = () => {
         document.getElementById("id02").style.display = "none";
     };
+    let idCurrentUser = useContext(UserContext);
 
 
     return (
         <div> {/* Hello world */}
-           
+            <VousEtesBienInscrit/>
             <div className="inscriptionModal" id="id02">
                 <div>
-
+                
                     <div className="containerInscription d-flex justify-content-center">
                         <div className="row">
                             <div className="col-md-6">
@@ -474,7 +476,7 @@ const Inscription = () => {
                                 )
                             })
                         } </div>
-                        <button className="buttonInscription" data-toggle="modal" data-target="#myModalCongrats"
+                        <button className="buttonInscription" data-toggle="modal"
                             onClick={seConnecter}>
                             S'INSCRIRE
                         </button>
