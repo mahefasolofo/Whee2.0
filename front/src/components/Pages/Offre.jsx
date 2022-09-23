@@ -45,10 +45,16 @@ function Offre () {
 
   const onChangeHandlerDepart = (text) => {
       let matchesDepart = [];
+      let matchesArrivee = [];
       matchesDepart = response.map((val, key) => {
           return val.ptDepart;
       }) 
+      matchesArrivee = response.map((val, key) => {
+        return val.ptArrivee;
+    }) 
+      matchesDepart = matchesDepart.concat(matchesArrivee);
       matchesDepart = [...new Set(matchesDepart)];
+
 
 
       if (text.length != "") {
@@ -161,15 +167,38 @@ function Offre () {
                 />
               </div>
               <div className="search_item">
-                {/* <i class="fa fa-map-marker" aria-hidden="true"></i> Destination */}
-                <input
-                  type="text"
-                  className="destination search_input"
-                  required="required"
-                  placeholder=" Destination"
-                  style={{ fontFamily: "Arial, FontAwesome" }}
-                />
-              </div>
+
+<input type="text" className="destination search_input" required="required" placeholder=" Départ"
+    style={
+        {fontFamily: "Arial, FontAwesome"}
+    }
+    onChange={
+        e => onChangeHandlerDepart(e.target.value)
+    }
+    value={text}/> {
+displayDepart == false ? null : (
+    <div  className="autoCompletionDiv">
+
+        {
+        recherche.map(function (v, i) {
+            return (
+                <div className="searchAutocompletion"
+                    key={
+                        v.id
+                }>
+                    {/* imprimez le nom de l'élément */}
+                    <span onClick={
+                            (e) => (onChangeHandlerDepart(v), setDisplayDepart(false))
+                        }
+                        className="searchAutocompletionValue"
+                        value={v}>
+                        <i class="fa fa-map-marker"></i>{v}</span>
+                </div>
+            );
+        })
+    } </div>
+)
+} </div>
               <div className="search_item">
                 {/* <i class="fa fa-calendar" aria-hidden="true"></i> Date / heure */}
                 <input
