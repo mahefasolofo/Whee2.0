@@ -23,9 +23,6 @@ const NavBar = () => {
     publicChats,
     setPublicChats,
   } = useContext(SocketContext);
-  useEffect(() => {
-    registerUser();
-  }, []);
 
   const connect = () => {
     let Sock = new SockJS("http://localhost:8090/ws");
@@ -35,7 +32,6 @@ const NavBar = () => {
 
   const onConnected = () => {
     setUserData({ ...userData, connected: true });
-    setUserData({ ...userData, username: "tsiry" });
     stompClient.subscribe("/chatroom/public", onMessageReceived);
     stompClient.subscribe(
       "/user/" + userData.username + "/private",
@@ -122,7 +118,6 @@ const NavBar = () => {
 
   const afficherConnexion = () => {
     document.getElementById("id01").style.display = "block";
-    connect();
   };
 
   const afficherInscription = () => {
@@ -200,11 +195,17 @@ const NavBar = () => {
                           variant=""
                           style={{
                             color: "white",
-                            backgroundColor: "rgba(0, 0, 0, 0)",
+                            backgroundColor: "rgba(0, 0, 0, 0.0)",
                             border: "none",
+                            position: "relative",
                           }}
                         >
                           <i class="fa fa-bell" aria-hidden="true" />
+                          {publicChats.length !== 0 ? (
+                            <div className="counterNotif">
+                              {publicChats.length}
+                            </div>
+                          ) : null}
                         </Dropdown.Toggle>
                         <Dropdown.Menu
                           style={{
@@ -212,35 +213,19 @@ const NavBar = () => {
                             backgroundColor: "rgba(33, 33, 33, 0.5)",
                           }}
                         >
-                          <Dropdown.Item
-                            href="#/action-1"
-                            className="menuDropDownItemNotif"
-                            onLoad={sendValueEvent}
-                          >
-                            {publicChats.map((chat, index) => (
-                              <li
-                                className={`message ${
-                                  chat.senderName === userData.username &&
-                                  "self"
-                                }`}
-                                key={index}
-                              >
-                                {chat.senderName !== userData.username && (
-                                  <div className="avatar">
-                                    {chat.senderName}
-                                  </div>
-                                )}
-                                <div className="message-data">
-                                  {chat.message}
-                                </div>
-                                {chat.senderName === userData.username && (
-                                  <div className="avatar self">
-                                    {chat.senderName}
-                                  </div>
-                                )}
+                          {publicChats.map((chat, index) => (
+                            <Dropdown.Item
+                              href="#/action-1"
+                              className="menuDropDownItemNotif"
+                              onLoad={sendValueEvent}
+                            >
+                              <li key={index}>
+                                {chat.senderName}
+
+                                {chat.message}
                               </li>
-                            ))}
-                          </Dropdown.Item>
+                            </Dropdown.Item>
+                          ))}
                         </Dropdown.Menu>
                       </Dropdown>
                     </div>
