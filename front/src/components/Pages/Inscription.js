@@ -82,7 +82,6 @@ const Inscription = () => {
 
 
     const closeInscription = () => {
-
         document.getElementById("id02").style.display = "none";
     };
 
@@ -102,7 +101,7 @@ const Inscription = () => {
                             <h4>Bienvenue
                             </h4>
                             <p>
-                                Dites Whee à la vieee Joel Andria
+                                Dites Whee à la vie Joel Andria
                             </p>
                             {" "}
 
