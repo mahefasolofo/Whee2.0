@@ -34,7 +34,7 @@ const closeFelicitation=()=>{
                       title="Fermer">
                       <i className="fa-solid fa-x close"/>
                   </span>
-                  <h3 className="card-title text-center pb-0 fs-4" id="titreFelicitation">
+                  <h3 className="card-title text-center pb-0 fs-4" id="titreFelicitation" style={{fontSize:20}}>
                       Bienvenue sur Whee!</h3>
               </div>
               <div className="container"
