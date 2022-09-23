@@ -88,34 +88,7 @@ const Inscription = () => {
 
     return (
         <div> {/* Hello world */}
-            <div className="modal fade modalCongrats" id="myModalCongrats"
-                onClick={continuer}>
-                <div className="modal-dialog">
-                    <div className="card">
-                        <div className="text-right cross">
-                            {" "}
-                            <i className="fa fa-times"/>{" "} </div>
-                        <div className="card-body text-center">
-                            {" "}
-                            <img src="https://img.icons8.com/bubbles/200/000000/trophy.png"/>
-                            <h4>Bienvenue
-                            </h4>
-                            <p>
-                                Dites Whee à la vie Joel Andria
-                            </p>
-                            {" "}
-
-                            <button className="btn btn-out btn-square continue buttonInscription"
-                                style={
-                                    {zIndex: 30000}
-                                }
-                                onClick={continuer}
-                                enable>Se connecter</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+           
             <div className="inscriptionModal" id="id02">
                 <div>
 
