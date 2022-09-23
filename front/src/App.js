@@ -203,7 +203,7 @@ function App() {
     <React.Fragment>
       <UserContext.Provider value={user}>
         <SocketContext.Provider value={value}>
-          <DetailsOffre />
+          
           <FormOffre />
 
           <div className="super_container">

@@ -37,14 +37,18 @@ public class Vehicule implements Serializable {
 	@Column(name = "Immat", nullable = false, length = 255)
 	private String immat;
 
-	// @ManyToOne(targetEntity=Conducteur.class, fetch=FetchType.LAZY)
-	// @org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})
-	// @JoinColumns({ @JoinColumn(name="UserID", referencedColumnName="ID",
-	// nullable=false) })
-	// @org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)
-	// private Conducteur conducteur;
 
-	@Column(name = "Marque", nullable = false, length = 255)
+	@Column(name="VehiculePhoto", nullable=false, length=255)
+	private String VehiculePhoto;
+
+	//@ManyToOne(targetEntity=Conducteur.class, fetch=FetchType.LAZY)
+	//@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})
+	//@JoinColumns({ @JoinColumn(name="UserID", referencedColumnName="ID", nullable=false) })
+	//@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)
+	//private Conducteur conducteur;
+	
+	@Column(name="Marque", nullable=false, length=255)
+
 	private String marque;
 
 	@Column(name = "Modele", nullable = true, length = 255)

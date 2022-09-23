@@ -5,6 +5,7 @@ import DateHourInfo from "./DateHourInfo";
 import VehiculeInfo from "./VehiculeInfo";
 import AnnonceCovoiturageService from "../../services/AnnonceCovoiturageService";
 
+
 function FormOffre() {
   const [page, setPage] = useState(0);
   let idCurrentUser = useContext(UserContext);
@@ -46,6 +47,7 @@ function FormOffre() {
 
   return (
     <div>
+      
       <div className="modalBackground" id="formAnnonce2">
         <div className="modalContainer">
           <div className="titleCloseBtn">
