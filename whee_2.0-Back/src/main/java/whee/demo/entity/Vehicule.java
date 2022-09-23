@@ -34,6 +34,9 @@ public class Vehicule implements Serializable {
 	@Column(name="Immat", nullable=false, length=255)
 	private String immat;
 
+	@Column(name="VehiculePhoto", nullable=false, length=255)
+	private String VehiculePhoto;
+
 	//@ManyToOne(targetEntity=Conducteur.class, fetch=FetchType.LAZY)
 	//@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})
 	//@JoinColumns({ @JoinColumn(name="UserID", referencedColumnName="ID", nullable=false) })

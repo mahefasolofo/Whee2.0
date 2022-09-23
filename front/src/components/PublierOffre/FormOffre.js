@@ -5,6 +5,7 @@ import VehiculeInfo from "./VehiculeInfo";
 import AnnonceCovoiturageService from "../../services/AnnonceCovoiturageService";
 
 
+
 function FormOffre() {
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
@@ -44,6 +45,7 @@ function FormOffre() {
 
   return (
     <div>
+      
       <div className="modalBackground" id="formAnnonce2">
         <div className="modalContainer">
           <div className="titleCloseBtn">

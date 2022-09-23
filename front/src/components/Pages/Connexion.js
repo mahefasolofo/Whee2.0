@@ -52,7 +52,7 @@ const Connexion = () => { // const { setAuth } = useContext(AuthContext);
                             <i className="fa-solid fa-x close"/>
                         </span>
                         <h5 className="card-title text-center pb-0 fs-4" id="titreInscription">
-                            Bienvenue sur Whee!{user} </h5>
+                            Bienvenue sur Whee! </h5>
                     </div>
                     <div className="container"
                         style={

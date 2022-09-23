@@ -49,7 +49,7 @@ public class Covoiturage implements Serializable {
 	@Column(name="PtArrivee", nullable=true, length=255)	
 	private String ptArrivee;
 
-	@Column(nullable=true)
+	@Column(name="imageCovoit",nullable=true)
 	private String imageCovoit;
 	
 	@Column(name="HeureCovoit", nullable=true, columnDefinition = "TIME")

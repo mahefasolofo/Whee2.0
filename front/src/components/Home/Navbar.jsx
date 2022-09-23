@@ -150,7 +150,7 @@ const NavBar = () => {
                 <div className="main_nav_container ml-auto">
                   <ul className="main_nav_list">
                     <li className="main_nav_item">
-                      <a href="/home">Accueil{idCurrentUser}</a>
+                      <a href="/home">Accueil</a>
                     </li>
                     <li className="main_nav_item">
                       <a href="/offres">Offres</a>

@@ -400,9 +400,9 @@ section
 	color: #FFFFFF;
 }
 .user_box{
-	width: 50vw;
+	/* width: 60vw; */
 	margin-left: 0px;
-	min-width: 200px;
+	min-width: 250px;
 	
 }
 .user_box_link
@@ -437,6 +437,7 @@ section
 .user_box_login
 {
 	margin-right: 15px;
+	letter-spacing: 1.2px;
 }
 .user_box_login::after
 {
@@ -531,6 +532,7 @@ section
 	align-items: center;
 	margin-left: 12px;
 	right: 5px;
+	letter-spacing: 1.2px;
 }
 
 .main_nav_container
@@ -567,6 +569,7 @@ section
 	text-transform: uppercase;
 	padding-bottom: 10px;
 	padding-top: 10px;
+	letter-spacing: 1.2px;
 }
 .main_nav_item::after
 {

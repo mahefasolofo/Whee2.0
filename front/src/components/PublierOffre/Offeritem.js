@@ -7,6 +7,7 @@ import Moment from "react-moment";
 import { SocketContext } from "../../services/SocketContext";
 import seatimg from '../../images/seat3.png'
 import DetailsOffre from './DetailsOffre' 
+import Offre from "../Pages/Offre";
 
 let Sock = new SockJS("http://localhost:8090/ws");
 var stompClient = over(Sock);
@@ -49,14 +50,19 @@ const Offeritem = ({ offer, compte, vehicule }) => {
 
   let depart = offer.ptDepart;
   let arrivee = offer.ptArrivee;
-
+  let photo = compte.photo;
+  let vehiculephoto = vehicule.vehiculePhoto;
   let t = offer.heureCovoit;
   let d = depart.split(",").slice(0, 1);
   let a = arrivee.split(",").slice(0, 1);
 
- 
+  let o = offer;
+  let c= offer.covoitureur;
+  let v= offer.vehicule;
+
   return (
     <div className="col-lg-12">
+      
       <div className="GridOffre">
         <div className="offersItem rating_3">
           <div className="rowF">
@@ -64,10 +70,11 @@ const Offeritem = ({ offer, compte, vehicule }) => {
               <div className="ImageContainer">
                 <img
                   className="offersPimagebackground"
-                  src={profimg}
-                  alt="car"
+                  src={photo}
+                  alt="user"
                 />
-
+                
+                
                 <div className="offerNameDriver">
                   {nom} {prenom}
                 </div>
@@ -79,18 +86,7 @@ const Offeritem = ({ offer, compte, vehicule }) => {
                 
                   {d} - {a}
                 </div>
-                {/* 
-                //Etoile note
-                <div
-                  className="rating_r rating_r_4 offersRating"
-                  data-rating="3"
-                >
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                </div> */}
+                
                 <div className="offerReviews">
                   <div className="offerReviews_content">
                     <div className="offerReviews_title">
@@ -121,23 +117,26 @@ const Offeritem = ({ offer, compte, vehicule }) => {
                                 <li class="offersIcons_item"><img src="images/seat3.png" alt=""></li>
                             </ul>
                         </div>*/}
-                <div className="offerName"><i class="fa fa-money" aria-hidden="true"></i>     {tarif} Ar</div>
+                <div className="offerName"><i class="fa fa-money" aria-hidden="true"> {tarif} Ar</i></div>
+                
                 <button
                   className="button book_button_offre"
                   // onClick={afficherInscription} 
-                  onCLick={afficherDetail}
+                  onClick={afficherDetail}
                 >
-                  
-                    Voir plus<span></span>
+                  <a>
+                  Voir plus<span></span>
                     <span></span>
                     <span></span>
+                  </a>
+                    
                   
                 </button>
               </div>
             </div>
             <div className="col-lg-3 col-1680-4">
               <div className="ImageContainer">
-                <img className="offersImageBackground" src={carimg} alt="car" />
+                <img className="offersImageBackground" src={vehiculephoto} alt="car" />
                 <div className="offerDate">
                   {marque} - {modele}
                 </div>
@@ -151,7 +150,9 @@ const Offeritem = ({ offer, compte, vehicule }) => {
           </div>
         </div>
       </div>
+      <DetailsOffre key={offer.idCovoit} offer={o} compte={c} vehicule={v} />
     </div>
+
   );
 };
 

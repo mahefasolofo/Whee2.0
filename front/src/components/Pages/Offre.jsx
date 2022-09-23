@@ -4,7 +4,7 @@ import Offerlist from '../PublierOffre/Offerlist';
 import {Component, useState, useEffect} from 'react';
 import OfferService from '../../services/OfferService';
 import Offeritem from '../PublierOffre/Offeritem';
-
+import DetailsOffre from '../PublierOffre/DetailsOffre';
 
 
 
@@ -137,6 +137,7 @@ function Offre () {
     
     return (
       <React.Fragment>
+          
           <div className="home_offre">
           <img className="home_background parallax-window" src={bg} alt="" />
           <div className="home_content">
@@ -273,8 +274,11 @@ function Offre () {
                         </div>
 
                         
-                        {response.map((offer)=>(<Offeritem key={offer.idCovoit} offer={offer} compte={offer.covoitureur} vehicule={offer.vehicule} datecov={Date(offer.dateCovoit).toLocaleString()}/> ))
-                        
+                        {response.map((offer)=>(
+                          <Offeritem key={offer.idCovoit} offer={offer} compte={offer.covoitureur} vehicule={offer.vehicule} datecov={Date(offer.dateCovoit).toLocaleString()}/> 
+                          
+                        ))
+                          
                         }
                         </div>
                 </div>
