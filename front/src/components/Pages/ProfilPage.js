@@ -126,19 +126,20 @@ function ProfilPage() {
                                                 <ul className="list-unstyled">
                                                     <li className="media">
                                                         <span className="w-25 text-black font-weight-normal">
-                                                            Profession:
+                                                            Genre 
                                                         </span>
-                                                        <label className="media-body">Design</label>
+                                                        <label className="media-body">Homme</label>
                                                     </li>
                                                     <li className="media">
                                                         <span className="w-25 text-black font-weight-normal">
-                                                            Experience:{" "} </span>
+                                                           Evaluation: </span>
                                                         <label className="media-body">10 Years</label>
                                                     </li>
                                                     <li className="media">
-                                                        <span className="w-25 text-black font-weight-normal">Phone:
+                                                        <span className="w-25 text-black font-weight-normal">
+                                                            Contact:
                                                         </span>
-                                                        <label className="media-body">789 456 1230</label>
+                                                        <label className="media-body">034 55 142 88</label>
                                                     </li>
                                                     <li className="media">
                                                         <span className="w-25 text-black font-weight-normal">Email:
@@ -147,9 +148,9 @@ function ProfilPage() {
                                                     </li>
                                                     <li className="media">
                                                         <span className="w-25 text-black font-weight-normal">
-                                                            Location:{" "} </span>
+                                                            Adresse:{" "} </span>
                                                         <label className="media-body">
-                                                            5557 Cottey St Fort Worth, Texas(TX), 76119, New York, USA
+                                                        Lot 100 - I Bis Ambohinambo 
                                                         </label>
                                                     </li>
                                                 </ul>
@@ -167,60 +168,75 @@ function ProfilPage() {
                             </div>
                             <div className="lightbox-gallery">
                                 <div className="container">
-                                    <label>Vos Centres d'Intérêt</label>
+                                    <label>Vos Véhicules</label>
                                     <div className="row photos">
                                         <div className="col-sm-6 col-md-4 col-lg-3 item">
                                             <a href="https://i.imgur.com/zmzERpe.jpg" data-lightbox="photos">
                                                 <img className="img-fluid" src="https://i.imgur.com/zmzERpe.jpg"/>
                                             </a>
                                         </div>
-                                        <div className="col-sm-6 col-md-4 col-lg-3 item">
-                                            <img className="img-fluid"
-                                                src={voiture}
-                                                style={
-                                                    {
-                                                        width: 110,
-                                                        height: 110,
-                                                        marginTop: 15,
-                                                        borderRadius: 15
-                                                    }
-                                                }/>
+                                        <div className="col-sm-6 col-md-4 col-lg-3 item"
+                                            style={
+                                                {
+                                                    width: 125,
+                                                    height: 125,
+                                                    marginTop: 15,
+                                                    borderRadius: 15
+                                                }
+                                        }>
+                                            <div style={
+                                                {
+                                                    width: 110,
+                                                    height: 110,
+                                                    marginTop: 10,
+                                                    borderRadius: 15,
+                                                    paddingLeft: 15,
+                                                    backgroundImage: 'url(' + voiture + ')'
+                                                }
+                                            }>
+                                                <label htmlFor="" className="labelCentreInteretProfil">
+                                                    Beaux-arts
+                                                </label>
+                                            </div>
+
                                         </div>
-                                        <div className="col-sm-6 col-md-4 col-lg-3 item">
-                                            <img className="img-fluid"
-                                                src={voiture}
-                                                style={
-                                                    {
-                                                        width: 110,
-                                                        height: 110,
-                                                        marginTop: 15,
-                                                        borderRadius: 15
-                                                    }
-                                                }/>
+                                        <div className="col-sm-6 col-md-4 col-lg-3 item"
+                                            style={
+                                                {
+                                                    width: 125,
+                                                    height: 125,
+                                                    marginTop: 15,
+                                                    borderRadius: 15
+                                                }
+                                        }>
+                                            <div style={
+                                                {
+                                                    width: 110,
+                                                    height: 110,
+                                                    marginTop: 10,
+                                                    borderRadius: 15,
+                                                    paddingLeft: 15,
+
+                                                    backgroundImage: 'url(' + voiture + ')'
+                                                }
+                                            }>
+                                                <label htmlFor="" className="labelCentreInteretProfil">
+                                                    Beaux-arts
+                                                </label>
+                                            </div>
+
                                         </div>
+
+
+                                    </div>
+                                </div>
+                                <div className="container">
+                                    <label>Vos Centres d'Intérêt</label>
+                                    <div className="row photos">
                                         <div className="col-sm-6 col-md-4 col-lg-3 item">
-                                            <img className="img-fluid"
-                                                src={voiture}
-                                                style={
-                                                    {
-                                                        width: 110,
-                                                        height: 110,
-                                                        marginTop: 15,
-                                                        borderRadius: 15
-                                                    }
-                                                }/>
-                                        </div>
-                                        <div className="col-sm-6 col-md-4 col-lg-3 item">
-                                            <img className="img-fluid"
-                                                src={voiture}
-                                                style={
-                                                    {
-                                                        width: 110,
-                                                        height: 110,
-                                                        marginTop: 15,
-                                                        borderRadius: 15
-                                                    }
-                                                }/>
+                                            <a href="https://i.imgur.com/zmzERpe.jpg" data-lightbox="photos">
+                                                <img className="img-fluid" src="https://i.imgur.com/zmzERpe.jpg"/>
+                                            </a>
                                         </div>
                                         <div className="col-sm-6 col-md-4 col-lg-3 item"
                                             style={
