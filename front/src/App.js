@@ -159,10 +159,11 @@ function App() {
           const resp = await UserService.getIdByMail(
             jwt_decode(localStorage.getItem("token")).email
           );
+        setUser(resp.data);
+
         };
 
         logInterest();
-
         registerUser(jwt_decode(localStorage.getItem("token")).email);
       }
     }
