@@ -85,12 +85,12 @@ const Inscription = () => {
     const closeInscription = () => {
         document.getElementById("id02").style.display = "none";
     };
-    let idCurrentUser = useContext(UserContext);
 
 
     return (
         <div> {/* Hello world */}
-            <VousEtesBienInscrit/>
+           <VousEtesBienInscrit/>
+
             <div className="inscriptionModal" id="id02">
                 <div>
                 
