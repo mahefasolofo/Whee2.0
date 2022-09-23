@@ -1,5 +1,7 @@
 import React from "react";
 import "moment/locale/fr";
+import { over } from "stompjs";
+import SockJS from "sockjs-client";
 import { useState, useMemo, useEffect, useContext } from "react";
 import { SocketContext } from "./services/SocketContext";
 import Home from "./components/Home";
@@ -22,9 +24,10 @@ import { AccordionButton } from "react-bootstrap";
 import { set } from "react-hook-form";
 import DetailsOffre from "./components/PublierOffre/DetailsOffre";
 
+var stompClient = null;
 function App() {
   /*Socket*/
-  var stompClient = null;
+
   const [privateChats, setPrivateChats] = useState(new Map());
   const [publicChats, setPublicChats] = useState([]);
   const [tab, setTab] = useState("CHATROOM");
@@ -47,6 +50,81 @@ function App() {
     }),
     [userData, tab, publicChats, privateChats]
   );
+
+  const connect = () => {
+    let Sock = new SockJS("http://localhost:8090/ws");
+    stompClient = over(Sock);
+    stompClient.connect({}, onConnected, onError);
+  };
+
+  const onConnected = () => {
+    setUserData({ ...userData, connected: true });
+    stompClient.subscribe("/chatroom/public", onMessageReceived);
+    stompClient.subscribe(
+      "/user/" + userData.username + "/private",
+      onPrivateMessage
+    );
+    userJoin();
+  };
+
+  const userJoin = () => {
+    var chatMessage = {
+      senderName: userData.username,
+      status: "JOIN",
+    };
+    stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
+  };
+
+  const onError = (err) => {
+    console.log(err);
+  };
+
+  const onMessageReceived = (payload) => {
+    var payloadData = JSON.parse(payload.body);
+    switch (payloadData.status) {
+      case "JOIN":
+        if (!privateChats.get(payloadData.senderName)) {
+          privateChats.set(payloadData.senderName, []);
+          setPrivateChats(new Map(privateChats));
+        }
+        break;
+      case "MESSAGE":
+        publicChats.push(payloadData);
+        setPublicChats([...publicChats]);
+        break;
+    }
+  };
+
+  const onPrivateMessage = (payload) => {
+    console.log(payload);
+    var payloadData = JSON.parse(payload.body);
+    if (privateChats.get(payloadData.senderName)) {
+      privateChats.get(payloadData.senderName).push(payloadData);
+      setPrivateChats(new Map(privateChats));
+    } else {
+      let list = [];
+      list.push(payloadData);
+      privateChats.set(payloadData.senderName, list);
+      setPrivateChats(new Map(privateChats));
+    }
+  };
+  const sendValueEvent = () => {
+    if (stompClient) {
+      var chatMessage = {
+        senderName: "ADMIN",
+        message: " : des événements qui pourraient vous intéresser",
+        status: "MESSAGE",
+      };
+      console.log(chatMessage);
+      stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
+      setUserData({ ...userData, message: "" });
+    }
+  };
+
+  const registerUser = (nom) => {
+    setUserData({ ...userData, username: nom });
+    connect();
+  };
 
   /*FIN SOCKET*/
 
@@ -81,18 +159,11 @@ function App() {
           const resp = await UserService.getIdByMail(
             jwt_decode(localStorage.getItem("token")).email
           );
-          console.log(resp.data);
-
-          console.log("maty");
-          setUser(resp.data);
-
-          console.log(user);
-          console.log(resp.data);
         };
 
         logInterest();
 
-        console.log(jwt_decode(localStorage.getItem("token")).email);
+        registerUser(jwt_decode(localStorage.getItem("token")).email);
       }
     }
     setEssai(7);
@@ -134,7 +205,7 @@ function App() {
         <SocketContext.Provider value={value}>
           <DetailsOffre />
           <FormOffre />
-          
+
           <div className="super_container">
             <Navbar />
             <Connexion />
