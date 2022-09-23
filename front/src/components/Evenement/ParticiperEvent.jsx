@@ -21,14 +21,14 @@ function ParticiperEvent() {
 
   })
 
+
   const [show, setShow] = useState(false);
 
   const handleClick = () => {
     document.getElementById('EventAnnonce').style.display= 'flex';
   };
 
-  const destiantionRef =
-   formData.lieuEvent;
+  const destiantionRef = formData.lieuEvent;
 
 
   let { idEvent } = useParams();
@@ -81,6 +81,10 @@ function ParticiperEvent() {
             
           </h1>
           <div className="postcard__subtitle small">
+            <i class="fas fa-map-marker-alt"></i>
+            {'  '}{formData.lieuEvent}
+            <br />
+            <br />
             <i className="fas fa-calendar-alt mr-2" />
             <Moment format="Do MMMM YYYY">{formData.dateEvent}</Moment>
             <br />
@@ -90,8 +94,11 @@ function ParticiperEvent() {
           </div>
           <div className="postcard__bar" />
           <div className="postcard__preview-txt">{formData.description}</div>
-
-        </div>
+          <button
+            className="button pub_button"
+            onClick={handleClick}
+          > Publier une annonce</button> 
+          </div>
       </article>
     </div>
     </section>
@@ -100,15 +107,12 @@ function ParticiperEvent() {
     {/*Liste annonces*/}
     
       <section className="list_annonce_event">   
-      <button
-    className="button pub_button"
-    onClick={handleClick}
-  > Publier une annonce</button>  
+       
   
   
       {annonce.map((annonceE)=>(<AnnonceEvent key={annonceE.idCovoit} annonceEvent={annonceE} evenement={annonceE.event} vehicule={annonceE.vehicule} formData={formData} setFormData={setFormData}/>))}
       </section>
-
+    
 
     {/*Fin Liste annonces*/} 
 

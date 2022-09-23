@@ -78,7 +78,7 @@ a:hover {
 }
 
 .postcard .small {
-    font-size: 80%;
+    font-size: 1rem;
 }
 
 .postcard .postcard__title {
@@ -98,7 +98,7 @@ a:hover {
 
 .postcard .postcard__bar {
     width: 50px;
-    height: 10px;
+    height: 5px;
     margin: 10px 0;
     border-radius: 5px;
     background-color: #424242;
@@ -116,7 +116,6 @@ a:hover {
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: justify;
-    height: 100%;
 }
 
 .postcard .postcard__tagbox {
@@ -416,6 +415,26 @@ a:hover {
     margin-bottom: 50px;
 }
 
+.pub_button {
+
+    background: #003049;
+	width:186px;
+	left: 50px;
+    color: #f8f8f8;
+    margin-top: 50px;
+
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+
+    margin-bottom: 20px;
+}
+
+.pub_button:hover{
+    opacity: 0.8;
+}
 
 /*Formulaire dans évènement*/
 
@@ -440,6 +459,8 @@ a:hover {
     display:block;
     /* border: solid rgb(219, 219, 219,0.8) 1.2px; */
 	  border-radius: 10px;
+      margin-top: auto;
+      margin-bottom: auto;
 }
 
 .form_entete {
@@ -486,18 +507,3 @@ a:hover {
     align-items: flex-start;
 }
 
-.pub_button {
-
-    background: #ccb65e;
-	width:186px;
-	top: 230px;
-	left: 50px;
-
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
-
-    margin-bottom: 80px;
-}

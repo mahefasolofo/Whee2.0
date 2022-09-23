@@ -35,7 +35,7 @@ public class User implements Serializable {
 	@Column(name="ID", nullable=false)	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idUser;
+	private Long idUser;
 	
 	@Column(name="Nom", nullable=true, length=255)	
 	private String nom;
@@ -70,5 +70,7 @@ public class User implements Serializable {
 	@JoinTable(name="User_Interests2", joinColumns={ @JoinColumn(name="UserID") }, inverseJoinColumns={ @JoinColumn(name="InterestsID") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private List<Interest> interests;
+
+
 
 }

@@ -32,7 +32,6 @@ function EventForm({ArrEvent}) {
     const [duration, setDuration] = useState("");
 
     const originRef = useRef();
-  const destiantionRef = ArrEvent;
 
   function clearRoute() {
     setDirectionsResponse(null);

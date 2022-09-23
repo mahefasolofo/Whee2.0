@@ -10,12 +10,16 @@ class InterestService {
     publierEvent(event) {
         return axios.post(EVENT_API_BASE_URL, event);
     }
+
     getEventById(eventId) {
         return axios.get(EVENT_API_BASE_URL + '/' + eventId);
     }
+
     updateEvent(event, eventId) {
         return axios.put(EVENT_API_BASE_URL + '/' + eventId, event);
     }
+
+
 }
 
 export default new InterestService()
