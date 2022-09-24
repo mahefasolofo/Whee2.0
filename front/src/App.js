@@ -163,7 +163,7 @@ function App() {
 
         logInterest();
 
-        registerUser(jwt_decode(localStorage.getItem("token")).email);
+        registerUser(jwt_decode(localStorage.getItem("token")).name);
       }
     }
     setEssai(7);
