@@ -142,7 +142,7 @@ function App() {
       localStorage.setItem("token", response.credential);
 
       console.log(jwt_decode(localStorage.getItem("token")));
-      setUser(jwt_decode(localStorage.getItem("token")).email);
+      setUser(jwt_decode(localStorage.getItem("token")).name);
 
       window.location.reload(false);
     } catch {
