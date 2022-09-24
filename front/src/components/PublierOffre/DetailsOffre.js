@@ -6,11 +6,14 @@ import Moment from "react-moment";
 import seatimg from "../../images/seat3.png";
 import { useParams } from "react-router-dom";
 import AnnonceCovoiturageService from "../../services/AnnonceCovoiturageService";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../services/UserContext";
 
 let Sock = new SockJS("http://localhost:8090/ws");
 var stompClient = over(Sock);
 
 function DetailsOffre() {
+  let navigate = useNavigate();
   const {
     userData,
     setUserData,
@@ -21,7 +24,8 @@ function DetailsOffre() {
     publicChats,
     setPublicChats,
   } = useContext(SocketContext);
-
+  let idCurrentUser = useContext(UserContext);
+  
   const sendValueEvent = () => {
     if (stompClient) {
       var chatMessage = {
@@ -32,6 +36,7 @@ function DetailsOffre() {
       console.log(chatMessage);
       stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
       setUserData({ ...userData, message: "" });
+      navigate((`/espaceperso/${idCurrentUser}`))
     }
   };
   const [formData, setFormData] = useState([]);
@@ -49,7 +54,11 @@ function DetailsOffre() {
 
   return (
     <div className="detailOffreBackground">
-      <div>
+      <div className='detailOffreContainer row'>
+                  <div className="titleCloseBtn">
+                    <button onClick={() => {navigate("/offres")}}
+                  ><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+                  </div>
         {formData.map((annonceE) => (
           <div key={annonceE.idCovoit}>
             <h1 className="text-center">

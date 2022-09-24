@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import whee.demo.entity.Covoiturage;
 import whee.demo.repository.CovoiturageRepository;
 
+
 import java.util.List;
 
 @CrossOrigin(origins = { "http://localhost:3001", "http://localhost:3000" }, allowCredentials = "true")
@@ -20,8 +21,6 @@ public class CovoiturageController {
         return covoiturageRepository.findAll();
     }
 
-    @GetMapping("/annonces/{idCovoit}")
-    public Covoiturage getById(@PathVariable Long idCovoit){return covoiturageRepository.findById(idCovoit).orElseThrow();}
 
     @PostMapping("/annonces")
     public Covoiturage createAnnonce(@RequestBody Covoiturage annonce) {
