@@ -22,6 +22,9 @@ class UserService {
         return axios.get("http://localhost:8090/api/whee/findIdByMail/" + email);
     }
 
+    getById(userId){
+        return axios.get("http://localhost:8090/api/whee/findById/"+ userId);
+    }
 
 }
 

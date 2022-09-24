@@ -30,7 +30,7 @@ function Persobody() {
             <div className="ibox">
             <div className="ibox-title">
             <span className="pull-right fs-6">(<strong>3</strong>) annonces</span>
-            <h3>Les annonces que vous avez publiées</h3>
+            <h3>VOS ANNONCES</h3>
              </div>
              {
               annonceUser.map( (annonce) =>

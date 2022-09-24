@@ -29,7 +29,7 @@ public class Interest implements Serializable {
 	@Column(name="ID", nullable=false)	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idCI;
+	private Long idCI;
 	
 	@ManyToOne(targetEntity=Category.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
