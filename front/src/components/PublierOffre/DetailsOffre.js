@@ -1,111 +1,78 @@
-import React from 'react'
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { over } from "stompjs";
+import SockJS from "sockjs-client";
+import { SocketContext } from "../../services/SocketContext";
 import Moment from "react-moment";
-import seatimg from '../../images/seat3.png'
+import seatimg from "../../images/seat3.png";
+import { useParams } from "react-router-dom";
+import AnnonceCovoiturageService from "../../services/AnnonceCovoiturageService";
 
-function DetailsOffre({ offer, compte, vehicule }) {
-    const close = () => {
-        document.getElementById("detailOffreReservation").style.display = "none";
+let Sock = new SockJS("http://localhost:8090/ws");
+var stompClient = over(Sock);
+
+function DetailsOffre() {
+  const {
+    userData,
+    setUserData,
+    privateChats,
+    setPrivateChats,
+    tab,
+    setTab,
+    publicChats,
+    setPublicChats,
+  } = useContext(SocketContext);
+
+  const sendValueEvent = () => {
+    if (stompClient) {
+      var chatMessage = {
+        senderName: userData.username,
+        message: " vient de reserver un truc",
+        status: "MESSAGE",
       };
-      const { nom, prenom } = compte;
-      const { modele, marque, noteVehicule } = vehicule;
-      const { nbPlace, tarif, dateCovoit } = offer;
-      const interet = "musique , sport, voyage";
-      const avis = "26 avis";
-    
-      let depart = offer.ptDepart;
-      let arrivee = offer.ptArrivee;
-      let photo = compte.photo;
-      let vehiculephoto = vehicule.vehiculePhoto;
-      let t = offer.heureCovoit;
-      let d = depart.split(",").slice(0, 1);
-      let a = arrivee.split(",").slice(0, 1);
-     
+      console.log(chatMessage);
+      stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
+      setUserData({ ...userData, message: "" });
+    }
+  };
+  const [formData, setFormData] = useState([]);
+  let { idCovoit } = useParams();
+  useEffect(() => {
+    getAnnoncesById(idCovoit);
+  }, [idCovoit]);
+
+  const getAnnoncesById = async (id) => {
+    AnnonceCovoiturageService.getAnnoncesById(id).then((response) => {
+      setFormData(response.data);
+      console.log(response.data);
+    });
+  };
+
   return (
-    <div className="detailOffreBackground" id="detailOffreReservation">
-            <div className='detailOffreContainer row'>
-                <div className="form_entete">
-                  <div className="titleCloseBtn">
-                    <button onClick={close}><i class="fa fa-times-circle" aria-hidden="true"></i></button>
-                  </div>
-                </div>
-                <div className='detailRow row'>
-                  <div className="userContainer col-3">
-                    <div className="ImageContainer">
-                      <img
-                        className="offersPimagebackground"
-                        src={photo}
-                        alt="user"
-                      />               
-                      <div className="offerNameDriver">
-                        {nom} {prenom}
-                      </div>
-                    </div>  
-                  </div>    
-                  <div className="detailContainer col-6">
-                        <div className="offersContent">
-                      <div className="offersPrice">
-                      
-                        {d} - {a}
-                      </div>
-                      
-                      <div className="offerReviews">
-                        <div className="offerReviews_content">
-                          <div className="offerReviews_title">
-                          <i className="fas fa-calendar-alt mr-2" />
-                          <Moment format="Do MMMM YYYY">{dateCovoit}</Moment>
-                          <br />
-                          <br />
-
-                          <i class="fa fa-clock-o" aria-hidden="true" />
-                          {t}                      
-                          </div>
-
-                          
-                        </div>
-                      </div>
-                      <div className="seat_nb seat_offre">
-                        <span>{nbPlace}</span> <img src={seatimg} className='seat_img' alt="" /> 
-                      </div> 
-                      
-                      <p className="offersText">Centres d'intérêts : {interet}</p>
-                      
-                      <div className="offerName"><i class="fa fa-money" aria-hidden="true"> {tarif} Ar</i></div>
-                      
-                      <button
-                        className="button book_button_offre"
-                        
-                        onClick=""
-                      >
-                        <a>
-                        Réserver<span></span>
-                          <span></span>
-                          <span></span>
-                        </a>
-                          
-                        
-                      </button>
-                    </div>
-                  </div>    
-                  <div className="vehiculeContainer col-3">
-                    <div className="ImageContainer">
-                      <img className="offersImageBackground" src={vehiculephoto} alt="car" />
-                      <div className="offerDate">
-                        {marque} - {modele}
-                      </div>
-                      
-                      <div className="offerReviewsRating text-center">
-                        {noteVehicule}
-                        {/* <span className="notespan">/20</span> */}
-                      </div>
-                    </div>
-                  </div>   
-                </div>   
-                    
-                
-            </div>
-      
+    <div className="detailOffreBackground">
+      <div>
+        {formData.map((annonceE) => (
+          <div key={annonceE.idCovoit}>
+            <h1 className="text-center">
+              {annonceE.covoitureur.nom} {annonceE.covoitureur.prenom}
+            </h1>
+            <h1 className="text-center">
+              {annonceE.ptDepart} ----- {annonceE.ptArrivee}
+            </h1>
+            <h1 className="text-center">
+              {annonceE.vehicule.modele} {annonceE.vehicule.marque}
+            </h1>
+            <button
+              className="button book_button_offre text-center"
+              onClick={sendValueEvent}
+            >
+              Reserver
+            </button>
+          </div>
+        ))}
+      </div>
+      <div></div>
     </div>
-  )
+  );
 }
 
-export default DetailsOffre
+export default DetailsOffre;
