@@ -15,6 +15,8 @@ public interface CovoiturageRepository extends JpaRepository<Covoiturage, Long> 
     @Query(value = "SELECT * FROM public.covoiturage WHERE covoitureur_id=?1", nativeQuery = true)
     List<Covoiturage> findCovoitById(@Param("id_covoit") Long id_covoit);
 
+
+
     @Query(value="SELECT c.id, date_covoit, heure_covoit, nb_place, pt_arrivee, pt_depart, tarif, eventid, vehiculeid, image_covoit, covoitureur_id FROM public.covoiturage c INNER JOIN public.event e ON e.id = c.eventid WHERE e.id=?1", nativeQuery = true)
     List<Covoiturage> findEventCovoitById(@Param("idEvent") Long idEvent);
 

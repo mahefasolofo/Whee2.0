@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import { over } from "stompjs";
 import SockJS from "sockjs-client";
 import carimg from "../../images/car1.jpg";
 import profimg from "../../images/photoProfil.jpg";
 import Moment from "react-moment";
 import { SocketContext } from "../../services/SocketContext";
-
+// import { useNavigate } from "react-router-dom";
 import seatimg from '../../images/seat3.png'
 import DetailsOffre from './DetailsOffre' 
 import Offre from "../Pages/Offre";
@@ -14,11 +14,21 @@ import Offre from "../Pages/Offre";
 let Sock = new SockJS("http://localhost:8090/ws");
 var stompClient = over(Sock);
 
+
 const Offeritem = ({ offer, compte, vehicule }) => {
-  const afficherDetail = () => {
+  const afficherDetail = (idCovoit) => {
     document.getElementById("detailOffreReservation").style.display = "flex";
+   
+    OfferService.getOffersById(idCovoit).then((res)=>{
+      setFormDataDetail(res.data)
+      console.log(res.data)
+    })
   };
 
+  const [formDataDetail, setFormDataDetail] = useState([
+   
+  ]);
+  
   const {
     userData,
     setUserData,
@@ -57,11 +67,10 @@ const Offeritem = ({ offer, compte, vehicule }) => {
   let d = depart.split(",").slice(0, 1);
   let a = arrivee.split(",").slice(0, 1);
 
+  const [formData, setFormData] = useState({});
 
-  let o = offer;
-  let c= offer.covoitureur;
-  let v= offer.vehicule;
-
+  let navigate = useNavigate();
+    
 
   return (
     <div className="col-lg-12">
@@ -128,9 +137,11 @@ const Offeritem = ({ offer, compte, vehicule }) => {
                 <button
                   className="button book_button_offre"
                   // onClick={afficherInscription} 
-                  onClick={afficherDetail}
+                  
                 >
-                  <a>
+                  <a 
+                  onClick={afficherDetail(formData.idCovoit)}
+                  >
                   Voir plus<span></span>
                     <span></span>
                     <span></span>
@@ -157,7 +168,7 @@ const Offeritem = ({ offer, compte, vehicule }) => {
           </div>
         </div>
       </div>
-      <DetailsOffre key={offer.idCovoit} offer={o} compte={c} vehicule={v} />
+      <DetailsOffre formDataDetail={formDataDetail} user={formDataDetail.covoitureur} vehicule={formDataDetail.vehicule}/>
     </div>
 
   );

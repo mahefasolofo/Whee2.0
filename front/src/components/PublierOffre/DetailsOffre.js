@@ -1,29 +1,97 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import Moment from "react-moment";
 import seatimg from '../../images/seat3.png'
+import { useParams } from "react-router-dom";
+import OfferService from '../../services/OfferService';
 
-function DetailsOffre({ offer, compte, vehicule }) {
+
+function DetailsOffre() {
+
+  const [formData, setFormData] = useState([
+    {
+    idCovoit: "",
+    event: "",
+    ptDepart: "",
+    ptArrivee: "",
+    imageCovoit: "",
+    heureCovoit: "",
+    dateCovoit: "",
+    nbPlace: "",
+    tarif: "",
+    covoitureurs: [
+        {
+            idUser: "",
+            nom: "",
+            prenom: "",
+            mail: "",
+            password: "",
+            genre: "",
+            adresse: "",
+            contact: "",
+            photo: "",
+            date_naissance: "",
+            interests: [],
+            vehicules: [],
+            evaluations: []
+        }
+    ],
+    vehicule: {
+        idVehicule: "",
+        immat: "",
+        marque: "",
+        modele: "",
+        type: "",
+        userid: "",
+        vehiculePhoto: ""
+    },
+    covoitureur: {
+        idUser: "",
+        nom: "",
+        prenom: "",
+        mail: "",
+        password: "",
+        genre: "",
+        adresse: "",
+        contact: "",
+        photo: "",
+        date_naissance: "",
+        interests: [],
+        vehicules: [],
+        evaluations: []
+    }
+  }
+  ]);
+  
+  let { idCovoit } = useParams();
+  useEffect(()=>{
+    try {
+      OfferService.getOffersById(idCovoit).then((res)=>{
+        setFormData(res.data)
+        console.log(res.data)
+        // alert(formData.ptDepart)
+      
+      });
+    } catch (error) {
+      
+    }
+ 
+  },[formData]);
+
+  
+
+  // const [marque,modele]= formData.vehicule;
+  
+ 
     const close = () => {
         document.getElementById("detailOffreReservation").style.display = "none";
       };
-      const { nom, prenom } = compte;
-      const { modele, marque, noteVehicule } = vehicule;
-      const { nbPlace, tarif, dateCovoit } = offer;
-      const interet = "musique , sport, voyage";
-      const avis = "26 avis";
-    
-      let depart = offer.ptDepart;
-      let arrivee = offer.ptArrivee;
-      let photo = compte.photo;
-      let vehiculephoto = vehicule.vehiculePhoto;
-      let t = offer.heureCovoit;
-      let d = depart.split(",").slice(0, 1);
-      let a = arrivee.split(",").slice(0, 1);
+      
      
   return (
-    <div className="detailOffreBackground" id="detailOffreReservation">
-            <div className='detailOffreContainer row'>
-                <div className="form_entete">
+    <div className="super_container">
+        <div className="detailOffreBackground" id="detailOffreReservation">
+          <div className='detailOffreContainer row'> 
+               <div className="form_entete">
                   <div className="titleCloseBtn">
                     <button onClick={close}><i class="fa fa-times-circle" aria-hidden="true"></i></button>
                   </div>
@@ -33,11 +101,11 @@ function DetailsOffre({ offer, compte, vehicule }) {
                     <div className="ImageContainer">
                       <img
                         className="offersPimagebackground"
-                        src={photo}
+                        // src={photo}
                         alt="user"
                       />               
                       <div className="offerNameDriver">
-                        {nom} {prenom}
+                        {formData.covoitureur.nom} {formData.covoitureur.prenom}
                       </div>
                     </div>  
                   </div>    
@@ -45,31 +113,31 @@ function DetailsOffre({ offer, compte, vehicule }) {
                         <div className="offersContent">
                       <div className="offersPrice">
                       
-                        {d} - {a}
+                        {formData.ptDepart} - {formData.ptArrivee}
                       </div>
                       
                       <div className="offerReviews">
                         <div className="offerReviews_content">
                           <div className="offerReviews_title">
                           <i className="fas fa-calendar-alt mr-2" />
-                          <Moment format="Do MMMM YYYY">{dateCovoit}</Moment>
+                          <Moment format="Do MMMM YYYY">{formData.dateCovoit}</Moment>
                           <br />
                           <br />
 
                           <i class="fa fa-clock-o" aria-hidden="true" />
-                          {t}                      
+                          {formData.heureCovoit}                      
                           </div>
 
                           
                         </div>
                       </div>
                       <div className="seat_nb seat_offre">
-                        <span>{nbPlace}</span> <img src={seatimg} className='seat_img' alt="" /> 
+                        <span>{formData.nbPlace}</span> <img src={seatimg} className='seat_img' alt="" /> 
                       </div> 
                       
-                      <p className="offersText">Centres d'intérêts : {interet}</p>
+                      <p className="offersText">Centres d'intérêts : {formData.interet}</p>
                       
-                      <div className="offerName"><i class="fa fa-money" aria-hidden="true"> {tarif} Ar</i></div>
+                      <div className="offerName"><i class="fa fa-money" aria-hidden="true"> {formData.tarif} Ar</i></div>
                       
                       <button
                         className="button book_button_offre"
@@ -88,23 +156,25 @@ function DetailsOffre({ offer, compte, vehicule }) {
                   </div>    
                   <div className="vehiculeContainer col-3">
                     <div className="ImageContainer">
-                      <img className="offersImageBackground" src={vehiculephoto} alt="car" />
+                      <img className="offersImageBackground" alt="car" />
                       <div className="offerDate">
-                        {marque} - {modele}
+                       
                       </div>
                       
-                      <div className="offerReviewsRating text-center">
-                        {noteVehicule}
-                        {/* <span className="notespan">/20</span> */}
-                      </div>
+                      {/* <div className="offerReviewsRating text-center">
+                        {formData.vehicule.noteVehicule}
+                        <span className="notespan">/20</span>
+                      </div> */}
                     </div>
                   </div>   
                 </div>   
                     
-                
+ 
             </div>
       
     </div>
+    </div>
+    
   )
 }
 

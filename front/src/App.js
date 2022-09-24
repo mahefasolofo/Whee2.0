@@ -221,6 +221,7 @@ function App() {
                 path="/evenements/:idEvent"
                 element={<ParticiperEvent />}
               />
+              {/* <Route path="/offres/:idCovoit" element={<DetailsOffre />} /> */}
               <Route path="/a_propos" element={<About />} />
             </Routes>
 
