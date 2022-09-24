@@ -51,7 +51,7 @@ const Connexion = () => {
               className="card-title text-center pb-0 fs-4"
               id="titreInscription"
             >
-              Bienvenue sur Whee!{user}{" "}
+              Bienvenue sur Whee!
             </h5>
           </div>
           <div
