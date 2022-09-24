@@ -471,14 +471,14 @@ a:hover {
 
 .form_event_container {
     width: 1200px;
-    height: 550px;
+    height: 500px;
     background-color: #f8f8f8;    
     display: flex;    
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 85px;
     align-items: center;
     /* border: solid rgb(219, 219, 219,0.8) 1.2px; */
-	
+	border-radius: 10px;
 }
 
 .google_map_form {
@@ -494,14 +494,20 @@ a:hover {
     background-color:#f8f8f8;
 }
 
+.droite{
+    height: 500px;
+}
 
 #EventAnnonce{
+    display: none;
+}
+#EventAnnonce2{
     display: none;
 }
 
 
 .modal_Form {
-    margin-top: 150px;
+    margin-top: 50px;
     margin-left: 200px;
     display: flow-root;
     align-items: flex-start;
