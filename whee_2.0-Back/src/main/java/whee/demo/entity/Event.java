@@ -22,6 +22,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -47,11 +48,11 @@ public class Event implements Serializable {
 	@Column(name = "LieuEvent", nullable = true, length = 255)
 	private String lieuEvent;
 
-	@Column(name = "HeureEvent", nullable = true, columnDefinition = "TIME")
+	@Column(name = "HeureEvent", nullable = true)
 	@DateTimeFormat(pattern = "hh:mm")
-	private String heureEvent;
+	private LocalTime heureEvent;
 
-	@Column(name = "DateEvent", nullable = true, columnDefinition = "DATE")
+	@Column(name = "DateEvent", nullable = true)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateEvent;
 
