@@ -25,6 +25,8 @@ function VehiculeInfo({ formData, setFormData }) {
         <option>03</option>
         <option>04</option>
       </select>
+      <br/>
+      
       <input
         type="text"
         className="form-control"
