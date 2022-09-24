@@ -185,8 +185,8 @@ let navigate = useNavigate();
             
                 <div className="form_event_container">
                     <div className="headerF">
-                    <h1>Votre trajet?</h1>
-                    <div className="postcard__bar" />
+                      <h1>Votre trajet?</h1>
+                      <div className="postcard__bar" />
                     </div>
                 
                 <LoadScript googleMapsApiKey={api} libraries={["places"]}>
@@ -239,3 +239,4 @@ let navigate = useNavigate();
 }
 
 export default EventForm
+
