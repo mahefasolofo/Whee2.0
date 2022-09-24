@@ -1,44 +1,18 @@
-import React, { useContext } from "react";
-import { over } from "stompjs";
-import SockJS from "sockjs-client";
+
+import React, { useContext, useState } from "react";
+
 import carimg from "../../images/car1.jpg";
 import profimg from "../../images/photoProfil.jpg";
 import Moment from "react-moment";
-import { SocketContext } from "../../services/SocketContext";
+
+import { useNavigate } from "react-router-dom";
 import seatimg from "../../images/seat3.png";
 import DetailsOffre from "./DetailsOffre";
+import Offre from "../Pages/Offre";
 
-let Sock = new SockJS("http://localhost:8090/ws");
-var stompClient = over(Sock);
+let Offeritem = ({ offer, compte, vehicule }) => {
+  let navigate = useNavigate();
 
-const Offeritem = ({ offer, compte, vehicule }) => {
-  const afficherDetail = () => {
-    document.getElementById("detailOffreReservation").style.display = "flex";
-  };
-
-  const {
-    userData,
-    setUserData,
-    privateChats,
-    setPrivateChats,
-    tab,
-    setTab,
-    publicChats,
-    setPublicChats,
-  } = useContext(SocketContext);
-
-  const sendValueEvent = () => {
-    if (stompClient) {
-      var chatMessage = {
-        senderName: userData.username,
-        message: " vient de reserver un truc",
-        status: "MESSAGE",
-      };
-      console.log(chatMessage);
-      stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
-      setUserData({ ...userData, message: "" });
-    }
-  };
 
   const interet = "musique , sport, voyage";
   const avis = "26 avis";
@@ -49,9 +23,11 @@ const Offeritem = ({ offer, compte, vehicule }) => {
   let depart = offer.ptDepart;
   let arrivee = offer.ptArrivee;
 
+  let vehiculephoto = vehicule.vehiculePhoto;
   let t = offer.heureCovoit;
   let d = depart.split(",").slice(0, 1);
   let a = arrivee.split(",").slice(0, 1);
+
 
   return (
     <div className="col-lg-12">
@@ -60,7 +36,11 @@ const Offeritem = ({ offer, compte, vehicule }) => {
           <div className="rowF">
             <div className="col-lg-3 ">
               <div className="ImageContainer">
-                <img className="offersPimagebackground" src={photo} alt="car" />
+                <img
+                  className="offersPimagebackground"
+                  src={photo}
+                  alt="user"
+                />
 
                 <div className="offerNameDriver">
                   {nom} {prenom}
@@ -72,18 +52,7 @@ const Offeritem = ({ offer, compte, vehicule }) => {
                 <div className="offersPrice">
                   {d} - {a}
                 </div>
-                {/* 
-                //Etoile note
-                <div
-                  className="rating_r rating_r_4 offersRating"
-                  data-rating="3"
-                >
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                </div> */}
+
                 <div className="offerReviews">
                   <div className="offerReviews_content">
                     <div className="offerReviews_title">
@@ -115,23 +84,38 @@ const Offeritem = ({ offer, compte, vehicule }) => {
                                 <li class="offersIcons_item"><img src="images/seat3.png" alt=""></li>
                             </ul>
                         </div>*/}
+
                 <div className="offerName">
-                  <i class="fa fa-money" aria-hidden="true"></i> {tarif} Ar
+                  <i class="fa fa-money" aria-hidden="true">
+                    {" "}
+                    {tarif} Ar
+                  </i>
                 </div>
+
                 <button
                   className="button book_button_offre"
+
                   // onClick={afficherInscription}
-                  onClick={sendValueEvent}
+                  onClick={() => {
+                    navigate(`/offres/${offer.idCovoit}`);
+                  }}
                 >
-                  Voir plus<span></span>
-                  <span></span>
-                  <span></span>
+                  <a>
+                    Voir plus<span></span>
+
+                    <span></span>
+                    <span></span>
+                  </a>
                 </button>
               </div>
             </div>
             <div className="col-lg-3 col-1680-4">
               <div className="ImageContainer">
-                <img className="offersImageBackground" src={carimg} alt="car" />
+                <img
+                  className="offersImageBackground"
+                  src={vehiculephoto}
+                  alt="car"
+                />
                 <div className="offerDate">
                   {marque} - {modele}
                 </div>
@@ -145,6 +129,7 @@ const Offeritem = ({ offer, compte, vehicule }) => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

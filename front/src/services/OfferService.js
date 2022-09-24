@@ -6,6 +6,10 @@ class OfferService {
     getOffers() {
         return axios.get(OFFER_API_BASE_URL);
     }
+
+    getOffersById(covoitId){
+        return axios.get(OFFER_API_BASE_URL+'/'+covoitId);
+    }
 }
 
 export default new OfferService()

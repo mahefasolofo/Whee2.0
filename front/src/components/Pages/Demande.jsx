@@ -22,7 +22,7 @@ function Demande() {
     let newMatchesDepart = [];
     let newMatchesArrivee = []
     useEffect(() => {
-        const logUsers = async () => {
+        const logOffers = async () => {
 
             const resp = await OfferService.getOffers()
 
@@ -32,7 +32,7 @@ function Demande() {
             setDemande(resp.data);
            
         }
-         logUsers();
+         logOffers();
 
     }, []);
   

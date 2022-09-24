@@ -205,7 +205,6 @@ function App() {
     <React.Fragment>
       <UserContext.Provider value={user}>
         <SocketContext.Provider value={value}>
-          <DetailsOffre />
           <FormOffre />
 
           <div className="super_container">
@@ -216,6 +215,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
               <Route path="/offres" element={<Offre />} />
+              <Route path="/offres/:idCovoit" element={<DetailsOffre />} />
               <Route path="/demandes" element={<Demande />} />
               <Route path="/evenements" element={<Evenements />} />
               <Route path="/espaceperso/:idUser" element={<Espaceperso />} />
@@ -223,6 +223,7 @@ function App() {
                 path="/evenements/:idEvent"
                 element={<ParticiperEvent />}
               />
+              {/* <Route path="/offres/:idCovoit" element={<DetailsOffre />} /> */}
               <Route path="/a_propos" element={<About />} />
               <Route path="/profil" element={<ProfilPage/>}/>
             </Routes>

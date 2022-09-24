@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext, useRef } from "react";
 import { over } from "stompjs";
 import SockJS from "sockjs-client";
 // import '../styles/connexion_styles.css';
+
 import { UserContext } from "../../services/UserContext";
 const LOGIN_URL = "Compte/getCompte";
 import { SocketContext } from "../../services/SocketContext";
@@ -146,6 +147,7 @@ const Connexion = () => {
                   </a>
                 </span>
               </span>
+
             </div>
             <div className="hs0 mQ8 un8 C9i TB_">
               <button
