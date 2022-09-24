@@ -1,3 +1,4 @@
+
 import React, { useContext, useState } from "react";
 
 import carimg from "../../images/car1.jpg";
@@ -12,6 +13,7 @@ import Offre from "../Pages/Offre";
 let Offeritem = ({ offer, compte, vehicule }) => {
   let navigate = useNavigate();
 
+
   const interet = "musique , sport, voyage";
   const avis = "26 avis";
   const { nom, prenom, photo } = compte;
@@ -25,6 +27,7 @@ let Offeritem = ({ offer, compte, vehicule }) => {
   let t = offer.heureCovoit;
   let d = depart.split(",").slice(0, 1);
   let a = arrivee.split(",").slice(0, 1);
+
 
   return (
     <div className="col-lg-12">
@@ -91,6 +94,7 @@ let Offeritem = ({ offer, compte, vehicule }) => {
 
                 <button
                   className="button book_button_offre"
+
                   // onClick={afficherInscription}
                   onClick={() => {
                     navigate(`/offres/${offer.idCovoit}`);
@@ -98,6 +102,7 @@ let Offeritem = ({ offer, compte, vehicule }) => {
                 >
                   <a>
                     Voir plus<span></span>
+
                     <span></span>
                     <span></span>
                   </a>
@@ -124,6 +129,7 @@ let Offeritem = ({ offer, compte, vehicule }) => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

@@ -73,6 +73,7 @@ function DetailsOffre() {
       <div></div>
     </div>
   );
+
 }
 
 export default DetailsOffre;
