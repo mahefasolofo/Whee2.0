@@ -1,181 +1,79 @@
-import React,{useEffect, useState} from 'react'
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { over } from "stompjs";
+import SockJS from "sockjs-client";
+import { SocketContext } from "../../services/SocketContext";
 import Moment from "react-moment";
-import seatimg from '../../images/seat3.png'
+import seatimg from "../../images/seat3.png";
 import { useParams } from "react-router-dom";
-import OfferService from '../../services/OfferService';
+import AnnonceCovoiturageService from "../../services/AnnonceCovoiturageService";
 
+let Sock = new SockJS("http://localhost:8090/ws");
+var stompClient = over(Sock);
 
 function DetailsOffre() {
+  const {
+    userData,
+    setUserData,
+    privateChats,
+    setPrivateChats,
+    tab,
+    setTab,
+    publicChats,
+    setPublicChats,
+  } = useContext(SocketContext);
 
-  const [formData, setFormData] = useState([
-    {
-    idCovoit: "",
-    event: "",
-    ptDepart: "",
-    ptArrivee: "",
-    imageCovoit: "",
-    heureCovoit: "",
-    dateCovoit: "",
-    nbPlace: "",
-    tarif: "",
-    covoitureurs: [
-        {
-            idUser: "",
-            nom: "",
-            prenom: "",
-            mail: "",
-            password: "",
-            genre: "",
-            adresse: "",
-            contact: "",
-            photo: "",
-            date_naissance: "",
-            interests: [],
-            vehicules: [],
-            evaluations: []
-        }
-    ],
-    vehicule: {
-        idVehicule: "",
-        immat: "",
-        marque: "",
-        modele: "",
-        type: "",
-        userid: "",
-        vehiculePhoto: ""
-    },
-    covoitureur: {
-        idUser: "",
-        nom: "",
-        prenom: "",
-        mail: "",
-        password: "",
-        genre: "",
-        adresse: "",
-        contact: "",
-        photo: "",
-        date_naissance: "",
-        interests: [],
-        vehicules: [],
-        evaluations: []
-    }
-  }
-  ]);
-  
-  let { idCovoit } = useParams();
-  useEffect(()=>{
-    try {
-      OfferService.getOffersById(idCovoit).then((res)=>{
-        setFormData(res.data)
-        console.log(res.data)
-        // alert(formData.ptDepart)
-      
-      });
-    } catch (error) {
-      
-    }
- 
-  },[formData]);
-
-  
-
-  // const [marque,modele]= formData.vehicule;
-  
- 
-    const close = () => {
-        document.getElementById("detailOffreReservation").style.display = "none";
+  const sendValueEvent = () => {
+    if (stompClient) {
+      var chatMessage = {
+        senderName: userData.username,
+        message: " vient de reserver un truc",
+        status: "MESSAGE",
       };
-      
-     
+      console.log(chatMessage);
+      stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
+      setUserData({ ...userData, message: "" });
+    }
+  };
+  const [formData, setFormData] = useState([]);
+  let { idCovoit } = useParams();
+  useEffect(() => {
+    getAnnoncesById(idCovoit);
+  }, [idCovoit]);
+
+  const getAnnoncesById = async (id) => {
+    AnnonceCovoiturageService.getAnnoncesById(id).then((response) => {
+      setFormData(response.data);
+      console.log(response.data);
+    });
+  };
+
   return (
-    <div className="super_container">
-        <div className="detailOffreBackground" id="detailOffreReservation">
-          <div className='detailOffreContainer row'> 
-               <div className="form_entete">
-                  <div className="titleCloseBtn">
-                    <button onClick={close}><i class="fa fa-times-circle" aria-hidden="true"></i></button>
-                  </div>
-                </div>
-                <div className='detailRow row'>
-                  <div className="userContainer col-3">
-                    <div className="ImageContainer">
-                      <img
-                        className="offersPimagebackground"
-                        // src={photo}
-                        alt="user"
-                      />               
-                      <div className="offerNameDriver">
-                        {formData.covoitureur.nom} {formData.covoitureur.prenom}
-                      </div>
-                    </div>  
-                  </div>    
-                  <div className="detailContainer col-6">
-                        <div className="offersContent">
-                      <div className="offersPrice">
-                      
-                        {formData.ptDepart} - {formData.ptArrivee}
-                      </div>
-                      
-                      <div className="offerReviews">
-                        <div className="offerReviews_content">
-                          <div className="offerReviews_title">
-                          <i className="fas fa-calendar-alt mr-2" />
-                          <Moment format="Do MMMM YYYY">{formData.dateCovoit}</Moment>
-                          <br />
-                          <br />
-
-                          <i class="fa fa-clock-o" aria-hidden="true" />
-                          {formData.heureCovoit}                      
-                          </div>
-
-                          
-                        </div>
-                      </div>
-                      <div className="seat_nb seat_offre">
-                        <span>{formData.nbPlace}</span> <img src={seatimg} className='seat_img' alt="" /> 
-                      </div> 
-                      
-                      <p className="offersText">Centres d'intérêts : {formData.interet}</p>
-                      
-                      <div className="offerName"><i class="fa fa-money" aria-hidden="true"> {formData.tarif} Ar</i></div>
-                      
-                      <button
-                        className="button book_button_offre"
-                        
-                        onClick=""
-                      >
-                        <a>
-                        Réserver<span></span>
-                          <span></span>
-                          <span></span>
-                        </a>
-                          
-                        
-                      </button>
-                    </div>
-                  </div>    
-                  <div className="vehiculeContainer col-3">
-                    <div className="ImageContainer">
-                      <img className="offersImageBackground" alt="car" />
-                      <div className="offerDate">
-                       
-                      </div>
-                      
-                      {/* <div className="offerReviewsRating text-center">
-                        {formData.vehicule.noteVehicule}
-                        <span className="notespan">/20</span>
-                      </div> */}
-                    </div>
-                  </div>   
-                </div>   
-                    
- 
-            </div>
-      
+    <div className="detailOffreBackground">
+      <div>
+        {formData.map((annonceE) => (
+          <div key={annonceE.idCovoit}>
+            <h1 className="text-center">
+              {annonceE.covoitureur.nom} {annonceE.covoitureur.prenom}
+            </h1>
+            <h1 className="text-center">
+              {annonceE.ptDepart} ----- {annonceE.ptArrivee}
+            </h1>
+            <h1 className="text-center">
+              {annonceE.vehicule.modele} {annonceE.vehicule.marque}
+            </h1>
+            <button
+              className="button book_button_offre text-center"
+              onClick={sendValueEvent}
+            >
+              Reserver
+            </button>
+          </div>
+        ))}
+      </div>
+      <div></div>
     </div>
-    </div>
-    
-  )
+  );
+
 }
 
-export default DetailsOffre
+export default DetailsOffre;
