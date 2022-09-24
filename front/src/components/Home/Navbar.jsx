@@ -5,6 +5,7 @@ import { UserContext } from "../../services/UserContext";
 import { SocketContext } from "../../services/SocketContext";
 import { Dropdown } from "react-bootstrap";
 import jwt_decode from "jwt-decode";
+import { Link } from "react-router-dom";
 
 var stompClient = null;
 
@@ -158,7 +159,7 @@ const NavBar = () => {
                     </li>
                     {value.length < 100 ? null : (
                       <li className="main_nav_item">
-                        <a href="/espaceperso">Espace Personel</a>
+                        <Link to={`/espaceperso/${idCurrentUser}`}>Espace Personel</Link>
                       </li>
                     )}
                     <li className="main_nav_item">
@@ -257,9 +258,10 @@ const NavBar = () => {
                           Se Déconnecter
                         </Dropdown.Item>
                         <Dropdown.Item
-                          href="#/action-2"
+                          href="/profil"
                           className="menuDropDownItem"
                         >
+                        
                           Profil
                         </Dropdown.Item>
                         <Dropdown.Item

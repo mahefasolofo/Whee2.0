@@ -11,7 +11,7 @@ import java.util.List;
 
 @CrossOrigin(origins = { "http://localhost:3001", "http://localhost:3000" }, allowCredentials = "true")
 @RestController
-@RequestMapping("/api/whee/")
+@RequestMapping("/api/whee/interests")
 public class InterestController {
     @Autowired
     InterestRepository interestRepository;
@@ -24,5 +24,8 @@ public class InterestController {
         return interestRepository.findAll();
     }
 
-
+    @GetMapping("/getUserInterest/{idUser}")
+    public List<Interest> getUserInterests(@PathVariable Long idUser){
+        return interestRepository.findByUserId(idUser);
+    }
 }

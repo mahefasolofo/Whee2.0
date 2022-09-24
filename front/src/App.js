@@ -23,6 +23,7 @@ import jwt_decode from "jwt-decode";
 import { AccordionButton } from "react-bootstrap";
 import { set } from "react-hook-form";
 import DetailsOffre from "./components/PublierOffre/DetailsOffre";
+import ProfilPage from "./components/Profil/ProfilPage";
 
 var stompClient = null;
 function App() {
@@ -142,7 +143,7 @@ function App() {
       localStorage.setItem("token", response.credential);
 
       console.log(jwt_decode(localStorage.getItem("token")));
-      setUser(jwt_decode(localStorage.getItem("token")).email);
+      setUser(jwt_decode(localStorage.getItem("token")).name);
 
       window.location.reload(false);
     } catch {
@@ -159,11 +160,15 @@ function App() {
           const resp = await UserService.getIdByMail(
             jwt_decode(localStorage.getItem("token")).email
           );
+        setUser(resp.data);
+
         };
 
         logInterest();
 
+
         registerUser(jwt_decode(localStorage.getItem("token")).name);
+
       }
     }
     setEssai(7);
@@ -221,7 +226,9 @@ function App() {
                 path="/evenements/:idEvent"
                 element={<ParticiperEvent />}
               />
+              {/* <Route path="/offres/:idCovoit" element={<DetailsOffre />} /> */}
               <Route path="/a_propos" element={<About />} />
+              <Route path="/profil" element={<ProfilPage/>}/>
             </Routes>
 
             <Footer />

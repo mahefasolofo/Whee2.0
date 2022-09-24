@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import whee.demo.entity.Event;
 import whee.demo.entity.User;
+import whee.demo.exception.ResourceNotFoundException;
 import whee.demo.repository.UserRepository;
 
 import java.util.List;
@@ -32,5 +33,11 @@ public class UserController {
     @GetMapping("/findIdByMail/{userEmail}")
     public Long findIdByMail(@PathVariable String userEmail) {
         return userRepository.findIDByMail(userEmail);
+    }
+
+    @GetMapping("/findById/{id}")
+    public User findIdById(@PathVariable Long id) {
+        User user = userRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("tsa misy"));
+        return user;
     }
 }

@@ -229,6 +229,7 @@ section
 {
 	width: 100%;
 	overflow: hidden;
+
 }
 .prlx_parent
 {
@@ -854,6 +855,7 @@ section
 	color:white;
 	width:180px;
 	background-color: rgb(0,0,0,0.0)!important;
+	margin-right: 5px;
 }
 .menuDropDownItemNotif{
 	color:white;
