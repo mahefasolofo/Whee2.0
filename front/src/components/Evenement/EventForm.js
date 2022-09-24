@@ -93,7 +93,7 @@ function EventForm({ ArrEvent }) {
       idVehicule: 1,
     },
     covoitureur: {
-      idUser: 1,
+      idUser: "",
     },
   });
 
