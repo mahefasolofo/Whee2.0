@@ -18,72 +18,34 @@ function TrajetInfo({ formData, setFormData }) {
     document.getElementById("formAnnonce2").style.display = "flex";
   };
 
-  
   return (
-    
-    <LoadScript
-            googleMapsApiKey ={api}
-            libraries={["places"]}
-        >
-          <Autocomplete>
-                <div>
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Point de Départ..."
-                        ref={originRef}
-                        
-                    />
-                </div>
-                    </Autocomplete> 
-                    <Autocomplete>
-                    <div>
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Point d'Arrivée..."
-                        ref={destiantionRef}
-                    />
-                    </div>
-            </Autocomplete>
+    <LoadScript googleMapsApiKey={api} libraries={["places"]}>
+      <Autocomplete>
+        <div>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Point de Départ..."
+            ref={originRef}
+          />
+        </div>
+      </Autocomplete>
+      <Autocomplete>
+        <div>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Point d'Arrivée..."
+            ref={destiantionRef}
+          />
+        </div>
+      </Autocomplete>
 
-            <button type='button' className="btn btn-primary" onClick={Valider}>Valider</button>
-
+      <button type="button" className="btn btn-primary" onClick={Valider}>
+        Valider
+      </button>
     </LoadScript>
   );
 }
 
 export default TrajetInfo;
-
-// import React from "react";
-
-// function TrajetInfo({ formData, setFormData }) {
-//   return (
-//     <div >
-//       <div>
-//       <input
-//         type="text"
-//         placeholder="Date de Départ..."
-//         value={formData.ptDepart}
-//         onChange={(e) => {
-//           setFormData({ ...formData, ptDepart: e.target.value });
-//         }}
-//       />
-//       </div>
-//       <div>
-
-//       <input
-//         type="text"
-//         placeholder="Heure de Départ..."
-//         value={formData.ptArrivee}
-//         onChange={(e) => {
-//           setFormData({ ...formData, ptArrivee: e.target.value });
-//         }}
-//       />
-//         </div>
-
-//     </div>
-//   );
-// }
-
-// export default TrajetInfo;
