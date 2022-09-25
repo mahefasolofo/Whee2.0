@@ -103,8 +103,8 @@ $(document).ready(function()
 				items:1,
 				loop:true,
 				autoplay:true,
-				autoplayTimeout:2000,
-				smartSpeed:1000,
+				autoplayTimeout:5000,
+				smartSpeed:2500,
 				autoplayHoverPause:true,
 				dotsContainer:'main_slider_custom_dots'
 			});
