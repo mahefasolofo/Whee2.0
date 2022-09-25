@@ -2,7 +2,6 @@ import React, {Component, useContext, useEffect, useState} from "react";
 import {UserContext} from "../../services/UserContext";
 import {Dropdown} from "react-bootstrap";
 import jwt_decode from "jwt-decode";
-import voiture from "../../images/audi.png";
 import UserService from "../../services/UserService";
 import bgUserspace from '../../images/bgProfile.jpg';
 import InterestService from "../../services/InterestService";
@@ -49,6 +48,10 @@ function ProfilPage() {
         })
     }
 
+    const callAjoutVhcl = () =>{
+        document.getElementById('formVehicule').style.display= 'flex';
+    }
+
     if (localStorage.getItem("token") != null) {
         if (localStorage.getItem("token").length > 14) {
             value = jwt_decode(localStorage.getItem("token"));
@@ -66,7 +69,7 @@ function ProfilPage() {
         
 
             <div className="super_container_profil">
-            
+            <VehiculeGestion userID={idCurrentUser} />
             {/*<EventForm ArrEvent={destiantionRef}/>*/}
                 {/* Home */}
                 
@@ -252,13 +255,13 @@ function ProfilPage() {
                                 
                         })} 
                         </div>
-                        <button type="button" className="btn btn-outline-dark" data-mdb-ripple-color="dark"
+                        <button type="button" className="btn btn-outline-dark" data-mdb-ripple-color="dark" onClick={callAjoutVhcl}
                                     style={
                                         {zIndex: 1,
                                         width: 90,
                                         marginLeft: 30}
                                 }>
-                                    Modifier
+                                    Ajouter
                                 </button>
                         </div>
                     

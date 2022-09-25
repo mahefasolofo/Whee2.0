@@ -627,6 +627,38 @@ a:hover {
 
 }
 
-.imageVehicule{
+#formVehicule {
+    display: none;
+}
+
+.mc_vehicule {
+    height: 700px !important;
+    width: 1000px !important;
+}
+
+.modalForm_vehicule{
+    margin-top: 150px;
+    margin-left: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.container_img{
     
+    width: 200px;
+}
+
+.form_fields {
+    width: 400px;
+    border-right: #18151f;
+}
+
+.form_fields .form-control{
+    width: 360px;
+}
+
+#frame{
+    height: 300px;
+    width: auto;
 }
