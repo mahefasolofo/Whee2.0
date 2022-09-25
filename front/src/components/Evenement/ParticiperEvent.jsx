@@ -71,7 +71,7 @@ function ParticiperEvent() {
           <img
             className="postcard__img"
             src={`../../${formData.image}`}
-            alt="Image Title"
+            alt={`${formData.image}`}
           />
         </a>
         <div className="postcard__text t-dark">

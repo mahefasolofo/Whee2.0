@@ -239,12 +239,10 @@ const NavBar = () => {
                         variant=""
                         className="menuDropDownItem"
                         style={{
-                          color: "white",
-                          backgroundColor: "rgba(0, 0, 0, 0.5)",
-                          border: "none",
+                          
                         }}
                       >
-                        {value.name}
+                        {value.name.split(' ').slice(0,1)}
                       </Dropdown.Toggle>
                       <Dropdown.Menu
                         style={{
