@@ -1,5 +1,5 @@
 import React from 'react';
-import vehiculeService from "../../services/vehiculeService";
+import VehiculeService from '../../services/VehiculeService';
 
 function VehiculeGestion() {
     const [formData, setFormData] = useState({
@@ -72,7 +72,7 @@ function VehiculeGestion() {
                 className="btn btn-primary"
                   onClick={() => {
                   
-                    vehiculeService.publierVehicule(formData);
+                    VehiculeService.publierVehicule(formData);
                     close();
                     
                   }}

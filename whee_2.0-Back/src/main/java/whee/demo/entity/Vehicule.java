@@ -38,8 +38,11 @@ public class Vehicule implements Serializable {
 	private String immat;
 
 
-	@Column(name="VehiculePhoto", nullable=false, length=255)
+	@Column(name="VehiculePhoto", nullable=true, length=255)
 	private String VehiculePhoto;
+
+	@Column(name="kilometrage", nullable = true)
+	private Float kilometrage;
 
 	//@ManyToOne(targetEntity=Conducteur.class, fetch=FetchType.LAZY)
 	//@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})
