@@ -27,7 +27,7 @@ export default class Carousel extends Component {
                   {/* <div class="button home_slider_button"><div class="button_bcg"></div><a href="index.htmlsearch_section">Découvrez maintenant<span></span><span></span><span></span></a></div> */}
                 </div>
               </div>
-              <div className="search_panel active col-lg-8">
+              <div className="search_panel active col-lg-8" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
                 <form
                   action="index.html"
                   id="search_form_11"
@@ -35,7 +35,7 @@ export default class Carousel extends Component {
                   data-animation-in="flipInX"
                   data-animation-out="animate-out fadeOut"
                 >
-                  <div className="search_item">
+                  <div className="search_item" >
                     {/* <i class="fa fa-map-marker" aria-hidden="true"></i> Départ */}
                     <input
                       type="text"
@@ -101,7 +101,7 @@ export default class Carousel extends Component {
                   {/* <div class="button home_slider_button"><div class="button_bcg"></div><a href="index.html">Recherchez maintenant<span></span><span></span><span></span></a></div> */}
                 </div>
               </div>
-              <div className="search_panel active col-lg-8">
+              <div className="search_panel active col-lg-8" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
                 <form
                   action="index.html"
                   id="search_form_5"
@@ -175,7 +175,7 @@ export default class Carousel extends Component {
                   {/* <div class="button home_slider_button"><div class="button_bcg"></div><a href="index.html">Explorez maintenant<span></span><span></span><span></span></a></div> */}
                 </div>
               </div>
-              <div className="search_panel active col-lg-8">
+              <div className="search_panel active col-lg-8" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
                 <form
                   action="index.html"
                   id="search_form_2"
