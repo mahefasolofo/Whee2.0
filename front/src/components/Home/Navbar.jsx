@@ -40,8 +40,9 @@ const NavBar = () => {
     );
     userJoin();
   };
+  const [load,setLoad] = useState();
 
-  const userJoin = () => {
+    const userJoin = () => {
     var chatMessage = {
       senderName: userData.username,
       status: "JOIN",
@@ -126,8 +127,9 @@ const NavBar = () => {
   };
   const logOut = () => {
     localStorage.setItem("token", "tsia");
-    window.location.reload(false);
+    setLoad({});
   };
+  
   return (
     <React.Fragment>
       <header className="header">
