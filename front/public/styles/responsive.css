@@ -132,7 +132,9 @@
 	}
 	.user_box_s{
 		width: auto;
-		margin: auto!important;
+		/* margin: auto!important; */
+		display: block;
+		float:right;
 	}
 	.search_item{
 		flex-direction: column;
@@ -262,7 +264,7 @@
 	}
 	.offers_image_container
 	{
-		height: 708px;
+		height: 320px;
 	}
 	.offers_content
 	{
@@ -414,6 +416,7 @@
 		-ms-transform: none;
 		-o-transform: none;
 		transform: none;
+		display: none;
 	}
 	.content_search
 	{
@@ -438,6 +441,7 @@
 		-ms-transform: none;
 		-o-transform: none;
 		transform: none;
+		left: 220px;
 	}
 	.logo a
 	{
