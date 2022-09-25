@@ -180,7 +180,7 @@ async function continuer(){
                 <div className="postcard__bar" />
               </div>
 
-              {/* <LoadScript googleMapsApiKey={api} libraries={["places"]}> */}
+              <LoadScript googleMapsApiKey={api} libraries={["places"]}>
                 <div className='google_map_form'>
                     <div className="gauche">
                     
@@ -227,7 +227,7 @@ async function continuer(){
                         
                     </div>
                 </div>
-                {/* </LoadScript> */}
+                </LoadScript>
             </div>
           
         </div>

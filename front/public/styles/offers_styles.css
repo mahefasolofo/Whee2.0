@@ -816,15 +816,31 @@
 	position : absolute;
 	background: #003049!important;
 	width:186px;
-	bottom:-40px;
-	left: 50px;
-
+	top: 220px;
+	left:40px;
+	cursor: pointer;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 
+}
+.book_button_demande a{
+	color: #fff!important;
+}
+.book_button_demande{
+	position : absolute;
+	background: #003049!important;
+	width:186px;
+	top: 200px;
+	left:40px;
+	cursor: pointer;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
 }
 .publier_button{
 	background: #003049;

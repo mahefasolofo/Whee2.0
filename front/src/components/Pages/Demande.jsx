@@ -323,7 +323,7 @@ function Demande() {
                                             <img src={peopletimg} className="seat_img" alt="" />
                                         </div>
                                         <p className="offersText">Centres d'intérêts : {interet}</p>
-                                        <div className="button book_button" onClick={() => afficherDemandeOffre(val.ptDepart,val.ptArrivee,val.dateCovoit,val.heureCovoit)}> {/*onClick={afficherDemandeOffre(val.ptDepart,val.ptArrivee)}*/}
+                                        <div className="button book_button_demande" onClick={() => afficherDemandeOffre(val.ptDepart,val.ptArrivee,val.dateCovoit,val.heureCovoit)}> {/*onClick={afficherDemandeOffre(val.ptDepart,val.ptArrivee)}*/}
                                             <a>
                                             Proposer
                                             <span />
