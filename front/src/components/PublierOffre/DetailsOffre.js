@@ -8,6 +8,26 @@ import { useParams } from "react-router-dom";
 import AnnonceCovoiturageService from "../../services/AnnonceCovoiturageService";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../services/UserContext";
+import {
+  LoadScript,
+  GoogleMap,
+  Marker,
+  DirectionsRenderer,
+  Autocomplete,
+} from "@react-google-maps/api";
+
+const api = "AIzaSyDQLfoT69SVIMwn06NymNrSPw4qXKnm8ts";
+const center = {
+  lat: -18.90341,
+  lng: 47.52123,
+};
+
+const containerStyle = {
+  width: "988px",
+  height: "395px",
+  borderBottomLeftRadius : "10px",
+  borderBottomRightRadius : "10px",
+};
 
 let Sock = new SockJS("http://localhost:8090/ws");
 var stompClient = over(Sock);
@@ -52,6 +72,40 @@ function DetailsOffre() {
     });
   };
 
+  /*Google Map use */
+
+  const [map, setMap] = useState(/** @type google.maps.Map */ (null));
+  const [directionsResponse, setDirectionsResponse] = useState(null);
+  const [distance, setDistance] = useState("");
+  const [duration, setDuration] = useState("");
+  
+  
+
+async function calculateRoute(depart,arrivee) {
+  
+    const directionsService = new google.maps.DirectionsService();
+    const results = await directionsService.route({
+    origin: depart,
+    destination: arrivee,
+      // eslint-disable-next-line no-undef
+     travelMode: google.maps.TravelMode.DRIVING,
+    });
+    setDirectionsResponse(results);
+    setDistance(results.routes[0].legs[0].distance.text);
+    setDuration(results.routes[0].legs[0].duration.text);
+  
+  
+}
+
+async function continuer(){
+  
+  document.getElementById("formAnnonce").style.display = "none";
+  document.getElementById("formAnnonce2").style.display = "flex";
+}
+
+
+/* End of Google Map stuff */
+
   return (
     <div className="detailOffreBackground">
       <div className="form_entete">
@@ -64,8 +118,8 @@ function DetailsOffre() {
       <div className='detailOffreContainer row'>
                   
                {formData.map((annonceE) => (
-                
-                  <div key={annonceE.idCovoit} className='detailRow row'>
+
+                  <div key={annonceE.idCovoit} className='detailRow row' >
                     <div className="userContainer col-3">
                           <div className="ImageContainer">
                             <img
@@ -116,8 +170,24 @@ function DetailsOffre() {
 
                        
                         <div className="map_detail_offre">
-                          
-                          </div>
+                        <GoogleMap
+                        mapContainerStyle={containerStyle}
+                        center={calculateRoute(annonceE.ptDepart,annonceE.ptArrivee)}
+                        zoom={5}
+                        options={{
+                            zoomControl: false,
+                            streetViewControl: false,
+                            mapTypeControl: false,
+                            fullscreenControl: false,
+                        }}
+                      
+                        >
+                        <Marker position={center} />
+                        {directionsResponse && (
+                        <DirectionsRenderer directions={directionsResponse} />
+                        )}
+                        </GoogleMap>
+                        </div>
                     </div>
 
                     <div className="vehiculeContainer col-3">
