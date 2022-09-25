@@ -137,7 +137,7 @@ async function continuer(){
                     <div className="offersContent"> 
                         <div className="offersPrice">
                           
-                          {annonceE.ptDepart} - {annonceE.ptArrivee}
+                          {annonceE.ptDepart.split(" ").slice(0,1)} - {annonceE.ptArrivee.split(" ").slice(0,1)}
                         </div>
                         <div className="offerReviews">
                         <div className="offerReviews_content">
@@ -158,6 +158,8 @@ async function continuer(){
                           <span>{annonceE.nbPlace}</span> <img src={seatimg} className='seat_img' alt="" /> 
                         </div> 
                         <p className="offersText">Centres d'intérêts : {annonceE.covoitureur.interet}</p>
+                        
+                        
                         <div className="offerName"><i class="fa fa-money" aria-hidden="true"> {annonceE.tarif} Ar</i></div>
                      </div>   
                         
@@ -167,7 +169,10 @@ async function continuer(){
                         >
                           Reserver
                         </button>
-
+                        <div className="div_info_sup">                          
+                          <p className="info_sup"><i className="fa fa-globe info_sup_label" aria-hidden="true">  </i>  {distance}  </p>
+                          <p className="info_sup"><i class="fa fa-clock-o info_sup_label" aria-hidden="true">  </i>  {duration}</p>
+                        </div>
                        
                         <div className="map_detail_offre">
                         <GoogleMap

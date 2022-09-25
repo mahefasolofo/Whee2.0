@@ -246,7 +246,7 @@ function Demande() {
                     <div className="col-lg-1 temp_col"/>
                     <div className="col-lg-11">
                         {/* Offers Sorting */}
-                        <div className="offers_sorting_container">
+                        {/* <div className="offers_sorting_container">
                             <ul className="offers_sorting">
                                 <li>
                                     <span className="sorting_text">Prix</span>
@@ -273,8 +273,8 @@ function Demande() {
                                     </ul>
                                 </li>
                             </ul>
-                        </div>
-
+                        </div> */}
+                    <button className="button publier_button"><p>Publier une demande</p></button>
                     </div>
                     <div className="col-lg-12">
                         {/* Offers Grid */}

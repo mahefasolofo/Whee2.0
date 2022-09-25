@@ -26,7 +26,7 @@ let Offeritem = ({ offer, compte, vehicule }) => {
   let vehiculephoto = vehicule.vehiculePhoto;
   let t = offer.heureCovoit;
   let d = depart.split(",").slice(0, 1);
-  let a = arrivee.split(",").slice(0, 1);
+  let a = arrivee.split(" ").slice(0, 1);
 
 
   return (
