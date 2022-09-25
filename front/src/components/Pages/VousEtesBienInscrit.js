@@ -43,7 +43,7 @@ const seConnecter = () => {
      
               <div className="container text-center" >
               <h5 className="text-center" id="titreFelicitation">
-                     Inscription validée<i class="fa-solid fa-circle-check" style={{color:"green", marginLeft:15}}></i></h5>
+                     Inscription validée<i className="fa-solid fa-circle-check" style={{color:"green", marginLeft:15}}></i></h5>
                 <h5 style={{fontSize:20}}>Dites Whee à la vie</h5>
                 <p>Grâce à la première plateforme de covoiturage mettant en relation les personnes ayant des centres d'intérêt communs, faites de nouvelles rencontres.<br/>
                 Joignez l'utile à l'agréable et covoiturez autrement. Dites Whee à la vie !
