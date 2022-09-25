@@ -135,13 +135,13 @@ function Demande() {
       })
     }
     /*ouverture demandeOffre */
-    // const afficherDemandeOffre = (depart,arrivee) =>{
-    //     document.getElementById('demandeAnnonce').style.display= 'flex';
-    //     setFormData({...formData, ptDepart:depart, ptArrivee:arrivee})
-    // }
+    const afficherDemandeOffre = (depart,arrivee,date,heure) =>{
+        document.getElementById('demandeAnnonce').style.display= 'flex';
+        setFormData({...formData, ptDepart:depart, ptArrivee:arrivee, dateCovoit:date, heureCovoit:heure})
+    }
 
     return (<React.Fragment>
-        {/* <DemandeOffre info={formData} /> */}
+        <DemandeOffre info={formData} />
         <div className="home_offre">
             <img src={bg}
                 alt="background demandes"
@@ -323,7 +323,7 @@ function Demande() {
                                             <img src={peopletimg} className="seat_img" alt="" />
                                         </div>
                                         <p className="offersText">Centres d'intérêts : {interet}</p>
-                                        <div className="button book_button" > {/*onClick={afficherDemandeOffre(val.ptDepart,val.ptArrivee)}*/}
+                                        <div className="button book_button" onClick={() => afficherDemandeOffre(val.ptDepart,val.ptArrivee,val.dateCovoit,val.heureCovoit)}> {/*onClick={afficherDemandeOffre(val.ptDepart,val.ptArrivee)}*/}
                                             <a>
                                             Proposer
                                             <span />

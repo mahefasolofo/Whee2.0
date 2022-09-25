@@ -1,6 +1,6 @@
 import React, { useState, useContext, useRef } from "react";
 import TrajetInfo from "./TrajetInfo";
-
+import Moment from "react-moment";
 import { UserContext } from "../../services/UserContext";
 import DateHourInfo from "./DateHourInfo";
 import VehiculeInfo from "./VehiculeInfo";
@@ -36,7 +36,9 @@ function DemandeOffre({info}) {
     heureCovoit: "",
     dateCovoit: ""
   });
-  
+  const originRefVal = info.ptDepart;
+  const destinationRefval = info.ptArrivee;
+
   const close = () => {
     document.getElementById("demandeAnnonce").style.display = "none";
   };
@@ -64,33 +66,46 @@ function DemandeOffre({info}) {
   const [distance, setDistance] = useState("");
   const [duration, setDuration] = useState("");
 
-  // const originRef = Depart;
-  // const destinationRef = Arrivee;
 
-function clearRoute() {
-  setDirectionsResponse(null);
-  setDistance("");
-  setDuration("");
-  originRef.current.value = ""
-  destinationRef.current.value = "";
-}
+// function clearRoute() {
+//   setDirectionsResponse(null);
+//   setDistance("");
+//   setDuration("");
+//   originRef.current.value = ""
+//   destinationRef.current.value = "";
+// }
 
-async function calculateRoute() {
+async function calculateRoute(depart,arrivee) {
   
+  const directionsService = new google.maps.DirectionsService();
+  const results = await directionsService.route({
+  origin: depart,
+  destination: arrivee,
     // eslint-disable-next-line no-undef
-    const directionsService = new google.maps.DirectionsService();
-    const results = await directionsService.route({
-      origin: originRef.current.value,
-      destination: destinationRef.current.value,
-      // eslint-disable-next-line no-undef
-      travelMode: google.maps.TravelMode.DRIVING,
-    });
-    setDirectionsResponse(results);
-    setDistance(results.routes[0].legs[0].distance.text);
-    setDuration(results.routes[0].legs[0].duration.text);
-  
-  
+   travelMode: google.maps.TravelMode.DRIVING,
+  });
+  setDirectionsResponse(results);
+  setDistance(results.routes[0].legs[0].distance.text);
+  setDuration(results.routes[0].legs[0].duration.text);
+
+
 }
+
+// const centerRef = useRef(); 
+// async function adressCenter() {
+//   // eslint-disable-next-line no-undef
+//   const directionsService = new google.maps.DirectionsService();
+//   const results = await directionsService.route({
+//     origin: centerRef,
+//     destination: centerRef,
+//     // eslint-disable-next-line no-undef
+//     travelMode: google.maps.TravelMode.DRIVING,
+//   });
+//   setDirectionsResponse(results);
+//   setDistance(results.routes[0].legs[0].distance.text);
+//   setDuration(results.routes[0].legs[0].duration.text);
+// }
+
 
 async function continuer(){
   
@@ -98,19 +113,7 @@ async function continuer(){
   document.getElementById("demandeAnnonce2").style.display = "flex";
 }
 
-async function adressEvent() {
-  // eslint-disable-next-line no-undef
-  const directionsService = new google.maps.DirectionsService();
-  const results = await directionsService.route({
-    origin: originRef,
-    destination: destinationRef,
-    // eslint-disable-next-line no-undef
-    travelMode: google.maps.TravelMode.DRIVING,
-  });
-  setDirectionsResponse(results);
-  setDistance(results.routes[0].legs[0].distance.text);
-  setDuration(results.routes[0].legs[0].duration.text);
-}
+
 
 /* End of Google Map stuff */
   return (
@@ -183,40 +186,43 @@ async function adressEvent() {
                     
                         
                             <div>
-                            <label>Point de départ</label>
-                            <input type="text" placeholder={info.ptDepart} className="input_ptDepart" />
+                              <label>Point de départ</label>
+                              <input type="text" value={originRefVal} className="input_ptDepart" disabled="disable"/>
                             </div>
-                        
+                            
                         
                             <div>
-                            <label>Point d'arrivée</label>
-                            <input type="text" placeholder={info.ptArrivee}  className="input_ptDepart" />
-                        {/* <button className="btn btn-primary" type="submit" onClick={calculateRoute}>Valider le trajet</button> */}
-                        <button className="btn btn-primary" onClick={continuer}>Continuer</button>
+                                  <label>Point d'arrivée</label>
+                                  <input type="text" value={destinationRefval}  className="input_ptDepart" disabled="disable"/>
+                                  {/* <label>Date</label>
+                                  <input type="text" value={dateFormate.text} className="input_ptDepart" />
+                                  <label>Heure</label>
+                                  <input type="hour" placeholder={info.heureCovoit} className="input_ptDepart"/> */}
+                              {/* <button className="btn btn-primary" type="submit" onClick={calculateRoute(originRefVal,destinationRefval)}>Valider le trajet</button> */}
+                              <button className="btn btn-primary" onClick={continuer}>Continuer</button>
                             </div>
-                        
-                        
+                            
                     
                     
                     </div>
                     <div className="droite">
-                        {/* <GoogleMap
-                        mapContainerStyle={containerStyle}
-                        center={calculateRoute}
-                        zoom={5}
-                        options={{
-                            zoomControl: false,
-                            streetViewControl: false,
-                            mapTypeControl: false,
-                            fullscreenControl: false,
-                        }}
-                        // onLoad={center}
-                        >
-                        <Marker position={center} />
-                        {directionsResponse && (
-                        <DirectionsRenderer directions={directionsResponse} />
-                        )}
-                        </GoogleMap> */}
+                        <GoogleMap
+                          mapContainerStyle={containerStyle}
+                          center={calculateRoute(originRefVal,destinationRefval)}
+                          zoom={5}
+                          options={{
+                              zoomControl: false,
+                              streetViewControl: false,
+                              mapTypeControl: false,
+                              fullscreenControl: false,
+                          }}
+                          
+                          >
+                          <Marker position={center} />
+                          {directionsResponse && (
+                          <DirectionsRenderer directions={directionsResponse} />
+                          )}
+                        </GoogleMap>
 
                         
                     </div>

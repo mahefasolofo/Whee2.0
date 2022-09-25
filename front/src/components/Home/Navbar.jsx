@@ -203,7 +203,7 @@ const NavBar = () => {
                             position: "relative",
                           }}
                         >
-                          <i class="fa fa-bell" aria-hidden="true" />
+                          <i className="fa fa-bell" aria-hidden="true" />
                           {publicChats.length !== 0 ? (
                             <div className="counterNotif">
                               {publicChats.length}

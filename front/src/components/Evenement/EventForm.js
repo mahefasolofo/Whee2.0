@@ -198,7 +198,7 @@ let navigate = useNavigate();
                             <label>Point de départ</label>
                             <input type="text" placeholder="Point de Départ..." ref={originRef} className="input_ptDepart" onChange={calculateRoute}/>
                             <label>Point d'arrivée</label>
-                            <input type="text" placeholder={ArrEvent} disabled="disabled" className="input_ptDepart"/>
+                            <input type="text" value={ArrEvent} disabled="disabled" className="input_ptDepart"/>
                         {/* <button className="btn btn-primary" type="submit" onClick={calculateRoute}>Valider le trajet</button> */}
                         <button className="btn btn-primary" onClick={continuer}>Continuer</button>
                             </div>
