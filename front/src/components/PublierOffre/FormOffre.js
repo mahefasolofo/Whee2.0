@@ -201,6 +201,10 @@ async function adressEvent() {
                             <label>Point d'arrivée</label>
                             <input type="text" placeholder="Point d'arrivé..."  ref={destiantionRef} className="input_ptDepart" onChange={calculateRoute}/>
                         {/* <button className="btn btn-primary" type="submit" onClick={calculateRoute}>Valider le trajet</button> */}
+                            <label className="info_sup_label">Distance</label>
+                            <p className="info_sup">{distance}</p>
+                            <label className="info_sup_label">Durée</label>
+                            <p className="info_sup">{duration}</p>
                         <button className="btn btn-primary" onClick={continuer}>Continuer</button>
                             </div>
                         </Autocomplete>

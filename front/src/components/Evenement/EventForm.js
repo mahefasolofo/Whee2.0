@@ -200,6 +200,10 @@ let navigate = useNavigate();
                             <label>Point d'arrivée</label>
                             <input type="text" value={ArrEvent} disabled="disabled" className="input_ptDepart"/>
                         {/* <button className="btn btn-primary" type="submit" onClick={calculateRoute}>Valider le trajet</button> */}
+                        <div className="div_info_sup_demande">                          
+                                <p className="info_sup"><i className="fa fa-globe info_sup_label" aria-hidden="true">  </i>  {distance}  </p>
+                                <p className="info_sup"><i class="fa fa-clock-o info_sup_label" aria-hidden="true">  </i>  {duration}</p>
+                              </div>
                         <button className="btn btn-primary" onClick={continuer}>Continuer</button>
                             </div>
                         </Autocomplete>

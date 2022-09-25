@@ -239,7 +239,7 @@ displayDepart == false ? null : (
                         <div className="col-lg-1 temp_col" />
                         <div className="col-lg-11">
                           {/* Offers Sorting */}
-                          <div className="offers_sorting_container">
+                          {/* <div className="offers_sorting_container">
                             <ul className="offers_sorting">
                               <li>
                                 <span className="sorting_text">Prix</span>
@@ -298,8 +298,9 @@ displayDepart == false ? null : (
                                 </ul>
                               </li>
                             </ul>
-                            <button className="button publier_button" onClick={afficherInscription} ><p>Publier une annonce</p></button>
-                          </div>
+                            
+                          </div> */}
+                          <button className="button publier_button" onClick={afficherInscription} ><p>Publier une annonce</p></button>
                         </div>
 
                         
