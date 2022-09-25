@@ -530,7 +530,20 @@ a:hover {
     transform: translateY(-30%);
 }
 
-.profile_vehicule_card {
+.profile_card {
+    position: relative;
+    display : block;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    padding: 20px 30px 10px 30px;
+    margin-left: 50px;
+    border-radius: 5px;
+    width: 600px;
+}
+
+.profile_ci_card{
     position: relative;
     display : flex;
     flex-direction: column;
@@ -539,12 +552,81 @@ a:hover {
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, .125);
     padding: 20px 30px 10px 30px;
-    margin-left: 50px;
     border-radius: 5px;
+    width: 50%;
+}
+
+.img_ci_container{
+    overflow:hidden;
+    width: 130px;
+    height: 130px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    position: relative;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 30px;
 }
 
 .imageCI {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.imageVehicule{
+    width: 100px;
+    height: 85px;
+    border-radius: 10%;
+    margin-top: 8px;
+    position: absolute;
+    margin-left: 380px;
+}
+
+.ci_text{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.vehicule_text {
+    padding-top: 15px;
+    padding-left: 15px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.super_container_profil{
+    width: 100%;
+    background-color: #f3f5f7;
+    overflow: hidden;
+}
+
+.profile_title{
+    font-size: large;
+    margin-bottom: 30px;
+}
+
+.vehicule_cardlist{
+    border-color: #18151f;
+    width: 500px;
+    height: 100px;
+    background-color: #f3f5f7;
+    margin-bottom: 10px;
+    display: block;
+
+}
+
+.vehicule_detail{
+    margin-left: 25px;   
+
+}
+
+.imageVehicule{
+    
 }

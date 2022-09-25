@@ -6,19 +6,22 @@ import voiture from "../../images/audi.png";
 import UserService from "../../services/UserService";
 import bgUserspace from '../../images/bgProfile.jpg';
 import InterestService from "../../services/InterestService";
-import Interestitem from "./Interestitem";
+import VehiculeService from "../../services/VehiculeService";
+import VehiculeGestion from "../Vehicule/VehiculeGestion";
 
 function ProfilPage() {
 
     let idCurrentUser = useContext(UserContext);
     const [user, setUser] = useState({});
     const [interests, setInterests] = useState([]);
+    const [vehicule, setVehicule] = useState([]);
 
     let value = "jieo";
     
     useEffect(() => {
         getUserById(idCurrentUser);
         getUserCi(idCurrentUser);
+        getUserVehicule(idCurrentUser);
       }, [idCurrentUser])
 
     
@@ -39,6 +42,13 @@ function ProfilPage() {
         })
     }
 
+    const getUserVehicule =(id) => {
+        VehiculeService.getVehiculeById(id).then((res) => {
+            setVehicule(res.data);
+            console.log(res.data);
+        })
+    }
+
     if (localStorage.getItem("token") != null) {
         if (localStorage.getItem("token").length > 14) {
             value = jwt_decode(localStorage.getItem("token"));
@@ -55,7 +65,8 @@ function ProfilPage() {
     return (
         
 
-            <div className="super_container">
+            <div className="super_container_profil">
+            
             {/*<EventForm ArrEvent={destiantionRef}/>*/}
                 {/* Home */}
                 
@@ -73,7 +84,7 @@ function ProfilPage() {
                 <div className="container">
                 <div className="row d-flex  h-100" 
                 style={{
-                        backgroundColor: "#003049",
+                        backgroundColor: "#f3f5f7",
                         width : "100vw",
                         marginLeft : "-140px"
                 }}>
@@ -208,135 +219,86 @@ function ProfilPage() {
 
                             </div>
                             </div>
-                    
-                        <div className="profile_vehicule_card">
+
+                        {/*Vehicules */}
+
+                        <div className="profile_card">
+                        <label className="profile_title">Vos véhicules</label>
                         <div className="row photos">
+                        
+
+                        {vehicule.map((vehicule) => {
+                            return(
+                            <div>
+                            <ul>
+                                
+                                {/*<div className="img_ci_container">
+                                <img src={vehicule.vehiculePhoto} alt="imgCI" className="imageCI"/>
+                                <li className="ci_text">{vehicule.marque}</li>
+                            </div>*/}
+                                <div className="vehicule_cardlist">
+                                <img src={vehicule.vehiculePhoto} alt="vehicule" className="imageVehicule"/>
+                                <li className="vehicule_text">{vehicule.marque} {vehicule.modele}</li>                                
+                                <li className="vehicule_detail">Immatriculation : {vehicule.immat}</li>
+                                <li className="vehicule_detail">Kilométrage : {vehicule.kilometrage} km</li>
+                                
+                                </div>
+                                
+                            </ul>
+                            
+                            </div>
+                            
+                            )
+                                
+                        })} 
+                        </div>
+                        <button type="button" className="btn btn-outline-dark" data-mdb-ripple-color="dark"
+                                    style={
+                                        {zIndex: 1,
+                                        width: 90,
+                                        marginLeft: 30}
+                                }>
+                                    Modifier
+                                </button>
+                        </div>
+                    
+                        {/*Les centres d'intérêt */}        
+
+                        <div className="profile_ci_card">
+                        <label className="profile_title">Vos Centres d'Intérêt</label>
+                        <div className="row photos">
+                        
 
                         {interests.map((interest) => {
                             return(
                             <div>
                             <ul>
-                                <li>{interest.nomCI}</li>
                                 
+                                <div className="img_ci_container">
+                                <img src={interest.imageCI} alt="imgCI" className="imageCI"/>
+                                <li className="ci_text">{interest.nomCI}</li>
+                                </div>
                                 
                             </ul>
-                            <img src={interest.imageCI} alt="imgCI" className="imageCI"/>
+                            
                             </div>
                             
                             )
                                 
-                        })}
-                        
-                        
-                    
-                                        
+                        })} 
                         </div>
+                        <button type="button" className="btn btn-outline-dark" data-mdb-ripple-color="dark"
+                                    style={
+                                        {zIndex: 1,
+                                        width: 90,
+                                        marginLeft: 30}
+                                }>
+                                    Modifier
+                                </button>
                         </div>
-                    
-                    <div className="lightbox-gallery">
-                                <div className="container">
-                                    <label>Vos Véhicules</label>
-                                    <div className="row photos">
-                                        <div className="col-sm-6 col-md-4 col-lg-3 item">
-                                            <a href="https://i.imgur.com/zmzERpe.jpg" data-lightbox="photos">
-                                                <img className="img-fluid" src="https://i.imgur.com/zmzERpe.jpg"/>
-                                            </a>
-                                        </div>
-                                        <div className="col-sm-6 col-md-4 col-lg-3 item"
-                                            style={
-                                                {
-                                                    width: 125,
-                                                    height: 125,
-                                                    marginTop: 15,
-                                                    borderRadius: 15
-                                                }
-                                        }>
-                                            <div style={
-                                                {
-                                                    width: 110,
-                                                    height: 110,
-                                                    marginTop: 10,
-                                                    borderRadius: 15,
-                                                    paddingLeft: 15,
-                                                    backgroundImage: 'url(' + voiture + ')'
-                                                }
-                                            }>
-                                                <label htmlFor="" className="labelCentreInteretProfil">
-                                                    Beaux-arts
-                                                </label>
-                                            </div>
-
-                                        </div>
-                                        <div className="col-sm-6 col-md-4 col-lg-3 item"
-                                            style={
-                                                {
-                                                    width: 125,
-                                                    height: 125,
-                                                    marginTop: 15,
-                                                    borderRadius: 15
-                                                }
-                                        }>
-                                            <div style={
-                                                {
-                                                    width: 110,
-                                                    height: 110,
-                                                    marginTop: 10,
-                                                    borderRadius: 15,
-                                                    paddingLeft: 15,
-
-                                                    backgroundImage: 'url(' + voiture + ')'
-                                                }
-                                            }>
-                                                <label htmlFor="" className="labelCentreInteretProfil">
-                                                    Beaux-arts
-                                                </label>
-                                            </div>
-
-                                        </div>
 
 
-                                    </div>
-                                </div>
-                                <div className="container">
-                                    <label>Vos Centres d'Intérêt</label>
-                                    <div className="row photos">
-                                        <div className="col-sm-6 col-md-4 col-lg-3 item">
-                                            <a href="https://i.imgur.com/zmzERpe.jpg" data-lightbox="photos">
-                                                <img className="img-fluid" src="https://i.imgur.com/zmzERpe.jpg"/>
-                                            </a>
-                                        </div>
-                                        <div className="col-sm-6 col-md-4 col-lg-3 item"
-                                            style={
-                                                {
-                                                    width: 125,
-                                                    height: 125,
-                                                    marginTop: 15,
-                                                    borderRadius: 15
-                                                }
-                                        }>
-                                            <div style={
-                                                {
-                                                    width: 110,
-                                                    height: 110,
-                                                    marginTop: 10,
-                                                    borderRadius: 15,
-                                                    paddingLeft: 15,
-                                                    backgroundImage: 'url(' + voiture + ')'
-                                                }
-                                            }>
-                                                <label htmlFor="" className="labelCentreInteretProfil">
-                                                    Beaux-arts
-                                                </label>
-                                            </div>
-
-                                        </div>
-                                        
-
-
-                                    </div>
-                                </div>
-                            </div>
-
+                        
                         
                     </div>
                 
