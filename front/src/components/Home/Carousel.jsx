@@ -7,7 +7,7 @@ export default class Carousel extends Component {
 
       <div className="home">
         {/* Home Slider */}
-        <div className="home_slider_container">
+        <div className="home_slider_container" id="home_carousel">
           <div className="owl-carousel owl-theme home_slider">
             {/* Slider Item */}
             <div className="owl-item home_slider_item">
@@ -171,7 +171,7 @@ export default class Carousel extends Component {
                   data-animation-out="animate-out fadeOut"
                 >
 
-                  <h1>Evènements!</h1>
+                  <h1>Evénements!</h1>
                   {/* <div class="button home_slider_button"><div class="button_bcg"></div><a href="index.html">Explorez maintenant<span></span><span></span><span></span></a></div> */}
                 </div>
               </div>
@@ -304,16 +304,7 @@ export default class Carousel extends Component {
               />
             </svg>
           </div>
-          {/* Home Slider Dots */}
-          {/* <div class="home_slider_dots row search_tabs_container">
-        
-                        <ul id="home_slider_custom_dots" class="home_slider_custom_dots col fill_height search_tabs d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                            
-                            <li class="home_slider_custom_dot active search_tab active d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="images/bus.png" alt=""><span>Offres</span></li>
-                            <li class="home_slider_custom_dot search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="images/suitcase.png" alt="">Demandes</li>
-                            <li class="home_slider_custom_dot search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="images/diving.png" alt="">Evènements</li>
-                        </ul>
-                    </div> */}
+          
         </div>
       </div>
 

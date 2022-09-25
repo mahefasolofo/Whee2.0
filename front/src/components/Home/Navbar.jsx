@@ -296,19 +296,19 @@ const NavBar = () => {
           </div>
           <ul>
             <li className="menu_item">
-              <a href="index.html">Accueil</a>
+              <a href="/home">Accueil</a>
             </li>
             <li className="menu_item">
-              <a href="offers.html">Offres</a>
+              <a href="/offres">Offres</a>
             </li>
             <li className="menu_item">
-              <a href="offers.html">Demandes</a>
+              <a href="/demandes">Demandes</a>
             </li>
             <li className="menu_item">
-              <a href="blog.html">Evènements</a>
+              <a href="/evenements">Evènements</a>
             </li>
             <li className="menu_item">
-              <a href="about.html">A propos de nous</a>
+              <a href="/a_propos">A propos de nous</a>
             </li>
           </ul>
         </div>

@@ -275,7 +275,7 @@ section
 }
 .button:hover .button_bcg
 {
-	left: -100%;
+	/* left: -100%; */
 }
 .button a
 {
@@ -1755,21 +1755,39 @@ section
 .offers_image_container
 {
 	width: 100%;
-	height: 100%;
+	height: auto!important;
+	position: relative;
 	
+}
+.event_container{
+	width:100%;
+	padding:1.5px!important;
+}
+.event_row{
+		display:block;
+	}
+
+.col_gauche, .col_droite{
+	width: 50%;
+	/*overflow: hidden;*/
+	float: left;
+}
+
+.col_droite{
+	padding-left: 15px;
 }
 
 .offer_date{
 	z-index:10;
 	position: absolute;
 	top: 20px;
-	left: 50%;
+	left: 125px;
 	-webkit-transform: translateX(-50%);
 	-moz-transform: translateX(-50%);
 	-ms-transform: translateX(-50%);
 	-o-transform: translateX(-50%);
 	transform: translateX(-50%);
-	width: auto;
+	width: 248px;
 	padding-left: 39px;
 	padding-right: 39px;
 	white-space: nowrap;
