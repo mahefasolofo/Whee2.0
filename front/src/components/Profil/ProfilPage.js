@@ -19,12 +19,16 @@ function ProfilPage() {
     useEffect(() => {
         getUserById(idCurrentUser);
         getUserCi(idCurrentUser);
-      }, [])
+      }, [idCurrentUser])
+
+    
       
     const getUserById = (id) => {
     UserService.getById(id).then((res) => {
+        
         setUser(res.data);
-        console.log(res.data);
+        //console.log(res.data);
+        
     });
     }
 
@@ -214,9 +218,11 @@ function ProfilPage() {
                             <ul>
                                 <li>{interest.nomCI}</li>
                                 
-                                <img src={interest.imageCI}/>
+                                
                             </ul>
+                            <img src={interest.imageCI} alt="imgCI" className="imageCI"/>
                             </div>
+                            
                             )
                                 
                         })}

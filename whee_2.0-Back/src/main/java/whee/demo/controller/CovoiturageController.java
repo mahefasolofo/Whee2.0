@@ -20,8 +20,6 @@ public class CovoiturageController {
         return covoiturageRepository.findAll();
     }
 
-    @GetMapping("/annonces/{idCovoit}")
-    public Covoiturage getById(@PathVariable Long idCovoit){return covoiturageRepository.findById(idCovoit).orElseThrow();}
 
     @PostMapping("/annonces")
     public Covoiturage createAnnonce(@RequestBody Covoiturage annonce) {
