@@ -1,5 +1,6 @@
 import React, { useState, useContext, useRef } from "react";
 import TrajetInfo from "./TrajetInfo";
+
 import { UserContext } from "../../services/UserContext";
 import DateHourInfo from "./DateHourInfo";
 import VehiculeInfo from "./VehiculeInfo";
@@ -25,7 +26,7 @@ const containerStyle = {
 };
 
 
-function FormOffre() {
+function DemandeOffre({info}) {
   const [page, setPage] = useState(0);
   let idCurrentUser = useContext(UserContext);
   var idUSER = parseInt(idCurrentUser);
@@ -33,25 +34,14 @@ function FormOffre() {
     ptDepart: "",
     ptArrivee: "",
     heureCovoit: "",
-    dateCovoit: "",
-    image: null,
-    event: null,
-    tarif: "",
-    nbPlace: "",
-    covoitureurs: [],
-    vehicule: {
-      idVehicule: 1,
-    },
-    covoitureur: {
-      idUser: "",
-    },
+    dateCovoit: ""
   });
-
+  
   const close = () => {
-    document.getElementById("formAnnonce").style.display = "none";
+    document.getElementById("demandeAnnonce").style.display = "none";
   };
   const close2 = () => {
-    document.getElementById("formAnnonce2").style.display = "none";
+    document.getElementById("demandeAnnonce2").style.display = "none";
   };
 
   const FormTitles = [
@@ -74,37 +64,38 @@ function FormOffre() {
   const [distance, setDistance] = useState("");
   const [duration, setDuration] = useState("");
 
-  const originRef = useRef();
-  const destiantionRef = useRef();
+  // const originRef = Depart;
+  // const destinationRef = Arrivee;
+
 function clearRoute() {
   setDirectionsResponse(null);
   setDistance("");
   setDuration("");
   originRef.current.value = ""
-  destiantionRef.current.value = "";
+  destinationRef.current.value = "";
 }
 
 async function calculateRoute() {
-  if(originRef != null){
+  
     // eslint-disable-next-line no-undef
     const directionsService = new google.maps.DirectionsService();
     const results = await directionsService.route({
       origin: originRef.current.value,
-      destination: destiantionRef.current.value,
+      destination: destinationRef.current.value,
       // eslint-disable-next-line no-undef
       travelMode: google.maps.TravelMode.DRIVING,
     });
     setDirectionsResponse(results);
     setDistance(results.routes[0].legs[0].distance.text);
     setDuration(results.routes[0].legs[0].duration.text);
-  }
+  
   
 }
 
 async function continuer(){
   
-  document.getElementById("formAnnonce").style.display = "none";
-  document.getElementById("formAnnonce2").style.display = "flex";
+  document.getElementById("demandeAnnonce").style.display = "none";
+  document.getElementById("demandeAnnonce2").style.display = "flex";
 }
 
 async function adressEvent() {
@@ -112,7 +103,7 @@ async function adressEvent() {
   const directionsService = new google.maps.DirectionsService();
   const results = await directionsService.route({
     origin: originRef,
-    destination: destiantionRef,
+    destination: destinationRef,
     // eslint-disable-next-line no-undef
     travelMode: google.maps.TravelMode.DRIVING,
   });
@@ -125,7 +116,7 @@ async function adressEvent() {
   return (
     <div>
       
-      <div className="modalBackground" id="formAnnonce2">
+      <div className="modalBackground" id="demandeAnnonce2">
         <div className="modalContainer">
         <div className="modalHeader"><h1>Publier une annonce</h1></div>
           <div className="titleCloseBtn">
@@ -173,7 +164,7 @@ async function adressEvent() {
         </div>
       </div>
 
-      <div className="form_event_background" id="formAnnonce">
+      <div className="form_event_background" id="demandeAnnonce">
         <div className="modal_container">
           
           <div className="modalHeader"><h1>Publier une annonce</h1></div>
@@ -186,32 +177,32 @@ async function adressEvent() {
                 <div className="postcard__bar" />
               </div>
 
-              <LoadScript googleMapsApiKey={api} libraries={["places"]}>
+              {/* <LoadScript googleMapsApiKey={api} libraries={["places"]}> */}
                 <div className='google_map_form'>
                     <div className="gauche">
                     
-                        <Autocomplete>
+                        
                             <div>
                             <label>Point de départ</label>
-                            <input type="text" placeholder="Point de Départ..." ref={originRef} className="input_ptDepart" />
+                            <input type="text" placeholder={info.ptDepart} className="input_ptDepart" />
                             </div>
-                        </Autocomplete>
-                        <Autocomplete>
+                        
+                        
                             <div>
                             <label>Point d'arrivée</label>
-                            <input type="text" placeholder="Point d'arrivé..."  ref={destiantionRef} className="input_ptDepart" onChange={calculateRoute}/>
+                            <input type="text" placeholder={info.ptArrivee}  className="input_ptDepart" />
                         {/* <button className="btn btn-primary" type="submit" onClick={calculateRoute}>Valider le trajet</button> */}
                         <button className="btn btn-primary" onClick={continuer}>Continuer</button>
                             </div>
-                        </Autocomplete>
+                        
                         
                     
                     
                     </div>
                     <div className="droite">
-                        <GoogleMap
+                        {/* <GoogleMap
                         mapContainerStyle={containerStyle}
-                        center={center}
+                        center={calculateRoute}
                         zoom={5}
                         options={{
                             zoomControl: false,
@@ -219,18 +210,18 @@ async function adressEvent() {
                             mapTypeControl: false,
                             fullscreenControl: false,
                         }}
-                        onLoad={adressEvent}
+                        // onLoad={center}
                         >
                         <Marker position={center} />
                         {directionsResponse && (
                         <DirectionsRenderer directions={directionsResponse} />
                         )}
-                        </GoogleMap>
+                        </GoogleMap> */}
 
                         
                     </div>
                 </div>
-                </LoadScript>
+                {/* </LoadScript> */}
             </div>
           
         </div>
@@ -239,4 +230,4 @@ async function adressEvent() {
   );
 }
 
-export default FormOffre;
+export default DemandeOffre;

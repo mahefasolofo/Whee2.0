@@ -78,7 +78,7 @@ export default class Trajet extends Component {
                         infinite={true}
                         autoPlay={1000}
                       >
-                        {this.state.annonces.slice(0, 6).map((annonce,index)=> (
+                        {this.state.annonces.slice(0, 5).map((annonce,index)=> (
                             <CardTrajet annonce={annonce} key={annonce.idCovoit}/>
                             )                                                        
                         )}                    

@@ -40,8 +40,9 @@ const NavBar = () => {
     );
     userJoin();
   };
+  const [load,setLoad] = useState();
 
-  const userJoin = () => {
+    const userJoin = () => {
     var chatMessage = {
       senderName: userData.username,
       status: "JOIN",
@@ -126,8 +127,9 @@ const NavBar = () => {
   };
   const logOut = () => {
     localStorage.setItem("token", "tsia");
-    window.location.reload(false);
+    setLoad({});
   };
+  
   return (
     <React.Fragment>
       <header className="header">
@@ -237,12 +239,10 @@ const NavBar = () => {
                         variant=""
                         className="menuDropDownItem"
                         style={{
-                          color: "white",
-                          backgroundColor: "rgba(0, 0, 0, 0.5)",
-                          border: "none",
+                          
                         }}
                       >
-                        {value.name}
+                        {value.name.split(' ').slice(0,1)}
                       </Dropdown.Toggle>
                       <Dropdown.Menu
                         style={{

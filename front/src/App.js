@@ -109,18 +109,7 @@ function App() {
       setPrivateChats(new Map(privateChats));
     }
   };
-  const sendValueEvent = () => {
-    if (stompClient) {
-      var chatMessage = {
-        senderName: "ADMIN",
-        message: " : des événements qui pourraient vous intéresser",
-        status: "MESSAGE",
-      };
-      console.log(chatMessage);
-      stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
-      setUserData({ ...userData, message: "" });
-    }
-  };
+
 
   const registerUser = (nom) => {
     setUserData({ ...userData, username: nom });
@@ -134,16 +123,15 @@ function App() {
 
   function handleCredentialResponse(response) {
     try {
-      console.log("Encode JWT id Token: " + response.credential);
-      console.log(jwt_decode(response.credential));
+
 
       // setAuth(jwt_decode(response.credential));
 
       document.getElementById("id01").style.display = "none";
       localStorage.setItem("token", response.credential);
 
-      console.log(jwt_decode(localStorage.getItem("token")));
-      setUser(jwt_decode(localStorage.getItem("token")).email);
+
+
 
       window.location.reload(false);
     } catch {
@@ -160,17 +148,21 @@ function App() {
           const resp = await UserService.getIdByMail(
             jwt_decode(localStorage.getItem("token")).email
           );
-        setUser(resp.data);
+          setUser(resp.data);
 
         };
 
         logInterest();
-        registerUser(jwt_decode(localStorage.getItem("token")).email);
+        setUser(jwt_decode(localStorage.getItem("token")).name);
+        registerUser(jwt_decode(localStorage.getItem("token")).name)
+
+
+
+
       }
     }
     setEssai(7);
-    console.log("essai ty", essai);
-    console.log("user", user);
+
 
     try {
       google.accounts.id.initialize({
@@ -178,7 +170,7 @@ function App() {
           "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com",
         callback: handleCredentialResponse,
       });
-    } catch {}
+    } catch { }
 
     try {
       google.accounts.id.initialize({
@@ -198,7 +190,7 @@ function App() {
         "border-radius": 180,
         border: "none",
       });
-    } catch (error) {}
+    } catch (error) { }
   }, [user, setUser, essai, setEssai]);
 
   return (
@@ -225,7 +217,7 @@ function App() {
               />
               {/* <Route path="/offres/:idCovoit" element={<DetailsOffre />} /> */}
               <Route path="/a_propos" element={<About />} />
-              <Route path="/profil" element={<ProfilPage/>}/>
+              <Route path="/profil" element={<ProfilPage />} />
             </Routes>
 
             <Footer />
