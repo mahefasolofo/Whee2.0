@@ -2,8 +2,11 @@ import axios from 'axios';
 import React, {Component, useState, useEffect} from 'react'
 import { set } from 'react-hook-form';
 import bg from '../../images/background8.jpg'
-// import demande from '../data/Demande'
+import Moment from "react-moment";
 import OfferService from '../../services/OfferService';
+import peopletimg from "../../images/people.png";
+import DemandeOffre from "../PublierOffre/DemandeOffre"
+
 
 
 function Demande() {
@@ -15,8 +18,18 @@ function Demande() {
     const [demandeSearch, setDemandeSearch]= useState([]);
     const [text, setText] = useState('');
     const [text2, setText2] = useState('');
+    const [formData, setFormData] = useState({
+        ptDepart: "",
+        ptArrivee: "",
+        heureCovoit: "",
+        dateCovoit: ""
+    
+      })
 
+    const destinationRef = formData.ptArrivee;
+    const originRef = formData.ptDepart;
 
+    const interet = "musique , sport, voyage";
     const [displayDepart, setDisplayDepart] = useState(false);
     const [displayArrivee, setDisplayArrivee] = useState(false)
     let newMatchesDepart = [];
@@ -121,8 +134,14 @@ function Demande() {
 
       })
     }
-  
+    /*ouverture demandeOffre */
+    // const afficherDemandeOffre = (depart,arrivee) =>{
+    //     document.getElementById('demandeAnnonce').style.display= 'flex';
+    //     setFormData({...formData, ptDepart:depart, ptArrivee:arrivee})
+    // }
+
     return (<React.Fragment>
+        {/* <DemandeOffre info={formData} /> */}
         <div className="home_offre">
             <img src={bg}
                 alt="background demandes"
@@ -259,70 +278,73 @@ function Demande() {
                     </div>
                     <div className="col-lg-12">
                         {/* Offers Grid */}
+
                         <div className="offers_grid">
                             {/* Offers Item */}
                             {demande.map((val, key) => {
                                                                 
-                                                                return(
-                                                                <div className="offers_item rating_4" key={val.id}>
-                                                                    <div className="row">
-                                                                    <div className="col-lg-1 temp_col" />
-                                                                    <div className="col-lg-3 col-1680-4">
-                                                                        <div className="offers_image_container_offre">
-                                                                        
-                                                                        <img src={val.image_covoit} className="offers_image_background_offre" alt="carte" />
-                                                                        <div className="offer_date_demande">
-                                                                            <a href="index.html">{val.dateCovoit} - {val.heureCovoit}</a>
-                                                                        </div>
-                                                                        <div className="demande_name">
-                                                                            <a href="index.html">{val.ptDepart} -{val.ptArrivee}</a>
-                                                                        </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div className="col-lg-8">
-                                                                        <div className="offers_content">
-                                                                        <div className="offers_price_offre">{val.tarif}</div>
-                                                                        <p className="offers_text_offre">
-                                                                            Recherche de covoiturage régulier en semaine pour 4
-                                                                            personnes. Voiture propre et conducteur courtois requis.
-                                                                        </p>
-                                                                        <p className="offers_text_offre">Centres d'intérêts: Musiques</p>
-                                                                        <div className="offers_icons_demandes">
-                                                                            <ul className="offers_icons_list">
-                                                                                <li className="offers_icons_people">
-                                                                                    <img src="images/people.png" alt="" />
-                                                                                </li>
-                                                                                <li className="offers_icons_people">
-                                                                                    <img src="images/people.png" alt="" />
-                                                                                </li>
-                                                                                <li className="offers_icons_people">
-                                                                                    <img src="images/people.png" alt="" />
-                                                                                </li>
-                                                                                <li className="offers_icons_people">
-                                                                                    <img src="images/people.png" alt="" />
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="button book_button">
-                                                                            <a href="index.html">
-                                                                            Proposer
-                                                                            <span />
-                                                                            <span />
-                                                                            <span />
-                                                                            </a>
-                                                                        </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    </div>
-                                                                </div>)
-                                                            })}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                            return(
                                 
-                                        </React.Fragment>
+                            <div className="GridOffre" key={val.id}>
+                            <div className="offers_item rating_4" >
+                                <div className="row">
+                                <div className="col-lg-2" />
+                                <div className="col-lg-2">
+                                    <div className="ImageContainer">
+                                        <img
+                                        className="offersPimagebackground"
+                                        src={val.covoitureur.photo}
+                                        alt="user"
+                                        />
+
+                                        <div className="offerNameDriver">
+                                        {val.covoitureur.nom} {val.covoitureur.prenom}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="offersContent">
+                                        <div className="offersPrice">{val.ptDepart.split(",").slice(0, 1)} - {val.ptArrivee.split(",").slice(0, 1)} </div>
+                                        <div className="offerReviews">
+                                        <div className="offerReviews_content">
+                                            <div className="offerReviews_title">
+                                                <i className="fas fa-calendar-alt mr-2" />
+                                                <Moment format="Do MMMM YYYY">{val.dateCovoit}</Moment>
+                                                <br />
+                                                <br />
+
+                                                <i class="fa fa-clock-o" aria-hidden="true" />
+                                                {val.heureCovoit}
+                                                </div>                                                
+                                            </div>
+                                        </div>
+                                        <div className="seat_nb seat_offre">
+                                            <span>{val.nbPlace}</span>{" "}
+                                            <img src={peopletimg} className="seat_img" alt="" />
+                                        </div>
+                                        <p className="offersText">Centres d'intérêts : {interet}</p>
+                                        <div className="button book_button" > {/*onClick={afficherDemandeOffre(val.ptDepart,val.ptArrivee)}*/}
+                                            <a>
+                                            Proposer
+                                            <span />
+                                            <span />
+                                            <span />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            )
+                        })}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </React.Fragment>
 
 
                             )

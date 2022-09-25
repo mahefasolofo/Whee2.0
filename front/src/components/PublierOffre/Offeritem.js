@@ -109,7 +109,7 @@ let Offeritem = ({ offer, compte, vehicule }) => {
                 </button>
               </div>
             </div>
-            <div className="col-lg-3 col-1680-4">
+            <div className="col-lg-3">
               <div className="ImageContainer">
                 <img
                   className="offersImageBackground"
