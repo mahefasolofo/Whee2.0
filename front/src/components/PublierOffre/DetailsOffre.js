@@ -50,7 +50,7 @@ function DetailsOffre() {
     if (stompClient) {
       var chatMessage = {
         senderName: userData.username,
-        message: " vient de reserver un truc",
+        message: " vient de reserver votre trajet de covoiturage",
         status: "MESSAGE",
       };
       console.log(chatMessage);
