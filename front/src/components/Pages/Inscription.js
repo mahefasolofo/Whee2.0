@@ -153,7 +153,7 @@ const Inscription = () => {
                                     <b htmlFor="psw">
                                         Prenom*
                                     </b>
-                                    <input type="text" placeholder="E-mail" name="prenom" className="inscriptionInput"
+                                    <input type="text" placeholder="Prénom" name="prenom" className="inscriptionInput"
                                         style={
                                             {marginBottom: 15}
                                         }
