@@ -1,6 +1,7 @@
-
 import React, { useContext, useState } from "react";
-
+import { over } from "stompjs";
+import SockJS from "sockjs-client";
+import { SocketContext } from "../../services/SocketContext";
 import carimg from "../../images/car1.jpg";
 import profimg from "../../images/photoProfil.jpg";
 import Moment from "react-moment";
@@ -11,8 +12,18 @@ import DetailsOffre from "./DetailsOffre";
 import Offre from "../Pages/Offre";
 
 let Offeritem = ({ offer, compte, vehicule }) => {
-  let navigate = useNavigate();
+  const {
+    userData,
+    setUserData,
+    privateChats,
+    setPrivateChats,
+    tab,
+    setTab,
+    publicChats,
+    setPublicChats,
+  } = useContext(SocketContext);
 
+  let navigate = useNavigate();
 
   const interet = "musique , sport, voyage";
   const avis = "26 avis";
@@ -27,7 +38,7 @@ let Offeritem = ({ offer, compte, vehicule }) => {
   let t = offer.heureCovoit;
   let d = depart.split(",").slice(0, 1);
   let a = arrivee.split(",").slice(0, 1);
-
+  let u = offer.covoitureur.prenom + " " + offer.covoitureur.nom;
 
   return (
     <div className="col-lg-12">
@@ -94,15 +105,14 @@ let Offeritem = ({ offer, compte, vehicule }) => {
 
                 <button
                   className="button book_button_offre"
-
                   // onClick={afficherInscription}
                   onClick={() => {
                     navigate(`/offres/${offer.idCovoit}`);
+                    setTab(u);
                   }}
                 >
                   <a>
                     Voir plus<span></span>
-
                     <span></span>
                     <span></span>
                   </a>
@@ -129,7 +139,6 @@ let Offeritem = ({ offer, compte, vehicule }) => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };
