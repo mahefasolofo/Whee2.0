@@ -11,6 +11,7 @@ import VehiculeGestion from "../Vehicule/VehiculeGestion";
 function ProfilPage() {
 
     let idCurrentUser = useContext(UserContext);
+    console.log(idCurrentUser);
     const [user, setUser] = useState({});
     const [interests, setInterests] = useState([]);
     const [vehicule, setVehicule] = useState([]);

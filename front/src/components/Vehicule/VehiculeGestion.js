@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import VehiculeService from '../../services/VehiculeService';
 
 function VehiculeGestion(userID) {
@@ -13,21 +13,46 @@ function VehiculeGestion(userID) {
     });
 
     useEffect(() =>{
-        setFormData({...formData, userid: userID, vehiculePhoto:"images/car/car_model_default.png"})
-    }, [userID]);
+        setFormData({...formData, vehiculePhoto:"images/car/car_model_default.png"})
+        console.log("componentDidMount")
+    }, []);
+
+    useEffect(() =>{
+        let s = JSON.stringify(userID);
+        let ids = s.replace(/[^0-9]*/g, ''); 
+        let id = parseInt(ids)
+        setFormData({...formData, userid: id})
+        console.log(formData.userid)
+    },[userID])
 
     const close =() => {
         document.getElementById('formVehicule').style.display = 'none';
     }
 
-    const preview =() =>{
+    const onImgChange = e =>{
+        if(e.target.files && e.target.files[0]) {
+            let img = e.target.files[0];
+            setFormData({
+                vehiculePhoto : URL.createObjectURL(img)
+            })
+        }
         frame.src = URL.createObjectURL(e.target.files[0]);
+    }
+
+    const handleChange = (e) =>{
+        console.log(e.target.files);
+        setFormData({ ...formData, vehiculePhoto: e.target.files})
+        frame.src = URL.createObjectURL(e.target.files[0]);
+        console.log(formData.vehiculePhoto)
+        
     }
 
     const clearImage =() =>{
         document.getElementById('formFile').value = null;
         frame.src = "";
     }
+
+
 
   return (
     <div>
@@ -108,12 +133,9 @@ function VehiculeGestion(userID) {
                     <div className="mb-5">
                         <label for="Image" className="form-label">Charger une photo de votre véhicule (optionnel)</label>
                         <input className="form-control" type="file" id="formFile" style={{width : 400}}
-                        onChange={(e) => {
-                            setFormData({ ...formData, vehiculePhoto: e.target.files });
-                            frame.src = URL.createObjectURL(e.target.files[0]);
-                        }}/>
+                         onChange={handleChange}/>
                     </div>
-                    <img id="frame" src="" class="img-fluid" />
+                    <img id="frame" src={formData.vehiculePhoto} class="img-fluid" />
                     </div>
                 </div>
             </div>
