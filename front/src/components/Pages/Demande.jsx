@@ -246,6 +246,7 @@ function Demande() {
             </button>
           </form>
         </div>
+
       </div>
 
       <div className="offers_offre">
@@ -319,6 +320,7 @@ function Demande() {
                               <div className="offerNameDriver">
                                 {val.covoitureur.nom} {val.covoitureur.prenom}
                               </div>
+
                             </div>
                           </div>
                           <div className="col-lg-6">

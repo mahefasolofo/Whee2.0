@@ -1,24 +1,48 @@
-import React from 'react';
-import vehiculeService from "../../services/vehiculeService";
+import React, {useEffect, useState} from 'react';
+import VehiculeService from '../../services/VehiculeService';
 
-function VehiculeGestion() {
+function VehiculeGestion(userID) {
     const [formData, setFormData] = useState({
         immat: "",
         marque: "",
         modele: "",
         type: "",
-        idUser: 1,
+        kilometrage:"",
+        vehiculePhoto:"",
+        userid: ""
     });
+
+    useEffect(() =>{
+        setFormData({...formData, userid: userID, vehiculePhoto:"images/car/car_model_default.png"})
+    }, [userID]);
+
+    const close =() => {
+        document.getElementById('formVehicule').style.display = 'none';
+    }
+
+    const preview =() =>{
+        frame.src = URL.createObjectURL(e.target.files[0]);
+    }
+
+    const clearImage =() =>{
+        document.getElementById('formFile').value = null;
+        frame.src = "";
+    }
+
   return (
     <div>
         <div className="modalBackground" id="formVehicule">
-            <div className="modalContainer">
-                <div className="modalHeader"><h1>Publier une annonce</h1></div>
+            <div className="modalContainer mc_vehicule">
+                <div className="modalHeader"><h1>Ajouter un véhicule</h1></div>
                     <div className="titleCloseBtn">
                         <button onClick={close}><i className="fa fa-times-circle" aria-hidden="true"></i></button>
                     </div>
-                <div className="modalForm">
-                
+
+                    
+
+
+                <div className="modalForm_vehicule">
+                <div className='form_fields'>
                 <input
                     type="text"
                     className="form-control"
@@ -49,34 +73,48 @@ function VehiculeGestion() {
                 <input
                     type="text"
                     className="form-control"
-                    placeholder="Modèle du véhicule"
-                    value={formData.modele}
+                    placeholder="Kilométrage"
+                    style={{width : 200}}
+                    value={formData.kilometrage}
                     onChange={(e) => {
-                        setFormData({ ...formData, modele: e.target.value });
+                        setFormData({ ...formData, kilometrage: e.target.value });
                     }}
-                />
+                /> KM
                 <select
-                    type="text"
                     className="form-control form-control_place"
-                    placeholder="Type du véhicule"
+                    style={{height: 50}}
                     value={formData.type}
                     onChange={(e) => {
                     setFormData({ ...formData, type: e.target.value });
                     }}
-                >
-                            <option>Voiture</option>
-                            <option>Moto</option>
+                >   
+                            <option >Type de véhicule</option>
+                            <option value="Voiture">Voiture</option>
+                            <option value="Moto">Moto</option>
                             
                 </select>
                 <button
                 className="btn btn-primary"
                   onClick={() => {
                   
-                    vehiculeService.publierVehicule(formData);
+                    VehiculeService.publierVehicule(formData);
+                    console.log(formData)
                     close();
                     
                   }}
-                ></button>
+                >Valider</button>
+                </div>
+                <div className="container_img col-md-6">
+                    <div className="mb-5">
+                        <label for="Image" className="form-label">Charger une photo de votre véhicule (optionnel)</label>
+                        <input className="form-control" type="file" id="formFile" style={{width : 400}}
+                        onChange={(e) => {
+                            setFormData({ ...formData, vehiculePhoto: e.target.files });
+                            frame.src = URL.createObjectURL(e.target.files[0]);
+                        }}/>
+                    </div>
+                    <img id="frame" src="" class="img-fluid" />
+                    </div>
                 </div>
             </div>
         </div>

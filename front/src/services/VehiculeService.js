@@ -10,8 +10,8 @@ class VehiculeService{
         return axios.post(VEHICULE_API_BASE_URL, vehicule);
     }
 
-    getVehiculeById(vehiculeId){
-        return axios.get(VEHICULE_API_BASE_URL+'/'+vehiculeId);
+    getVehiculeById(userId){
+        return axios.get(VEHICULE_API_BASE_URL+'/'+userId);
     }
 
     updateVehicule(vehicule,vehiculeId){
