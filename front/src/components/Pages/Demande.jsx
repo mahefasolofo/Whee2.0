@@ -185,95 +185,99 @@ function Demande() {
               )}{" "}
             </div>
 
-            
-                    <div className="search_item">
+            <div className="search_item">
+              <input
+                type="text"
+                className="destination search_input search_input_first"
+                required="required"
+                placeholder=" Départ"
+                style={{ fontFamily: "Arial, FontAwesome" }}
+                onChange={(e) => onChangeHandlerDepart(e.target.value)}
+                value={text}
+              />{" "}
+              {displayDepart == false ? null : (
+                <div className="autoCompletionDiv">
+                  {recherche.map(function (v, i) {
+                    return (
+                      <div className="searchAutocompletion" key={v.id}>
+                        {/* imprimez le nom de l'élément */}
+                        <span
+                          onClick={(e) => (
+                            onChangeHandlerDepart(v), setDisplayDepart(false)
+                          )}
+                          className="searchAutocompletionValue"
+                          value={v}
+                        >
+                          <i class="fa fa-map-marker"></i>
+                          {v}
+                        </span>
+                      </div>
+                    );
+                  })}{" "}
+                </div>
+              )}{" "}
+            </div>
+            <div className="search_item">
+              <input
+                type="text"
+                className="destination search_input"
+                required="required"
+                placeholder=" Destination"
+                onChange={(e) => onChangeHandlerArrivee(e.target.value)}
+                style={{ fontFamily: "Arial, FontAwesome" }}
+                value={text2}
+              />{" "}
+              {displayArrivee == false ? null : (
+                <div className="autoCompletionDiv">
+                  {/* parcourez le tableau */}
+                  {recherche2.map(function (v, i) {
+                    return (
+                      <div className="searchAutocompletion" key={v.id}>
+                        {/* imprimez le nom de l'élément */}
+                        <span
+                          onClick={(e) => (
+                            onChangeHandlerArrivee(v), setDisplayArrivee(false)
+                          )}
+                          className="searchAutocompletionValue"
+                          value={v}
+                        >
+                          <i class="fa fa-map-marker"></i>
+                          {v}
+                        </span>
+                      </div>
+                    );
+                  })}{" "}
+                </div>
+              )}{" "}
+            </div>
+            <div className="search_item">
+              <input
+                type="datetime-local"
+                className="check_out search_input"
+                placeholder="Date | Heure"
+              />
+            </div>
+            <div className="search_item">
+              <select
+                name="adults"
+                id="adults_1"
+                className="dropdown_item_select search_input"
+                placeholder="Personnes"
+              >
+                <option value="">Passagers</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+              </select>
+            </div>
+            <button
+              className="button search_button"
+              onClick={(e) => handleSearch()}
+            >
+              <i className="fa fa-search" aria-hidden="true" />
+            </button>
 
-                        <input type="text" className="destination search_input search_input_first" required="required" placeholder=" Départ"
-                            style={
-                                {fontFamily: "Arial, FontAwesome"}
-                            }
-                            onChange={
-                                e => onChangeHandlerDepart(e.target.value)
-                            }
-                            value={text}/> {
-                        displayDepart == false ? null : (
-                            <div  className="autoCompletionDiv">
-              
-                                {
-                                recherche.map(function (v, i) {
-                                    return (
-                                        <div className="searchAutocompletion"
-                                            key={
-                                                v.id
-                                        }>
-                                            {/* imprimez le nom de l'élément */}
-                                            <span onClick={
-                                                    (e) => (onChangeHandlerDepart(v), setDisplayDepart(false))
-                                                }
-                                                className="searchAutocompletionValue"
-                                                value={v}>
-                                                <i class="fa fa-map-marker"></i>{v}</span>
-                                        </div>
-                                    );
-                                })
-                            } </div>
-                        )
-                    } </div>
-                    <div className="search_item">
-
-                        <input type="text" className="destination search_input" required="required" placeholder=" Destination"
-                            onChange={
-                                e => onChangeHandlerArrivee(e.target.value)
-                            }
-                            style={
-                                {fontFamily: "Arial, FontAwesome"}
-                            }
-                            value={text2}/> {
-                        displayArrivee == false ? null : (
-                          <div className="autoCompletionDiv">
-                                {/* parcourez le tableau */}
-                                {
-                                recherche2.map(function (v, i) {
-                                    return (
-                                        <div className="searchAutocompletion"
-                                            key={
-                                                v.id
-                                        }>
-                                            {/* imprimez le nom de l'élément */}
-                                            <span onClick={
-                                                    (e) => (onChangeHandlerArrivee(v), setDisplayArrivee(false))
-                                                }
-                                                className="searchAutocompletionValue"
-                                                value={v}>
-                                                 <i class="fa fa-map-marker"></i>{v}</span>
-                                        </div>
-                                    );
-                                })
-                            } </div>
-                        )
-                    } </div>
-                    <div className="search_item">
-
-                        <input type="datetime-local" className="check_out search_input" placeholder="Date | Heure"/>
-                    </div>
-                    <div className="search_item">
-
-                        <select name="adults" id="adults_1" className="dropdown_item_select search_input" placeholder="Personnes">
-                            <option value="">Passagers</option>
-                            <option>01</option>
-                            <option>02</option>
-                            <option>03</option>
-                            <option>04</option>
-                        </select>
-                    </div>
-                    <button className="button search_button"  onClick={
-                                e => handleSearch()
-                            }>
-                        <i className="fa fa-search" aria-hidden="true"/>
-                    </button>
-                
-
-            
             {/* <button
               className="button search_button"
               onClick={(e) => handleSearch()}
@@ -282,7 +286,6 @@ function Demande() {
             </button> */}
           </form>
         </div>
-
       </div>
 
       <div className="offers_offre">
@@ -356,7 +359,6 @@ function Demande() {
                               <div className="offerNameDriver">
                                 {val.covoitureur.nom} {val.covoitureur.prenom}
                               </div>
-
                             </div>
                           </div>
                           <div className="col-lg-6">

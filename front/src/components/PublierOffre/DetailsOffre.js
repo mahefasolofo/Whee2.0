@@ -100,168 +100,92 @@ function DetailsOffre() {
   /* End of Google Map stuff */
 
   return (
-
     <div className="detailOffreBackground">
-
-
       <div className="form_entete">
-
         <div className="titleCloseBtn_detail">
-
           <button
-
             onClick={() => {
-
               navigate("/offres");
-
             }}
-
           >
-
-
             <i class="fa fa-times-circle" aria-hidden="true"></i>
-
           </button>
-
         </div>
-
       </div>
 
-
-
       <div className="detailOffreContainer row">
-
-
         {formData.map((annonceE) => (
-
           <div key={annonceE.idCovoit} className="detailRow row">
-
-
             <div className="userContainer col-3">
-
               <div className="ImageContainer">
-
-
                 <img
-
                   className="offersPimagebackground"
-
                   src={annonceE.covoitureur.photo}
-
                   alt="user"
-
                 />
 
-
                 <div className="offerNameDriver">
-
                   {annonceE.covoitureur.nom} {annonceE.covoitureur.prenom}
-
                 </div>
-
               </div>
-
             </div>
 
             <div className="detailContainer col-6">
-
               <div className="offersContent">
-
                 <div className="offersPrice">
-
                   {annonceE.ptDepart} - {annonceE.ptArrivee}
-
                 </div>
 
                 <div className="offerReviews">
-
                   <div className="offerReviews_content">
-
                     <div className="offerReviews_title">
-
                       <i className="fas fa-calendar-alt mr-2" />
 
                       <Moment format="Do MMMM YYYY">
-
                         {annonceE.dateCovoit}
-
                       </Moment>
 
                       <br />
 
                       <br />
 
-
-
                       <i class="fa fa-clock-o" aria-hidden="true" />
 
                       {annonceE.heureCovoit}
-
                     </div>
-
                   </div>
-
                 </div>
 
                 <div className="seat_nb seat_offre">
-
                   <span>{annonceE.nbPlace}</span>{" "}
-
                   <img src={seatimg} className="seat_img" alt="" />
-
                 </div>
 
                 <p className="offersText">
-
                   Centres d'intérêts : {annonceE.covoitureur.interet}
-
                 </p>
 
                 <div className="offerName">
-
                   <i class="fa fa-money" aria-hidden="true">
-
                     {" "}
-
                     {annonceE.tarif} Ar
-
                   </i>
-
                 </div>
-
               </div>
 
-
-
-
               <button
-
                 className="button book_button_offre text-center"
-
                 onClick={sendValueEvent}
-
               >
-
-
                 Reserver
-
               </button>
 
-
-
               <div className="map_detail_offre">
-
-
                 <GoogleMap
-
                   mapContainerStyle={containerStyle}
-
                   center={calculateRoute(annonceE.ptDepart, annonceE.ptArrivee)}
-
                   zoom={5}
-
                   options={{
-
                     zoomControl: false,
 
                     streetViewControl: false,
@@ -269,69 +193,36 @@ function DetailsOffre() {
                     mapTypeControl: false,
 
                     fullscreenControl: false,
-
                   }}
-
                 >
-
-
                   <Marker position={center} />
 
-
                   {directionsResponse && (
-
                     <DirectionsRenderer directions={directionsResponse} />
-
                   )}
-
-
                 </GoogleMap>
-
               </div>
-
             </div>
-
-
 
             <div className="vehiculeContainer col-3">
-
               <div className="ImageContainer">
-
-
                 <img
-
                   className="offersImageBackground"
-
                   alt="car"
-
                   src={annonceE.vehicule.vehiculePhoto}
-
                 />
 
-
                 <div className="offerDate">
-
                   {annonceE.vehicule.marque} - {annonceE.vehicule.modele}
-
                 </div>
-
               </div>
-
             </div>
-
-
           </div>
-
         ))}
-
-
       </div>
 
       <div></div>
-
-
     </div>
-
   );
 }
 
