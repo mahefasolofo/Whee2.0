@@ -229,7 +229,6 @@ function DemandeOffre({ info }) {
               </div>
             </LoadScript>
           </div>
-
         </div>
       </div>
     </div>

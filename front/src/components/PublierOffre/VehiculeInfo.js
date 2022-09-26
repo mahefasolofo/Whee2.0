@@ -1,7 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../services/UserContext";
+import VehiculeService from "../../services/VehiculeService";
 function VehiculeInfo({ formData, setFormData }) {
   let idCurrentUser = useContext(UserContext);
+  const [vehiculeData, SetVehiculeDate] = useState([]);
+  useEffect(() => {
+    getVehiculeById(idCurrentUser);
+  }, [idCurrentUser]);
+
+  const getVehiculeById = async (id) => {
+    VehiculeService.getVehiculeById(id).then((response) => {
+      SetVehiculeDate(response.data);
+    });
+  };
   return (
     <div className="other-info-container">
       <select
@@ -25,8 +36,28 @@ function VehiculeInfo({ formData, setFormData }) {
         <option>03</option>
         <option>04</option>
       </select>
-      <br/>
-      
+      <br />
+      <select
+        type="text"
+        className="form-control form-control_place"
+        placeholder="Vehicule..."
+        onChange={(e) => {
+          setFormData({
+            ...formData,
+            vehicule: {
+              idVehicule: e.target.value,
+            },
+          });
+        }}
+      >
+        {vehiculeData.map((vehicule) => (
+          <option value={vehicule.idVehicule}>
+            {vehicule.immat} - {vehicule.modele}
+          </option>
+        ))}
+      </select>
+
+      <br />
       <input
         type="text"
         className="form-control"

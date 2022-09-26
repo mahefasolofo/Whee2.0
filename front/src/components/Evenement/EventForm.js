@@ -1,5 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../services/UserContext";
+
 import AnnonceCovoiturageService from "../../services/AnnonceCovoiturageService";
 import DateHourInfo from "../PublierOffre/DateHourInfo";
 import VehiculeInfo from "../PublierOffre/VehiculeInfo";
@@ -30,6 +32,7 @@ function EventForm({ ArrEvent }) {
   const [directionsResponse, setDirectionsResponse] = useState(null);
   const [distance, setDistance] = useState("");
   const [duration, setDuration] = useState("");
+  let idCurrentUser = useContext(UserContext);
 
   const originRef = useRef();
   const destiantionRef = ArrEvent;
@@ -59,6 +62,9 @@ function EventForm({ ArrEvent }) {
       ...formData,
       ptDepart: originRef.current.value,
       ptArrivee: destiantionRef,
+      covoitureur: {
+        idUser: idCurrentUser,
+      },
     });
     document.getElementById("EventAnnonce").style.display = "none";
     document.getElementById("EventAnnonce2").style.display = "flex";
@@ -95,10 +101,10 @@ function EventForm({ ArrEvent }) {
     nbPlace: "",
     covoitureurs: [],
     vehicule: {
-      idVehicule: 1,
+      idVehicule: "",
     },
     covoitureur: {
-      idUser: 1,
+      idUser: "",
     },
   });
 

@@ -39,7 +39,7 @@ function FormOffre() {
     nbPlace: "",
     covoitureurs: [],
     vehicule: {
-      idVehicule: 1,
+      idVehicule: "",
     },
     covoitureur: {
       idUser: "",
