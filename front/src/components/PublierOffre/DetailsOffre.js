@@ -103,6 +103,7 @@ function DetailsOffre() {
 
     <div className="detailOffreBackground">
 
+
       <div className="form_entete">
 
         <div className="titleCloseBtn_detail">
@@ -117,6 +118,7 @@ function DetailsOffre() {
 
           >
 
+
             <i class="fa fa-times-circle" aria-hidden="true"></i>
 
           </button>
@@ -129,13 +131,16 @@ function DetailsOffre() {
 
       <div className="detailOffreContainer row">
 
+
         {formData.map((annonceE) => (
 
           <div key={annonceE.idCovoit} className="detailRow row">
 
+
             <div className="userContainer col-3">
 
               <div className="ImageContainer">
+
 
                 <img
 
@@ -146,6 +151,7 @@ function DetailsOffre() {
                   alt="user"
 
                 />
+
 
                 <div className="offerNameDriver">
 
@@ -227,6 +233,7 @@ function DetailsOffre() {
 
 
 
+
               <button
 
                 className="button book_button_offre text-center"
@@ -235,6 +242,7 @@ function DetailsOffre() {
 
               >
 
+
                 Reserver
 
               </button>
@@ -242,6 +250,7 @@ function DetailsOffre() {
 
 
               <div className="map_detail_offre">
+
 
                 <GoogleMap
 
@@ -265,13 +274,16 @@ function DetailsOffre() {
 
                 >
 
+
                   <Marker position={center} />
+
 
                   {directionsResponse && (
 
                     <DirectionsRenderer directions={directionsResponse} />
 
                   )}
+
 
                 </GoogleMap>
 
@@ -285,6 +297,7 @@ function DetailsOffre() {
 
               <div className="ImageContainer">
 
+
                 <img
 
                   className="offersImageBackground"
@@ -294,6 +307,7 @@ function DetailsOffre() {
                   src={annonceE.vehicule.vehiculePhoto}
 
                 />
+
 
                 <div className="offerDate">
 
@@ -305,13 +319,16 @@ function DetailsOffre() {
 
             </div>
 
+
           </div>
 
         ))}
 
+
       </div>
 
       <div></div>
+
 
     </div>
 
