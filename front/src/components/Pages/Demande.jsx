@@ -185,8 +185,7 @@ function Demande() {
               )}{" "}
             </div>
 
-            <div className="search_panel_offre active_offre col-lg-8">
-                <form action="#" id="search_form_1" className="search_panel_content_offre d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
+            
                     <div className="search_item">
 
                         <input type="text" className="destination search_input search_input_first" required="required" placeholder=" Départ"
@@ -272,15 +271,15 @@ function Demande() {
                             }>
                         <i className="fa fa-search" aria-hidden="true"/>
                     </button>
-                </form>
+                
 
-            </div>
-            <button
+            
+            {/* <button
               className="button search_button"
               onClick={(e) => handleSearch()}
             >
               <i className="fa fa-search" aria-hidden="true" />
-            </button>
+            </button> */}
           </form>
         </div>
 
@@ -292,7 +291,7 @@ function Demande() {
             <div className="col-lg-1 temp_col" />
             <div className="col-lg-11">
               {/* Offers Sorting */}
-              <div className="offers_sorting_container">
+              {/* <div className="offers_sorting_container">
                 <ul className="offers_sorting">
                   <li>
                     <span className="sorting_text">Prix</span>
@@ -333,7 +332,7 @@ function Demande() {
                     </ul>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
             <div className="col-lg-12">
               {/* Offers Grid */}
@@ -396,7 +395,7 @@ function Demande() {
                                 Centres d'intérêts : {interet}
                               </p>
                               <div
-                                className="button book_button"
+                                className="button book_button_demande"
                                 onClick={() =>
                                   afficherDemandeOffre(
                                     val.ptDepart,
