@@ -30,7 +30,6 @@ public class EventController {
     @DeleteMapping("/deleteUser/{idEvent}")
     public void deleteInterests(@PathVariable Long idEvent){
         Event event = eventRepository.findById(idEvent).orElseThrow(()->new ResourceNotFoundException("Cet élement n'existe pas " + idEvent));
-
     }
 
 

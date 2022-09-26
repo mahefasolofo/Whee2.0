@@ -26,6 +26,10 @@ public class UserController {
     public User createCompte(@RequestBody User user) {
         return userRepository.save(user);
     }
+    @GetMapping("/findUserById/{id}")
+    public User findUserById(@PathVariable Long id) {
+        return userRepository.findById(id).orElseThrow();
+    }
     @GetMapping("/findUserByMail/{userEmail}")
     public List<User> findAllUserByMail(@PathVariable String userEmail) {
         return userRepository.findByMail(userEmail);
@@ -35,9 +39,4 @@ public class UserController {
         return userRepository.findIDByMail(userEmail);
     }
 
-    @GetMapping("/findById/{id}")
-    public User findIdById(@PathVariable Long id) {
-        User user = userRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("tsa misy"));
-        return user;
-    }
 }
