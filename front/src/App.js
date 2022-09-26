@@ -110,7 +110,6 @@ function App() {
     }
   };
 
-
   const registerUser = (nom) => {
     setUserData({ ...userData, username: nom });
     connect();
@@ -123,15 +122,10 @@ function App() {
 
   function handleCredentialResponse(response) {
     try {
-
-
       // setAuth(jwt_decode(response.credential));
 
       document.getElementById("id01").style.display = "none";
       localStorage.setItem("token", response.credential);
-
-
-
 
       window.location.reload(false);
     } catch {
@@ -149,20 +143,15 @@ function App() {
             jwt_decode(localStorage.getItem("token")).email
           );
           setUser(resp.data);
-
         };
 
         logInterest();
         setUser(jwt_decode(localStorage.getItem("token")).name);
-        registerUser(jwt_decode(localStorage.getItem("token")).name)
-
-
-
-
+        registerUser(jwt_decode(localStorage.getItem("token")).name);
+        setTab(jwt_decode(localStorage.getItem("token")).name);
       }
     }
     setEssai(7);
-
 
     try {
       google.accounts.id.initialize({
@@ -170,7 +159,7 @@ function App() {
           "162247164460-u010auh9f2t4er36klc81sqd7g8elg7u.apps.googleusercontent.com",
         callback: handleCredentialResponse,
       });
-    } catch { }
+    } catch {}
 
     try {
       google.accounts.id.initialize({
@@ -190,7 +179,7 @@ function App() {
         "border-radius": 180,
         border: "none",
       });
-    } catch (error) { }
+    } catch (error) {}
   }, [user, setUser, essai, setEssai]);
 
   return (
