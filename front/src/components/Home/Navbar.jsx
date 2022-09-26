@@ -40,9 +40,9 @@ const NavBar = () => {
     );
     userJoin();
   };
-  const [load,setLoad] = useState();
+  const [load, setLoad] = useState();
 
-    const userJoin = () => {
+  const userJoin = () => {
     var chatMessage = {
       senderName: userData.username,
       status: "JOIN",
@@ -129,7 +129,7 @@ const NavBar = () => {
     localStorage.setItem("token", "tsia");
     setLoad({});
   };
-  
+
   return (
     <React.Fragment>
       <header className="header">
@@ -161,7 +161,9 @@ const NavBar = () => {
                     </li>
                     {value.length < 100 ? null : (
                       <li className="main_nav_item">
-                        <Link to={`/espaceperso/${idCurrentUser}`}>Espace Personel</Link>
+                        <Link to={`/espaceperso/${idCurrentUser}`}>
+                          Espace Personel
+                        </Link>
                       </li>
                     )}
                     <li className="main_nav_item">
@@ -192,57 +194,62 @@ const NavBar = () => {
                       display: "flex",
                     }}
                   >
-                    <div className="icon_notif">
-                      <Dropdown>
-                        <Dropdown.Toggle
-                          variant=""
-                          style={{
-                            color: "white",
-                            backgroundColor: "rgba(0, 0, 0, 0.0)",
-                            border: "none",
-                            position: "relative",
-                          }}
-                        >
-                          <i className="fa fa-bell" aria-hidden="true" />
-                          {publicChats.length !== 0 ? (
-                            <div className="counterNotif">
-                              {publicChats.length}
-                            </div>
-                          ) : null}
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu
-                          style={{
-                            color: "white",
-                            backgroundColor: "rgba(33, 33, 33, 0.5)",
-                          }}
-                        >
-                          {publicChats.map((chat, index) => (
-                            <Dropdown.Item
-                              href="#/action-1"
-                              className="menuDropDownItemNotif"
-                              onLoad={sendValueEvent}
-                            >
-                              <li key={index}>
-                                {chat.senderName}
+                    {tab == userData.username ? (
+                      <div className="icon_notif">
+                        <Dropdown>
+                          <Dropdown.Toggle
+                            variant=""
+                            style={{
+                              color: "white",
+                              backgroundColor: "rgba(0, 0, 0, 0.0)",
+                              border: "none",
+                              position: "relative",
+                            }}
+                          >
+                            <i className="fa fa-bell" aria-hidden="true" />
+                            {publicChats.length !== 0 ? (
+                              <div className="counterNotif">
+                                {publicChats.length}
+                              </div>
+                            ) : null}
+                          </Dropdown.Toggle>
+                          <Dropdown.Menu
+                            style={{
+                              color: "white",
+                              backgroundColor: "rgba(33, 33, 33, 0.5)",
+                            }}
+                          >
+                            {publicChats.map((chat, index) => (
+                              <Dropdown.Item
+                                href="#/action-1"
+                                className="menuDropDownItemNotif"
+                                onLoad={sendValueEvent}
+                              >
+                                <li key={index}>
+                                  {chat.senderName}
 
-                                {chat.message}
-                              </li>
-                            </Dropdown.Item>
-                          ))}
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    </div>
+                                  {chat.message}
+                                </li>
+                              </Dropdown.Item>
+                            ))}
+                          </Dropdown.Menu>
+                        </Dropdown>
+                      </div>
+                    ) : (
+                      <div className="icon_notif">
+                        <i className="fa fa-bell" aria-hidden="true" />
+                      </div>
+                    )}
+
                     <img src={value.picture} alt="ImgPdp" id="pdpImage" />
                     {/* <a href="#" id="user_name " className='user_box_register user_box_a'> */}
                     <Dropdown style={{ color: "white", border: "none" }}>
                       <Dropdown.Toggle
                         variant=""
                         className="menuDropDownItem"
-                        style={{
-                          
-                        }}
+                        style={{}}
                       >
-                        {value.name.split(' ').slice(0,1)}
+                        {value.name.split(" ").slice(0, 1)}
                       </Dropdown.Toggle>
                       <Dropdown.Menu
                         style={{
@@ -261,7 +268,6 @@ const NavBar = () => {
                           href="/profil"
                           className="menuDropDownItem"
                         >
-                        
                           Profil
                         </Dropdown.Item>
                         <Dropdown.Item

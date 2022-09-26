@@ -25,8 +25,7 @@ const containerStyle = {
   borderRadius: "10px",
 };
 
-
-function DemandeOffre({info}) {
+function DemandeOffre({ info }) {
   const [page, setPage] = useState(0);
   let idCurrentUser = useContext(UserContext);
   var idUSER = parseInt(idCurrentUser);
@@ -34,7 +33,7 @@ function DemandeOffre({info}) {
     ptDepart: "",
     ptArrivee: "",
     heureCovoit: "",
-    dateCovoit: ""
+    dateCovoit: "",
   });
   const originRefVal = info.ptDepart;
   const destinationRefval = info.ptArrivee;
@@ -66,65 +65,60 @@ function DemandeOffre({info}) {
   const [distance, setDistance] = useState("");
   const [duration, setDuration] = useState("");
 
+  // function clearRoute() {
+  //   setDirectionsResponse(null);
+  //   setDistance("");
+  //   setDuration("");
+  //   originRef.current.value = ""
+  //   destinationRef.current.value = "";
+  // }
 
-// function clearRoute() {
-//   setDirectionsResponse(null);
-//   setDistance("");
-//   setDuration("");
-//   originRef.current.value = ""
-//   destinationRef.current.value = "";
-// }
+  async function calculateRoute(depart, arrivee) {
+    const directionsService = new google.maps.DirectionsService();
+    const results = await directionsService.route({
+      origin: depart,
+      destination: arrivee,
+      // eslint-disable-next-line no-undef
+      travelMode: google.maps.TravelMode.DRIVING,
+    });
+    setDirectionsResponse(results);
+    setDistance(results.routes[0].legs[0].distance.text);
+    setDuration(results.routes[0].legs[0].duration.text);
+  }
 
-async function calculateRoute(depart,arrivee) {
-  
-  const directionsService = new google.maps.DirectionsService();
-  const results = await directionsService.route({
-  origin: depart,
-  destination: arrivee,
-    // eslint-disable-next-line no-undef
-   travelMode: google.maps.TravelMode.DRIVING,
-  });
-  setDirectionsResponse(results);
-  setDistance(results.routes[0].legs[0].distance.text);
-  setDuration(results.routes[0].legs[0].duration.text);
+  // const centerRef = useRef();
+  // async function adressCenter() {
+  //   // eslint-disable-next-line no-undef
+  //   const directionsService = new google.maps.DirectionsService();
+  //   const results = await directionsService.route({
+  //     origin: centerRef,
+  //     destination: centerRef,
+  //     // eslint-disable-next-line no-undef
+  //     travelMode: google.maps.TravelMode.DRIVING,
+  //   });
+  //   setDirectionsResponse(results);
+  //   setDistance(results.routes[0].legs[0].distance.text);
+  //   setDuration(results.routes[0].legs[0].duration.text);
+  // }
 
+  async function continuer() {
+    document.getElementById("demandeAnnonce").style.display = "none";
+    document.getElementById("demandeAnnonce2").style.display = "flex";
+  }
 
-}
-
-// const centerRef = useRef(); 
-// async function adressCenter() {
-//   // eslint-disable-next-line no-undef
-//   const directionsService = new google.maps.DirectionsService();
-//   const results = await directionsService.route({
-//     origin: centerRef,
-//     destination: centerRef,
-//     // eslint-disable-next-line no-undef
-//     travelMode: google.maps.TravelMode.DRIVING,
-//   });
-//   setDirectionsResponse(results);
-//   setDistance(results.routes[0].legs[0].distance.text);
-//   setDuration(results.routes[0].legs[0].duration.text);
-// }
-
-
-async function continuer(){
-  
-  document.getElementById("demandeAnnonce").style.display = "none";
-  document.getElementById("demandeAnnonce2").style.display = "flex";
-}
-
-
-
-/* End of Google Map stuff */
+  /* End of Google Map stuff */
   return (
     <div>
-      
       <div className="modalBackground" id="demandeAnnonce2">
         <div className="modalContainer">
-        <div className="modalHeader"><h1>Publier une annonce</h1></div>
+          <div className="modalHeader">
+            <h1>Publier une annonce</h1>
+          </div>
           <div className="titleCloseBtn">
-                      <button onClick={close2}><i className="fa fa-times-circle" aria-hidden="true"></i></button>
-                  </div>
+            <button onClick={close2}>
+              <i className="fa fa-times-circle" aria-hidden="true"></i>
+            </button>
+          </div>
           <div className="container">
             <div className="progressbar">
               <div
@@ -140,7 +134,7 @@ async function continuer(){
               <div className="bodyF">{PageDisplay()}</div>
               <div className="footerF">
                 <button
-                className="btn btn-primary"
+                  className="btn btn-primary"
                   disabled={page === 0}
                   onClick={() => {
                     setPage((currPage) => currPage - 1);
@@ -149,7 +143,7 @@ async function continuer(){
                   Précédent
                 </button>
                 <button
-                className="btn btn-primary"
+                  className="btn btn-primary"
                   onClick={() => {
                     if (page === FormTitles.length - 1) {
                       AnnonceCovoiturageService.publierAnnonce(formData);
@@ -169,71 +163,73 @@ async function continuer(){
 
       <div className="form_event_background" id="demandeAnnonce">
         <div className="modal_container">
-          
-          <div className="modalHeader"><h1>Publier une annonce</h1></div>
-                    <div className="titleCloseBtn">
-                        <button onClick={close}><i className="fa fa-times-circle" aria-hidden="true"></i></button>
-                    </div>
-            <div className="form_event_container">
-              <div className="headerF">
-                <h1>Trajet</h1>
-                <div className="postcard__bar" />
-              </div>
+          <div className="modalHeader">
+            <h1>Publier une annonce</h1>
+          </div>
+          <div className="titleCloseBtn">
+            <button onClick={close}>
+              <i className="fa fa-times-circle" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div className="form_event_container">
+            <div className="headerF">
+              <h1>Trajet</h1>
+              <div className="postcard__bar" />
+            </div>
 
-              <LoadScript googleMapsApiKey={api} libraries={["places"]}>
-                <div className='google_map_form'>
-                    <div className="gauche">
-                    
-                        
-                            <div>
-                              <label>Point de départ</label>
-                              <input type="text" value={originRefVal} className="input_ptDepart" disabled="disable"/>
-                            </div>
-                            
-                        
-                            <div>
-                                  <label>Point d'arrivée</label>
-                                  <input type="text" value={destinationRefval}  className="input_ptDepart" disabled="disable"/>
-                                  {/* <label>Date</label>
+            <LoadScript googleMapsApiKey={api} libraries={["places"]}>
+              <div className="google_map_form">
+                <div className="gauche">
+                  <div>
+                    <label>Point de départ</label>
+                    <input
+                      type="text"
+                      value={originRefVal}
+                      className="input_ptDepart"
+                      disabled="disable"
+                    />
+                  </div>
+
+                  <div>
+                    <label>Point d'arrivée</label>
+                    <input
+                      type="text"
+                      value={destinationRefval}
+                      className="input_ptDepart"
+                      disabled="disable"
+                    />
+                    {/* <label>Date</label>
                                   <input type="text" value={dateFormate.text} className="input_ptDepart" />
                                   <label>Heure</label>
                                   <input type="hour" placeholder={info.heureCovoit} className="input_ptDepart"/> */}
-                              {/* <button className="btn btn-primary" type="submit" onClick={calculateRoute(originRefVal,destinationRefval)}>Valider le trajet</button> */}
-                              <div className="div_info_sup_demande">                          
-                                <p className="info_sup"><i className="fa fa-globe info_sup_label" aria-hidden="true">  </i>  {distance}  </p>
-                                <p className="info_sup"><i class="fa fa-clock-o info_sup_label" aria-hidden="true">  </i>  {duration}</p>
-                              </div>
-                              <button className="btn btn-primary" onClick={continuer}>Continuer</button>
-                            </div>
-                            
-                    
-                    
-                    </div>
-                    <div className="droite">
-                        <GoogleMap
-                          mapContainerStyle={containerStyle}
-                          center={calculateRoute(originRefVal,destinationRefval)}
-                          zoom={5}
-                          options={{
-                              zoomControl: false,
-                              streetViewControl: false,
-                              mapTypeControl: false,
-                              fullscreenControl: false,
-                          }}
-                          
-                          >
-                          <Marker position={center} />
-                          {directionsResponse && (
-                          <DirectionsRenderer directions={directionsResponse} />
-                          )}
-                        </GoogleMap>
-
-                        
-                    </div>
+                    {/* <button className="btn btn-primary" type="submit" onClick={calculateRoute(originRefVal,destinationRefval)}>Valider le trajet</button> */}
+                    <button className="btn btn-primary" onClick={continuer}>
+                      Continuer
+                    </button>
+                  </div>
                 </div>
-                </LoadScript>
-            </div>
-          
+                <div className="droite">
+                  <GoogleMap
+                    mapContainerStyle={containerStyle}
+                    center={calculateRoute(originRefVal, destinationRefval)}
+                    zoom={5}
+                    options={{
+                      zoomControl: false,
+                      streetViewControl: false,
+                      mapTypeControl: false,
+                      fullscreenControl: false,
+                    }}
+                  >
+                    <Marker position={center} />
+                    {directionsResponse && (
+                      <DirectionsRenderer directions={directionsResponse} />
+                    )}
+                  </GoogleMap>
+                </div>
+              </div>
+            </LoadScript>
+          </div>
+
         </div>
       </div>
     </div>
