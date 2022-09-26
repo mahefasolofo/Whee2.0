@@ -48,11 +48,11 @@ public class Event implements Serializable {
 	@Column(name = "LieuEvent", nullable = true, length = 255)
 	private String lieuEvent;
 
-	@Column(name = "HeureEvent", nullable = true, columnDefinition = "TIME")
+	@Column(name = "HeureEvent", nullable = true)
 	@DateTimeFormat(pattern = "hh:mm")
 	private LocalTime heureEvent;
 
-	@Column(name = "DateEvent", nullable = true, columnDefinition = "DATE")
+	@Column(name = "DateEvent", nullable = true)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateEvent;
 

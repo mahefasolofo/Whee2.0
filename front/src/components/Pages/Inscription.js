@@ -112,7 +112,7 @@ const Inscription = () => {
                             <div className="card cardInscription" data-step="">
                                 <span className="close" title="Fermer"
                                     onClick={closeInscription}>
-                                    <i className="fa-solid fa-x closeInscription"/>
+                                    <i className="fa fa-times-circle closeInscription" aria-hidden="true"/>
                                 </span>
                                 <div className="imgcontainer">
                                     <div style={
@@ -152,7 +152,7 @@ const Inscription = () => {
                                     <b htmlFor="psw">
                                         Prenom*
                                     </b>
-                                    <input type="text" placeholder="E-mail" name="prenom" className="inscriptionInput"
+                                    <input type="text" placeholder="Prénom" name="prenom" className="inscriptionInput"
                                         style={
                                             {marginBottom: 15}
                                         }

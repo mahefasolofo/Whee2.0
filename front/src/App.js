@@ -23,6 +23,7 @@ import jwt_decode from "jwt-decode";
 import { AccordionButton } from "react-bootstrap";
 import { set } from "react-hook-form";
 import DetailsOffre from "./components/PublierOffre/DetailsOffre";
+import ProfilPage from "./components/Profil/ProfilPage";
 
 var stompClient = null;
 function App() {
@@ -108,18 +109,6 @@ function App() {
       setPrivateChats(new Map(privateChats));
     }
   };
-  const sendValueEvent = () => {
-    if (stompClient) {
-      var chatMessage = {
-        senderName: "ADMIN",
-        message: " : des événements qui pourraient vous intéresser",
-        status: "MESSAGE",
-      };
-      console.log(chatMessage);
-      stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
-      setUserData({ ...userData, message: "" });
-    }
-  };
 
   const registerUser = (nom) => {
     setUserData({ ...userData, username: nom });
@@ -133,16 +122,10 @@ function App() {
 
   function handleCredentialResponse(response) {
     try {
-      console.log("Encode JWT id Token: " + response.credential);
-      console.log(jwt_decode(response.credential));
-
       // setAuth(jwt_decode(response.credential));
 
       document.getElementById("id01").style.display = "none";
       localStorage.setItem("token", response.credential);
-
-      console.log(jwt_decode(localStorage.getItem("token")));
-      setUser(jwt_decode(localStorage.getItem("token")).email);
 
       window.location.reload(false);
     } catch {
@@ -159,17 +142,16 @@ function App() {
           const resp = await UserService.getIdByMail(
             jwt_decode(localStorage.getItem("token")).email
           );
-        setUser(resp.data);
-
+          setUser(resp.data);
         };
 
         logInterest();
-        registerUser(jwt_decode(localStorage.getItem("token")).email);
+        setUser(jwt_decode(localStorage.getItem("token")).name);
+        registerUser(jwt_decode(localStorage.getItem("token")).name);
+        setTab(jwt_decode(localStorage.getItem("token")).name);
       }
     }
     setEssai(7);
-    console.log("essai ty", essai);
-    console.log("user", user);
 
     try {
       google.accounts.id.initialize({
@@ -204,7 +186,6 @@ function App() {
     <React.Fragment>
       <UserContext.Provider value={user}>
         <SocketContext.Provider value={value}>
-          
           <FormOffre />
 
           <div className="super_container">
@@ -215,6 +196,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
               <Route path="/offres" element={<Offre />} />
+              <Route path="/offres/:idCovoit" element={<DetailsOffre />} />
               <Route path="/demandes" element={<Demande />} />
               <Route path="/evenements" element={<Evenements />} />
               <Route path="/espaceperso/:idUser" element={<Espaceperso />} />
@@ -222,7 +204,9 @@ function App() {
                 path="/evenements/:idEvent"
                 element={<ParticiperEvent />}
               />
+              {/* <Route path="/offres/:idCovoit" element={<DetailsOffre />} /> */}
               <Route path="/a_propos" element={<About />} />
+              <Route path="/profil" element={<ProfilPage />} />
             </Routes>
 
             <Footer />

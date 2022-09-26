@@ -236,6 +236,7 @@ span.psw {
     padding-top:34px;
     vertical-align: middle;
     box-sizing: border-box;
+    backdrop-filter: blur(3px);
 }
 
 
@@ -359,3 +360,7 @@ span.psw {
 
 
 /* END OF CONNEXION MODAL */
+
+
+/* menuDropDownItem */
+

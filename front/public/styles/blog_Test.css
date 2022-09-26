@@ -471,14 +471,14 @@ a:hover {
 
 .form_event_container {
     width: 1200px;
-    height: 550px;
+    height: 500px;
     background-color: #f8f8f8;    
     display: flex;    
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 85px;
     align-items: center;
     /* border: solid rgb(219, 219, 219,0.8) 1.2px; */
-	
+	border-radius: 10px;
 }
 
 .google_map_form {
@@ -494,16 +494,171 @@ a:hover {
     background-color:#f8f8f8;
 }
 
+.droite{
+    height: 500px;
+}
 
 #EventAnnonce{
+    display: none;
+}
+#EventAnnonce2{
     display: none;
 }
 
 
 .modal_Form {
-    margin-top: 150px;
+    margin-top: 50px;
     margin-left: 200px;
     display: flow-root;
     align-items: flex-start;
 }
 
+/* Styles ProfilPage */
+
+.home_profil
+{
+	width: 100%;
+	height: 465px;
+	display: block;
+    overflow: hidden;
+}
+
+.home_profil>img 
+{
+    height: auto;
+    width: 100%;
+    transform: translateY(-30%);
+}
+
+.profile_card {
+    position: relative;
+    display : block;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    padding: 20px 30px 10px 30px;
+    margin-left: 50px;
+    border-radius: 5px;
+    width: 600px;
+}
+
+.profile_ci_card{
+    position: relative;
+    display : flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    padding: 20px 30px 10px 30px;
+    border-radius: 5px;
+    width: 50%;
+}
+
+.img_ci_container{
+    overflow:hidden;
+    width: 130px;
+    height: 130px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    position: relative;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.imageCI {
+    width: 150px;
+    height: 150px;
+}
+
+.imageVehicule{
+    width: 100px;
+    height: 85px;
+    border-radius: 10%;
+    margin-top: 8px;
+    position: absolute;
+    margin-left: 380px;
+}
+
+.ci_text{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.vehicule_text {
+    padding-top: 15px;
+    padding-left: 15px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.super_container_profil{
+    width: 100%;
+    background-color: #f3f5f7;
+    overflow: hidden;
+}
+
+.profile_title{
+    font-size: large;
+    margin-bottom: 30px;
+}
+
+.vehicule_cardlist{
+    border-color: #18151f;
+    width: 500px;
+    height: 100px;
+    background-color: #f3f5f7;
+    margin-bottom: 10px;
+    display: block;
+
+}
+
+.vehicule_detail{
+    margin-left: 25px;   
+
+}
+
+#formVehicule {
+    display: none;
+}
+
+.mc_vehicule {
+    height: 700px !important;
+    width: 1000px !important;
+}
+
+.modalForm_vehicule{
+    margin-top: 150px;
+    margin-left: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.container_img{
+    
+    width: 200px;
+}
+
+.form_fields {
+    width: 400px;
+    border-right: #18151f;
+}
+
+.form_fields .form-control{
+    width: 360px;
+}
+
+#frame{
+    height: 300px;
+    width: auto;
+}

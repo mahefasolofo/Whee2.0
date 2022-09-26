@@ -406,26 +406,24 @@
 
 .offers_item .offers_overlay{
 		position:absolute; 
-		left: 249px;
-		top: 0;
-		width: 280px;
+		width: 100%;
 		height: 310px;
 		background-color: rgba(25, 29, 38, 0.7);
 		opacity: 0;
 		z-index:2;
 		border-top-right-radius: 10px;
 		border-bottom-right-radius: 10px;
+		margin-left: -15px;
 }
 
 .offers_overlay_separator{
 	position: absolute;
-	left:248px;
-	top:0;
 	width: 3px;
 	height:0px;
 	background-color: #ccb65e;
 	border: none;
 	z-index:3;
+	margin-left: -15px;
 	
 
 }
@@ -557,13 +555,13 @@
 .offers_item
 {
 	
-	min-width: 539px !important;
-	height:320px;
+	/*min-width: 539px !important;
+	height:320px;*/
 	margin-bottom: 0px;
 	padding:5px;
 	border-radius: 10px;
 	box-shadow: 0px 2px 5px rgb(42, 42, 42,0.6);
-	
+	overflow: hidden!important;
 
 }
 
@@ -596,9 +594,9 @@
 
 .offers_image_background
 {
-	position: absolute;
-	top: 0;
-	left: 0;
+	position: relative;
+	/*top: -28px;
+	left: 0;*/
 	width: 100%;
 	height: 310px;
 	background-repeat: no-repeat;
@@ -818,9 +816,9 @@
 	position : absolute;
 	background: #003049!important;
 	width:186px;
-	top: 230px;
-	left: 50px;
-
+	top: 220px;
+	left:40px;
+	cursor: pointer;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -828,11 +826,27 @@
 	transition: all 200ms ease;
 
 }
+.book_button_demande a{
+	color: #fff!important;
+}
+.book_button_demande{
+	position : absolute;
+	background: #003049!important;
+	width:186px;
+	top: 200px;
+	left:40px;
+	cursor: pointer;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
 .publier_button{
 	background: #003049;
 	border: none;
 	width:auto;
-	margin-top: 39px;
+	margin-top: 50px;
 	margin-bottom: 5px;
 	margin-left: 20vh;
 	margin-right: auto;
@@ -976,8 +990,8 @@
 }
 
 .detailOffreContainer{
-	width: 900px;
-    height: 550px;
+	width: 1000px;
+    height: 700px;
     background-color: #f8f8f8;
     box-shadow: 0 4px 10px -0px rgba(0, 0, 0, 0.66);
     display: flex;
@@ -986,27 +1000,45 @@
     /* border: solid rgb(219, 219, 219,0.8) 1.2px; */
 	  border-radius: 10px;
 }
+.titleCloseBtn_detail{
+	display: block;
+    top:-338px;
+    left: 1003px;
+    margin-right: 20px;
+    margin-top: 10px;
+    z-index: 5;
+	border: none;
+}
+.titleCloseBtn_detail button{
+        
+	background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+  }
 
 .userContainer{
 	width:100%;
 	height: 498px;
-	background-color: #ccb65e;
+	/* background-color: #ccb65e; */
 }
 
 .detailContainer{
 	width:100%;
 	height: 100%;
-	background-color: #5ecc85;
+	/* background-color: #5ecc85; */
 }
 
 .vehiculeContainer{
 	width:100%;
 	height: 100%;
-	background-color: #931fb3;
+	padding-left: 0;
+	/* background-color: #931fb3; */
 }
 
 .detailRow{
-	margin:0;
+	margin-top: 10px;
+	/* margin:0; */
 }
 
 /*********************************

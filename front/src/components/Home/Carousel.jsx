@@ -7,7 +7,7 @@ export default class Carousel extends Component {
 
       <div className="home">
         {/* Home Slider */}
-        <div className="home_slider_container">
+        <div className="home_slider_container" id="home_carousel">
           <div className="owl-carousel owl-theme home_slider">
             {/* Slider Item */}
             <div className="owl-item home_slider_item">
@@ -27,7 +27,7 @@ export default class Carousel extends Component {
                   {/* <div class="button home_slider_button"><div class="button_bcg"></div><a href="index.htmlsearch_section">Découvrez maintenant<span></span><span></span><span></span></a></div> */}
                 </div>
               </div>
-              <div className="search_panel active col-lg-8">
+              <div className="search_panel active col-lg-8" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
                 <form
                   action="index.html"
                   id="search_form_11"
@@ -35,11 +35,11 @@ export default class Carousel extends Component {
                   data-animation-in="flipInX"
                   data-animation-out="animate-out fadeOut"
                 >
-                  <div className="search_item">
+                  <div className="search_item" >
                     {/* <i class="fa fa-map-marker" aria-hidden="true"></i> Départ */}
                     <input
                       type="text"
-                      className="destination search_input"
+                      className="destination search_input search_input_first"
                       required="required"
                       placeholder=" Départ"
                       style={{ fontFamily: "Arial, FontAwesome" }}
@@ -101,7 +101,7 @@ export default class Carousel extends Component {
                   {/* <div class="button home_slider_button"><div class="button_bcg"></div><a href="index.html">Recherchez maintenant<span></span><span></span><span></span></a></div> */}
                 </div>
               </div>
-              <div className="search_panel active col-lg-8">
+              <div className="search_panel active col-lg-8" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
                 <form
                   action="index.html"
                   id="search_form_5"
@@ -113,7 +113,7 @@ export default class Carousel extends Component {
                     {/* <i class="fa fa-map-marker" aria-hidden="true"></i> Départ */}
                     <input
                       type="text"
-                      className="destination search_input"
+                      className="destination search_input search_input_first"
                       required="required"
                       placeholder=" Départ"
                       style={{ fontFamily: "Arial, FontAwesome" }}
@@ -171,11 +171,11 @@ export default class Carousel extends Component {
                   data-animation-out="animate-out fadeOut"
                 >
 
-                  <h1>Evènements!</h1>
+                  <h1>Evénements!</h1>
                   {/* <div class="button home_slider_button"><div class="button_bcg"></div><a href="index.html">Explorez maintenant<span></span><span></span><span></span></a></div> */}
                 </div>
               </div>
-              <div className="search_panel active col-lg-8">
+              <div className="search_panel active col-lg-8" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
                 <form
                   action="index.html"
                   id="search_form_2"
@@ -187,7 +187,7 @@ export default class Carousel extends Component {
                     {/* <i class="fa fa-map-marker" aria-hidden="true"></i> Départ */}
                     <input
                       type="text"
-                      className="destination search_input"
+                      className="destination search_input search_input_first"
                       required="required"
                       placeholder=" Evènement"
                       style={{ fontFamily: "Arial, FontAwesome" }}
@@ -217,7 +217,7 @@ export default class Carousel extends Component {
                     {/* <i class="fa fa-calendar" aria-hidden="true"></i> Date / heure */}
                     <input
                       type="datetime-local"
-                      className="check_out search_input"
+                      className="check_out search_input search_input_last"
                       placeholder="Date | Heure"
                     />
                   </div>
@@ -304,16 +304,7 @@ export default class Carousel extends Component {
               />
             </svg>
           </div>
-          {/* Home Slider Dots */}
-          {/* <div class="home_slider_dots row search_tabs_container">
-        
-                        <ul id="home_slider_custom_dots" class="home_slider_custom_dots col fill_height search_tabs d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                            
-                            <li class="home_slider_custom_dot active search_tab active d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="images/bus.png" alt=""><span>Offres</span></li>
-                            <li class="home_slider_custom_dot search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="images/suitcase.png" alt="">Demandes</li>
-                            <li class="home_slider_custom_dot search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="images/diving.png" alt="">Evènements</li>
-                        </ul>
-                    </div> */}
+          
         </div>
       </div>
 

@@ -102,8 +102,10 @@ $(document).ready(function()
 			{
 				items:1,
 				loop:true,
-				autoplay:false,
-				smartSpeed:1200,
+				autoplay:true,
+				autoplayTimeout:5000,
+				smartSpeed:2500,
+				autoplayHoverPause:true,
 				dotsContainer:'main_slider_custom_dots'
 			});
 

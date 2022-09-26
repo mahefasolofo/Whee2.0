@@ -169,6 +169,7 @@ p {
 
 .inscriptionModal {
     display: none;
+    backdrop-filter: blur(3px);
 }
 .containerInscription{
     padding-top:0px;
@@ -220,8 +221,8 @@ p {
 
 .closeInscription {
     position: absolute;
-    right: 35px;
-    top: 40px;
+    right: 15px;
+    top: 20px;
     color: rgb(51, 51, 51);
     font-size: 25px;
     font-weight: bold;
@@ -255,7 +256,7 @@ main {
 }
 
 .email {
-    . margin-bottom: 7px;
+    margin-bottom: 7px;
 }
 
 .mdp {
@@ -461,7 +462,7 @@ input[type=checkbox] {
     padding:0px;
 }
 
-.row {}
+
 
 .divCentreInteret:hover {
     background-color: red;

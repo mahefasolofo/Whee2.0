@@ -161,7 +161,7 @@ function Offre () {
                 {/* <i class="fa fa-map-marker" aria-hidden="true"></i> Départ */}
                 <input
                   type="text"
-                  className="destination search_input"
+                  className="destination search_input search_input_first"
                   required="required"
                   placeholder=" Départ"
                   style={{ fontFamily: "Arial, FontAwesome" }}
@@ -169,37 +169,37 @@ function Offre () {
               </div>
               <div className="search_item">
 
-<input type="text" className="destination search_input" required="required" placeholder=" Départ"
-    style={
-        {fontFamily: "Arial, FontAwesome"}
-    }
-    onChange={
-        e => onChangeHandlerDepart(e.target.value)
-    }
-    value={text}/> {
-displayDepart == false ? null : (
-    <div  className="autoCompletionDiv">
+            <input type="text" className="destination search_input" required="required" placeholder=" Départ"
+                style={
+                    {fontFamily: "Arial, FontAwesome"}
+                }
+                onChange={
+                    e => onChangeHandlerDepart(e.target.value)
+                }
+                value={text}/> {
+                displayDepart == false ? null : (
+                <div  className="autoCompletionDiv">
 
-        {
-        recherche.map(function (v, i) {
-            return (
-                <div className="searchAutocompletion"
-                    key={
-                        v.id
-                }>
-                    {/* imprimez le nom de l'élément */}
-                    <span onClick={
-                            (e) => (onChangeHandlerDepart(v), setDisplayDepart(false))
-                        }
-                        className="searchAutocompletionValue"
-                        value={v}>
-                        <i class="fa fa-map-marker"></i>{v}</span>
-                </div>
-            );
-        })
-    } </div>
-)
-} </div>
+                    {
+                    recherche.map(function (v, i) {
+                        return (
+                            <div className="searchAutocompletion"
+                                key={
+                                    v.id
+                            }>
+                                {/* imprimez le nom de l'élément */}
+                                <span onClick={
+                                        (e) => (onChangeHandlerDepart(v), setDisplayDepart(false))
+                                    }
+                                    className="searchAutocompletionValue"
+                                    value={v}>
+                                    <i class="fa fa-map-marker"></i>{v}</span>
+                            </div>
+                        );
+                    })
+                } </div>
+            )
+            } </div>
               <div className="search_item">
                 {/* <i class="fa fa-calendar" aria-hidden="true"></i> Date / heure */}
                 <input
@@ -239,7 +239,7 @@ displayDepart == false ? null : (
                         <div className="col-lg-1 temp_col" />
                         <div className="col-lg-11">
                           {/* Offers Sorting */}
-                          <div className="offers_sorting_container">
+                          {/* <div className="offers_sorting_container">
                             <ul className="offers_sorting">
                               <li>
                                 <span className="sorting_text">Prix</span>
@@ -298,8 +298,9 @@ displayDepart == false ? null : (
                                 </ul>
                               </li>
                             </ul>
-                            <button className="button publier_button" onClick={afficherInscription} ><p>Publier une annonce</p></button>
-                          </div>
+                            
+                          </div> */}
+                          <button className="button publier_button" onClick={afficherInscription} ><p>Publier une annonce</p></button>
                         </div>
 
                         

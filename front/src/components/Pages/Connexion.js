@@ -45,13 +45,13 @@ const Connexion = () => {
           <div className="imgcontainer">
             {/* <span onClick={"document.getElementById('id01').style.display='none'"} className="close" title="Fermer"> */}
             <span onClick={closeConnexion} className="close" title="Fermer">
-              <i className="fa-solid fa-x close" />
+            <i className="fa fa-times-circle" aria-hidden="true"/>
             </span>
             <h5
               className="card-title text-center pb-0 fs-4"
               id="titreInscription"
             >
-              Bienvenue sur Whee!{user}{" "}
+              Bienvenue sur Whee!
             </h5>
           </div>
           <div

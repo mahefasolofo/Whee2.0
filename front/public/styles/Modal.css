@@ -7,8 +7,20 @@
 
 }
 
+#demandeAnnonce{
+	display: none;  /*TODO*/
+
+}
+#demandeAnnonce2{
+	display: none;
+
+}
+
 .form-container{
+  margin-top: 90px;
+  margin-left: 50px;
   display: block;  
+
 }
 .modalBackground {
     width: 100vw;
@@ -43,6 +55,7 @@
     justify-content: center;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    z-index:9;
    
   }
 
@@ -133,15 +146,21 @@
     background-color: #f8f8f8;
     color: #4a4a4a;
     font-weight: 600;
+    margin-top:8px;
     margin-bottom: 20px;
     border-radius: 16px;
-    border: 1.5px solid #ccc;
+    border: 2px solid #ccc;
    
+  }
+  .bodyF{
+    display: flex;
+    flex-direction: column;
   }
   .form-control_place{
     width: 250px!important;
     
     margin: 8px 0;
+    
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -151,6 +170,11 @@
     border-width: 2px;
 
   }
+
+  .input_ptDepart{
+    border-radius: 16px;
+  }
+
   input[type=date],input[type=time]{
     width: 50%;
     padding: 12px 20px;
@@ -169,6 +193,7 @@
     justify-content: flex-end;
     margin-right: 20px;
     margin-top: 10px;
+    z-index: 100;
     
   }
   
@@ -214,4 +239,34 @@
   .progressbar{
     height: 2px!important;
     background-color: #003049;
+  }
+
+  .div_info_sup{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 244px;
+    left: 164px;
+  }
+  .div_info_sup_demande{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 73px;
+    left: -15px;
+  }
+  .div_info_sup_event{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 143px;
+    left: -11px;
+  }
+  .info_sup{
+    margin-left: 15px;
+    color:rgba(0, 0, 0, 0.7)
+  }
+
+  .info_sup_label{
+    margin-top: 20px;
   }

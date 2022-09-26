@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import whee.demo.entity.Covoiturage;
 import whee.demo.repository.CovoiturageRepository;
 
+
 import java.util.List;
 
 @CrossOrigin(origins = { "http://localhost:3001", "http://localhost:3000" }, allowCredentials = "true")
@@ -20,14 +21,22 @@ public class CovoiturageController {
         return covoiturageRepository.findAll();
     }
 
+
     @PostMapping("/annonces")
     public Covoiturage createAnnonce(@RequestBody Covoiturage annonce) {
+
         return covoiturageRepository.save(annonce);
     }
 
-    @GetMapping("/espaceperso/{id_covoitureur}")
-    public List<Covoiturage> findTout(@PathVariable Long id_covoitureur){return covoiturageRepository.findCovoitById(id_covoitureur);}
+    @GetMapping("/annonces/{idCovoit}")
+    public List<Covoiturage> getById(@PathVariable Long idCovoit) {
+        return covoiturageRepository.findCById(idCovoit);
+    }
 
+    @GetMapping("/espaceperso/{id_covoitureur}")
+    public List<Covoiturage> findTout(@PathVariable Long id_covoitureur) {
+        return covoiturageRepository.findCovoitById(id_covoitureur);
+    }
 
     @GetMapping("/events/{id}")
     public List<Covoiturage> getCovoitEvent(@PathVariable Long id) {
@@ -39,7 +48,7 @@ public class CovoiturageController {
     // // ne fonctionne pas encore : Mahefa
 
     // @GetMapping("/findCovoitByIdCovoit/{id_covoitureur}")
-    // public List<Covoiturage> findTout(@PathVariable Long id_covoitureur){return covoiturageRepository.findCovoitById(id_covoitureur);}
-    
+    // public List<Covoiturage> findTout(@PathVariable Long id_covoitureur){return
+    // covoiturageRepository.findCovoitById(id_covoitureur);}
 
 }
