@@ -153,7 +153,7 @@ function Demande() {
                 <form action="#" id="search_form_1" className="search_panel_content_offre d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
                     <div className="search_item">
 
-                        <input type="text" className="destination search_input" required="required" placeholder=" Départ"
+                        <input type="text" className="destination search_input search_input_first" required="required" placeholder=" Départ"
                             style={
                                 {fontFamily: "Arial, FontAwesome"}
                             }
