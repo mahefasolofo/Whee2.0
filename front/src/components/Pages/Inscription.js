@@ -113,7 +113,7 @@ const Inscription = () => {
                             <div className="card cardInscription" data-step="">
                                 <span className="close" title="Fermer"
                                     onClick={closeInscription}>
-                                    <i className="fa-solid fa-x closeInscription"/>
+                                    <i className="fa fa-times-circle closeInscription" aria-hidden="true"/>
                                 </span>
                                 <div className="imgcontainer">
                                     <div style={

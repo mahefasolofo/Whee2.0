@@ -39,7 +39,7 @@ export default class Carousel extends Component {
                     {/* <i class="fa fa-map-marker" aria-hidden="true"></i> Départ */}
                     <input
                       type="text"
-                      className="destination search_input"
+                      className="destination search_input search_input_first"
                       required="required"
                       placeholder=" Départ"
                       style={{ fontFamily: "Arial, FontAwesome" }}
@@ -113,7 +113,7 @@ export default class Carousel extends Component {
                     {/* <i class="fa fa-map-marker" aria-hidden="true"></i> Départ */}
                     <input
                       type="text"
-                      className="destination search_input"
+                      className="destination search_input search_input_first"
                       required="required"
                       placeholder=" Départ"
                       style={{ fontFamily: "Arial, FontAwesome" }}
@@ -187,7 +187,7 @@ export default class Carousel extends Component {
                     {/* <i class="fa fa-map-marker" aria-hidden="true"></i> Départ */}
                     <input
                       type="text"
-                      className="destination search_input"
+                      className="destination search_input search_input_first"
                       required="required"
                       placeholder=" Evènement"
                       style={{ fontFamily: "Arial, FontAwesome" }}
@@ -217,7 +217,7 @@ export default class Carousel extends Component {
                     {/* <i class="fa fa-calendar" aria-hidden="true"></i> Date / heure */}
                     <input
                       type="datetime-local"
-                      className="check_out search_input"
+                      className="check_out search_input search_input_last"
                       placeholder="Date | Heure"
                     />
                   </div>
