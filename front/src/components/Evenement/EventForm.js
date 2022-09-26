@@ -4,35 +4,35 @@ import AnnonceCovoiturageService from "../../services/AnnonceCovoiturageService"
 import DateHourInfo from "../PublierOffre/DateHourInfo";
 import VehiculeInfo from "../PublierOffre/VehiculeInfo";
 import {
-    LoadScript,
-    GoogleMap,
-    Marker,
-    DirectionsRenderer,
-    Autocomplete,
-  } from "@react-google-maps/api";
+  LoadScript,
+  GoogleMap,
+  Marker,
+  DirectionsRenderer,
+  Autocomplete,
+} from "@react-google-maps/api";
 
-  const api = "AIzaSyDQLfoT69SVIMwn06NymNrSPw4qXKnm8ts";
-  const center = {
-    lat: -3.745,
-    lng: -38.523,
-  };
+const api = "AIzaSyDQLfoT69SVIMwn06NymNrSPw4qXKnm8ts";
+const center = {
+  lat: -3.745,
+  lng: -38.523,
+};
 
-  const containerStyle = {
-    width: "740px",
-    height: "420px",
-    borderRadius: "10px",
-  };
+const containerStyle = {
+  width: "740px",
+  height: "420px",
+  borderRadius: "10px",
+};
 
-function EventForm({ArrEvent}) {
-    /*Google Map use */
+function EventForm({ ArrEvent }) {
+  /*Google Map use */
 
-    const [map, setMap] = useState(/** @type google.maps.Map */ (null));
-    const [directionsResponse, setDirectionsResponse] = useState(null);
-    const [distance, setDistance] = useState("");
-    const [duration, setDuration] = useState("");
+  const [map, setMap] = useState(/** @type google.maps.Map */ (null));
+  const [directionsResponse, setDirectionsResponse] = useState(null);
+  const [distance, setDistance] = useState("");
+  const [duration, setDuration] = useState("");
 
-    const originRef = useRef();
-    const destiantionRef = ArrEvent;
+  const originRef = useRef();
+  const destiantionRef = ArrEvent;
   function clearRoute() {
     setDirectionsResponse(null);
     setDistance("");
@@ -54,8 +54,12 @@ function EventForm({ArrEvent}) {
     setDuration(results.routes[0].legs[0].duration.text);
   }
 
-  async function continuer(){
-    
+  async function continuer() {
+    setFormData({
+      ...formData,
+      ptDepart: originRef.current.value,
+      ptArrivee: destiantionRef,
+    });
     document.getElementById("EventAnnonce").style.display = "none";
     document.getElementById("EventAnnonce2").style.display = "flex";
   }
@@ -74,11 +78,11 @@ function EventForm({ArrEvent}) {
     setDuration(results.routes[0].legs[0].duration.text);
   }
 
-/* End of Google Map stuff */
+  /* End of Google Map stuff */
 
-/* Manipulation du formulaire */
+  /* Manipulation du formulaire */
 
-let navigate = useNavigate();
+  let navigate = useNavigate();
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
     ptDepart: "",
@@ -118,129 +122,155 @@ let navigate = useNavigate();
       return <VehiculeInfo formData={formData} setFormData={setFormData} />;
     }
   };
-  
-/* Fin manipulation formulaire */
+
+  /* Fin manipulation formulaire */
 
   return (
     <div>
       <div className="modalBackground" id="EventAnnonce2">
-          <div className="modal_container">
-            
-          <div className="modalHeader"><h1>Publier une annonce</h1></div>
-                  <div className="titleCloseBtn">
-                      <button onClick={close2}><i className="fa fa-times-circle" aria-hidden="true"></i></button>
-                  </div>
-              
-        <div className="modal_Form">
-          <div className="progressbar">
-            <div
-              style={{
-                width: page === 0 ? "200px" : page === 1 ? "400px" : "600px",
-                heigh : "5px"
-              }}
-            ></div>
+        <div className="modal_container">
+          <div className="modalHeader">
+            <h1>Publier une annonce</h1>
           </div>
-          <div className="form-container">
-            <div className="headerF">
-              <h1>{FormTitles[page]}</h1>
+          <div className="titleCloseBtn">
+            <button onClick={close2}>
+              <i className="fa fa-times-circle" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div className="modal_Form">
+            <div className="progressbar">
+              <div
+                style={{
+                  width: page === 0 ? "200px" : page === 1 ? "400px" : "600px",
+                  heigh: "5px",
+                }}
+              ></div>
             </div>
-            <div className="bodyF">{PageDisplay()}</div>
-            <div className="footerF">
-              <button
-                className="btn btn-primary"
-                disabled={page === 0}
-                onClick={() => {
-                  setPage((currPage) => currPage - 1);
-                }}
-              >
-                Précédent
-              </button>
-              <button
-              className="btn btn-primary"
-                onClick={() => {
-                  if (page === FormTitles.length - 1) {
-                    AnnonceCovoiturageService.publierAnnonce(formData);
-                    navigate(`/espaceperso/${formData.covoitureur.idUser}`);
-                    close();
-                  } else {
-                    setPage((currPage) => currPage + 1);
-                  }
-                }}
-              >
-                {page === FormTitles.length - 1 ? "Publier" : "Suivant"}
-              </button>
+            <div className="form-container">
+              <div className="headerF">
+                <h1>{FormTitles[page]}</h1>
+              </div>
+              <div className="bodyF">{PageDisplay()}</div>
+              <div className="footerF">
+                <button
+                  className="btn btn-primary"
+                  disabled={page === 0}
+                  onClick={() => {
+                    setPage((currPage) => currPage - 1);
+                  }}
+                >
+                  Précédent
+                </button>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => {
+                    if (page === FormTitles.length - 1) {
+                      AnnonceCovoiturageService.publierAnnonce(formData);
+                      navigate(`/espaceperso/${formData.covoitureur.idUser}`);
+                      close();
+                    } else {
+                      setPage((currPage) => currPage + 1);
+                    }
+                  }}
+                >
+                  {page === FormTitles.length - 1 ? "Publier" : "Suivant"}
+                </button>
+              </div>
             </div>
           </div>
         </div>
-          </div>
       </div>
       <div className="form_event_background" id="EventAnnonce">
-            
-            <div className="modal_container">
-                
-                    <div className="modalHeader"><h1>Publier une annonce</h1></div>
-                    <div className="titleCloseBtn">
-                        <button onClick={close}><i className="fa fa-times-circle" aria-hidden="true"></i></button>
-                    </div>
-            
-                <div className="form_event_container">
-                    <div className="headerF">
-                      <h1>Votre trajet?</h1>
-                      <div className="postcard__bar" />
-                    </div>
-                
-                <LoadScript googleMapsApiKey={api} libraries={["places"]}>
-                <div className='google_map_form'>
-                    <div className="gauche">
-                    
-                        <Autocomplete>
-                            <div>
-                            <label>Point de départ</label>
-                            <input type="text" placeholder="Point de Départ..." ref={originRef} className="input_ptDepart" onChange={calculateRoute}/>
-                            <label>Point d'arrivée</label>
-                            <input type="text" value={ArrEvent} disabled="disabled" className="input_ptDepart"/>
-                        {/* <button className="btn btn-primary" type="submit" onClick={calculateRoute}>Valider le trajet</button> */}
-                        <div className="div_info_sup_event">                          
-                                <p className="info_sup"><i className="fa fa-globe info_sup_label" aria-hidden="true">  </i>  {distance}  </p>
-                                <p className="info_sup"><i class="fa fa-clock-o info_sup_label" aria-hidden="true">  </i>  {duration}</p>
-                              </div>
-                        <button className="btn btn-primary" onClick={continuer}>Continuer</button>
-                            </div>
-                        </Autocomplete>
-                        
-                    
-                    
-                    </div>
-                    <div className="droite">
-                        <GoogleMap
-                        mapContainerStyle={containerStyle}
-                        center={center}
-                        zoom={5}
-                        options={{
-                            zoomControl: false,
-                            streetViewControl: false,
-                            mapTypeControl: false,
-                            fullscreenControl: false,
-                        }}
-                        onLoad={adressEvent}
-                        >
-                        <Marker position={center} />
-                        {directionsResponse && (
-                        <DirectionsRenderer directions={directionsResponse} />
-                        )}
-                        </GoogleMap>
+        <div className="modal_container">
+          <div className="modalHeader">
+            <h1>Publier une annonce</h1>
+          </div>
+          <div className="titleCloseBtn">
+            <button onClick={close}>
+              <i className="fa fa-times-circle" aria-hidden="true"></i>
+            </button>
+          </div>
 
-                        
-                    </div>
-                </div>
-                </LoadScript>
-                </div>
+          <div className="form_event_container">
+            <div className="headerF">
+              <h1>Votre trajet?</h1>
+              <div className="postcard__bar" />
             </div>
-            
+
+            <LoadScript googleMapsApiKey={api} libraries={["places"]}>
+              <div className="google_map_form">
+                <div className="gauche">
+                  <Autocomplete>
+                    <div>
+                      <label>Point de départ</label>
+                      <input
+                        type="text"
+                        placeholder="Point de Départ..."
+                        ref={originRef}
+                        className="input_ptDepart"
+                        onChange={calculateRoute}
+                      />
+                      <label>Point d'arrivée</label>
+                      <input
+                        type="text"
+                        value={ArrEvent}
+                        disabled="disabled"
+                        className="input_ptDepart"
+                      />
+                      {/* <button className="btn btn-primary" type="submit" onClick={calculateRoute}>Valider le trajet</button> */}
+                      <div className="div_info_sup_event">
+                        <p className="info_sup">
+                          <i
+                            className="fa fa-globe info_sup_label"
+                            aria-hidden="true"
+                          >
+                            {" "}
+                          </i>{" "}
+                          {distance}{" "}
+                        </p>
+                        <p className="info_sup">
+                          <i
+                            class="fa fa-clock-o info_sup_label"
+                            aria-hidden="true"
+                          >
+                            {" "}
+                          </i>{" "}
+                          {duration}
+                        </p>
+                      </div>
+                      <button className="btn btn-primary" onClick={continuer}>
+                        Continuer
+                      </button>
+                    </div>
+                  </Autocomplete>
+                </div>
+                <div className="droite">
+                  <GoogleMap
+                    mapContainerStyle={containerStyle}
+                    center={center}
+                    zoom={5}
+                    options={{
+                      zoomControl: false,
+                      streetViewControl: false,
+                      mapTypeControl: false,
+                      fullscreenControl: false,
+                    }}
+                    onLoad={adressEvent}
+                  >
+                    <Marker position={center} />
+                    {directionsResponse && (
+                      <DirectionsRenderer directions={directionsResponse} />
+                    )}
+                  </GoogleMap>
+                </div>
+              </div>
+            </LoadScript>
+          </div>
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default EventForm
-
+export default EventForm;
