@@ -25,6 +25,10 @@ public class UserController {
     public User createCompte(@RequestBody User user) {
         return userRepository.save(user);
     }
+    @GetMapping("/findUserById/{id}")
+    public User findUserById(@PathVariable Long id) {
+        return userRepository.findById(id).orElseThrow();
+    }
     @GetMapping("/findUserByMail/{userEmail}")
     public List<User> findAllUserByMail(@PathVariable String userEmail) {
         return userRepository.findByMail(userEmail);
@@ -33,4 +37,6 @@ public class UserController {
     public Long findIdByMail(@PathVariable String userEmail) {
         return userRepository.findIDByMail(userEmail);
     }
+
+
 }
