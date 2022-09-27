@@ -3,6 +3,7 @@ import { over } from "stompjs";
 import SockJS from "sockjs-client";
 import { UserContext } from "../../services/UserContext";
 import { SocketContext } from "../../services/SocketContext";
+import UserService from "../../services/UserService";
 import { Dropdown } from "react-bootstrap";
 import jwt_decode from "jwt-decode";
 import { Link } from "react-router-dom";
@@ -11,7 +12,31 @@ var stompClient = null;
 
 const NavBar = () => {
   let idCurrentUser = useContext(UserContext);
+  const [compteData, setCompteData] = useState([]);
+  const [compteDataAll, setCompteDataAll] = useState([]);
 
+  useEffect(() => {
+    // getCompte();
+    getById(idCurrentUser);
+    // if (idCurrentUser !== 0) {
+    //   setUserData({
+    //     ...userData,
+    //     username: compteData.prenom + " " + compteData.nom,
+    //   });
+    // }
+  }, [idCurrentUser]);
+
+  const getById = async (id) => {
+    UserService.getById(id).then((response) => {
+      setCompteData(response.data);
+      registerUser();
+    });
+  };
+  const getCompte = async () => {
+    UserService.getCompte().then((response) => {
+      setCompteDataAll(response.data);
+    });
+  };
   /*Connect socket*/
 
   const {
@@ -97,7 +122,6 @@ const NavBar = () => {
   };
 
   const registerUser = () => {
-    setUserData({ ...userData, username: "tsiry" });
     connect();
   };
 
@@ -107,9 +131,6 @@ const NavBar = () => {
 
   if (localStorage.getItem("token") != null) {
     if (localStorage.getItem("token").length > 14) {
-      value = jwt_decode(localStorage.getItem("token"));
-      console.log(localStorage.getItem("token"));
-      console.log(localStorage.getItem("token"));
       value = jwt_decode(localStorage.getItem("token"));
       // console.log(jwt_decode(localStorage.getItem("token")));
       // console.log(value);

@@ -147,7 +147,11 @@ function App() {
 
         logInterest();
         setUser(jwt_decode(localStorage.getItem("token")).name);
-        registerUser(jwt_decode(localStorage.getItem("token")).name);
+        setUserData({
+          ...userData,
+          username: jwt_decode(localStorage.getItem("token")).name,
+        });
+
         setTab(jwt_decode(localStorage.getItem("token")).name);
       }
     }

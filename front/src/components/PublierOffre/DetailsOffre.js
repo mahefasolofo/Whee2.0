@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import AnnonceCovoiturageService from "../../services/AnnonceCovoiturageService";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../services/UserContext";
+import ReservationConfirmee from "../Pages/ReservationConfirmee";
 import {
   LoadScript,
   GoogleMap,
@@ -50,13 +51,14 @@ function DetailsOffre() {
     if (stompClient) {
       var chatMessage = {
         senderName: userData.username,
-        message: " vient de reserver votre trajet de covoiturage",
+        message: " vient de reserver votre trajet",
         status: "MESSAGE",
       };
       console.log(chatMessage);
       stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
       setUserData({ ...userData, message: "" });
-      navigate(`/espaceperso/${idCurrentUser}`);
+      // navigate(`/espaceperso/${idCurrentUser}`);
+      document.getElementById("ConfirmerReservation").style.display = "block";
     }
   };
   const [formData, setFormData] = useState([]);
@@ -112,6 +114,7 @@ function DetailsOffre() {
           </button>
         </div>
       </div>
+      <ReservationConfirmee />
 
       <div className="detailOffreContainer row">
         {formData.map((annonceE) => (
