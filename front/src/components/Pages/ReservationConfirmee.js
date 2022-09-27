@@ -24,7 +24,7 @@ function ReservationConfirmee() {
 
           <div className="container text-center">
             <h5 className="text-center">
-              Offre Enregistrée
+              Réservation Enregistrée
               <i
                 className="fa-solid fa-circle-check"
                 style={{ color: "green", marginLeft: 15 }}
